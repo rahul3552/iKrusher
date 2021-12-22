@@ -1,0 +1,70 @@
+<?php
+/**
+ * Aheadworks Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://ecommerce.aheadworks.com/end-user-license-agreement/
+ *
+ * @package    Ca
+ * @version    1.4.0
+ * @copyright  Copyright (c) 2020 Aheadworks Inc. (http://www.aheadworks.com)
+ * @license    https://ecommerce.aheadworks.com/end-user-license-agreement/
+ */
+namespace Aheadworks\Ca\Model\ThirdPartyModule\Aheadworks\RequisitionLists\Ui\Component\Listing;
+
+use Aheadworks\Ca\Model\ThirdPartyModule\Aheadworks\RequisitionLists\Model\RequisitionListPermission;
+use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Framework\View\Element\UiComponentFactory;
+use Magento\Ui\Component\Listing\Columns\Column;
+
+/**
+ * Class Action
+ * @package Aheadworks\Ca\Model\ThirdPartyModule\Aheadworks\RequisitionLists\Ui\Component\Listing
+ */
+class Action extends Column
+{
+    /**
+     * @var RequisitionListPermission
+     */
+    private $listPermission;
+
+    /**
+     * @param ContextInterface $context
+     * @param UiComponentFactory $uiComponentFactory
+     * @param RequisitionListPermission $listPermission
+     * @param array $components
+     * @param array $data
+     */
+    public function __construct(
+        ContextInterface $context,
+        UiComponentFactory $uiComponentFactory,
+        RequisitionListPermission $listPermission,
+        array $components = [],
+        array $data = []
+    ) {
+        parent::__construct(
+            $context,
+            $uiComponentFactory,
+            $components,
+            $data
+        );
+        $this->listPermission = $listPermission;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function prepare()
+    {
+        parent::prepare();
+        if (!$this->listPermission->isEditable()) {
+            $config = $this->getData('config');
+            $config['actionDisable'] = true;
+            $this->setData('config', $config);
+        }
+    }
+}

@@ -1,0 +1,133 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$post = $block->getCurrentPost();
+$collection = $block->getCollection();
+?>
+<?php if (count($collection)): ?>
+    <div class="comment-list">
+        <div class="comment-list-container">
+            <?php foreach ($collection as $comment): ?>
+                <div class="item">
+				    <div class="info">
+                         <span class="name"><?php echo $comment->getName(); ?></span>
+					     <span class="posted-on sub-title"><?php echo __('%1', $block->formatDate($comment->getCreatedAt(), \IntlDateFormatter::FULL, false)); ?></span>
+					</div>
+                    <div class="content"><?php echo $comment->getContent(); ?></div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+		<div class="blog-load-more-comment">
+			<a href="javascript:void(0);" onclick="loadmoreComment()"><?php echo __('Load More Comment') ?>...</a>
+		</div>
+        <div class="blog-post-comment-list-toolbar toolbar"><?php echo $block->getPagerHtml(); ?></div>
+    </div>
+<?php endif; ?>
+<script type="text/javascript">
+		require([
+			'jquery',
+			'jquery-ui-modules/accordion',
+			'jquery-ui-modules/autocomplete',
+			'jquery-ui-modules/button',
+			'jquery-ui-modules/datepicker',
+			'jquery-ui-modules/dialog',
+			'jquery-ui-modules/draggable',
+			'jquery-ui-modules/droppable',
+			'jquery-ui-modules/effect-blind',
+			'jquery-ui-modules/effect-bounce',
+			'jquery-ui-modules/effect-clip',
+			'jquery-ui-modules/effect-drop',
+			'jquery-ui-modules/effect-explode',
+			'jquery-ui-modules/effect-fade',
+			'jquery-ui-modules/effect-fold',
+			'jquery-ui-modules/effect-highlight',
+			'jquery-ui-modules/effect-scale',
+			'jquery-ui-modules/effect-pulsate',
+			'jquery-ui-modules/effect-shake',
+			'jquery-ui-modules/effect-slide',
+			'jquery-ui-modules/effect-transfer',
+			'jquery-ui-modules/effect',
+			'jquery-ui-modules/menu',
+			'jquery-ui-modules/mouse',
+			'jquery-ui-modules/position',
+			'jquery-ui-modules/progressbar',
+			'jquery-ui-modules/resizable',
+			'jquery-ui-modules/selectable',
+			'jquery-ui-modules/slider',
+			'jquery-ui-modules/sortable',
+			'jquery-ui-modules/spinner',
+			'jquery-ui-modules/tabs',
+			'jquery-ui-modules/timepicker',
+			'jquery-ui-modules/tooltip',
+			'jquery-ui-modules/widget'
+		], function(jQuery){
+			(function($) {
+				$(document).ready(function(){
+					var urlTest = $(".blog-post-comment-list-toolbar .pagination .pages-item-next a").attr('href');
+					if(!urlTest){
+						$('.blog-load-more-comment').hide();
+					}
+				});
+			})(jQuery);
+		});	
+		function loadmoreComment(){
+			require([
+				'jquery',
+				'jquery-ui-modules/accordion',
+				'jquery-ui-modules/autocomplete',
+				'jquery-ui-modules/button',
+				'jquery-ui-modules/datepicker',
+				'jquery-ui-modules/dialog',
+				'jquery-ui-modules/draggable',
+				'jquery-ui-modules/droppable',
+				'jquery-ui-modules/effect-blind',
+				'jquery-ui-modules/effect-bounce',
+				'jquery-ui-modules/effect-clip',
+				'jquery-ui-modules/effect-drop',
+				'jquery-ui-modules/effect-explode',
+				'jquery-ui-modules/effect-fade',
+				'jquery-ui-modules/effect-fold',
+				'jquery-ui-modules/effect-highlight',
+				'jquery-ui-modules/effect-scale',
+				'jquery-ui-modules/effect-pulsate',
+				'jquery-ui-modules/effect-shake',
+				'jquery-ui-modules/effect-slide',
+				'jquery-ui-modules/effect-transfer',
+				'jquery-ui-modules/effect',
+				'jquery-ui-modules/menu',
+				'jquery-ui-modules/mouse',
+				'jquery-ui-modules/position',
+				'jquery-ui-modules/progressbar',
+				'jquery-ui-modules/resizable',
+				'jquery-ui-modules/selectable',
+				'jquery-ui-modules/slider',
+				'jquery-ui-modules/sortable',
+				'jquery-ui-modules/spinner',
+				'jquery-ui-modules/tabs',
+				'jquery-ui-modules/timepicker',
+				'jquery-ui-modules/tooltip',
+				'jquery-ui-modules/widget'
+			], function(jQuery){
+				(function($) {
+					var url = $(".blog-post-comment-list-toolbar .pagination .pages-item-next a").attr('href');
+					$(".blog-load-more-comment a").addClass('loading-style');
+					if(url){
+						$.ajax(url, {
+							success: function(data) {
+								$('.comment-list-container').append($(data).find('.comment-list-container > *'));
+								$('.blog-post-comment-list-toolbar').replaceWith($(data).find('.blog-post-comment-list-toolbar'));
+								url = $(data).find(".blog-post-comment-list-toolbar .pagination .pages-item-next a").attr('href');
+								if(!url) {
+									$('.blog-load-more-comment').hide();
+								}else{
+									$('.blog-load-more-comment').replaceWith($(data).find('.blog-load-more-comment'));
+								}
+								$(".blog-load-more-comment a").removeClass('loading-style');
+							}
+						});
+					}else {
+						$('.blog-load-more-comment').hide();
+					}
+				})(jQuery);
+			});		
+		}
+</script>

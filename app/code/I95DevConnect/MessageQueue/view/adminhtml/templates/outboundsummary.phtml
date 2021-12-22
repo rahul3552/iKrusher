@@ -1,0 +1,100 @@
+<?php
+
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_MessageQueue
+ */
+// @codingStandardsIgnoreFile
+$totalrecords = $this->getEntityWiseSyncReport();
+$outboundSummaryClass = 'I95DevConnect\MessageQueue\Block\Adminhtml\OutboundSummary';
+$entityCode = 'entity_code=';
+$statusData = [
+    "pending" => 1,
+    "success" => 4,
+    "error" => 3,
+    "complete" => 5
+];
+?>
+<table class="data-grid" id="warehouse_code_table">
+    <thead>
+        <tr>
+            <th data-sort="entity"  class="data-grid-th _sortable not-sort  col-entity" style="width: 200px;">
+                <span>Entity</span>
+            </th>
+            <th data-sort="pending"  class="data-grid-th _sortable not-sort  col-pending">
+                <span>Pending</span>
+            </th>
+            <th data-sort="processing" class="data-grid-th _sortable not-sort  col-processing">
+                <span>Request Transferred</span>
+            </th>
+            <th data-sort="error" class="data-grid-th _sortable not-sort  col-error">
+                <span>Error</span>
+            </th>
+            <th data-sort="complete" class="data-grid-th _sortable not-sort  col-complete">
+                <span>Complete</span>
+            </th>
+            <th data-sort="total" class="data-grid-th _sortable not-sort  col-total">
+                <span>Total by Entity</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        if (count($totalrecords) > 0) {
+            foreach ($totalrecords as $record) {
+                $entity = str_replace(' ', '_', $record['entity_code']);
+                ?>
+                <tr class="">
+                    <td class=" col-entity">
+                        <strong> <?= /* @noEscape */  $record['entity']; ?> </strong>
+                    </td>
+                    <?php
+                    foreach($statusData as $statusText => $statusCode) {
+                    ?>
+                        <td class=<?= "col-id col" . __($statusText) ?>>
+                            <?php
+                            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                            $storeManager = $objectManager->get($outboundSummaryClass);
+                            $adminUrl = $storeManager->getOutboundMessageQueue();
+                            ?>
+                           <a href="<?= /* @noEscape */  $block->getMessageQUrl($entityCode . $entity . '&' . 'status=' . $statusCode); ?>">
+                               <?= /* @noEscape */  $record[$statusText]; ?>
+                            </strong>
+                           </a>
+                        </td>
+                    <?php
+                    }
+                    ?>
+                    <td class=" col-id col-total">
+                        <?= /* @noEscape */  $record['total']; ?>
+                    </td>
+                </tr>
+                <?php
+                $totalstatuscount = $this->getTotalStatusRcords();
+            }
+            ?>
+            <tr>
+                <td><strong>Total by Status</strong></td>
+                <td><strong> <?= /* @noEscape */  $totalstatuscount['pending']; ?>   </strong></td>
+                <td><strong> <?= /* @noEscape */  $totalstatuscount['success']; ?>   </strong></td>
+                <td><strong><?= /* @noEscape */  $totalstatuscount['error']; ?> </strong></td>
+                <td><strong><?= /* @noEscape */  $totalstatuscount['complete']; ?> </strong></td>
+                <td><strong><?= /* @noEscape */  $totalstatuscount['total']; ?> </strong></td>
+
+            </tr>
+        <?php
+        } else { ?>
+            <tr>
+                <td colspan="7" style="text-align: center "><strong> No Records Found </strong></td>
+            </tr>
+        <?php
+        } ?>
+    </tbody>
+</table>
+<script>
+    require([ 'jquery', 'mage/url' ], function ($, url)
+    {
+        window.location.replace(url.build('messagequeue/messagequeue/'));
+    }
+</script>

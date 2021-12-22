@@ -1,0 +1,81 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<?php $_payments = $block->getPaymentsDetails();
+?>
+<?php if ($_payments && !empty($_payments)): ?>
+    <div class="table-wrapper list-payment">
+        <table class="data table table-order-items list-payment" id="my-payment-list">
+            <caption class="table-caption">
+                <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Payment List')) ?>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col order_number">
+                        <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Order Number')) ?>
+                    </th>
+                    <th scope="col" class="col type">
+                        <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Type')) ?>
+                    </th>
+                    <th scope="col" class="col invoice_number">
+                        <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Document Number')) ?>
+                    </th>
+                    <th scope="col" class="col invoice_date">
+                        <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Document Date')) ?>
+                    </th>
+                    <th scope="col" class="col outstanding_amount">
+                        <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Outstanding Amount')) ?>
+                    </th>
+                    <th scope="col" class="col amount_adjusted">
+                        <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Amount Adjusted')) ?>
+                    </th>
+                    <th scope="col" class="col invoice_status">
+                        <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Document Status')) ?>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($_payments as $_payment):
+                    ?>
+                    <tr>
+                        <td data-th="<?php echo $block->escapeHtml(__('Order Number#')) ?>" class="col id">
+                            <?php /* @escapeNotVerified */ echo $block->escapeHtml($_payment['magento_order_id']) ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Type')) ?>" class="col type">
+                            <?php /* @escapeNotVerified */ echo $block->escapeHtml($_payment['type']); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Document Number')) ?>" class="col invoice_number">
+                            <?php /* @escapeNotVerified */ echo $block->escapeHtml($_payment['target_invoice_id']); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Document Date')) ?>" class="col date">
+                            <?php echo $block->escapeHtml($block->formatDate($_payment['modified_date'])); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Outstanding Amount')) ?>"
+                            class="col outstanding_amount">
+                            <?php /* @escapeNotVerified */ echo $block->escapeHtml($block->formatPrice($_payment['outstanding_amount'])); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Amount Adjusted')) ?>"
+                            class="col amount_adjusted">
+                            <?php /* @escapeNotVerified */ echo $block->escapeHtml($block->formatPrice($_payment['amount'])); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Document Status')) ?>" class="col status">
+                            <?php /* @escapeNotVerified */ echo $block->escapeHtml($_payment['status']); ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="payment-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty">
+        <span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('You have no invoice.')); ?></span>
+    </div>
+<?php endif ?>

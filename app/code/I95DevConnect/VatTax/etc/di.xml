@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_VatTax
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    
+    <type name="I95DevConnect\I95DevServer\Model\I95DevServerRepository">
+        <arguments>
+            <argument name="apiServiceMethodRoutes" xsi:type="array">
+                <!-- First element is value of constant -->          
+                <item name="createTaxBusPostingGroupList" xsi:type="array">                   
+                    <item name="entityCode" xsi:type="string">taxbuspostinggroup</item>
+                    <!-- Method Type -->
+                    <item name="methodType" xsi:type="string">reverse</item>  				
+                </item>
+                <item name="createTaxProductPostingGroupList" xsi:type="array">
+                    <!-- Entity Code -->
+                    <item name="entityCode" xsi:type="string">taxproductpostinggroup</item>
+                    <!-- Method Type -->
+                    <item name="methodType" xsi:type="string">reverse</item>			
+                </item>
+                <item name="createTaxPostingSetupList" xsi:type="array">
+                    <!-- Entity Code -->
+                    <item name="entityCode" xsi:type="string">taxpostingsetup</item>
+                    <!-- Method Type -->
+                    <item name="methodType" xsi:type="string">reverse</item>			
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="I95DevConnect\MessageQueue\Helper\DataPersistence">
+        <arguments>
+            <argument name="entityList" xsi:type="array">
+                <!-- First element is value of constant -->         
+                <item name="taxbuspostinggroup" xsi:type="array">
+                    <item name="syncdetails" xsi:type="array">
+                        <item name="classObject" xsi:type="object" >\I95DevConnect\VatTax\Model\DataPersistence\TaxBusPostingGroupsSync</item>
+                    </item>                    
+                </item>
+                <item name="taxproductpostinggroup" xsi:type="array">
+                    <item name="syncdetails" xsi:type="array">
+                        <item name="classObject" xsi:type="object" >\I95DevConnect\VatTax\Model\DataPersistence\TaxProductPostingGroupsSync</item>
+                    </item>                    
+                </item>
+                <item name="taxpostingsetup" xsi:type="array">
+                    <item name="syncdetails" xsi:type="array">
+                        <item name="classObject" xsi:type="object" >\I95DevConnect\VatTax\Model\DataPersistence\TaxPostingSetupSync</item>
+                    </item>                    
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Tax\Model\Sales\Total\Quote\CommonTaxCollector">
+        <plugin name="i95dev_tax" type="I95DevConnect\VatTax\Plugin\CommonTaxCollector" />
+    </type>
+    <preference for="Magento\Tax\Model\Calculation\TotalBaseCalculator" type="I95DevConnect\VatTax\Model\TotalBaseCalculator" />
+    <preference for="Magento\Tax\Model\Calculation\UnitBaseCalculator" type="I95DevConnect\VatTax\Model\Calculation\UnitBaseCalculator" />
+    <preference for="Magento\Tax\Model\Calculation\RowBaseCalculator" type="I95DevConnect\VatTax\Model\Calculation\RowBaseCalculator" />
+</config>

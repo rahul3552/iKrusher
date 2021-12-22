@@ -1,0 +1,708 @@
+<page>
+	<section>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<name><![CDATA[block274]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<no_padding><![CDATA[0]]></no_padding>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[1]]></block_position>
+	</section>
+	<section>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<name><![CDATA[block275]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<no_padding><![CDATA[0]]></no_padding>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<padding_top><![CDATA[30]]></padding_top>
+		<padding_bottom><![CDATA[7]]></padding_bottom>
+		<block_position><![CDATA[2]]></block_position>
+	</section>
+	<section>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<name><![CDATA[block276]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[category-product-list]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<no_padding><![CDATA[0]]></no_padding>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<padding_top><![CDATA[20]]></padding_top>
+		<padding_bottom><![CDATA[10]]></padding_bottom>
+		<block_position><![CDATA[3]]></block_position>
+	</section>
+	<section>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<name><![CDATA[block277]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<no_padding><![CDATA[0]]></no_padding>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[20]]></padding_bottom>
+		<block_position><![CDATA[4]]></block_position>
+	</section>
+	<section>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<name><![CDATA[block278]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[category-product-list]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<no_padding><![CDATA[0]]></no_padding>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<padding_top><![CDATA[10]]></padding_top>
+		<padding_bottom><![CDATA[10]]></padding_bottom>
+		<block_position><![CDATA[5]]></block_position>
+	</section>
+	<section>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<name><![CDATA[block279]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<no_padding><![CDATA[0]]></no_padding>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<padding_top><![CDATA[50]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[6]]></block_position>
+	</section>
+	<section>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<name><![CDATA[block280]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[category-product-list]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<no_padding><![CDATA[0]]></no_padding>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<padding_top><![CDATA[30]]></padding_top>
+		<padding_bottom><![CDATA[30]]></padding_bottom>
+		<block_position><![CDATA[7]]></block_position>
+	</section>
+	<section>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<name><![CDATA[block282]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[3,3,3,3]]></block_cols>
+		<tablet_cols><![CDATA[["6","6","6","6"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12","12","12","12"]]]></mobile_cols>
+		<block_class><![CDATA[["","","",""]]]></block_class>
+		<class><![CDATA[home-garden]]></class>
+		<background><![CDATA[#76a72f]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<no_padding><![CDATA[0]]></no_padding>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<padding_top><![CDATA[45]]></padding_top>
+		<padding_bottom><![CDATA[2]]></padding_bottom>
+		<block_position><![CDATA[8]]></block_position>
+	</section>
+	<block>
+		<child_id><![CDATA[380]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block274-0]]></block_name>
+		<type><![CDATA[owl_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"block_link":"","animation":"","animation_delay":"","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","removeimg":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"html_slider":"<div data-text-position=\"middle\" data-text-animate=\"slideInDown\" data-text-align=\"text-align-center\" class=\"item slideInDown text-align-center\"><a style=\"background-image:url(http:\/\/74.arrowhitech.net\/gpm\/claue2.0\/pub\/media\/wysiwyg\/slider\/slider-food1.jpg)\" class=\"item-image\" href=\"\"><img class=\"img-responsive\" src=\"http:\/\/74.arrowhitech.net\/gpm\/claue2.0\/pub\/media\/wysiwyg\/slider\/slider-food1.jpg\" alt=\"\"><\/a><div class=\"slide-text middle\"><div class=\"inner-text\"><div class=\"slider-content organic-slide\" style=\"text-align: center;\"><h5 class=\"special\" style=\"margin-bottom: 25px;font-size: 23px;line-height: 20px;font-weight:300\">Special Discount On Sale<\/h5><h2 class=\"text-bottom\" style=\"font-size: 40px;margin-bottom: 20px; font-weight:500\">Organic Vegetables<\/h2><p class=\"text-between\" style=\"font-size: 23px;\">We Supply High Quality<\/p><button class=\"btn btn-default\">Buy now<\/button><\/div><\/div><\/div><\/div><div data-text-position=\"middle\" data-text-animate=\"slideInUp\" data-text-align=\"text-align-center\" class=\"item slideInUp text-align-center\"><a class=\"item-image\" href=\"\" style=\"background-image:url(http:\/\/74.arrowhitech.net\/gpm\/claue2.0\/pub\/media\/wysiwyg\/slider\/slider-food2.jpg)\"><img class=\"img-responsive\" src=\"http:\/\/74.arrowhitech.net\/gpm\/claue2.0\/pub\/media\/wysiwyg\/slider\/slider-food2.jpg\" alt=\"\"><\/a><div class=\"slide-text middle\"><div class=\"inner-text\"><div class=\"slider-content organic-slide\" style=\"text-align: center;\"><h5 class=\"special\" style=\"margin-bottom: 25px;font-size: 23px;line-height: 20px; font-weight:300\">Special Discount On Sale<\/h5><h2 class=\"text-bottom\" style=\"font-size: 40px;margin-bottom: 20px; font-weight:500\">Organic Vegetables<\/h2><p class=\"text-between\" style=\"font-size: 23px;\">We Supply High Quality<\/p><button class=\"btn btn-default\">Buy now<\/button><\/div><\/div><\/div><\/div>","items":"1","items_tablet":"1","items_mobile":"1","slide_margin":"","autoplay":"1","speed":"","stop_auto":"1","navigation":"1","navigation_position":"middle-outside","nav_top":"-55","pagination_position":"center","loop":"1","pagination":0,"fullheight":0,"rtl":0,"hide_nav":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Widget\OwlCarousel" autoplay="1" stop_auto="1" navigation="1" hide_nav="0" nav_top="-55" navigation_position="middle-outside" pagination_position="center" fullheight="0" pagination="0" loop="1" rtl="0" speed="" items="1" items_tablet="1" items_mobile="1" slide_margin="" html_slider="&lt;div data-text-position=&quot;middle&quot; data-text-animate=&quot;slideInDown&quot; data-text-align=&quot;text-align-center&quot; class=&quot;item slideInDown text-align-center&quot;&gt;&lt;a style=&quot;background-image:url(http://74.arrowhitech.net/gpm/claue2.0/pub/media/wysiwyg/slider/slider-food1.jpg)&quot; class=&quot;item-image&quot; href=&quot;&quot;&gt;&lt;img class=&quot;img-responsive&quot; src=&quot;http://74.arrowhitech.net/gpm/claue2.0/pub/media/wysiwyg/slider/slider-food1.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;div class=&quot;slide-text middle&quot;&gt;&lt;div class=&quot;inner-text&quot;&gt;&lt;div class=&quot;slider-content organic-slide&quot; style=&quot;text-align: center;&quot;&gt;&lt;h5 class=&quot;special&quot; style=&quot;margin-bottom: 25px;font-size: 23px;line-height: 20px;font-weight:300&quot;&gt;Special Discount On Sale&lt;/h5&gt;&lt;h2 class=&quot;text-bottom&quot; style=&quot;font-size: 40px;margin-bottom: 20px; font-weight:500&quot;&gt;Organic Vegetables&lt;/h2&gt;&lt;p class=&quot;text-between&quot; style=&quot;font-size: 23px;&quot;&gt;We Supply High Quality&lt;/p&gt;&lt;button class=&quot;btn btn-default&quot;&gt;Buy now&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div data-text-position=&quot;middle&quot; data-text-animate=&quot;slideInUp&quot; data-text-align=&quot;text-align-center&quot; class=&quot;item slideInUp text-align-center&quot;&gt;&lt;a class=&quot;item-image&quot; href=&quot;&quot; style=&quot;background-image:url(http://74.arrowhitech.net/gpm/claue2.0/pub/media/wysiwyg/slider/slider-food2.jpg)&quot;&gt;&lt;img class=&quot;img-responsive&quot; src=&quot;http://74.arrowhitech.net/gpm/claue2.0/pub/media/wysiwyg/slider/slider-food2.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;div class=&quot;slide-text middle&quot;&gt;&lt;div class=&quot;inner-text&quot;&gt;&lt;div class=&quot;slider-content organic-slide&quot; style=&quot;text-align: center;&quot;&gt;&lt;h5 class=&quot;special&quot; style=&quot;margin-bottom: 25px;font-size: 23px;line-height: 20px; font-weight:300&quot;&gt;Special Discount On Sale&lt;/h5&gt;&lt;h2 class=&quot;text-bottom&quot; style=&quot;font-size: 40px;margin-bottom: 20px; font-weight:500&quot;&gt;Organic Vegetables&lt;/h2&gt;&lt;p class=&quot;text-between&quot; style=&quot;font-size: 23px;&quot;&gt;We Supply High Quality&lt;/p&gt;&lt;button class=&quot;btn btn-default&quot;&gt;Buy now&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" template="widget/owl_slider.phtml"}}]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[381]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block275-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","banner_image":"\/s\/u\/sub-banner-01_2.jpg","url":"#","text_content":"<span class=\"static-wrapper cms-left-text\"><span class=\"text1 static-text\">Fresh Peaches Fruit<\/span><span class=\"text2 static-text\">25% Flat<\/span><span class=\"banner-text\"><button class=\"btn btn-default\">Shop Now<\/button><\/span><\/span>","button_text":"","text_align":"top-left","effect":"flashed-zoom","text_color":"","button_background":"","button_color":"","button_border":"","button_hover_background":"","button_hover_color":"","button_hover_border":""}]]></setting>
+		<col><![CDATA[6]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[margin-bottom30 button-link organic-banner]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Widget\PromoBanner" banner_image="/s/u/sub-banner-01_2.jpg" url="#" fbuilder_text_content="&ltchange;span class=mgs_change_quotation_marksstatic-wrapper cms-left-textmgs_change_quotation_marks&gtchange;&ltchange;span class=mgs_change_quotation_markstext1 static-textmgs_change_quotation_marks&gtchange;Fresh Peaches Fruit&ltchange;/span&gtchange;&ltchange;span class=mgs_change_quotation_markstext2 static-textmgs_change_quotation_marks&gtchange;25% Flat&ltchange;/span&gtchange;&ltchange;span class=mgs_change_quotation_marksbanner-textmgs_change_quotation_marks&gtchange;&ltchange;button class=mgs_change_quotation_marksbtn btn-defaultmgs_change_quotation_marks&gtchange;Shop Now&ltchange;/button&gtchange;&ltchange;/span&gtchange;&ltchange;/span&gtchange;" fbuilder_button_text="" text_align="top-left" effect="flashed-zoom" template="widget/promobanner.phtml"}}]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[382]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block275-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"50","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","banner_image":"\/s\/u\/sub-banner-02_1.jpg","url":"#","text_content":"<span class=\"static-wrapper cms-left-text\"><span class=\"text1 static-text\">American Apple<\/span><span class=\"text2 static-text\" >20% Flat<\/span><span class=\"banner-text\"><button class=\"btn btn-default\">Shop Now<\/button><\/span><\/span>","button_text":"","text_align":"top-left","effect":"flashed-zoom","text_color":"","button_background":"","button_color":"","button_border":"","button_hover_background":"","button_hover_color":"","button_hover_border":""}]]></setting>
+		<col><![CDATA[6]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[margin-bottom30 button-link organic-banner]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Widget\PromoBanner" banner_image="/s/u/sub-banner-02_1.jpg" url="#" fbuilder_text_content="&ltchange;span class=mgs_change_quotation_marksstatic-wrapper cms-left-textmgs_change_quotation_marks&gtchange;&ltchange;span class=mgs_change_quotation_markstext1 static-textmgs_change_quotation_marks&gtchange;American Apple&ltchange;/span&gtchange;&ltchange;span class=mgs_change_quotation_markstext2 static-textmgs_change_quotation_marks &gtchange;20% Flat&ltchange;/span&gtchange;&ltchange;span class=mgs_change_quotation_marksbanner-textmgs_change_quotation_marks&gtchange;&ltchange;button class=mgs_change_quotation_marksbtn btn-defaultmgs_change_quotation_marks&gtchange;Shop Now&ltchange;/button&gtchange;&ltchange;/span&gtchange;&ltchange;/span&gtchange;" fbuilder_button_text="" text_align="top-left" effect="flashed-zoom" template="widget/promobanner.phtml"}}]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[383]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block276-0]]></block_name>
+		<type><![CDATA[tabs]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"50","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","tabs":{"9547":{"value":"featured","label":"Featured","position":"0"},"1487":{"value":"best_seller","label":"Best Seller","position":"1"},"7516":{"value":"special","label":"Special","position":"2"},"9955":{"value":"lastest","label":"Lastest","position":"3"}},"tab_style":"style7","tab_align":"center","font_size":"","tab_primary_color":"#6faf11","tab_secondary_color":"","tab_third_color":"","limit":"8","perrow":"5","perrow_tablet":"2","perrow_mobile":"2","use_slider":"1","number_row":"1","stop_auto":"1","navigation":"1","navigation_position":"middle-inside","nav_top":"-45","pagination_position":"center","slide_by":"1","slide_margin":"30","category_id":["76"],"autoplay":0,"rtl":0,"loop":0,"pagination":0,"hide_name":0,"hide_review":0,"hide_price":0,"hide_addcart":0,"hide_addwishlist":0,"hide_addcompare":0,"tab_font_bold":0,"tab_italic":0,"tab_uppercase":0,"hide_nav":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Products\Tabs" limit="8" category_ids="76" use_slider="1" hide_name="0" hide_review="0" hide_price="0" hide_addcart="0" hide_addwishlist="0" hide_addcompare="0" tabs="featured,best_seller,special,lastest" perrow="5" perrow_tablet="2" perrow_mobile="2" autoplay="0" stop_auto="1" navigation="1" hide_nav="0" nav_top="-45" navigation_position="middle-inside" pagination_position="center" pagination="0" number_row="1" slide_by="1" loop="0" rtl="0" slide_margin="30" labels="Featured,Best Seller,Special,Lastest" tab_style="style7" tab_align="center" template="products/tabs/view.phtml"}}]]></block_content>
+		<custom_style><![CDATA[.block383 .mgs-product-tab .tab-style7.data.items .item.title.active .switch, .block383 .mgs-product-tab .tab-style7.data.items .item.title .switch:hover{color: #6faf11 !important}]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[384]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block276-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[0]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[<div class="content-heading">
+<h3 class="title">Fresh Food</h3>
+</div>]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[385]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block277-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"50","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","banner_image":"\/s\/u\/sub-banner-03_1.jpg","url":"","text_content":"<span class=\"static-wrapper cms-left-text\"><span class=\"text1 static-text\" >On All Fresh Vegetables<\/span><span class=\"text2 static-text\" >Sale 30% Off<\/span><span class=\"banner-text\"><button class=\"btn btn-default\">Shop Now<\/button><\/span><\/span>","button_text":"","text_align":"top-left","effect":"flashed-zoom","text_color":"","button_background":"","button_color":"","button_border":"","button_hover_background":"","button_hover_color":"","button_hover_border":""}]]></setting>
+		<col><![CDATA[8]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[margin-bottom30 button-link organic-banner]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Widget\PromoBanner" banner_image="/s/u/sub-banner-03_1.jpg" url="" fbuilder_text_content="&ltchange;span class=mgs_change_quotation_marksstatic-wrapper cms-left-textmgs_change_quotation_marks&gtchange;&ltchange;span class=mgs_change_quotation_markstext1 static-textmgs_change_quotation_marks &gtchange;On All Fresh Vegetables&ltchange;/span&gtchange;&ltchange;span class=mgs_change_quotation_markstext2 static-textmgs_change_quotation_marks &gtchange;Sale 30% Off&ltchange;/span&gtchange;&ltchange;span class=mgs_change_quotation_marksbanner-textmgs_change_quotation_marks&gtchange;&ltchange;button class=mgs_change_quotation_marksbtn btn-defaultmgs_change_quotation_marks&gtchange;Shop Now&ltchange;/button&gtchange;&ltchange;/span&gtchange;&ltchange;/span&gtchange;" fbuilder_button_text="" text_align="top-left" effect="flashed-zoom" template="widget/promobanner.phtml"}}]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[386]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block277-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"50","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","banner_image":"\/s\/u\/sub-banner-04_1.jpg","url":"#","text_content":"<span class=\"static-wrapper cms-left-text\"><span class=\"text1 static-text\" \">Fresh Chestnut<\/span><span class=\"text2 static-text\" >40% Flat<\/span><span class=\"banner-text\"><button class=\"btn btn-default\">Shop Now<\/button><\/span><\/span>","button_text":"","text_align":"top-left","effect":"flashed-zoom","text_color":"","button_background":"","button_color":"","button_border":"","button_hover_background":"","button_hover_color":"","button_hover_border":""}]]></setting>
+		<col><![CDATA[4]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[margin-bottom30 button-link organic-banner]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Widget\PromoBanner" banner_image="/s/u/sub-banner-04_1.jpg" url="#" fbuilder_text_content="&ltchange;span class=mgs_change_quotation_marksstatic-wrapper cms-left-textmgs_change_quotation_marks&gtchange;&ltchange;span class=mgs_change_quotation_markstext1 static-textmgs_change_quotation_marks mgs_change_quotation_marks&gtchange;Fresh Chestnut&ltchange;/span&gtchange;&ltchange;span class=mgs_change_quotation_markstext2 static-textmgs_change_quotation_marks &gtchange;40% Flat&ltchange;/span&gtchange;&ltchange;span class=mgs_change_quotation_marksbanner-textmgs_change_quotation_marks&gtchange;&ltchange;button class=mgs_change_quotation_marksbtn btn-defaultmgs_change_quotation_marks&gtchange;Shop Now&ltchange;/button&gtchange;&ltchange;/span&gtchange;&ltchange;/span&gtchange;" fbuilder_button_text="" text_align="top-left" effect="flashed-zoom" template="widget/promobanner.phtml"}}]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[387]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block278-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"50","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":""}]]></setting>
+		<col><![CDATA[3]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[width-20 category-list]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[<ul class="resp-tabs-list">
+<li class="category-title">Garden</li>
+<li><span class="tab-title"><a href="https://themes.magesolution.com/claue/m2/garden/fruits.html">Fruits</a></span></li>
+<li><span class="tab-title"><a href="https://themes.magesolution.com/claue/m2/garden/vegetable.html">Vegetables</a></span></li>
+<li><span class="tab-title"><a href="https://themes.magesolution.com/claue/m2/garden/dried-vegetable.html">Dried Fruits</a></span></li>
+<li><span class="tab-title"><a href="https://themes.magesolution.com/claue/m2/garden/juice.html">Juice</a></span></li>
+<li class="product-button"><a class="button-text" href="#https://themes.magesolution.com/claue/m2/garden.html" target="_blank" rel="noopener">All Category</a></li>
+</ul>]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[388]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block278-0]]></block_name>
+		<type><![CDATA[sale]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"50","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","limit":"8","perrow":"4","perrow_tablet":"4","perrow_mobile":"1","numbercol":"1","percol":"","template":"grid.phtml","use_slider":"1","number_row":"1","navigation":"1","navigation_position":"middle-inside","nav_top":"-45","pagination":"1","pagination_position":"center","slide_by":"1","slide_margin":"10","category_id":["78","79","81"],"tab_style":"style1","tab_align":"left","font_size":"","tab_primary_color":"","tab_secondary_color":"","tab_third_color":"","autoplay":0,"stop_auto":0,"rtl":0,"loop":0,"use_tabs":0,"hide_name":0,"hide_review":0,"hide_price":0,"hide_addcart":0,"hide_addwishlist":0,"hide_addcompare":0,"tab_font_bold":0,"tab_italic":0,"tab_uppercase":0,"hide_nav":0}]]></setting>
+		<col><![CDATA[9]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[width-80 product-list]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Products\Sale" block_type="sale" limit="8" category_ids="78,79,81" use_slider="1" hide_name="0" hide_review="0" hide_price="0" hide_addcart="0" hide_addwishlist="0" hide_addcompare="0" perrow="4" perrow_tablet="4" perrow_mobile="1" autoplay="0" stop_auto="0" navigation="1" hide_nav="0" nav_top="-45" navigation_position="middle-inside" pagination_position="center" pagination="1" number_row="1" slide_by="1" loop="0" rtl="0" slide_margin="10" template="products/grid.phtml"}}]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[389]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block279-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"50","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","banner_image":"\/s\/u\/sub-banner-05_1.jpg","url":"","text_content":"<span class=\"static-wrapper cms-left-text\"><span class=\"text1 static-text\">Orange Juice<\/span><span class=\"text2 static-text\">40% Flat<\/span><button class=\"btn btn-default\" onclick=\"setLocation('#')\" style=\"font-size:14px;\">Shop Now<\/button><\/span>","button_text":"","text_align":"top-left","effect":"flashed-zoom","text_color":"","button_background":"","button_color":"","button_border":"","button_hover_background":"","button_hover_color":"","button_hover_border":""}]]></setting>
+		<col><![CDATA[4]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[margin-bottom30 button-link organic-banner]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Widget\PromoBanner" banner_image="/s/u/sub-banner-05_1.jpg" url="" fbuilder_text_content="&ltchange;span class=mgs_change_quotation_marksstatic-wrapper cms-left-textmgs_change_quotation_marks&gtchange;&ltchange;span class=mgs_change_quotation_markstext1 static-textmgs_change_quotation_marks&gtchange;Orange Juice&ltchange;/span&gtchange;&ltchange;span class=mgs_change_quotation_markstext2 static-textmgs_change_quotation_marks&gtchange;40% Flat&ltchange;/span&gtchange;&ltchange;button class=mgs_change_quotation_marksbtn btn-defaultmgs_change_quotation_marks onclick=mgs_change_quotation_markssetLocation(mgs_apostrophe_change#mgs_apostrophe_change)mgs_change_quotation_marks style=mgs_change_quotation_marksfont-size:14px;mgs_change_quotation_marks&gtchange;Shop Now&ltchange;/button&gtchange;&ltchange;/span&gtchange;" fbuilder_button_text="" text_align="top-left" effect="flashed-zoom" template="widget/promobanner.phtml"}}]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[390]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block279-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"50","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","banner_image":"\/s\/u\/sub-banner-06_2.jpg","url":"#","text_content":"<span class=\"static-wrapper cms-left-text\"><span class=\"text1 static-text\" style=\"color:#000000;\">Healthy Organic Vegetables<\/span><span class=\"text2 static-text\" style=\"color:#000000;\">Sale 20% Off<\/span><button class=\"btn btn-default\">Shop Now<\/button><\/span>","button_text":"","text_align":"top-left","effect":"flashed-zoom","text_color":"","button_background":"","button_color":"","button_border":"","button_hover_background":"","button_hover_color":"","button_hover_border":""}]]></setting>
+		<col><![CDATA[8]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[margin-bottom30 button-link organic-banner]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Widget\PromoBanner" banner_image="/s/u/sub-banner-06_2.jpg" url="#" fbuilder_text_content="&ltchange;span class=mgs_change_quotation_marksstatic-wrapper cms-left-textmgs_change_quotation_marks&gtchange;&ltchange;span class=mgs_change_quotation_markstext1 static-textmgs_change_quotation_marks style=mgs_change_quotation_markscolor:#000000;mgs_change_quotation_marks&gtchange;Healthy Organic Vegetables&ltchange;/span&gtchange;&ltchange;span class=mgs_change_quotation_markstext2 static-textmgs_change_quotation_marks style=mgs_change_quotation_markscolor:#000000;mgs_change_quotation_marks&gtchange;Sale 20% Off&ltchange;/span&gtchange;&ltchange;button class=mgs_change_quotation_marksbtn btn-defaultmgs_change_quotation_marks&gtchange;Shop Now&ltchange;/button&gtchange;&ltchange;/span&gtchange;" fbuilder_button_text="" text_align="top-left" effect="flashed-zoom" template="widget/promobanner.phtml"}}]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[391]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block280-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"50","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":""}]]></setting>
+		<col><![CDATA[3]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[width-20 category-list]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[<ul class="resp-tabs-list">
+<li class="category-title">Vegetables</li>
+<li><span class="tab-title"><a href="https://themes.magesolution.com/claue/m2/garden/vegetable/dark-green.html">Dark Green</a></span></li>
+<li><span class="tab-title"><a href="https://themes.magesolution.com/claue/m2/garden/vegetable/orange-vegetables.html">Orange Vegetables</a></span></li>
+<li><span class="tab-title"><a href="https://themes.magesolution.com/claue/m2/garden/vegetable/beans-peas.html">Beans &amp; Peas</a></span></li>
+<li><span class="tab-title"><a href="https://themes.magesolution.com/claue/m2/garden/vegetable/starchy-vegetables.html">Starchy Vegetables</a></span></li>
+<li class="product-button"><a class="button-text" href="https://themes.magesolution.com/claue/m2/garden/vegetable.html" target="_blank" rel="noopener">All Category</a></li>
+</ul>]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[392]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block280-0]]></block_name>
+		<type><![CDATA[category_products]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"50","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","limit":"8","perrow":"4","perrow_tablet":"4","perrow_mobile":"1","numbercol":"1","percol":"","template":"grid.phtml","use_slider":"1","number_row":"1","navigation":"1","navigation_position":"middle-inside","nav_top":"-45","pagination":"1","pagination_position":"center","slide_by":"1","slide_margin":"30","category_id":["77","80","82","83"],"tab_style":"style1","tab_align":"left","font_size":"","tab_primary_color":"","tab_secondary_color":"","tab_third_color":"","autoplay":0,"stop_auto":0,"rtl":0,"loop":0,"use_tabs":0,"hide_name":0,"hide_review":0,"hide_price":0,"hide_addcart":0,"hide_addwishlist":0,"hide_addcompare":0,"tab_font_bold":0,"tab_italic":0,"tab_uppercase":0,"hide_nav":0}]]></setting>
+		<col><![CDATA[9]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[width-80 product-list]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Products\Category" block_type="catproduct" limit="8" category_ids="77,80,82,83" use_slider="1" hide_name="0" hide_review="0" hide_price="0" hide_addcart="0" hide_addwishlist="0" hide_addcompare="0" perrow="4" perrow_tablet="4" perrow_mobile="1" autoplay="0" stop_auto="0" navigation="1" hide_nav="0" nav_top="-45" navigation_position="middle-inside" pagination_position="center" pagination="1" number_row="1" slide_by="1" loop="0" rtl="0" slide_margin="30" template="products/grid.phtml"}}]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[394]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block282-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[margin-bottom30]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[<div class="icon-service">
+<div class="icon"><em class="pe-7s-car"> </em></div>
+<div class="text">
+<h6 class="margin-bottom5">FREE SHIPPING</h6>
+<p class="no-margin">Free shipping on all US order or order above $200</p>
+</div>
+</div>]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[395]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block282-1]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[margin-bottom30]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[<div class="icon-service">
+<div class="icon"><em class="pe-7s-help2"> </em></div>
+<div class="text">
+<h6 class="margin-bottom5">SUPPORT 24/7</h6>
+<p class="no-margin">Contact us 24 hours a day, 7 days a week</p>
+</div>
+</div>]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[396]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block282-2]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[margin-bottom30]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[<div class="icon-service">
+<div class="icon"><em class="pe-7s-refresh"> </em></div>
+<div class="text">
+<h6 class="margin-bottom5">30 DAYS RETURN</h6>
+<p class="no-margin">Simply return it within 30 days for an exchange.</p>
+</div>
+</div>]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+	<block>
+		<child_id><![CDATA[397]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block282-3]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[margin-bottom30]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[<div class="icon-service">
+<div class="icon"><em class="pe-7s-door-lock"> </em></div>
+<div class="text">
+<h6 class="margin-bottom5">100% PAYMENT SECURE</h6>
+<p class="no-margin">We ensure secure payment with PEV</p>
+</div>
+</div>]]></block_content>
+		<custom_style><![CDATA[]]></custom_style>
+	</block>
+</page>

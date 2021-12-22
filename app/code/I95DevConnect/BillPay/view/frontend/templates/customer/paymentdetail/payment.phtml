@@ -1,0 +1,25 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<?php $_payments = $block->getPayment(); ?>
+<?php if ($_payments && count($_payments)): ?>
+
+    <div class="block block-payment-box">
+        <div class="block-title">
+            <b>PAYMENTS DETAILS</b>
+        </div>
+        <div class="block-content">
+            <p class="box-content">
+                <label>Payment Number</label> : <?php echo $_payments['primary_id']; ?><br>
+                <label>Payment Date</label> : <?php echo $_payments['payment_date']; ?><br>
+                <label>Payment Type</label> : <?php echo $_payments['payment_type']; ?><br>
+            </p>
+        </div>
+    </div>
+
+<?php endif; ?>

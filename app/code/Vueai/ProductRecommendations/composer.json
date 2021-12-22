@@ -1,0 +1,21 @@
+{
+    "name": "vue-ai/module-productrecommendations",
+    "description": "N/A",
+    "config": {
+        "sort-packages": true
+    },
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Vueai\\ProductRecommendations\\": ""
+        }
+    },
+    "version": "1.0.0"
+}

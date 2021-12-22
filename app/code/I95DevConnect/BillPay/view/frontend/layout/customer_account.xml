@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="main">
+            <container name="content.top" label="Main Content Top" before="-"/>
+        </referenceContainer>
+        
+        <referenceBlock name="customer_account_navigation">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" ifconfig="i95devconnect_billpay/billpay_enabled_settings/enable" after ="-" name="customer-billpay-manage-payment">
+                <arguments>
+                    <argument name="path" xsi:type="string">billpay/index/managepayment</argument>
+                    <argument name="label" xsi:type="string" translate="true">Manage Payment</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link\Current" ifconfig="i95devconnect_billpay/billpay_enabled_settings/enable" after ="-" name="customer-billpay-my-payments">
+                <arguments>
+                    <argument name="path" xsi:type="string">billpay/index/mypayments</argument>
+                    <argument name="label" xsi:type="string" translate="true">My Payments</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link\Current" ifconfig="i95devconnect_billpay/billpay_enabled_settings/enable" after ="-" name="customer-billpay-receipt-details">
+                <arguments>
+                    <argument name="path" xsi:type="string">billpay/index/receiptdetails</argument>
+                    <argument name="label" xsi:type="string" translate="true">My Receipt Details</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        
+    </body>
+</page>

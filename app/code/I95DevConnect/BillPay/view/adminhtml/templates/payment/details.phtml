@@ -1,0 +1,58 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<div class="admin__page-section-item order-information">
+    <div class="admin__page-section-item-title">
+        <span class="title"><?php echo 'Payment'; ?></span>
+    </div>
+    <div class="admin__page-section-item-content">
+        <?php $_payments = $block->getPayments();
+        ?>
+        <?php if ($_payments && !empty($_payments)): ?>
+            <table class="admin__table-secondary order-information-table">
+                <tbody>
+                    <tr>
+                        <th>Payment Number</th>
+                        <td><?php echo $block->escapeHtml($_payments['primary_id']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Payment Amount</th>
+                        <td><?php echo $block->escapeHtml($block->formatPrice($_payments['total_amt'])); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <td><?php echo $block->escapeHtml($_payments['payment_trans_id']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Payment Date</th>
+                        <td><?php echo $block->escapeHtml($_payments['payment_date']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td><?php echo $block->escapeHtml($_payments['status']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Payment Type</th>
+                        <td><?php
+                        if ($_payments['payment_type'] == 'cashondelivery'):
+                            echo $block->escapeHtml(ucfirst('Cash Payment'));
+                            else:
+                                echo $block->escapeHtml($block->getPaymentTypeTitle($_payments['payment_type']));
+                            endif;
+                            ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <div class="message info empty">
+                <span><?php echo $block->escapeHtml(__('You have no payment.')); ?></span>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>

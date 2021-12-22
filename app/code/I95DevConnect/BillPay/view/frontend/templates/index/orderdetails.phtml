@@ -1,0 +1,100 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<?php
+define("PAYMENT_TYPE","Payment Type");
+define("CASH_RECEIPT_NO","Cash Receipt No");
+define("PAYMENT_DATE","Payment Date");
+define("AMOUNT","Amount");
+define("STATUS","Status");
+
+$_receipts = $block->getReceiptDetails();
+$_receiptsCount = count($_receipts); ?>
+
+    <?php
+    $order = $block->getOrder();
+    $salesInfo = $block->getSalesInfo();
+    if (!empty($order)) {
+        ?>
+        <div class="order_billingAddress" style="margin-bottom:10px;float:left;padding-right: 40px;">
+            <h3>Billing Address</h3>
+        <?php echo $salesInfo->getFormattedAddress($order->getBillingAddress()); ?>
+        </div>
+        <div class="order_shippingAddress" style="margin-bottom:10px;float:left;">
+            <h3>Shipping Address</h3>
+        <?php echo $salesInfo->getFormattedAddress($order->getShippingAddress()); ?>
+        </div>
+        <?php
+    }
+    ?>
+<?php if ($_receipts && $_receiptsCount > 0): ?>
+    <div class="table-wrapper manage-receipt">
+        <table class="data table table-order-items my-receipt" id="my-receipt-table">
+            <caption class="table-caption">
+                <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('My Payment Details')) ?>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col paymenttype"><?php echo $block->escapeHtml(__(PAYMENT_TYPE)) ?></th>
+                    <th scope="col" class="col paymentdate"><?php echo $block->escapeHtml(__(PAYMENT_DATE)) ?></th>
+                    <th scope="col" class="col cashrecipt"><?php echo $block->escapeHtml(__(CASH_RECEIPT_NO)) ?></th>
+                    <th scope="col" class="col amount"><?php echo $block->escapeHtml(__(AMOUNT)) ?></th>
+                    <th scope="col" class="col status"><?php echo $block->escapeHtml(__(STATUS)) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+    <?php foreach ($_receipts as $_receipt): ?>
+                    <tr>
+                        <td data-th="<?php echo $block->escapeHtml(__(PAYMENT_TYPE)) ?>" class="col id">
+        <?php echo $block->escapeHtml($_receipt->getPaymentType()); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__(PAYMENT_DATE)) ?>" class="col date">
+        <?php echo $block->escapeHtml($block->formatDate($_receipt->getPaymentDate())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__(CASH_RECEIPT_NO)) ?>" class="col due_date">
+        <?php echo $block->escapeHtml($_receipt->getCashReceiptNumber()); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__(AMOUNT)) ?>" class="col outstanding_amount">
+        <?php echo $block->escapeHtml($block->formatPrice($_receipt->getAmount())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__(STATUS)) ?>" class="col invoice_status">
+        <?php echo $block->escapeHtml($_receipt->getStatus()); ?>
+                        </td>
+                    </tr>
+    <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="payment-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+        <table class="data table table-order-items my-receipt" id="my-receipt-table">
+            <caption class="table-caption">
+                <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('My Payment Details')) ?>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col paymenttype"><?php echo $block->escapeHtml(__(PAYMENT_TYPE)) ?></th>
+                    <th scope="col" class="col paymentdate"><?php echo $block->escapeHtml(__(PAYMENT_DATE)) ?></th>
+                    <th scope="col" class="col cashrecipt"><?php echo $block->escapeHtml(__(CASH_RECEIPT_NO)) ?></th>
+                    <th scope="col" class="col amount"><?php echo $block->escapeHtml(__(AMOUNT)) ?></th>
+                    <th scope="col" class="col status"><?php echo $block->escapeHtml(__(STATUS)) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="5" style="text-align: center;">
+                    <div class="message info empty">
+                        <span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('You have no transaction.')); ?></span>
+                    </div>
+                </td></tr>
+            </tbody>
+        </table>
+<?php endif;
+exit;
+?>

@@ -1,0 +1,56 @@
+<page>
+	<section>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<name><![CDATA[block273]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[]]></tablet_cols>
+		<mobile_cols><![CDATA[]]></mobile_cols>
+		<block_class><![CDATA[]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[]]></background_gradient_orientation>
+		<background_repeat><![CDATA[]]></background_repeat>
+		<background_cover><![CDATA[]]></background_cover>
+		<parallax><![CDATA[]]></parallax>
+		<fullwidth><![CDATA[]]></fullwidth>
+		<no_padding><![CDATA[]]></no_padding>
+		<hide_desktop><![CDATA[]]></hide_desktop>
+		<hide_tablet><![CDATA[]]></hide_tablet>
+		<hide_mobile><![CDATA[]]></hide_mobile>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[1]]></block_position>
+	</section>
+	<block>
+		<child_id><![CDATA[370]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block273-0]]></block_name>
+		<type><![CDATA[deals]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"#0000FF","animation":"fadeInUpBig","animation_delay":"0.1","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","limit":"2","perrow":"1","perrow_tablet":"1","perrow_mobile":"1","numbercol":"1","percol":"","template":"grid.phtml","number_row":"1","navigation_position":"middle-inside","nav_top":"-45","pagination_position":"center","slide_by":"","slide_margin":"30","category_id":["3"],"use_tabs":"1","tab_style":"style1","tab_font_bold":"1","tab_align":"left","font_size":"30","tab_primary_color":"#FFFF00","tab_secondary_color":"#00FFFF","tab_third_color":"#FF00FF","days":"Days","hours":"Hours","minutes":"Mins","seconds":"Secs","time_width":"100","time_background":"#FFFF00","number_font_size":"12","text_font_size":"12","number_color":"#0000FF","text_color":"#FF00FF","discount_width":"","discount_font_size":"","discount_color":"","discount_background":"","saved_text":"You saved","saved_font_size":"","saved_price_font_size":"","saved_color":"","saved_price_color":"","use_slider":0,"autoplay":0,"stop_auto":0,"rtl":0,"navigation":0,"loop":0,"pagination":0,"hide_name":0,"hide_review":0,"hide_addcart":0,"hide_addwishlist":0,"hide_addcompare":0,"tab_italic":0,"tab_uppercase":0,"hide_time":0,"hide_saved_price":0,"hide_discount":0,"hide_nav":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[custom-class-hnt]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[1]]></background_gradient>
+		<background_gradient_from><![CDATA[#0000FF]]></background_gradient_from>
+		<background_gradient_to><![CDATA[#00FF00]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[1]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Fbuilder\Block\Products\Deals" block_type="deals" limit="2" category_ids="3" use_slider="0" hide_name="0" hide_review="0" hide_addcart="0" hide_addwishlist="0" hide_addcompare="0" hide_time="0" hide_discount="0" hide_saved_price="0" perrow="1" perrow_tablet="1" perrow_mobile="1" fbuilder_days="Days" fbuilder_hours="Hours" fbuilder_minutes="Mins" fbuilder_seconds="Secs" fbuilder_saved_text="You saved" tab_style="style1" tab_font_bold="1" tab_align="left" template="products/deals/category-tabs.phtml"}}]]></block_content>
+		<custom_style><![CDATA[.block370 .mgs-tab.data.items > .item.title > .switch{font-size:30px;}.block370 .mgs-tab.data.items > .item.title > .switch{height:34px !important; line-height:34px !important}.block370 .mgs-product-tab .mgs-tab.data.items .item.title .switch::before{height: 34px; top:1px}.block370 .mgs-product-tab .tab-style1.data.items .item.title .switch:before{background: #FF00FF;}@media (max-width:767px) {.mgs-product-tab .mgs-tab.data.items > .item.title > .switch{border:1px solid #FF00FF}}.block370 .mgs-product-tab .tab-style1.data.items .item.title .switch{color: #00FFFF !important;}.block370 .mgs-product-tab .tab-style1.data.items .item.title.active .switch, .block370 .mgs-product-tab .tab-style1.data.items .item.title .switch:hover{color: #FFFF00 !important}.block370 .deal-timer .countdown,.block370 .deal-timer .time-note{width:100px}.block370 .deal-timer .countdown > span > b {background:#FFFF00; padding:10px 0; margin-bottom:3px}.block370 .deal-timer .countdown > span > b{font-size:12px}.block370 .deal-timer .countdown > span > b{color:#0000FF}.block370 .deal-timer .time-note span{font-size:12px}.block370 .deal-timer .time-note span{color:#FF00FF}]]></custom_style>
+	</block>
+</page>

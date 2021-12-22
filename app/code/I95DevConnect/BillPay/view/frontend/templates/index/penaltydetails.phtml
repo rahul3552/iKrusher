@@ -1,0 +1,73 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<?php
+$penaltyReferences = $block->getPenaltyReferences();
+$penalty = $block->getPenaltyDetails();
+$penaltiesCount = count($penaltyReferences);
+if ($penalty && $penalty->getId()) {
+    ?>
+    <div class="penalty" style="float:left;width:40%;">
+        <p><b>Penalty Id <span style="padding-left: 22px;">:</span> </b><?php echo $penalty->getPenaltyId(); ?></p>
+        <p><b>Penalty Term <span>:</span> </b><?php echo $penalty->getTerm(); ?></p>
+    </div>
+    <div class="penalty" style="float:left;width:60%;">
+        <p><b>Penalty Charges <span style="padding-left: 19px;">:</span> </b><?php echo $block->escapeHtml($block->formatPrice($penalty->getPenaltyAmount())); ?></p>
+        <p><b>Additional Charges <span>:</span> </b><?php echo $block->escapeHtml($block->formatPrice($penalty->getAdditionalAmount())); ?></p>
+        <p><b>Total Amount <span style="padding-left: 38px;">:</span> </b><?php echo $block->escapeHtml($block->formatPrice($penalty->getAmount())); ?></p>
+    </div>
+    <?php
+}
+?>
+<?php if ($penaltyReferences && $penaltiesCount > 0): ?>
+    <div class="table-wrapper manage-receipt">
+        <table class="data table table-order-items my-receipt" id="my-receipt-table">
+            <caption class="table-caption">
+                <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Penalty Details')) ?>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col referencetype"><?php echo $block->escapeHtml(__('Reference Type')) ?></th>
+                    <th scope="col" class="col referenceid"><?php echo $block->escapeHtml(__('Reference Id')) ?></th>
+                    <th scope="col" class="col referenceamount"><?php echo $block->escapeHtml(__('Reference Amount')) ?></th>
+                    <th scope="col" class="col amount"><?php echo $block->escapeHtml(__('Penalty Amount')) ?></th>
+                    <th scope="col" class="col comments"><?php echo $block->escapeHtml(__('Term')) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($penaltyReferences as $penaltyReference):  ?>
+                    <tr>
+                        <td data-th="<?php echo $block->escapeHtml(__('Reference Type')) ?>" class="col reference_type">
+                            <?php echo $block->escapeHtml($penaltyReference->getReferenceType()); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Reference Id')) ?>" class="col reference_id">
+                            <?php echo $block->escapeHtml($penaltyReference->getReferenceId()); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Reference Amount')) ?>" class="col referenceamount">
+                            <?php echo $block->escapeHtml($block->formatPrice($penaltyReference->getReferenceAmount())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Penalty Amount')) ?>" class="col amount">
+                            <?php echo $block->escapeHtml($block->formatPrice($penaltyReference->getAmount())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Term')) ?>" class="col comments">
+                            <?php echo $block->escapeHtml($penalty->getTerm()); ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="payment-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty">
+        <span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('You have no Penalty references.')); ?></span>
+    </div>
+<?php endif;
+exit; ?>

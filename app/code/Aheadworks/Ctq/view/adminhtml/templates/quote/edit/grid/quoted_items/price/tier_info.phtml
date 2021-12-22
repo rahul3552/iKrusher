@@ -1,0 +1,9 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var \Aheadworks\Ctq\Block\Adminhtml\Quote\Edit\QuotedItems\Price\TierInfo $block */
+?>
+<?php
+$item = $block->getItem();
+?>
+<?php if ($item):?><?= /* @escapeNotVerified */ $block->getTierHtml($item) ?><?php endif;?>

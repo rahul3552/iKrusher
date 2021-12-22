@@ -1,0 +1,30 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<style>
+    #billpay_penaltydetails_grid {
+        float: left;
+        width : 100%;
+    }
+</style>
+<?php
+$penalty = $block->getPenalty();
+if ($penalty && $penalty->getId()) {
+    ?>
+    <div class="penalty" style="float:left;width:40%;">
+        <p><b>Penalty Id <span style="padding-left: 22px;">:</span> </b><?php echo $penalty->getPenaltyId(); ?></p>
+        <p><b>Penalty Term <span>:</span> </b><?php echo $penalty->getTerm(); ?></p>
+    </div>
+    <div class="penalty" style="float:left;width:60%;">
+        <p><b>Penalty Charges <span style="padding-left: 19px;">:</span> </b><?php echo $block->escapeHtml($block->formatPrice($penalty->getPenaltyAmount())); ?></p>
+        <p><b>Additional Charges <span>:</span> </b><?php echo $block->escapeHtml($block->formatPrice($penalty->getAdditionalAmount())); ?></p>
+        <p><b>Total Amount <span style="padding-left: 38px;">:</span> </b><?php echo $block->escapeHtml($block->formatPrice($penalty->getAmount())); ?></p>
+    </div>
+    <?php
+}
+?>

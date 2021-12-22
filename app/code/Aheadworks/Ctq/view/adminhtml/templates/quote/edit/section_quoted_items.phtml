@@ -1,0 +1,11 @@
+<?php
+// @codingStandardsIgnoreFile
+?>
+
+<div class="admin__page-section-title">
+    <strong class="title"><?= /* @escapeNotVerified */ $block->getHeaderText() ?></strong>
+    <div class="actions">
+        <?= $block->getButtonsHtml() ?>
+    </div>
+</div>
+<?= $block->getChildHtml() ?>

@@ -1,0 +1,18 @@
+<!--@subject {{trans 'Your company has been approved'}}@-->
+{{template config_path="design/email/header_template"}}
+
+<p>
+    {{trans 'Dear %user_name,' user_name=$user_name}}<br />
+    {{trans
+        'Your company %company_name has been approved, and you have been assigned as the Company Admin.'
+        company_name=$company.getName()
+    |raw}}
+</p>
+<p>
+    {{trans
+        'Please, click on the <a href="%reset_password_url">link</a> to sign in to our site and set a password.'
+        reset_password_url=$reset_password_url
+    |raw}}
+</p>
+
+{{template config_path="design/email/footer_template"}}

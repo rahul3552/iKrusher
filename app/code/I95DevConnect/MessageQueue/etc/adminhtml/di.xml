@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_MessageQueue
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Backend\Block\Widget\Button\Toolbar">
+        <plugin name="orderFormToolbarButtons" type="I95DevConnect\MessageQueue\Plugin\Block\Order\Widget\Button\Toolbar" />
+    </type>
+    <preference for="Magento\Sales\Model\ResourceModel\Order\Shipment\Grid\Collection"
+        type="I95DevConnect\MessageQueue\Model\ResourceModel\Order\Shipment\Grid\Collection" />
+    <preference for="Magento\Sales\Model\ResourceModel\Order\Shipment\Order\Grid\Collection"
+        type="I95DevConnect\MessageQueue\Model\ResourceModel\Order\Shipment\Grid\Collection" />
+    <preference for="Magento\Sales\Model\ResourceModel\Order\Invoice\Orders\Grid\Collection"
+         type="I95DevConnect\MessageQueue\Model\ResourceModel\Order\Invoice\Orders\Grid\Collection" />
+</config>

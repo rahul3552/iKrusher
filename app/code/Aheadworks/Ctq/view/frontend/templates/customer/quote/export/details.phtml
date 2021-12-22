@@ -1,0 +1,51 @@
+<?php
+/* @var $block \Aheadworks\Ctq\Block\Customer\Export\Quote */
+
+// @codingStandardsIgnoreFile
+
+$viewModel = $block->getDataProviderViewModel();
+$cart = $viewModel->getCart();
+$items = $cart->getAllVisibleItems();
+?>
+
+<div>
+    <strong><?= $block->escapeHtml(__('Quotation overview')) ?></strong><br/><br/>
+    <table width="616">
+        <thead>
+            <tr>
+                <th width=10%><?= $block->escapeHtml(__('Quantity')) ?></th>
+                <th width=40%><?= $block->escapeHtml(__('Code')) ?></th>
+                <th width=25%>
+                    <?= $block->escapeHtml(__('Price')) ?>
+                    <span>(<?= $viewModel->getCurrencyCode() ?>)</span>
+                </th>
+                <th width=25%>
+                    <?= $block->escapeHtml(__('Total price')) ?>
+                    <span>(<?= $viewModel->getCurrencyCode() ?>)</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($items as $item): ?>
+                <?= /* @noEscape */ $block->getItemHtml($item) ?>
+            <?php endforeach; ?>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td align="center">
+                <strong><?= $cart->getItemsSummaryQty() ?></strong>
+            </td>
+            <td colspan="2">
+                <strong><?= $block->escapeHtml(__('Total advised sales price:')) ?></strong>
+            </td>
+            <td align="right">
+                <strong>
+                    <?= $viewModel->getTotal($cart) ?>
+                </strong>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<br />
+<?= $block->getExportExtraBlockHtml() ?>

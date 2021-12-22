@@ -1,0 +1,9 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Framework\View\Element\Template */
+?>
+<td data-th="<?= $block->escapeHtml(__('Created By')) ?>"
+    class="col created-by">
+        <?= $block->escapeHtml($block->getViewModel()->getCreatedBy($block->getQuote())) ?>
+</td>

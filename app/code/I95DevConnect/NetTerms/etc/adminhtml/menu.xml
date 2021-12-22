@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_NetTerms
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="I95DevConnect_NetTerms::netterms" title="Net Terms" translate="title"
+             module="I95DevConnect_NetTerms" sortOrder="15" parent="I95DevConnect_MessageQueue::i95devaddons"
+             action="netterms/netterms" resource="I95DevConnect_NetTerms::netterms"/>
+        <add id="I95DevConnect_NetTerms::i95devconfig_netterms" title="Net Terms Settings"
+             module="I95DevConnect_NetTerms" sortOrder="51"
+             parent="I95DevConnect_MessageQueue::i95devconfig"
+             action="adminhtml/system_config/edit/section/i95devconnect_netterms"
+             resource="I95DevConnect_NetTerms::settings"/>
+    </menu>
+</config>

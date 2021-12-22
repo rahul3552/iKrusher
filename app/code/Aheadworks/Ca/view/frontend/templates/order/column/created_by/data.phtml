@@ -1,0 +1,12 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/* @var $block \Aheadworks\Ca\Block\Order\Column\CreatedBy */
+?>
+
+<?php if ($block->getViewModel()->needToAddColumn()): ?>
+    <td data-th="<?= $block->escapeHtml(__('Created By')) ?>"
+        class="col created-by">
+            <?= $block->escapeHtml($block->getViewModel()->getCreatedBy($block->getOrder())) ?>
+    </td>
+<?php endif; ?>

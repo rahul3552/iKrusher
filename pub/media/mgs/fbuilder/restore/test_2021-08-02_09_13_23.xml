@@ -1,0 +1,56 @@
+<page>
+	<section>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<name><![CDATA[block273]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[]]></tablet_cols>
+		<mobile_cols><![CDATA[]]></mobile_cols>
+		<block_class><![CDATA[]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[]]></background_gradient_orientation>
+		<background_repeat><![CDATA[]]></background_repeat>
+		<background_cover><![CDATA[]]></background_cover>
+		<parallax><![CDATA[]]></parallax>
+		<fullwidth><![CDATA[]]></fullwidth>
+		<no_padding><![CDATA[]]></no_padding>
+		<hide_desktop><![CDATA[]]></hide_desktop>
+		<hide_tablet><![CDATA[]]></hide_tablet>
+		<hide_mobile><![CDATA[]]></hide_mobile>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[1]]></block_position>
+	</section>
+	<block>
+		<child_id><![CDATA[371]]></child_id>
+		<product_id><![CDATA[]]></product_id>
+		<page_type><![CDATA[cms]]></page_type>
+		<block_name><![CDATA[block273-0]]></block_name>
+		<type><![CDATA[testimonial]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"main_block_color":"","animation":"","animation_delay":"","margin_top":"","margin_left":"","padding_top":"","padding_left":"","padding_right":"","padding_bottom":"","margin_right":"","margin_bottom":"","limit":"2","perrow":"1","perrow_tablet":"1","perrow_mobile":"1","template":"default_template","number_row":"1","navigation_position":"middle-inside","nav_top":"-45","pagination_position":"center","slide_by":"","slide_margin":"30","name_font_size":"12","name_color":"#CA14FF","info_font_size":"15","info_color":"#E70044","content_font_size":"16","content_color":"#ADFF4C","use_slider":0,"autoplay":0,"stop_auto":0,"rtl":0,"navigation":0,"loop":0,"pagination":0,"hide_photo":0,"hide_name":0,"hide_info":0,"content_italic":0,"hide_nav":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<col_tablet><![CDATA[12]]></col_tablet>
+		<col_mobile><![CDATA[12]]></col_mobile>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_gradient><![CDATA[0]]></background_gradient>
+		<background_gradient_from><![CDATA[]]></background_gradient_from>
+		<background_gradient_to><![CDATA[]]></background_gradient_to>
+		<background_gradient_orientation><![CDATA[horizontal]]></background_gradient_orientation>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<hide_desktop><![CDATA[0]]></hide_desktop>
+		<hide_tablet><![CDATA[0]]></hide_tablet>
+		<hide_mobile><![CDATA[0]]></hide_mobile>
+		<block_content><![CDATA[{{block class="MGS\Testimonial\Block\Testimonial" testimonials_count="2" hide_photo="0" hide_name="0" hide_info="0" content_italic="0" use_slider="0" perrow="1" perrow_tablet="1" perrow_mobile="1" template="MGS_Fbuilder::widget/tetimonials.phtml"}}]]></block_content>
+		<custom_style><![CDATA[.block371 .testimonial-content .content .name{font-size:12px}.block371 .testimonial-content .content .name{color:#CA14FF}.block371 .testimonial-content .content .infomation{font-size:15px}.block371 .testimonial-content .content .infomation{color:#E70044}.block371 .testimonial-content .content blockquote{font-size:16px}.block371 .testimonial-content .content blockquote{color:#ADFF4C}]]></custom_style>
+	</block>
+</page>

@@ -1,0 +1,9 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/* @var $block \Aheadworks\Ca\Block\Order\Column\CreatedBy */
+?>
+
+<?php if ($block->getViewModel()->needToAddColumn()): ?>
+    <th scope="col" class="col created-by"><?= $block->escapeHtml(__('Created By')) ?></th>
+<?php endif; ?>

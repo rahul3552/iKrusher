@@ -1,0 +1,9 @@
+<?php
+/** @var Aheadworks\Ca\Block\ButtonWithCheckAcl $block */
+
+//@codingStandardsIgnoreFile
+
+?>
+<a href="<?= $block->escapeUrl($block->getLink()) ?>" class="action <?= /* @noEscape */ $block->getAdditionalClasses() ?>">
+    <span><?= $block->escapeHtml($block->getLabel()) ?></span>
+</a>

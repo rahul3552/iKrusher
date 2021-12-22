@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_NetTerms
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" ifconfig="i95devconnect_netterms/netterms_enabled_settings/enable_netterms" name="customer-account-netterms" after='-'>
+                <arguments>
+                    <argument name="path" xsi:type="string">netterms/customer</argument>
+                    <argument name="label" xsi:type="string">Net Terms</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,76 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<?php
+$_receipts = $block->getReceiptDetails();
+$receiptsCount = count($_receipts);
+?>
+<?php if ($receiptsCount > 0): ?>
+    <div class="table-wrapper manage-receipt">
+        <table class="data table table-order-items my-receipt" id="my-receipt-table">
+            <caption class="table-caption">
+                <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('My Receipt Details')) ?>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col cash_receipt_number">
+                        <?php echo $block->escapeHtml(__('Order Number')) ?>
+                    </th>
+                    <th scope="col" class="col transaction_id"><?php echo $block->escapeHtml(__('Type')) ?></th>
+                    <th scope="col" class="col date"><?php echo $block->escapeHtml(__('Document Number')) ?></th>
+                    <th scope="col" class="col amount"><?php echo $block->escapeHtml(__('Document Date')) ?></th>
+                    <th scope="col" class="col status"><?php echo $block->escapeHtml(__('Document Due Date')) ?></th>
+                    <th scope="col" class="col status"><?php echo $block->escapeHtml(__('Document Amount')) ?></th>
+                    <th scope="col" class="col status"><?php echo $block->escapeHtml(__('Outstanding Amount')) ?></th>
+                    <th scope="col" class="col status"><?php echo $block->escapeHtml(__('Document Status')) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($_receipts as $_receipt): ?>
+                    <tr>
+                        <td data-th="<?php echo $block->escapeHtml(__('Order Number')) ?>" class="col id">
+                            <?php echo $block->escapeHtml($_receipt->getMagentoOrderId()) ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Type')) ?>" class="col date">
+                            <?php echo $block->escapeHtml($_receipt->getType()); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Document Number')) ?>" class="col date">
+                            <?php echo $block->escapeHtml($_receipt->getTargetInvoiceId()); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Document Date')) ?>" class="col date">
+                            <?php echo $block->escapeHtml($block->formatDate($_receipt->getModifiedDate())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Document Due Date')) ?>" class="col due_date">
+                            <?php
+                                $date = date_create($_receipt->getDueDate());
+                                echo $block->escapeHtml(date_format($date, 'm/d/Y'));
+                            ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Document Amount')) ?>" class="col invoice_amount">
+                            <?php echo $block->escapeHtml($block->formatPrice($_receipt->getInvoiceAmount())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Outstanding Amount')) ?>"
+                            class="col outstanding_amount">
+                            <?php echo $block->escapeHtml($block->formatPrice($_receipt->getOutstandingAmount())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Document Status')) ?>" class="col invoice_status">
+                            <?php echo $block->escapeHtml($_receipt->getOrderStatus()); ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="payment-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty">
+        <span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('You have no transaction.')); ?></span>
+    </div>
+<?php endif ?>

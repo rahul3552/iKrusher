@@ -1,0 +1,48 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+
+<?php $_payments = $block->getPaymentsDetails(); ?>
+<?php if ($_payments && !empty($_payments)) : ?>
+    <div class="block payment-details-box">
+        <div class="box box-payment-info">
+            <?php
+            $block->getChildBlock("payment_details")->setPayment($_payments);
+            echo $block->getChildHtml("payment_details");
+            ?>
+        </div>
+        </br>
+        <div class="box box-transaction-info">
+            <?php
+            $block->getChildBlock("transaction_details")->setPayment($_payments);
+            echo $block->getChildHtml("transaction_details");
+            ?>
+        </div>
+        </br>
+        <div class="list-payment">
+            <?php
+            $block->getChildBlock("listpayment")->setPayment($_payments);
+            echo $block->getChildHtml("listpayment");
+            ?>
+        </div>
+    </div>
+    <a class="link-print" href="<?php echo $block->escapeHtml(
+        $block->getUrl(
+            'billpay/index/printaction',
+            ['_current' => true, '_use_rewrite' => true],
+            ['payment_id',
+            $_payments['payment_id']]
+        )
+    )?>">Print</a>
+
+<?php else : ?>
+    <div class="message info empty">
+        <span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('You have no invoice.')); ?></span>
+    </div>
+    <?php endif ?>
+

@@ -1,0 +1,24 @@
+.payment-details-box .box-payment-info, .payment-details-box .box-transaction-info{
+    width:45%;float: left;border:1px solid #c6c6c6;padding:5px;
+}
+.payment-details-box .block-title{
+    border:none !important;font-weight: bold;margin-bottom: 0px;padding-bottom: 10px;
+}
+.box-payment-info{
+    margin-bottom:5%;margin-right:2%;
+}
+.payment-details-box label{
+    color:#636363;
+}
+#my-billpay-table th, #my-payment-list th, #my-billpay-table th, #my-receipt-table th{
+    background: #f4f4f4;
+}
+.list-payment{
+    margin-top:10%;
+}
+.payment-details-box{
+    color:#636363;
+}
+.manage-payment{
+    margin-bottom: 50px;
+}

@@ -1,0 +1,44 @@
+<?php
+/* @var $block \Aheadworks\Ctq\Block\Customer\Quote\Edit\Item */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+$item = $block->getItem();
+$itemProduct = $item->getProduct();
+$itemOptions = $block->getViewModel()->getOptionList($item);
+$itemId = $item->getId();
+?>
+
+<tr>
+    <td align="center" data-th="<?= $block->escapeHtml(__('Quantity')) ?>">
+        <?= /* @noEscape */ $block->getQty() ?>
+    </td>
+    <td align="center" data-th="<?= $block->escapeHtml(__('Code')) ?>">
+        <?= /* @noEscape */ $itemProduct->getSku() ?>
+    </td>
+    <td align="right" data-th="<?= $block->escapeHtml(__('Price')) ?>">
+        <?= /* @noEscape */ $block->getUnitPriceHtml($item) ?>
+    </td>
+    <td align="right" data-th="<?= $block->escapeHtml(__('Subtotal')) ?>">
+        <?= /* @noEscape */ $block->getRowTotalHtml($item) ?>
+    </td>
+</tr>
+<tr>
+    <td></td>
+    <td colspan="3">
+        <span>
+            <?= /* @noEscape */ $itemProduct->getName() ?>
+            <?php if($itemOptions): ?>
+                <?php foreach ($itemOptions as $itemOption): ?>
+                    <?= $block->escapeHtml(', ' . $itemOption['label'] . ' ' . $itemOption['value']) ?>
+                <?php endforeach; ?>
+            <?php endif; ?>.
+        </span>
+        <?php if($itemProduct->getImage()): ?>
+            <br/>
+            <img src="<?= /* @noEscape */ $block->getImageUrl($itemProduct) ?>"
+                 alt="<?= /* @noEscape */ $itemProduct->getName() ?>">
+        <?php endif; ?>
+    </td>
+</tr>

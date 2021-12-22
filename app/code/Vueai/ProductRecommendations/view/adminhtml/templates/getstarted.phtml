@@ -1,0 +1,39 @@
+<?php
+/** @var \Vueai\ProductRecommendations\Block\Adminhtml\Index\Signup $block */
+?>
+<div class="signin-successpage started-page">
+    <div class="form-logo">
+        <img src='<?php echo $block->escapeUrl($block->getMediaUrl()); ?>' alt="Logo">
+    </div>
+    <div class="form-captionwrap">
+        <h3>
+            <?php echo $block->escapeHtml(__('Power your site with AI')); ?>
+        </h3>
+        <p>
+            <?php echo $block->escapeHtml(__('Vue.ai is an end-to-end retail automation solution that is
+             redesigning the future of fashion retail with artificial intelligence.')); ?>
+        </p>
+    </div>
+    <div class="vueai-style">
+        <div class="vueai-stylelogo">
+            <img src='<?php echo $block->escapeUrl($block->getGetStartedMediaUrl()); ?>' alt="Logo">
+        </div>
+        <div class="vueai-stylecaption style-captionwrap">
+            <div>
+            <h3><?php echo $block->escapeHtml(__('Vue.ai for Styling and Personalization')); ?></h3>
+            <p>
+                <?php echo $block->escapeHtml(__('AI-powered solution for personalization, styling,
+                 outfitting and visual merchandising.')); ?>
+            </p>
+            </div>
+        </div>
+        <div class="vueai-stylebutton">
+
+            <button class="vueai-getstarted"
+                       onclick="window.open('https://app.vue.ai/#/login', '_blank')"
+                    >
+                Get started
+            </button>
+        </div>
+    </div>
+</div>

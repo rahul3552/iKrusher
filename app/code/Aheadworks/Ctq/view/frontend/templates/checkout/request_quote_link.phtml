@@ -1,0 +1,21 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var $block \Aheadworks\Ctq\Block\Checkout\RequestQuoteLink */
+?>
+<?php if ($block->getViewModel()->isRequestQuoteButtonAvailable()): ?>
+    <div data-role="aw-ctq-request-quote-wrapper" data-bind="scope: 'awCtqRequestQuoteParent'" class="aw-atq__request-quote-action">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "[data-role=aw-ctq-request-quote-wrapper]": {
+                "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+            }
+        }
+    </script>
+<?php elseif (!$block->getViewModel()->isAuthenticatedCustomer()): ?>
+    <div class="aw-atq__sign-in-to-request">
+        <?= __('<a href="%1">Sign In</a> to request a quote', $block->escapeUrl($block->getViewModel()->getSignInUrl())) ?>
+    </div>
+<?php endif; ?>

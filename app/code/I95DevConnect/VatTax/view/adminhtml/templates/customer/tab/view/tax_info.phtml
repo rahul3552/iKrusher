@@ -1,0 +1,26 @@
+
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_VatTax
+ */
+?>
+<?php
+if ($block->isEnable() && $block->checkCustomAttribute()) {
+    ?>
+             <tr>
+                    <th><?= /* @noEscape */  __('Tax Business Posting Group :') ?></th>
+                    <?php $busTax = $block->getCustomerTax();
+                    if ($busTax == '') {
+                        ?>
+                        <td><?= /* @noEscape */  __('Not Available'); ?></td>
+                        <?php
+                    } else {
+                        ?>
+                        <td><?= /* @noEscape */  $busTax; ?></td>
+                        <?php
+                    }
+                    ?>
+                </tr>
+<?php } ?>

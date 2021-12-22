@@ -1,0 +1,908 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+
+<?php
+$i = 1;
+$_payments = $block->getPayments();
+$customer_id = 0;
+$paymentCount = count($_payments);
+?>
+<?php if ($paymentCount > 0): ?>
+    <form id="ar_submit" name="ar_submit" method='post'
+          action='<?php echo $block->escapeHtml($block->getUrl('billpay/index/paycharges/')) ?>'>
+        <div class="table-wrapper manage-payment" style="margin-bottom:44px">
+            <table class="data table table-order-items manage-payment" id="my-billpay-table">
+                <caption class="table-caption"><?php echo $block->escapeHtml(__('Payment')) ?></caption>
+                <thead>
+                    <tr>
+                        <th scope="col" class="col check_invoice"></th>
+                        <th scope="col" class="col order_number">
+                            <?php echo $block->escapeHtml(__('Order Number')) ?>
+                        </th>
+                        <th scope="col" class="col type">
+                            <?php echo $block->escapeHtml(__('Document Type')) ?>
+                        </th>
+                        <th scope="col" class="col invoice_number">
+                            <?php echo $block->escapeHtml(__('Document Number')) ?>
+                        </th>
+                        <th scope="col" class="col invoice_date">
+                            <?php echo $block->escapeHtml(__('Document Date')) ?>
+                        </th>
+                        <th scope="col" class="col invoice_due_date">
+                            <?php echo $block->escapeHtml(__('Document Due Date')) ?>
+                        </th>
+                        <th scope="col" class="col invoice_amount">
+                            <?php echo $block->escapeHtml(__('Document Amount')) ?>
+                        </th>
+                        <th scope="col" class="col outstanding_amount">
+                            <?php echo $block->escapeHtml(__('Outstanding Amount')) ?>
+                        </th>
+                        <!--<th scope="col" class="col interest_amount">
+                            <?php //echo $block->escapeHtml(__('INTEREST AMOUNT')) ?>
+                        </th>-->
+                        <th scope="col" class="col discount_amount">
+                            <?php echo $block->escapeHtml(__('Discount Amount')) ?>
+                        </th>
+                        <th scope="col" class="col status">
+                            <?php echo $block->escapeHtml(__('Document Status')) ?>
+                        </th>
+                        <th scope="col" class="col actions">
+                            <?php echo $block->escapeHtml(__('Pay Now')) ?>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $_odd = '';
+                    $val = '';
+                    foreach ($_payments as $_payment):
+                        $customer_id = $_payment->getCustomerId();
+                        $clas = '';
+                        $minus_sign = '';
+                        $type = $_payment->getType();
+                        $type_return = "";
+                        if ($type == 'invoice'
+                            || $type == 'debitmemo'
+                            || $type == 'penalty'
+                            || $type == 'servicerepair'
+                            || $type == 'warranty'
+                        ) {
+                            $type_return = 'invoice';
+                        }
+                        if ($type == 'return' || $type == 'creditmemo') {
+                            $clas = 'return-type';
+                            $minus_sign = '-';
+                            $type_return = 'return';
+                        }
+                        ?>
+                        <tr class="<?php echo $block->escapeHtml($clas); ?>">
+                            <td>
+                                <input name="check_<?php echo $block->escapeHtml($type_return) ?>"
+                                       id="order_id_<?php echo $block->escapeHtml($_payment->getTargetOrderId()); ?>"
+                                       data-order ="<?php echo $block->escapeHtml($i); ?>"
+                                       type="radio" value="<?php echo $block->escapeHtml($i) ?>">
+                                <input type="hidden"
+                                       name="invoices[<?php echo $block->escapeHtml($i) ?>][check_<?php echo $block->escapeHtml($type_return) ?>]"
+                                       value="<?php echo $block->escapeHtml($i) ?>">
+                                <input type='hidden'
+                                       name="invoices[<?php echo $block->escapeHtml($i) ?>][primary_id]"
+                                       id="<?php echo $block->escapeHtml("order_id_" . $_payment->getPrimaryId()); ?>"/>
+                                <input type='hidden'
+                                       id="<?php echo $block->escapeHtml("each_entity_id_" . $_payment->getPrimaryId()); ?>"
+                                       name="invoices[<?php echo $block->escapeHtml($i) ?>][each_entity_id]"
+                                       value='<?php echo $block->escapeHtml($_payment->getPrimaryId()); ?>' />
+                                <input type='hidden'
+                                       id="<?php echo $block->escapeHtml("each_entity_id_" . $_payment->getType()); ?>"
+                                       name="invoices[<?php echo $block->escapeHtml($i) ?>][each_record_type]"
+                                       value='<?php echo $block->escapeHtml($_payment->getType()); ?>' />
+
+                            </td>
+                            <td data-th="<?php echo $block->escapeHtml(__('Order Number#')) ?>" class="col id">
+                                <a href="#" data-rel="<?php echo $block->escapeHtml($_payment->getTargetInvoiceId()); ?>"
+                                   data-orderid="<?php echo $block->escapeHtml($_payment->getMagentoOrderId()); ?>"
+                                   class="" id="target_order_id_modal_<?php echo $block->escapeHtml($_payment->getPrimaryId()); ?>">
+                                <?php echo $block->escapeHtml($_payment->getMagentoOrderId()) ?></a>
+                            </td>
+                            <input type='hidden'
+                                id="<?php echo $block->escapeHtml("each_order_id_" . $_payment->getMagentoOrderId()); ?>"
+                                name="invoices[<?php echo $block->escapeHtml($i) ?>][each_order_id]"
+                                value='<?php echo $block->escapeHtml($_payment->getMagentoOrderId()); ?>' />
+                            <td data-th="<?php echo $block->escapeHtml(__('Document Type')) ?>"
+                                class="col type">
+                                <?php /* @escapeNotVerified */ echo $block->escapeHtml($_payment->getType()) ?>
+                                <input type="hidden"
+                                    name="invoices[<?php echo $block->escapeHtml($i) ?>][each_type]"
+                                    value="<?php echo $block->escapeHtml($_payment->getType()); ?>"
+                                    id="type_<?php echo $block->escapeHtml($i) ?>" />
+                            </td>
+                            <td data-th="<?php echo $block->escapeHtml(__('Invoice Number')) ?>" class="col date">
+                                <a href="#" data-invoice="<?php echo $block->escapeHtml($_payment->getTargetInvoiceId()); ?>"
+                                   data-doctype="<?php echo $block->escapeHtml($_payment->getType()); ?>"
+                                   class="" id="document_id_modal_<?php echo $block->escapeHtml($_payment->getPrimaryId()); ?>">
+                                    <?php echo $block->escapeHtml($_payment->getTargetInvoiceId()); ?>
+                                </a>
+                            </td>
+                                <input type='hidden'
+                                    id="<?php echo $block->escapeHtml("each_invoice_id_" . $_payment->getTargetInvoiceId()); ?>"
+                                    name="invoices[<?php echo $block->escapeHtml($i) ?>][each_invoice_id]"
+                                    value='<?php echo $block->escapeHtml($_payment->getTargetInvoiceId()); ?>' />
+                            <td data-th="<?php echo $block->escapeHtml(__('Invoice Date')) ?>" class="col date">
+                                <?php
+                                $date = date_create($_payment->getModifiedDate());
+                                echo $block->escapeHtml(date_format($date, 'm/d/Y'));
+                                ?>
+                            </td>
+                            <td data-th="<?php echo $block->escapeHtml(__('Invoice Due Date')) ?>" class="col due_date">
+                                <?php
+                                $date = date_create($_payment->getDueDate());
+                                echo $block->escapeHtml(date_format($date, 'm/d/Y'));
+                                ?>
+                            </td>
+                            <td data-th="<?php echo $block->escapeHtml($minus_sign . __('Invoice Amount')) ?>"
+                                class="col invoice_amount">
+                                <?php /* @escapeNotVerified */ echo $block->escapeHtml($block->formatPrice($_payment->getInvoiceAmount())) ?>
+                            </td>
+                            <input type='hidden'
+                                   id="<?php echo "each_invoice_amount_" . $block->escapeHtml($_payment->getInvoiceAmount()); ?>"
+                                   name="invoices[<?php echo $block->escapeHtml($i) ?>][each_invoice_amount]"
+                                   value='<?php echo $block->escapeHtml($_payment->getInvoiceAmount()); ?>' />
+                            <td data-th="<?php echo $block->escapeHtml(__('Outstanding Amount')) ?>"
+                                class="col outstanding_amount"
+                                id='order_total_<?php echo $block->escapeHtml($_payment->getPrimaryId()); ?>'>
+                                <input type="hidden"
+                                       value="<?php echo $block->escapeHtml($_payment->getOutstandingAmount()); ?>"
+                                       id="billpayoutamt_<?php echo $block->escapeHtml($_payment->getPrimaryId()); ?>" />
+                                <a href="#" data-invoice="<?php echo $block->escapeHtml($_payment->getTargetInvoiceId()); ?>"
+                                   class="" id="outstanding_amount_modal_<?php echo $block->escapeHtml($_payment->getPrimaryId()); ?>">
+                                    <?php echo $block->escapeHtml($block->formatPrice($_payment->getOutstandingAmount())); ?></a>
+                                <input type="hidden"
+                                       name="invoices[<?php echo $block->escapeHtml($i) ?>][each_outstanding_amount]"
+                                       value="<?php echo $block->escapeHtml($_payment->getOutstandingAmount()); ?>"
+                                       id="outamt_<?php echo $block->escapeHtml($i) ?>" />
+                            </td>
+                            <!--<td data-th="<?php echo $block->escapeHtml(__('Interest Amount')) ?>"
+                                class="col interest_amount">
+                                <?php /* @escapeNotVerified */ echo $block->escapeHtml($block->formatPrice($_payment->getInterestAmount())) ?>
+                                <input type="hidden"
+                                    name="invoices[<?php echo $block->escapeHtml($i) ?>][each_interest_amount]"
+                                    value="<?php echo $block->escapeHtml($_payment->getInterestAmount()); ?>"
+                                    id="intamt_<?php echo $block->escapeHtml($i) ?>" />
+                            </td>-->
+                            <td data-th="<?php echo $block->escapeHtml(__('Discount Amount')) ?>"
+                                class="col discount_amount">
+                                <?php /* @escapeNotVerified */ echo $block->escapeHtml($block->formatPrice($_payment->getDiscountAmount())) ?>
+                                <input type="hidden"
+                                    name="invoices[<?php echo $block->escapeHtml($i) ?>][each_discount_amount]"
+                                    value="<?php echo $block->escapeHtml($_payment->getDiscountAmount()); ?>"
+                                    id="discamt_<?php echo $block->escapeHtml($i) ?>" />
+                                <input type="hidden"
+                                    name="invoices[<?php echo $block->escapeHtml($i) ?>][each_discount_date]"
+                                    value="<?php echo $block->escapeHtml($_payment->getDiscountDt()); ?>"
+                                    id="discdate_<?php echo $block->escapeHtml($i) ?>" />
+                            </td>
+                            <td data-th="<?php echo $block->escapeHtml(__('Invoice Status')) ?>" class="col status">
+                                <?php /* @escapeNotVerified */ echo $block->escapeHtml($_payment->getOrderStatus()) ?>
+                            </td>
+                            <td id="<?php echo 'bill_' . $block->escapeHtml($_payment->getPrimaryId()); ?>">
+                                <input type='text'
+                                    class = 'txt'
+                                    name="invoices[<?php echo $block->escapeHtml($i) ?>][each_paid_amount]"
+                                    id='amt_<?php echo $block->escapeHtml($i); ?>'
+                                    data-id = '<?php echo $block->escapeHtml($i); ?>'
+                                    name='amt_<?php echo $block->escapeHtml($i); ?>' style='width:100%' value='0.00'/>
+                            </td>
+                        </tr>
+                        <?php
+                        $val.= 'amt_' . $_payment->getPrimaryId() . ",";
+                        $i++;
+                    endforeach;
+                    ?>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" class="label">
+                            <strong><big><?php echo $block->escapeHtml(__('Total')) ?></big></strong>
+                        </td>
+                        <td class="emph" colspan="1">
+                            <strong>
+                                <?php echo $block->escapeHtml($block->formatPrice($block->getTotalInvoceAmount())); ?>
+                            </strong>
+                        </td>
+                        <td colspan="1" class="emph" >
+                            <strong>
+                                <?php echo $block->escapeHtml($block->formatPrice($block->getTotalOutStandingAmount())); ?>
+                            </strong>
+                        </td>
+                        <td class="emph" id ='total_amount_to_pay' colspan="4" style="text-align:right;font-weight:bold">
+                            <strong><big><div></div></big></strong>
+                        </td>
+                        <td class="emph" id ='total_amount' colspan="2" style="display:none;text-align:right;font-weight:bold">
+                            <div></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <table align="right">
+                <tbody>
+                    <tr>
+                        <td colspan="10" style="float:right; ">
+                            <button class="button" id="payNow">Pay Now</button>
+                        </td>
+    <!--                        <td style="float:right;"><button class="button" id="calcDisc" >Calculate Discount</button>
+                        </td>-->
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    <?php if ($block->getPagerHtml()): ?>
+            <div class="payment-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+
+
+        <input type="hidden" name='boxescount' id='boxescount' value='<?php echo $block->escapeHtml($i); ?>' />
+        <div style = "display:block" id = "paymentinfo">
+    <?php
+    $orderForm = $block->orderBillingForm();
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $FormKey = $objectManager->get('Magento\Framework\Data\Form\FormKey');
+    ?>
+            <input name="form_key" type="hidden" value="<?php echo $block->escapeHtml($FormKey->getFormKey()); ?>">
+            <input type='hidden' id="customer_id" name="customer_id" value='<?php echo $block->escapeHtml($customer_id); ?>' />
+            <input type="hidden" id='total_amount_pay' name="total_amount"/>
+            <?php if ($block->hasMethods()): ?>
+                <div id="order-billing_method_form">
+                    <dl class="admin__payment-methods">
+                        <?php
+                        $_methods = $block->getPaymentMethods();
+                        $_methodsCount = count($_methods);
+                        $_counter = 0;
+                        $selectedCodes = [];
+                        ?>
+                        <?php
+                        foreach ($_methods as $_method):
+                            $_code = $_method->getCode();
+                            $_counter++;
+                            ?>
+                            <dt class="admin__field-option">
+                            <?php $selectedCodes[] = $_code; ?>
+                            <?php if ($_methodsCount >= 1): ?>
+                                <input id="p_method_<?php /* @escapeNotVerified */ echo $block->escapeHtml($_code) ?>"
+                                       required value="<?php /* @escapeNotVerified */ echo $block->escapeHtml($_code) ?>"
+                                       type="radio" name="payment[method]"
+                                       title="<?php echo $orderForm->escapeHtml($_method->getTitle()) ?>"
+                                       value="'<?php echo $block->escapeHtml($_code) ?>'"
+                                       class="admin__control-radio<?php if ($_counter == $_methodsCount): ?>
+                                           validate-one-required-by-name<?php endif; ?>"/>
+                            <?php else: ?>
+                                <span class="no-display">
+                                    <input id="p_method_<?php /* @escapeNotVerified */ echo $block->escapeHtml($_code) ?>"
+                                           value="<?php /* @escapeNotVerified */ echo $block->escapeHtml($_code) ?>"
+                                           type="radio"
+                                           name="payment[method]" class="admin__control-radio"
+                                           checked="checked"/>
+                                </span>
+                            <?php endif; ?>
+                            <label class="admin__field-label"
+                                   for="p_method_<?php /* @escapeNotVerified */ echo $block->escapeHtml($_code) ?>">
+                            <?php echo $orderForm->escapeHtml($_method->getTitle()) ?></label>
+                            </dt>
+                            <dd class="admin__payment-method-wapper">
+                                <?php if ($_code != 'checkmo') { ?>
+                                    <?php /* @escapeNotVerified */ echo $block->getChildHtml('payment.method.' . $_code); ?>
+                                <?php } else { ?>
+                                    <fieldset class="fieldset payment method" id="payment_form_checkmo" style="display:none">
+                                        <div class="field field-number required">
+                                            <label for="check_number" class="label">
+                                                <span>Check Number</span>
+                                            </label>
+                                            <div class="control">
+                                                <input type="text" id="check_number" name="payment[check_number]" class="input-text" title="Check Number">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                <?php } ?>
+                            </dd>
+                            <?php
+                        endforeach;
+                        $jsonSelectedCode = json_encode($selectedCodes);
+                        ?>
+                        <!--                            field for customer comments        -->
+                        <dd class="admin__payment-method-wapper">
+                            <fieldset class="fieldset payment method">
+                                <div class="field field-number comments">
+                                    <label for="comments" class="label">
+                                        <span>Comments</span>
+                                    </label>
+                                    <div class="control">
+                                        <textarea style="width: 354px; height: 95px;" name="payment[payment_comment]" id="payment_comment" value="" type="textarea"></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </dd>
+                        <!--                end of customer comments         -->
+                    </dl>
+                    <table>
+                        <tr>
+                            <td width="300">&nbsp;</td>
+                            <td>
+                                <input type="hidden" name="CURRENT_URL" id='url' value="" />
+                                <input id="pay_now_payment"
+                                    type="button"
+                                    value="Pay Now"
+                                    size="15"
+                                    class="form-button"
+                                    name="pay_now_payment" style="float: left" />
+                                <div style="float: left" id="loading"></div>
+                                <br style="clear: both" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+    <?php endif; ?>
+        </div>
+    </form>
+        <?php else: ?>
+    <div class="message info empty">
+        <span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('You have no invoice.')); ?></span>
+    </div>
+<?php endif; ?>
+<script type='text/javascript'>
+    require(['jquery', 'jquery/ui'], function ($) {
+        $('input[id^=amt_]').attr('readonly', true);
+        $('#paymentinfo').hide();
+        $("input[name^='check_']").click(function () {
+            clearInvoiceSelection();
+            orderAmount($(this).attr('data-order'));
+        });
+
+        function clearInvoiceSelection(){
+            jQuery("input[type='radio'][name='check_invoice']").each(function() {
+                needlerow = $(this).parent("td").parent("tr");
+                $(needlerow).find("input[type=text].txt").val("0.00");
+            });
+        }
+
+        function orderAmount(id) {
+            boxescount = document.getElementById('boxescount').value;
+            for (var b = 1; b < boxescount; b++) {
+                document.getElementById('amt_' + b).readonly = true;
+            }
+
+            document.getElementById('amt_' + id).value = '0.00';
+            var invoiceboxes = document.getElementsByName('check_invoice');
+            var invoiceboxesAmt = [];
+            var invoiceboxesValues = [];
+
+            // loop over them all
+            for (var i = 0; i < invoiceboxes.length; i++) {
+                // And stick the checked ones onto an array...
+                if (invoiceboxes[i].checked) {
+                    invoiceboxesValues.push(invoiceboxes[i].value);
+                }
+            }
+
+            var returnboxes = document.getElementsByName('check_return');
+            var returnboxesAmt = [];
+            var returnboxesValues = [];
+            // loop over them all
+            for (var i = 0; i < returnboxes.length; i++) {
+                // And stick the checked ones onto an array...
+                if (returnboxes[i].checked) {
+                    returnboxesValues.push(returnboxes[i].value);
+                }
+            }
+
+            for (var k = 0; k < returnboxesValues.length; k++) {
+                $amt = 0;
+                if (id == returnboxesValues[k]) {
+                    $amt = document.getElementById('outamt_' + returnboxesValues[k]).value
+                    document.getElementById('amt_' + returnboxesValues[k]).value = parseFloat($amt).toFixed(2);
+                } else {
+                    $amt = document.getElementById('amt_' + returnboxesValues[k]).value
+                }
+
+                returnboxesAmt.push($amt);
+            }
+
+            var cmboxes = document.getElementsByName('check_creditmemo');
+            var cmboxesAmt = [];
+            var cmboxesValues = [];
+            // loop over them all
+            for (var i = 0; i < cmboxes.length; i++) {
+                // And stick the checked ones onto an array...
+                if (cmboxes[i].checked) {
+                    cmboxesValues.push(cmboxes[i].value);
+                }
+            }
+
+            for (var l = 0; l < cmboxesValues.length; l++) {
+                $amt = 0;
+                if (id == cmboxesValues[l]) {
+                    $amt = document.getElementById('outamt_' + cmboxesValues[l]).value
+                    document.getElementById('amt_' + cmboxesValues[l]).value = parseFloat($amt).toFixed(2);
+                } else {
+                    $amt = document.getElementById('amt_' + cmboxesValues[l]).value
+                }
+
+                cmboxesAmt.push($amt);
+                //document.getElementById('amt_' + cmboxesValues[l]).disabled = false;
+            }
+
+            for (var j = 0; j < invoiceboxesValues.length; j++) {
+                $amt = 0;
+                $outamt = 0;
+                $intamt = 0;
+                $discamt = 0;
+                if (id == invoiceboxesValues[j]) {
+                    /*if (document.getElementById('intamt_' + invoiceboxesValues[j]).value != '') {
+                        $intamt = parseFloat(document.getElementById('intamt_' + invoiceboxesValues[j]).value);
+                    }*/
+
+                    if (document.getElementById('discamt_' + invoiceboxesValues[j]).value != '') {
+                        $discamt = parseFloat(document.getElementById('discamt_' + invoiceboxesValues[j]).value);
+                    }
+
+                    if (document.getElementById('outamt_' + invoiceboxesValues[j]).value != '') {
+                        $outamt = parseFloat(document.getElementById('outamt_' + invoiceboxesValues[j]).value);
+                    }
+
+                    $amt = $outamt + $intamt;
+
+                    var current_date = new Date();
+                    var discount_date = new Date(document.getElementById('discdate_' + invoiceboxesValues[j]).value);
+                    if(+discount_date.setHours(0,0,0,0) >= +current_date.setHours(0,0,0,0)){
+                        $amt = $amt - $discamt;
+                    }
+                    document.getElementById('amt_' + invoiceboxesValues[j]).value = parseFloat($amt).toFixed(2);
+                } else {
+                    $amt = document.getElementById('amt_' + invoiceboxesValues[j]).value
+                }
+
+                invoiceboxesAmt.push($amt);
+            }
+
+            var returntotal = 0;
+            for (var i = 0; i < returnboxesAmt.length; i++) {
+                returntotal += parseFloat(returnboxesAmt[i]);
+            }
+            var cmtotal = 0;
+            for (var i = 0; i < cmboxesAmt.length; i++) {
+                cmtotal += parseFloat(cmboxesAmt[i]);
+            }
+            var invoicetotal = 0;
+            for (var i = 0; i < invoiceboxesAmt.length; i++) {
+                invoicetotal += parseFloat(invoiceboxesAmt[i]);
+            }
+            var actualtotal = 0;
+            actualtotal = invoicetotal - returntotal - cmtotal;
+            document.getElementById('total_amount').value = actualtotal;
+
+            setFormatAmount(actualtotal);
+            if (actualtotal <= 0) {
+                document.getElementById('paymentinfo').style.display = 'none';
+            }
+        }
+
+        function setFormatAmount(amt)
+        {
+            url = '<?php echo $block->escapeHtml($block->getUrl('billpay/index/formatamount')) ?>';
+            pelem = $('#total_amount_to_pay');
+            $('#total_amount_to_pay').children().remove();
+            $.ajax({
+                url: url,
+                method: 'get',
+                data: {'amt': amt},
+                success: function (response) {
+                    $('#total_amount_to_pay').html('<div>' + response + '</div>');
+                },
+                failure: function () {
+                    var div = document.createElement('div');
+                    div.innerHTML = amt;
+                    pelem.appendChild(div);
+                }
+            });
+        }
+
+        $("#payNow").click(function (event) {
+            showDiv();
+            event.preventDefault();
+        });
+
+        function showDiv()
+        {
+            var invoiceInput = jQuery("input[name='check_invoice']:checked");
+            if (invoiceInput.length <= 0) {
+                alert("Please Select Invoice to Pay");
+                return false;
+            }
+
+            var total = document.getElementById('total_amount').value;
+            if (total <= 0) {
+                alert('Total amount should be greater than Zero to pay');
+                document.getElementById('paymentinfo').style.display = 'none';
+            } else {
+                document.getElementById('paymentinfo').style.display = 'block';
+            }
+        }
+
+        jQuery("input[id^=p_method_]").click(function () {
+            paymentSwitch(jQuery(this).val());
+        });
+
+        function paymentSwitch(code)
+        {
+            jQuery(".admin__payment-method-wapper .admin__fieldset").hide();
+            jQuery(".admin__payment-method-wapper select,.admin__payment-method-wapper input").attr("disabled", true);
+            jQuery("#payment_form_" + code + " select,#payment_form_" + code + " input").attr("disabled", false);
+            if (code == 'authnetcim') {
+                jQuery("[id^=payment_form_]").hide();
+                jQuery("#payment_form_" + code).show();
+                jQuery("#payment_form_" + code).find(".fieldset").show();
+                jQuery("#payment_form_" + code).find(".field").show();
+                if ($("#authnetcim-card-id").val() != undefined && $("#authnetcim-card-id").val() != "") {
+                    jQuery(".hide-if-card-selected").hide();
+                } else {
+                    jQuery(".hide-if-card-selected").show();
+                }
+                //jQuery("#authnetcim-card-id").hide();
+            } else {
+                jQuery("[id^=payment_form_]").hide();
+                jQuery("#payment_form_" + code).show();
+            }
+            if (code == 'checkmo') {
+                jQuery("#payment_form_checkmo").show();
+            }
+        }
+
+        $("#authnetcim-card-id").change(function () {
+            if ($(this).val() == '') {
+                jQuery(".hide-if-card-selected").show();
+            } else {
+                jQuery(".hide-if-card-selected").hide();
+            }
+        });
+
+        $("#pay_now_payment").click(function () {
+            validate_activity();
+        });
+
+        function validateauthnetcim()
+        {
+            var check_authnetcim = document.getElementById('authnetcim-card-id').disabled;
+            if(!check_authnetcim){
+                return true;
+            }
+            /*var code = document.getElementsByName('authnetcim')[0];
+            if (code = 'authnetcim')
+                return true;*/
+
+        }
+        
+        function validateChargelogic()
+	{
+	    var code = document.getElementById('p_method_chargelogic_connect').value;
+	    if (code == 'chargelogic_connect') return true;
+	}
+    
+        function validate_activity()
+        {
+            if (document.getElementById('total_amount').value <= 0) {
+                alert('Total amount should be greater than Zero to pay');
+                return false;
+            }
+
+            cansendrequest = false;
+            var switcher = $("[id^=p_method_]");
+            paypal = true;
+            checkmo = true;
+            echeckpayment = true;
+            authorize = true;
+            banktrans = true;
+            authnetcim = true;
+            authnetcimecheck = true;
+            chargelogic = true;
+            for (var k = 0; k < switcher.length; k++) {
+                if (switcher[k].checked) {
+                    switch (switcher[k].value) {
+                        case 'verisign':
+                            cansendrequest = validateverisign();
+                            paypal = false;
+                            break;
+                        case 'cashondelivery':
+                            cansendrequest = true;
+                            break;
+                        case 'checkmo':
+                            cansendrequest = validateCheck();
+                            //cansendrequest = true;
+                            checkmo = false;
+                            break;
+                        case 'echeckpayment':
+                            cansendrequest = validateEcheck();
+                            echeckpayment = false;
+                            break;
+                        case 'authorizenet':
+                            cansendrequest = validateauthorizenet();
+                            authorize = false;
+                            break;
+                        case 'authnetcim':
+                            cansendrequest = validateauthnetcim();
+                            authnetcim = false;
+                            break;
+                        case 'authnetcim_ach':
+                            cansendrequest = validateauthnetcimecheck();
+                            authnetcimecheck = false;
+                            break;
+
+                        case 'bankpayment':
+                            cansendrequest = true;
+                            banktrans = false;
+                            break;
+                        case 'payflowpro':
+                            //cansendrequest = validateCheck();
+                            cansendrequest = true;
+                            //payflowpro = false;
+                            break;                        
+                        case 'chargelogic_connect':
+                        	cansendrequest = validateChargelogic();
+                        	chargelogic = false;
+                        	break;
+                    }
+                }
+            }
+
+            if (cansendrequest) {
+                var sure = confirm("Are you sure you want to pay ?");
+                if (sure) {
+                    $("#total_amount_pay").val($("#total_amount").val());
+                    $("#ar_submit").submit();
+                }
+            } else {
+                if (checkmo == true
+                    && paypal == true
+                    && echeckpayment == true
+                    && authorize == true
+                    && banktrans == true
+                    && authnetcim == true
+                    && authnetcimecheck == true
+                    && chargelogic == true
+                )
+                    alert('Please Select Payment method ');
+                else
+                    alert('Please provide valid data');
+            }
+        }
+
+        $("input[id^=amt_]").blur(function () {
+            calculatetotal($(this).attr('data-id'));
+        });
+
+        function calculatetotal(id)
+        {
+            var cAmt = parseFloat(document.getElementById('amt_' + id).value);
+            var aAmt = parseFloat(document.getElementById('outamt_' + id).value);
+            /*if (document.getElementById('intamt_' + id).value != '') {
+                aAmt = aAmt + parseFloat(document.getElementById('intamt_' + id).value);
+            }*/
+
+            var cur_date = new Date();
+            var disc_date = new Date(document.getElementById('discdate_' + id).value);
+            if (document.getElementById('discamt_' + id).value != '' && +disc_date >= +cur_date) {
+                aAmt = aAmt - parseFloat(document.getElementById('discamt_' + id).value);
+            }
+
+            if (aAmt < cAmt) {
+                alert('Entered amount should not exceed Outstanding amount');
+                document.getElementById('amt_' + id).value = aAmt.toFixed(2);
+            } else {
+                if (cAmt == 0) {
+                    document.getElementById('amt_' + id).value = aAmt.toFixed(2);
+                }
+                document.getElementById('amt_' + id).value = cAmt.toFixed(2);
+            }
+
+            var invoiceboxes = document.getElementsByName('check_invoice');
+            var invoiceboxesAmt = [];
+            var invoiceboxesValues = [];
+            // loop over them all
+            for (var i = 0; i < invoiceboxes.length; i++) {
+                // And stick the checked ones onto an array...
+                if (invoiceboxes[i].checked) {
+                    invoiceboxesValues.push(invoiceboxes[i].value);
+                }
+            }
+
+            var returnboxes = document.getElementsByName('check_return');
+            var returnboxesAmt = [];
+            var returnboxesValues = [];
+            // loop over them all
+            for (var i = 0; i < returnboxes.length; i++) {
+                // And stick the checked ones onto an array...
+                if (returnboxes[i].checked) {
+                    returnboxesValues.push(returnboxes[i].value);
+                }
+            }
+
+
+            var cmboxes = document.getElementsByName('check_creditmemo');
+            var cmboxesAmt = [];
+            var cmboxesValues = [];
+            // loop over them all
+            for (var i = 0; i < cmboxes.length; i++) {
+                // And stick the checked ones onto an array...
+                if (cmboxes[i].checked) {
+                    cmboxesValues.push(cmboxes[i].value);
+                }
+            }
+
+            for (var k = 0; k < returnboxesValues.length; k++) {
+                $amt = document.getElementById('amt_' + returnboxesValues[k]).value;
+                returnboxesAmt.push($amt);
+            }
+
+            for (var j = 0; j < invoiceboxesValues.length; j++) {
+                $amt = document.getElementById('amt_' + invoiceboxesValues[j]).value
+                invoiceboxesAmt.push($amt);
+            }
+
+            for (var l = 0; l < cmboxesValues.length; l++) {
+                $amt = document.getElementById('amt_' + cmboxesValues[l]).value
+                cmboxesAmt.push($amt);
+            }
+
+            var cmtotal = 0;
+            for (var i = 0; i < cmboxesAmt.length; i++) {
+                cmtotal += parseFloat(cmboxesAmt[i]);
+            }
+
+            var returntotal = 0;
+            for (var i = 0; i < returnboxesAmt.length; i++) {
+                returntotal += parseFloat(returnboxesAmt[i]);
+            }
+
+            var invoicetotal = 0;
+            for (var i = 0; i < invoiceboxesAmt.length; i++) {
+                invoicetotal += parseFloat(invoiceboxesAmt[i]);
+            }
+            var actualtotal = 0;
+            actualtotal = invoicetotal - returntotal - cmtotal;
+            document.getElementById('total_amount').value = actualtotal;
+            setFormatAmount(actualtotal);
+
+            if (cAmt <= 0) {
+                if (document.getElementById('order_id_' + id)) {
+                    document.getElementById('order_id_' + id).checked = false;
+                }
+            }
+
+            if (actualtotal <= 0) {
+                document.getElementById('paymentinfo').style.display = 'none';
+            }
+        }
+    });
+
+
+    function validateCheck() {
+        if (document.getElementById('check_number').value == '') {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function (
+            $,
+            modal
+            ) {
+            $('[id^="target_order_id_modal"]').on("click", function (eventdata) {
+                $("#payment-data").html("");
+                var invoiceId = $(this).data("rel");
+                var orderId = $(this).data("orderid");
+                $.ajax({
+                    url: "<?php echo $block->escapeHtml($block->getUrl("billpay/index/orderdetail")); ?>",
+                    type: "POST",
+                    data: {invoice_id: invoiceId, order_id: orderId},
+                    success: function (result) {
+                        $("#payment-data").html(result);
+                    }
+                });
+
+                var options = {
+                    type: 'popup',
+                    responsive: true,
+                    innerScroll: true,
+                    title: 'Payment Data',
+                    buttons: [{
+                        text: $.mage.__('Ok'),
+                        class: '',
+                        click: function () {
+                            this.closeModal();
+                        }
+                    }]
+                };
+
+                var popup = modal(options, $('#payment-data'));
+                $('#payment-data').modal('openModal');
+            });
+
+            $('[id^="outstanding_amount_modal"]').on("click", function(eventdata){
+                $("#outstanding_details").html("");
+                var invoiceId = $(this).data("invoice");
+                $.ajax({
+                    url: "<?php echo $this->getUrl("billpay/index/outstandingdetail"); ?>",
+                    type: "POST",
+                    data: {invoice_id:invoiceId},
+                    success: function(result){
+                        $("#outstanding_details").html(result);
+                    }
+                });
+                var options = {
+                    type: 'popup',
+                    responsive: true,
+                    innerScroll: true,
+                    title: 'Payment Details',
+                    buttons: [{
+                        text: $.mage.__('Ok'),
+                        class: '',
+                        click: function () {
+                            this.closeModal();
+                        }
+                    }]
+                };
+
+                var popup = modal(options, $('#outstanding_details'));
+                $('#outstanding_details').modal('openModal');
+            });
+
+            $('[id^="document_id_modal"]').on("click", function(eventdata){
+                $("#penalty_details").html("");
+                var invoiceId = $(this).data("invoice");
+                var doctype = $(this).data("doctype");
+                if(doctype != "penalty"){
+                    return false;
+                }
+                $.ajax({
+                    url: "<?php echo $this->getUrl("billpay/index/penaltydetails"); ?>",
+                    type: "POST",
+                    data: {invoice_id:invoiceId},
+                    success: function(result){
+                        $("#penalty_details").html(result);
+                    }
+                });
+                var options = {
+                    type: 'popup',
+                    responsive: true,
+                    innerScroll: true,
+                    title: 'Penalty Details',
+                    buttons: [{
+                        text: $.mage.__('Ok'),
+                        class: '',
+                        click: function () {
+                            this.closeModal();
+                        }
+                    }]
+                };
+
+                var popup = modal(options, $('#penalty_details'));
+                $('#penalty_details').modal('openModal');
+            });
+        }
+    );
+</script>
+<style>
+    #authnetcim-cc-type{display: block !important;}
+</style>
+<div id="payment-data" style="display:none">&nbsp;</div>
+<div id="outstanding_details" style="display:none">&nbsp;</div>
+<div id="penalty_details" style="display:none">&nbsp;</div>

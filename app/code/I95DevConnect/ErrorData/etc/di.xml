@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_ErrorData
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="\Magento\Framework\Mail\Template\TransportBuilder" type="\I95DevConnect\ErrorData\Mail\Template\TransportBuilder" />
+    <type name="\I95DevConnect\MessageQueue\Model\AbstractDataPersistence">
+      <plugin name="validation_error_log" type="\I95DevConnect\ErrorData\Plugin\Reverse\ErrorLog" sortOrder="10" disabled="false" />
+    </type>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="i95devcron" xsi:type="object">I95DevConnect\ErrorData\Console\Cron</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

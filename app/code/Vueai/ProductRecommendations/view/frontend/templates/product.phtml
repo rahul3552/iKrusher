@@ -1,0 +1,14 @@
+
+<?php
+// @codingStandardsIgnoreFile
+/** @var Magento\Catalog\Block\Product\View $block */
+$productId  = $block->getProduct()->getId();
+$productSku = $block->getProduct()->getSku();
+if ($productId):
+    ?>
+    <div class="vue-ai-product-page" id="vue-ai-product-page-<?= $productId ?>" data-vue="<?= $productId ?>"></div>
+    <div class="vue-ai-product-sku" id="vue-ai-product-sku-<?= $productSku ?>" data-vue="<?= $productSku ?>"></div>
+<?php
+endif;
+?>
+

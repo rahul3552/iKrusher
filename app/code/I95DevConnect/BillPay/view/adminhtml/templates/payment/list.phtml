@@ -1,0 +1,60 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+
+<section class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title">Payments</span>
+    </div>
+    <div class="admin__table-wrapper">
+        <?php $_payments = $block->getPaymentsDetails(); ?>
+        <?php if ($_payments && !empty($_payments)):
+            ?>
+            <table class="data-table admin__table-primary edit-order-table">
+                <thead>
+                    <tr class="headings">
+                        <th class="col-order-id"><span>Order Id</span></th>
+                        <th class="col-type"><span>Type</span></th>
+                        <th class="col-invoice-id"><span>Invoice Id</span></th>
+                        <th class="col-invoice-date"><span>Invoice Date</span></th>
+                        <th class="col-amount-adjusted"><span>Amount Adjusted</span></th>
+                        <th class="col-status"><span>Invoice Status</span></th>
+                    </tr>
+                </thead>
+                <tbody class="even">
+                    <?php foreach ($_payments as $_payment): ?>
+                        <tr>
+                            <td class="col-order-id">
+                                <?php echo $block->escapeHtml($_payment['target_order_id']); ?>
+                            </td>
+                            <td class="col-type">
+                                <?php echo $block->escapeHtml($_payment['type']); ?>
+                            </td>
+                            <td class="col-invoice-id">
+                                <?php echo $block->escapeHtml($_payment['target_invoice_id']); ?>
+                            </td>
+                            <td class="col-invoice-date">
+                                <?php echo $block->escapeHtml($block->formatDate($_payment['modified_date'])); ?>
+                            </td>
+                            <td class="col-amount-adjusted">
+                                <?php echo $block->escapeHtml($block->formatPrice($_payment['amount'])); ?>
+                            </td>
+                            <td class="col-status">
+                                <?php echo $block->escapeHtml($_payment['status']); ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <div class="message info empty">
+                <span><?php echo $block->escapeHtml(__('You have no transaction.')); ?></span>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>

@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_NetTerms
+ */
+?>
+<?php
+
+$netTermId = $block->getNetTermId();
+if (isset($netTermId) || $netTermId != "") {
+    echo "<h3 style='background: #f0f0f0;padding: 15px;font-weight: 400;'> Net Term ID : "
+    . $block->escapeHtml($netTermId) . "</h3>";
+} else {
+    echo "<h3 style='background: #f0f0f0;padding: 15px;font-weight: 400;'>"
+    . " Net Term is not Assigned to this Customer </h3>";
+}
+?>

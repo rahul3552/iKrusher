@@ -1,0 +1,13 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var \Aheadworks\Ctq\ViewModel\Customer\Export\Address $addressViewModel */
+$addressViewModel = $block->getAddressViewModel();
+?>
+<?php if ($addressViewModel) : ?>
+<th width="400" align="left">
+    <div>
+        <?= $addressViewModel->getAddressHtml(); ?>
+    </div>
+</th>
+<br />
+<?php endif ?>

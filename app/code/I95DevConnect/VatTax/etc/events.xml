@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_VatTax
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="erpconnect_messagequeuetomagento_beforesave_customer">
+        <observer name="i95dev_assign_busposttax_to_customer" instance="I95DevConnect\VatTax\Observer\Reverse\AssignBusPostTaxToCustomer" />
+    </event>
+    <event name="erpconnect_messagequeuetomagento_beforesave_product">
+        <observer name="i95dev_assign_producttax_to_product" instance="I95DevConnect\VatTax\Observer\Reverse\AssignProductPostTaxToProduct" />
+    </event>
+    <event name="erpconnect_messagequeuetomagento_aftersave_quote">
+        <observer name="i95dev_vattax_erpconnect_quotesave" instance="I95DevConnect\VatTax\Observer\Reverse\Quote" />
+    </event>    
+    <event name="erpconnect_forward_orderinfo">
+        <observer name="i95dev_vattax_erpconnect_orderinfo" instance="I95DevConnect\VatTax\Observer\Forward\Order" />
+    </event>
+    <event name="erpconnect_messagequeuetomagento_beforesave_configurableproducts">
+        <observer name="i95dev_assign_producttax_to_product" instance="I95DevConnect\VatTax\Observer\Reverse\AssignProductPostTaxToProduct" />
+    </event>
+</config>
+ 

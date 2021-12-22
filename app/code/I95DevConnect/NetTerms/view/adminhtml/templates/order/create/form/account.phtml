@@ -1,0 +1,40 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_NetTerms
+ * @codingStandardsIgnoreFile
+ */
+?>
+<?php
+$customerNetTermId = $block->getCustomerNetTermId();
+$netTermsData = $block->getNetTermsData();
+?>
+<div class="admin__page-section-title <?php echo $block->escapeHtml($block->getHeaderCssClass()) ?>">
+    <span class="title"><?php echo $block->escapeHtml($block->getHeaderText()); ?></span>
+    <div class="actions"></div>
+</div>
+
+<div id="customer_account_fieds" class="admin__page-section-content">
+    <div class="admin__field-control control" id="net_terms" style="margin-bottom: 30px">
+        <table class="admin__table-secondary" aria-describedby="NetTerms Info">
+            <tbody>
+                <tr>
+                    <th scope="col"><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Net Terms')) ?></th>
+
+                    <?php
+                    if ($customerNetTermId == '') {
+                        ?>
+                        <td><?php /* @noEscape */ echo __('Not Available'); ?></td>
+                        <?php
+                    } else {
+                        ?>
+                        <td><?php /* @noEscape */ echo $customerNetTermId; ?></td>
+                        <?php
+                    }
+                    ?>
+                </tr>
+            <tbody>
+        </table>
+    </div>
+</div>

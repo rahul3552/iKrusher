@@ -1,0 +1,58 @@
+@import "components/_variables";
+@import "components/_mixins";
+@import "components/_file_uploader";
+@import "components/customer/quote/_comment";
+@import "components/ui/form/_form";
+@import "components/customer/quote/_history";
+@import "components/customer/quote/_edit";
+@import "components/customer/quote/_header";
+@import "components/_quotelist";
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true){
+  .cart-summary {
+    .checkout-methods-items {
+      .aw-atq__request-quote-action {
+        width: 100%;
+      }
+    }
+  }
+
+  .aw_ctq__clear-cart-wrapper {
+    width: 75%;
+    padding-right: 4%;
+    box-sizing: border-box;
+
+    .actions {
+      float: right;
+    }
+  }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .aw_ctq__clear-cart-wrapper {
+    margin-bottom: 20px;
+    text-align: center;
+    padding-right: 0;
+    width: auto;
+
+    .actions {
+      float: none;
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}

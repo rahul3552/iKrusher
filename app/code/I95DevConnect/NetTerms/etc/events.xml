@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_NetTerms
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="erpconnect_messagequeuetomagento_beforesave_customer">
+        <observer name="i95dev_netterms_customer_assignment" instance="I95DevConnect\NetTerms\Observer\Reverse\NetTermsObserver" />
+    </event>
+    <event name="erpconnect_forward_customerinfo">
+        <observer name="netterms_erpconnect_forward_customerinfo" instance="\I95DevConnect\NetTerms\Observer\Forward\NetTerms" />
+    </event>
+    <event name="creditlimit_event_before">
+        <observer name="i95dev_netterms_order_assignment" instance="I95DevConnect\NetTerms\Observer\Forward\NetTermsOrderObserver"  />
+    </event>
+    <event name="erpconnect_forward_orderinfo">
+        <observer name="netterms_erpconnect_forward_orderinfo" instance="\I95DevConnect\NetTerms\Observer\Forward\OrderNetTerms" />
+    </event>
+    <event name="erpconnect_messagequeuetomagento_aftersave_order">
+        <observer name="i95dev_netterms_order_reverse_assignment" instance="I95DevConnect\NetTerms\Observer\Reverse\OrderObserver" />
+    </event>
+    <event name="erpconnect_messagequeuetomagento_aftersave_editOrder">
+        <observer name="i95dev_netterms_order_reverse_assignment" instance="I95DevConnect\NetTerms\Observer\Reverse\OrderObserver" />
+    </event>
+    <event name="erpconnect_forward_customerresponse">
+        <observer name="i95dev_netterms_forward_customerresponse" instance="I95DevConnect\NetTerms\Observer\Forward\CustomerResponseObserver" />
+    </event>
+</config>

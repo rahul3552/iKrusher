@@ -1,0 +1,76 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+
+<?php
+$_payments = $block->getPayments();
+$paymentCount = count($_payments);
+?>
+<?php if ($paymentCount > 0): ?>
+    <div class="table-wrapper manage-payment">
+        <table class="data table table-order-items my-payments" id="my-billpay-table">
+            <caption class="table-caption">
+                <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('My Payments')) ?>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col payment_type">
+                        <?php echo $block->escapeHtml(__('Payment Type')) ?>
+                    </th>
+                    <th scope="col" class="col cash_receipt_number">
+                        <?php echo $block->escapeHtml(__('Cash Receipt Number')) ?>
+                    </th>
+                    <th scope="col" class="col transaction_id">
+                        <?php echo $block->escapeHtml(__('Transaction ID')) ?>
+                    </th>
+                    <th scope="col" class="col date"><?php echo $block->escapeHtml(__('Date')) ?></th>
+                    <th scope="col" class="col amount"><?php echo $block->escapeHtml(__('Amount')) ?></th>
+                    <th scope="col" class="col status"><?php echo $block->escapeHtml(__('Status')) ?></th>
+                    <th scope="col" class="col actions"><?php echo $block->escapeHtml(__('Actions')) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($_payments as $_payment): ?>
+                    <tr>
+                        <td data-th="<?php echo $block->escapeHtml(__('Payment Type')) ?>" class="col payment_type">
+                            <?php echo $block->escapeHtml($_payment->getPaymentType()) ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Cash Receipt Number')) ?>" class="col id">
+                            <?php echo $block->escapeHtml($_payment->getCashReceiptNumber()) ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Transaction ID')) ?>" class="col date">
+                            <?php echo $block->escapeHtml($_payment->getPaymentTransId()); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Date')) ?>" class="col date">
+                            <?php echo $block->escapeHtml($block->formatDate($_payment->getPaymentDate())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Amount')) ?>" class="col due_date">
+                            <?php echo $block->escapeHtml($block->formatPrice($_payment->getTotalAmt())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Status')) ?>" class="col invoice_amount">
+                            <?php echo $block->escapeHtml($_payment->getStatus()) ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Actions')) ?>" class="col actions">
+                            <a href="<?php echo $block->escapeHtml($block->getViewUrl($_payment)) ?>"
+                               class="action view">
+                                <span><?php echo $block->escapeHtml(__('View Details')) ?></span>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="payment-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty">
+        <span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('You have no transaction.')); ?></span>
+    </div>
+<?php endif ?>

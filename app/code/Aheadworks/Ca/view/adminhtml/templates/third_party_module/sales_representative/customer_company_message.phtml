@@ -1,0 +1,15 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Backend\Block\Template $block */
+/** @var \Aheadworks\Ca\Model\ThirdPartyModule\Aheadworks\SalesRepresentative\ViewModel\CustomerCompanyMessage $viewModel */
+$viewModel = $block->getViewModel();
+$companyId = $block->getCompanyId();
+?>
+<p><?= /* @noEscape */ __(
+        'This customer belongs to a company %1 and its current Sales Representative is %2.',
+        $viewModel->prepareCompanyLink($companyId),
+        $viewModel->prepareSalesRepLink($companyId)
+    ) ?>
+</p>
+<p><?= $block->escapeHtml(__('You can change Sales Representative in the Company\'s profile .')) ?></p>

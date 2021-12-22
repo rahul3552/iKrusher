@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <body>
+        
+        <referenceContainer name="content">
+            <referenceContainer name="admin.scope.col.wrap" htmlClass="admin__old" />
+            <block class="I95DevConnect\BillPay\Block\Adminhtml\Customer\Payment\View" name="payment_details" template="paymentview.phtml">
+                
+                <block class="I95DevConnect\BillPay\Block\Adminhtml\Customer\Payment\PaymentDetail" name="billpay_payment_details" template="payment/details.phtml"/>
+                <block class="I95DevConnect\BillPay\Block\Adminhtml\Customer\Payment\Transaction" name="billpay_transaction_details" template="payment/transaction.phtml"/>
+                <block class="I95DevConnect\BillPay\Block\Adminhtml\Customer\Payment\PaymentList" name="billpay_list_details" template="payment/list.phtml"/>
+                
+            </block>
+        </referenceContainer>
+    </body>
+</layout>

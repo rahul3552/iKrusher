@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+       <referenceBlock name="customer_form">
+            <block class="I95DevConnect\BillPay\Block\Adminhtml\Customer\Edit\Tab\ManagePayments" ifconfig="i95devconnect_billpay/billpay_enabled_settings/enable" name="managePayments"/>
+            <block class="I95DevConnect\BillPay\Block\Adminhtml\Customer\Edit\Tab\BillPayDetails" ifconfig="i95devconnect_billpay/billpay_enabled_settings/enable" name="billpayDetails"/>
+            <block class="I95DevConnect\BillPay\Block\Adminhtml\Customer\Edit\Tab\BillPayPayments" ifconfig="i95devconnect_billpay/billpay_enabled_settings/enable" name="billpayPayments"/>
+       </referenceBlock>
+    </body>
+</page>

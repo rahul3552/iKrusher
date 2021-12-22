@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_EgeClaue
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MGS\ClaueTheme\Block\Adminhtml\System\Import" type="I95DevConnect\EgeClaue\Block\Adminhtml\System\Import"/>
+    <preference for="MGS\ClaueTheme\Controller\Adminhtml\Mpanel\ClaueTheme\Import" type="I95DevConnect\EgeClaue\Controller\Adminhtml\ClaueTheme\Import" />
+    <preference for="Magento\Backend\Controller\Adminhtml\Cache\MassDisable" type="I95DevConnect\EgeClaue\Controller\Adminhtml\Cache\MassDisable" />
+    <preference for="Magento\Backend\Controller\Adminhtml\Cache\MassEnable" type="I95DevConnect\EgeClaue\Controller\Adminhtml\Cache\MassEnable" />
+</config>

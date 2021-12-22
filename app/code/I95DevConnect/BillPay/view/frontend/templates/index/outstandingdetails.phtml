@@ -1,0 +1,61 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<?php $_receipts = $block->getReceiptDetails();
+$_receiptsCount = count($_receipts); ?>
+<?php if ($_receipts && $_receiptsCount > 0): ?>
+    <div class="table-wrapper manage-receipt">
+        <table class="data table table-order-items my-receipt" id="my-receipt-table">
+            <caption class="table-caption">
+                <?php /* @escapeNotVerified */ echo $block->escapeHtml(__('My Payment Details')) ?>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col paymenttype"><?php echo $block->escapeHtml(__('Payment Type')) ?></th>
+                    <th scope="col" class="col paymentdate"><?php echo $block->escapeHtml(__('Payment Date')) ?></th>
+                    <th scope="col" class="col paymentid"><?php echo $block->escapeHtml(__('Payment ID')) ?></th>
+                    <th scope="col" class="col cashrecipt"><?php echo $block->escapeHtml(__('Cash Receipt No')) ?></th>
+                    <th scope="col" class="col amount"><?php echo $block->escapeHtml(__('Amount')) ?></th>
+                    <th scope="col" class="col status"><?php echo $block->escapeHtml(__('Status')) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($_receipts as $_receipt):  ?>
+                    <tr>
+                        <td data-th="<?php echo $block->escapeHtml(__('Payment Type')) ?>" class="col id">
+                            <?php echo $block->escapeHtml($_receipt->getPaymentType()); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Payment Date')) ?>" class="col date">
+                            <?php echo $block->escapeHtml($block->formatDate($_receipt->getPaymentDate())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Payment ID')) ?>" class="col payment_id">
+                            <?php echo $block->escapeHtml($_receipt->getPrimaryId()); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Cash Receipt No')) ?>" class="col due_date">
+                            <?php echo $block->escapeHtml($_receipt->getCashReceiptNumber()); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Amount')) ?>" class="col outstanding_amount">
+                            <?php echo $block->escapeHtml($block->formatPrice($_receipt->getAmount())); ?>
+                        </td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Status')) ?>" class="col invoice_status">
+                            <?php echo $block->escapeHtml($_receipt->getStatus()); ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="payment-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty">
+        <span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('You have no transactions.')); ?></span>
+    </div>
+<?php endif;
+exit; ?>

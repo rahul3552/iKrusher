@@ -1,0 +1,27 @@
+<?php  /** @var \Vueai\ProductRecommendations\Block\Adminhtml\Index\Signup $block */?>
+<div class="signin-successpage">
+    <div class="form-logo">
+        <img src='<?php echo $block->escapeUrl($block->getMediaUrl()); ?>' alt="Logo">
+    </div>
+    <div class="form-captionwrap success">
+        <h3>
+            <?php echo $block->escapeHtml(__('Thank you for signing up with us!')); ?>
+        </h3>
+        <p>
+            <?php echo $block->escapeHtml(__('We will get in touch with you shortly.
+                                                   For more details please contact our support')); ?>
+            <a href="mailto:support@vue.ai"> support@vue.ai</a>
+        </p>
+    </div>
+    <div class="form-stepsblock">
+        <h3>
+            <?php echo $block->escapeHtml(__("What's Next?")); ?>
+        </h3>
+        <div class="form-infoblock">
+        <p><?php echo $block->escapeHtml(__('1. Vue.ai will create your account')); ?></p>
+        <p><?php echo $block->escapeHtml(__('2. Fetch product catalog from your Magento store')); ?></p>
+        <p><?php echo $block->escapeHtml(__('3. Setup recommendations for your website')); ?></p>
+        <p><?php echo $block->escapeHtml(__('4. Go-Live!')); ?></p>
+        </div>
+    </div>
+</div>

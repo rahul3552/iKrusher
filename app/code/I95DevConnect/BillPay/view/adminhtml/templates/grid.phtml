@@ -1,0 +1,866 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<?php
+define('GRID_MASSACTION','grid.massaction');
+define('NEXT_PAGE','Next page');
+define('NBSP','&nbsp;');
+define('MASSACTION','massaction1');
+define('CHECK','data-grid-checkbox-cell');
+define('FORM_KEY','form_key');
+
+/**
+ * Template for \Magento\Backend\Block\Widget\Grid
+ *
+ *  getId()
+ *  getCollection()
+ *  getColumns()
+ *  getPagerVisibility()
+ *  getVarNamePage()
+ *
+ */
+/* @var $block \Magento\Backend\Block\Widget\Grid */
+$numColumns = sizeof($block->getColumns());
+?>
+<form id="ar_submit" name="ar_submit" method='post' data-mage-init='{"validation": {}}' action="<?php echo $this->getPaymentFormAction(); ?>" autocomplete="off">
+<?php if ($block->getCollection()): ?>
+
+    <?php if ($block->canDisplayContainer()): ?>
+<div id="<?php echo $block->escapeHtml($block->getId()) ?>" data-grid-id="<?php echo $block->escapeHtml($block->getId()) ?>">
+<?php else: ?>
+    <?php echo $block->getLayout()->getMessagesBlock()->getGroupedHtml() ?>
+<?php endif; ?>
+
+        <div class="admin__data-grid-header admin__data-grid-toolbar">
+            <?php $massActionAvailable = $block->getChildBlock(GRID_MASSACTION) && $block->getChildBlock(GRID_MASSACTION)->isAvailable() ?>
+            <?php if ($block->getPagerVisibility() || $block->getExportTypes() || $block->getChildBlock('grid.columnSet')->getFilterVisibility() || $massActionAvailable): ?>
+            <div class="admin__data-grid-header-row">
+                <?php if ($massActionAvailable): ?>
+                    <?php echo $block->getMainButtonsHtml() ? '<div class="admin__filter-actions">' . $block->getMainButtonsHtml() . '</div>' : ''; ?>
+                <?php endif; ?>
+
+                <?php if ($block->getChildBlock('grid.export')): ?>
+                    <?php echo $block->getChildHtml('grid.export'); ?>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
+            <div class="<?php if ($massActionAvailable) { echo '_massaction ';} ?>admin__data-grid-header-row">
+                <?php if ($massActionAvailable): ?>
+                    <?php echo $block->getChildHtml(GRID_MASSACTION) ?>
+                <?php else: ?>
+                    <?php echo $block->getMainButtonsHtml() ? '<div class="admin__filter-actions">' . $block->getMainButtonsHtml() . '</div>' : ''; ?>
+                <?php endif; ?>
+                    <?php $countRecords = $block->getCollection()->getSize(); ?>
+                    <div class="admin__control-support-text">
+                        <span id="<?php echo $block->escapeHtml($block->getHtmlId()) ?>-total-count" <?php /* @escapeNotVerified */ echo $block->getUiId('total-count') ?>>
+                            <?php /* @escapeNotVerified */ echo $countRecords ?>
+                        </span>
+                        <?php /* @escapeNotVerified */ echo __('records found') ?>
+                        <span id="<?php echo $block->escapeHtml($block->getHtmlId()) ?>_massaction-count"
+                              class="mass-select-info _empty"><strong data-role="counter">0</strong> <span><?php /* @escapeNotVerified */ echo __('selected') ?></span></span>
+                    </div>
+                <?php if ($block->getPagerVisibility()): ?>
+                    <div class="admin__data-grid-pager-wrap">
+                        <select name="<?php /* @escapeNotVerified */ echo $block->getVarNameLimit() ?>"
+                                id="<?php echo $block->escapeHtml($block->getHtmlId())?>_page-limit"
+                                onchange="<?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.loadByElement(this)" <?php /* @escapeNotVerified */ echo $block->getUiId('per-page') ?>
+                                class="admin__control-select">
+                            <option value="20"<?php if ($block->getCollection()->getPageSize() == 20): ?>
+                                selected="selected"<?php endif; ?>>20
+                            </option>
+                            <option value="30"<?php if ($block->getCollection()->getPageSize() == 30): ?>
+                                selected="selected"<?php endif; ?>>30
+                            </option>
+                            <option value="50"<?php if ($block->getCollection()->getPageSize() == 50): ?>
+                                selected="selected"<?php endif; ?>>50
+                            </option>
+                            <option value="100"<?php if ($block->getCollection()->getPageSize() == 100): ?>
+                                selected="selected"<?php endif; ?>>100
+                            </option>
+                            <option value="200"<?php if ($block->getCollection()->getPageSize() == 200): ?>
+                                selected="selected"<?php endif; ?>>200
+                            </option>
+                        </select>
+                        <label for="<?php echo $block->escapeHtml($block->getHtmlId())?>_page-limit"
+                            class="admin__control-support-text"><?php /* @escapeNotVerified */ echo __('per page') ?></label>
+                        <div class="admin__data-grid-pager">
+                            <?php $_curPage = $block->getCollection()->getCurPage() ?>
+                            <?php $_lastPage = $block->getCollection()->getLastPageNumber() ?>
+
+                            <?php if ($_curPage > 1): ?>
+                                <button class="action-previous"
+                                        type="button"
+                                        onclick="<?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.setPage('<?php /* @escapeNotVerified */ echo $_curPage - 1 ?>');return false;">
+                                            <span><?php /* @escapeNotVerified */ echo __('Previous page') ?></span>
+                                </button>
+                            <?php else: ?>
+                                <button type="button" class="action-previous disabled"><span><?php /* @escapeNotVerified */ echo __('Previous page') ?></span></button>
+                            <?php endif; ?>
+
+                            <input type="text"
+                                   id="<?php echo $block->escapeHtml($block->getHtmlId())?>_page-current"
+                                   name="<?php /* @escapeNotVerified */ echo $block->getVarNamePage() ?>"
+                                   value="<?php /* @escapeNotVerified */ echo $_curPage ?>"
+                                   class="admin__control-text"
+                                   onkeypress="<?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.inputPage(event, '<?php /* @escapeNotVerified */ echo $_lastPage ?>')" <?php /* @escapeNotVerified */ echo $block->getUiId('current-page') ?> />
+
+                            <label class="admin__control-support-text" for="<?php echo $block->escapeHtml($block->getHtmlId())
+                            ?>_page-current">
+                                <?php /* @escapeNotVerified */ echo __('of %1', '<span>' . $block->getCollection()->getLastPageNumber() . '</span>') ?>
+                            </label>
+                            <?php if ($_curPage < $_lastPage): ?>
+                                <button title="<?php /* @escapeNotVerified */ echo __(NEXT_PAGE) ?>"
+                                        class="action-next"
+                                        onclick="<?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.setPage('<?php /* @escapeNotVerified */ echo $_curPage + 1 ?>');return false;">
+                                    <span><?php /* @escapeNotVerified */ echo __(NEXT_PAGE) ?></span>
+                                </button>
+                            <?php else: ?>
+                                <button type="button" class="action-next disabled"><span><?php /* @escapeNotVerified */ echo __(NEXT_PAGE) ?></span></button>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endif ?>
+            </div>
+        </div>
+        <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+        <?php if ($block->getGridCssClass()): ?>
+            <table class="<?php /* @escapeNotVerified */ echo $block->getGridCssClass() ?> data-grid" id="<?php echo $block->escapeHtml($block->getId()) ?>_table">
+                <!-- Rendering column set -->
+                <?php
+                ?>
+            <?php if ($block->getHeadersVisibility() || $block->getFilterVisibility()): ?>
+                <thead>
+                <?php if ($block->getHeadersVisibility()): ?>
+                    <tr>
+                        <?php foreach ($block->getColumns() as $_column): ?>
+                            <?php if ($_column->getHeaderHtml() == NBSP):?>
+                                <th class="data-grid-th" data-column="<?php /* @escapeNotVerified */ echo $_column->getId() ?>"
+                                    <?php echo $_column->getHeaderHtmlProperty() ?>>&nbsp;</th>
+                            <?php else: ?>
+                                <?php echo $_column->getHeaderHtml()?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </tr>
+                <?php endif; ?>
+                <?php if ($block->getFilterVisibility()): ?>
+                    <tr class="data-grid-filters" data-role="filter-form">
+                        <?php $i = 0;
+                        foreach ($block->getColumns() as $_column): ?>
+                            <td data-column="<?php /* @escapeNotVerified */ echo $_column->getId() ?>" <?php echo $_column->getHeaderHtmlProperty() ?>>
+                                <?php echo $_column->getFilterHtml() ?>
+                            </td>
+                        <?php endforeach; ?>
+                    </tr>
+                <?php endif ?>
+                </thead>
+            <?php endif; ?>
+            <?php //if ($block->getCountTotals()): ?>
+                <tfoot>
+                <tr class="totals">
+                    <?php foreach ($block->getColumns() as $_column): ?>
+                        <th class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?>">
+                            <?php /* @escapeNotVerified */ echo($_column->hasTotalsLabel()) ? $_column->getTotalsLabel() : $_column->getRowField($_column->getGrid()->getTotals()) ?>
+                        </th>
+                    <?php endforeach; ?>
+                </tr>
+                </tfoot>
+            <tbody>
+            <?php if (($block->getCollection()->getSize() > 0) && (!$block->getIsCollapsed())): ?>
+                <?php foreach ($block->getCollection() as $_index => $_item): ?>
+                    <tr title="<?php /* @escapeNotVerified */ echo $block->getRowUrl($_item) ?>"<?php if ($_class = $block->getRowClass($_item)): ?>
+                        class="<?php /* @escapeNotVerified */ echo $_class; ?>"<?php endif; ?> ><?php
+                        $i = 0;
+                        foreach ($block->getColumns() as $_column):
+                            if ($block->shouldRenderCell($_item, $_column)):
+                                $_rowspan = $block->getRowspan($_item, $_column);
+                                ?>
+                            <td <?php echo $_rowspan ? 'rowspan="' . $_rowspan . '" ' : '' ?>
+                                class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?>
+                                        <?php /* @escapeNotVerified */ echo $_column->getId() == MASSACTION ? CHECK: ''?>">
+                                <?php echo ($_html = $_column->getRowField($_item)) != '' ? $_html : NBSP; ?>
+                                </td><?php
+                                if ($block->shouldRenderEmptyCell($_item, $_column)):
+                                    ?>
+                                    <td colspan="<?php /* @escapeNotVerified */ echo $block->getEmptyCellColspan($_item) ?>"
+                                        class="last"><?php /* @escapeNotVerified */ echo $block->getEmptyCellLabel() ?></td><?php
+                                endif;
+                            endif;
+                        endforeach; ?>
+                    </tr>
+                    <?php if ($_multipleRows = $block->getMultipleRows($_item)): ?>
+                        <?php foreach ($_multipleRows as $_i): ?>
+                            <tr>
+                                <?php $i = 0;
+                                foreach ($block->getMultipleRowColumns($_i) as $_column): ?>
+                                    <td class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?>
+                                        <?php /* @escapeNotVerified */ echo $_column->getId() == MASSACTION ? CHECK: ''?>">
+                                        <?php echo ($_html = $_column->getRowField($_i)) != '' ? $_html : NBSP ?>
+                                    </td>
+                                <?php endforeach; ?>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+
+                    <?php if ($block->shouldRenderSubTotal($_item)): ?>
+                        <tr class="subtotals">
+                            <?php $i = 0;
+                            foreach ($block->getSubTotalColumns() as $_column): ?>
+                                <td class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?>
+                                           <?php /* @escapeNotVerified */ echo $_column->getId() == MASSACTION ? CHECK: ''?>">
+                                    <?php /* @escapeNotVerified */ echo $_column->hasSubtotalsLabel() ? $_column->getSubtotalsLabel() :
+                                        $_column->getRowField($block->getSubTotalItem($_item)
+                                    );
+                                    ?>
+                                </td>
+                            <?php endforeach; ?>
+                        </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php elseif ($block->getEmptyText()): ?>
+                <tr class="data-grid-tr-no-data">
+                    <td class="<?php /* @escapeNotVerified */ echo $block->getEmptyTextClass() ?>"
+                        colspan="<?php /* @escapeNotVerified */ echo $numColumns ?>"><?php /* @escapeNotVerified */ echo $block->getEmptyText() ?></td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+            </table>
+        <?php else: ?>
+
+            <table class="data-grid" id="<?php echo $block->escapeHtml($block->getId()) ?>_table">
+                <!-- Rendering column set -->
+                <?php
+
+                ?>
+            <?php if ($block->getHeadersVisibility() || $block->getFilterVisibility()): ?>
+                <thead>
+                <?php if ($block->getHeadersVisibility()): ?>
+                    <tr>
+                        <?php foreach ($block->getColumns() as $_column): ?>
+                            <?php if ($_column->getHeaderHtml() == NBSP):?>
+                                <th class="data-grid-th" data-column="<?php /* @escapeNotVerified */ echo $_column->getId() ?>"
+                                    <?php echo $_column->getHeaderHtmlProperty() ?>>&nbsp;</th>
+                            <?php else: ?>
+                                <?php echo $_column->getHeaderHtml()?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </tr>
+                <?php endif; ?>
+                <?php if ($block->getFilterVisibility()): ?>
+                    <tr class="data-grid-filters" data-role="filter-form">
+                        <?php $i = 0;
+                        foreach ($block->getColumns() as $_column): ?>
+                            <td data-column="<?php /* @escapeNotVerified */ echo $_column->getId() ?>" <?php echo $_column->getHeaderHtmlProperty() ?>>
+                                <?php echo $_column->getFilterHtml() ?>
+                            </td>
+                        <?php endforeach; ?>
+                    </tr>
+                <?php endif ?>
+                </thead>
+            <?php endif; ?>
+            <?php //if ($block->getCountTotals()): ?>
+                <tfoot>
+                <tr class="totals">
+                    <?php foreach ($block->getColumns() as $_column): ?>
+                        <th class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?>">
+                            <?php /* @escapeNotVerified */ echo($_column->hasTotalsLabel()) ? $_column->getTotalsLabel() : $_column->getRowField($_column->getGrid()->getTotals()) ?>
+                        </th>
+                    <?php endforeach; ?>
+                </tr>
+                </tfoot>
+
+            <tbody>
+            <?php if (($block->getCollection()->getSize() > 0) && (!$block->getIsCollapsed())): ?>
+                <?php foreach ($block->getCollection() as $_index => $_item): ?>
+                    <tr title="<?php /* @escapeNotVerified */ echo $block->getRowUrl($_item) ?>"<?php if ($_class = $block->getRowClass($_item)): ?>
+                        class="<?php /* @escapeNotVerified */ echo $_class; ?>"<?php endif; ?> ><?php
+                        $i = 0;
+                        foreach ($block->getColumns() as $_column):
+                            if ($block->shouldRenderCell($_item, $_column)):
+                                $_rowspan = $block->getRowspan($_item, $_column);
+                                ?>
+                            <td <?php echo $_rowspan ? 'rowspan="' . $_rowspan . '" ' : '' ?>
+                                class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?>
+                                        <?php /* @escapeNotVerified */ echo $_column->getId() == MASSACTION ? CHECK: ''?>">
+                                <?php
+                                if ($_column->getId() == "magento_order_id" || $_column->getId() == "outstanding_amount" || $_column->getId() == "target_invoice_id") {
+                                    if ($_column->getId() == "magento_order_id") {
+                                        ?>
+                                <a href="#" data-rel="<?php echo $_item->getTargetInvoiceId();?>" data-orderid="<?php echo $_item->getMagentoOrderId();?>" class="" id="target_order_id_modal_<?php echo $_item->getId(); ?>">
+                                        <?php
+                                        echo ($_html = $_column->getRowField($_item)) != '' ? $_html : NBSP;
+                                        ?>
+                                </a>
+                                        <?php
+                                    } elseif ($_column->getId() == "target_invoice_id") {
+                                        ?>
+                                <a href="#" data-invoice="<?php echo $_item->getTargetInvoiceId();?>" data-doctype="<?php echo $_item->getType();?>" class="" id="document_id_modal_<?php echo $_item->getId(); ?>">
+                                        <?php
+                                        echo ($_html = $_column->getRowField($_item)) != '' ? $_html : NBSP;
+                                        ?>
+                                </a>
+                                        <?php
+                                    } else {
+                                        ?>
+                                <a href="#" data-invoice="<?php echo $_item->getTargetInvoiceId();?>" class="" id="outstanding_amount_modal_<?php echo $_item->getId(); ?>">
+                                        <?php
+                                        echo ($_html = $_column->getRowField($_item)) != '' ? $_html : NBSP;
+                                        ?>
+                                </a>
+                                        <?php
+                                    }
+                                } else {
+                                    echo ($_html = $_column->getRowField($_item)) != '' ? $_html : NBSP;
+                                }
+                                ?>
+                                </td><?php
+                                if ($block->shouldRenderEmptyCell($_item, $_column)):
+                                    ?>
+                                    <td colspan="<?php /* @escapeNotVerified */ echo $block->getEmptyCellColspan($_item) ?>"
+                                        class="last"><?php /* @escapeNotVerified */ echo $block->getEmptyCellLabel() ?></td><?php
+                                endif;
+                                ?>
+                                    <input type='hidden' id="<?php echo $_column->getId() . $_item->getId(); ?>" name="invoices[<?php echo $_item->getId() ?>][<?php echo $_column->getId()?>]" value='<?php if ($_column->getId()!='check_invoice') { echo $_item->getData($_column->getId());
+                                                             } else {if ($_column->getId()=='pay_now') { echo "0.00";
+                                                             } else { echo $_item->getId();}
+                                    } ?>' />
+                                    <?php
+                            endif;
+                        endforeach; ?>
+                    </tr>
+                    <?php if ($_multipleRows = $block->getMultipleRows($_item)): ?>
+                        <?php foreach ($_multipleRows as $_i): ?>
+                            <tr>
+                                <?php $i = 0;
+                                foreach ($block->getMultipleRowColumns($_i) as $_column): ?>
+                                    <td class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?>
+                                        <?php /* @escapeNotVerified */ echo $_column->getId() == MASSACTION ? CHECK: ''?>">
+                                        <?php echo ($_html = $_column->getRowField($_i)) != '' ? $_html : NBSP ?>
+                                    </td>
+                                <?php endforeach; ?>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+
+                    <?php if ($block->shouldRenderSubTotal($_item)): ?>
+                        <tr class="subtotals">
+                            <?php $i = 0;
+                            foreach ($block->getSubTotalColumns() as $_column): ?>
+                                <td class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?>
+                                           <?php /* @escapeNotVerified */ echo $_column->getId() == MASSACTION ? CHECK: ''?>">
+                                    <?php /* @escapeNotVerified */ echo$_column->hasSubtotalsLabel() ? $_column->getSubtotalsLabel() :
+                                        $_column->getRowField($block->getSubTotalItem($_item)
+                                    );
+                                    ?>
+                                </td>
+                            <?php endforeach; ?>
+                        </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php elseif ($block->getEmptyText()): ?>
+                <tr class="data-grid-tr-no-data">
+                    <td class="<?php /* @escapeNotVerified */ echo $block->getEmptyTextClass() ?>"
+                        colspan="<?php /* @escapeNotVerified */ echo $numColumns ?>"><?php /* @escapeNotVerified */ echo $block->getEmptyText() ?></td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+            </table>
+
+            <?php if ($block->getChildBlock('grid.bottom.links')): ?>
+                <?php echo $block->getChildHtml('grid.bottom.links') ?>
+            <?php endif; ?>
+
+        <?php endif ?>
+        </div>
+    <?php if ($block->canDisplayContainer()): ?>
+</div>
+<script>
+    var deps = [];
+
+        <?php if ($block->getDependencyJsObject()): ?>
+    deps.push('uiRegistry');
+    <?php endif; ?>
+
+        <?php if (strpos($block->getRowClickCallback(), 'order.') !== false): ?>
+    deps.push('Magento_Sales/order/create/form')
+    <?php endif; ?>
+
+    deps.push('mage/adminhtml/grid');
+
+    require(deps, function(<?php echo $block->getDependencyJsObject() ? 'registry' : ''; ?>){
+            <?php //getJsObjectName and getRowClickCallback has unexpected behavior. Should be removed ?>
+
+            <?php if ($block->getDependencyJsObject()): ?>
+            registry.get('<?php /* @escapeNotVerified */ echo $block->getDependencyJsObject() ?>', function (<?php /* @escapeNotVerified */ echo $block->getDependencyJsObject() ?>) {
+        <?php endif; ?>
+
+            <?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?> = new varienGrid('<?php echo $block->escapeHtml($block->getId()) ?>', '<?php /* @escapeNotVerified */ echo $block->getGridUrl() ?>', '<?php /* @escapeNotVerified */ echo $block->getVarNamePage() ?>', '<?php /* @escapeNotVerified */ echo $block->getVarNameSort() ?>', '<?php /* @escapeNotVerified */ echo $block->getVarNameDir() ?>', '<?php /* @escapeNotVerified */ echo $block->getVarNameFilter() ?>');
+            <?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.useAjax = <?php /* @escapeNotVerified */ echo $block->getUseAjax() ? 'true' : 'false' ?>;
+            <?php if ($block->getRowClickCallback()): ?>
+                <?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.rowClickCallback = <?php /* @escapeNotVerified */ echo $block->getRowClickCallback() ?>;
+        <?php endif; ?>
+            <?php if ($block->getCheckboxCheckCallback()): ?>
+                <?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.checkboxCheckCallback = <?php /* @escapeNotVerified */ echo $block->getCheckboxCheckCallback() ?>;
+        <?php endif; ?>
+            <?php if ($block->getSortableUpdateCallback()): ?>
+                <?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.sortableUpdateCallback = <?php /* @escapeNotVerified */ echo $block->getSortableUpdateCallback()?>;
+        <?php endif; ?>
+            <?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.bindSortable();
+            <?php if ($block->getRowInitCallback()): ?>
+                <?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.initRowCallback = <?php /* @escapeNotVerified */ echo $block->getRowInitCallback() ?>;
+                <?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.initGridRows();
+        <?php endif; ?>
+            <?php if ($block->getChildBlock(GRID_MASSACTION) && $block->getChildBlock(GRID_MASSACTION)->isAvailable()): ?>
+                <?php /* @escapeNotVerified */ echo $block->getChildBlock(GRID_MASSACTION)->getJavaScript() ?>
+        <?php endif ?>
+            <?php /* @escapeNotVerified */ echo $block->getAdditionalJavaScript(); ?>
+
+            <?php if ($block->getDependencyJsObject()): ?>
+            });
+        <?php endif; ?>
+    });
+</script>
+    <?php endif; ?>
+
+    <?php if ($block->getChildBlock('grid.js')): ?>
+        <?php echo $block->getChildHtml('grid.js'); ?>
+    <?php endif; ?>
+
+<?php endif ?>
+<div id="paymentinfo" style="display:none">
+<?php $orderBlock = $this->orderBillingBlock(); ?>
+<div class="admin__page-section-title">
+    <span class="title"><?php /* @escapeNotVerified */ echo $orderBlock->getHeaderText() ?></span>
+    <?php if ($orderBlock->getButtonsHtml()): ?>
+        <div class="actions"><?php echo $orderBlock->getButtonsHtml() ?></div>
+    <?php endif; ?>
+</div>
+
+<?php $orderForm = $this->orderBillingForm();
+?>
+        <?php
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $FormKey = $objectManager->get('Magento\Framework\Data\Form\FormKey');
+        ?>
+<input name="form_key" type="hidden" value="<?php echo $FormKey->getFormKey();?>">
+<?php if ($this->hasMethods()): ?>
+<div id="order-billing_method_form">
+    <dl class="admin__payment-methods">
+    <?php
+        $_methods       = $this->getPaymentMethods();
+        $_methodsCount  = count($_methods);
+        $_counter = 0;
+        $selectedCodes = [];
+    ?>
+    <?php foreach ($_methods as $_method): $_code = $_method->getCode();
+        $_counter++;?>
+        <dt class="admin__field-option">
+        <?php $selectedCodes[] = $_code; ?>
+        <?php if ($_methodsCount >= 1): ?>
+            <input id="p_method_<?php /* @escapeNotVerified */ echo $_code ?>" required value="<?php /* @escapeNotVerified */ echo $_code ?>" type="radio" name="payment[method]"
+                   title="<?php echo $orderForm->escapeHtml($_method->getTitle()) ?>"
+                   onclick="paymentSwitch('<?php echo $_code ?>');"
+                   class="admin__control-radio<?php if ($_counter == $_methodsCount): ?> validate-one-required-by-name<?php endif; ?>"/>
+        <?php else: ?>
+            <span class="no-display">
+                <input id="p_method_<?php /* @escapeNotVerified */ echo $_code ?>" value="<?php /* @escapeNotVerified */ echo $_code ?>" type="radio"
+                       name="payment[method]" class="admin__control-radio"
+                       checked="checked"/>
+            </span>
+        <?php endif;?>
+
+
+            <label class="admin__field-label" for="p_method_<?php /* @escapeNotVerified */ echo $_code ?>"><?php echo $orderForm->escapeHtml($_method->getTitle()) ?></label>
+        </dt>
+
+        <dd class="admin__payment-method-wapper">
+            <?php /* @escapeNotVerified */ echo $this->getChildHtml('payment.method.'.$_code); ?>
+        </dd>
+
+    <?php endforeach;
+    $jsonSelectedCode = json_encode($selectedCodes);
+    ?>
+    <!--                            field for customer comments        -->
+                <dd class="admin__payment-method-wapper">
+                                    <fieldset class="fieldset payment method">
+                <div class="field field-number comments">
+                    <label for="comments" class="label">
+                        <span><!-- ko i18n: 'Comments'--><span>Comments</span><!-- /ko --></span>
+                    </label>
+                    <div class="control">
+                        <textarea  style="width: 354px; height: 95px;" name="payment[payment_comment]" id="payment_comment" value="" type="textarea" name="payment_comment" /></textarea>
+                    </div>
+                </div>
+            </fieldset>
+                            </dd>
+                        <!--                end of customer comments         -->
+    </dl>
+
+    <input type="hidden" value="<?php echo $this->getRequest()->getParam('id') ?>" name="customer_id" />
+    <input type="hidden" value="" name="amount_capture" class="amount_capture" />
+</div>
+<input type="button" value="Pay Now" size="15"  class="form-button" name="submitform" id="submitform" style="float: left" onclick="validate_activity()" />
+</div>
+</form>
+<script type="text/javascript">
+require([
+    'jquery',
+    'mage/backend/form',
+    'mage/backend/validation'
+], function($){
+    $('#ar_submit').form()
+        .validation({
+            validationUrl: '',
+            highlight: function(element) {
+                var detailsElement = $(element).closest('details');
+                if (detailsElement.length && detailsElement.is('.details')) {
+                    var summaryElement = detailsElement.find('summary');
+                    if (summaryElement.length && summaryElement.attr('aria-expanded') === "false") {
+                        summaryElement.trigger('click');
+                    }
+                }
+                $(element).trigger('highlight.validate');
+            }
+        });
+});
+</script>
+<script type = "text/javascript">
+    function paymentSwitch(code)
+    {
+        jQuery(".admin__payment-method-wapper .admin__fieldset").hide();
+        jQuery(".admin__payment-method-wapper select,.admin__payment-method-wapper input").attr("disabled",true);
+        jQuery("#payment_form_"+code+" select,#payment_form_"+code+" input").attr("disabled",false);
+        if (code == 'authnetcim') {
+            jQuery("#payment_form_"+code).show();
+            jQuery("#payment_form_"+code).find(".admin__fieldset").show();
+            if (jQuery("#authnetcim-card-id").val()!=undefined && jQuery("#authnetcim-card-id").val() != "") {
+                jQuery(".hide-if-card-selected").hide();
+                jQuery(".hide-if-card-selected").find("input").attr("disabled", true);
+                jQuery(".hide-if-card-selected").find("select").attr("disabled", true);
+            } else {
+                jQuery(".hide-if-card-selected").show();
+                jQuery(".hide-if-card-selected").find("input").attr("disabled", false);
+                jQuery(".hide-if-card-selected").find("select").attr("disabled", false);
+            }
+        } else {
+            jQuery("#payment_form_"+code).show();
+        }
+    }
+
+    function showDiv(){
+        jQuery("#paymentinfo").show();
+    }
+
+    jQuery("#authnetcim-card-id").change(function() {
+        if(jQuery(this).val()==""){
+            jQuery(".hide-if-card-selected").show();
+            jQuery(".hide-if-card-selected").find("input").attr("disabled", false);
+            jQuery(".hide-if-card-selected").find("select").attr("disabled", false);
+        }else{
+            jQuery(".hide-if-card-selected").hide();
+            jQuery(".hide-if-card-selected").find("input").attr("disabled", true);
+            jQuery(".hide-if-card-selected").find("select").attr("disabled", true);
+        }
+    });
+</script>
+<?php else: ?>
+    <div class="admin__message-empty"><?php /* @escapeNotVerified */ echo __('No Payment Methods') ?></div>
+<?php endif; ?>
+
+<div id="payment-data" style="display:none">&nbsp;</div>
+<div id="outstanding_details" style="display:none">&nbsp;</div>
+<div id="penalty_details" style="display:none">&nbsp;</div>
+
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+        $('[id^="target_order_id_modal"]').on("click",function(eventdata){
+            $("#payment-data").html("");
+            var invoiceId = $(this).data("rel");
+            var orderId = $(this).data("orderid");
+            $.ajax({
+                url: "<?php echo $this->getUrl("billpay/index/OrderDetails", [FORM_KEY => $block->getFormKey()]);?>",
+                type: "POST",
+                data: {invoice_id:invoiceId,order_id:orderId},
+                success: function(result){
+                    $("#payment-data").html(result);
+                }
+            });
+
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Payment Data',
+                buttons: [{
+                    text: $.mage.__('Ok'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#payment-data'));
+            $('#payment-data').modal('openModal');
+        });
+
+        $('[id^="outstanding_amount_modal"]').on("click",function(eventdata){
+            $("#outstanding_details").html("");
+            var invoiceId = $(this).data("invoice");
+            $.ajax({
+                url: "<?php echo $this->getUrl("billpay/index/OutstandingDetails", [FORM_KEY => $block->getFormKey()]);?>",
+                type: "POST",
+                data: {invoice_id:invoiceId},
+                success: function(result){
+                    $("#outstanding_details").html(result);
+                }
+            });
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Payment Details',
+                buttons: [{
+                    text: $.mage.__('Ok'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#outstanding_details'));
+            $('#outstanding_details').modal('openModal');
+        });
+
+        $('[id^="document_id_modal"]').on("click",function(eventdata){
+            $("#penalty_details").html("");
+            var invoiceId = $(this).data("invoice");
+            var doctype = $(this).data("doctype");
+            if(doctype != "penalty"){
+                return false;
+            }
+            $.ajax({
+                url: "<?php echo $this->getUrl("billpay/index/penaltydetails", [FORM_KEY => $block->getFormKey()]);?>",
+                type: "POST",
+                data: {invoice_id:invoiceId},
+                success: function(result){
+                    $("#penalty_details").html(result);
+                }
+            });
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Penalty Details',
+                buttons: [{
+                    text: $.mage.__('Ok'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#penalty_details'));
+            $('#penalty_details').modal('openModal');
+        });
+    });
+
+    function validateauthnetcim()
+    {/*
+        var check_authnetcim = document.getElementById('authnetcim-card-id').disabled;
+        if(!check_authnetcim){
+            return true;
+        }
+        */
+        var code = document.getElementsByName('authnetcim')[0];
+        if (code = 'authnetcim')
+            return true;
+
+    }
+
+    function validate_activity()
+    {
+        cansendrequest = false;
+        var switcher = document.getElementsByName('payment[method]');
+        checkmo = true;
+        authnetcim = true;
+        chargelogic = true;
+        for (var k = 0; k < switcher.length; k++) {
+            if (switcher[k].checked) {
+                switch (switcher[k].value) {
+                    case 'cashondelivery':
+                        cansendrequest = true;
+                        break;
+                    case 'checkmo':
+                        cansendrequest = validateCheck();
+                        checkmo = false;
+                        break
+                    case 'authnetcim':
+                        cansendrequest = validateauthnetcim();
+                        authnetcim = false;
+                        break;                        
+                    case 'chargelogic_connect':
+                        cansendrequest = validateChargelogic();
+                        chargelogic = false;
+                        break;
+                }
+            }
+        }
+
+        if (cansendrequest) {
+            var sure = confirm("Are you sure you want to pay ?");
+            if (sure) {
+                document.getElementById("ar_submit").submit();
+            }
+        } else {
+            if (checkmo == true && authnetcim == true && chargelogic == true)
+                alert('Please Select Payment method ');
+            else
+                alert('Please provide valid data');
+        }
+    }
+
+    function validateCheck() {
+        if (document.getElementById('check_number').value == '') {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function validateauthnetcim()
+    {
+        var code = document.getElementById('p_method_authnetcim').value;
+        if (code == 'authnetcim') return true;
+    }
+    
+    function validateChargelogic()
+    {
+        var code = document.getElementById('p_method_chargelogic_connect').value;
+        if (code == 'chargelogic_connect') return true;
+    }
+
+    require(["jquery", "jquery/ui"],function($){
+        $(".amount_capture").val("0.00");
+        $(".col-pay_now input[type=text]").attr("disabled","disabled");
+        $(".col-pay_now input[type=text]").val("0.00");
+        var currentrow="";
+        var sum = 0;
+        $(".i95dev_invoice").on("click",function(eventdata){
+            clearInvoiceSelection();
+            currentrow=$(this).parent("tr");
+            if($(currentrow).find(".radio:checked").val() != undefined) {
+                sum = 0;
+                var out_amt = $(currentrow).find(".col-outstanding_amount").text();
+                var int_amt = $(currentrow).find(".col-interest_amount").text();
+                var disc_amt = $(currentrow).find(".col-discount_amount").text();
+                disc_amt = parseFloat(disc_amt.match(/[\d\.\,]+/)[0].split(",").join(""));
+                var amt = parseFloat(out_amt.match(/[\d\.\,]+/)[0].split(",").join(""))
+                    + parseFloat(int_amt.match(/[\d\.\,]+/)[0].split(",").join(""));
+
+                var current_date = new Date();
+                var discount_date = new Date($(currentrow).find(".col-discount_dt").text());
+                if(+discount_date.setHours(0,0,0,0) >= +current_date.setHours(0,0,0,0)){
+                    amt = amt - disc_amt;
+                }
+
+                var type = $(currentrow).find(".col-type").html().trim();
+                $(currentrow).find(".col-pay_now input[type=text]").removeAttr("disabled");
+                if (type == 'penalty') {
+                    $(currentrow).find(".col-pay_now input[type=text]").attr("disabled","disabled");
+                }
+
+                $(currentrow).find(".col-pay_now input[type=text]").val(amt.toFixed(2));
+                $(currentrow).find("input[type=hidden][id*=pay_now]").val(amt.toFixed(2));
+                $(".col-pay_now input[type=text]").each(function(){
+                    sum += parseFloat($(this).val());
+                });
+            } else {
+                sum = sum - parseFloat($(currentrow).find(".col-pay_now input[type=text]").val());
+                $(currentrow).find(".col-pay_now input[type=text]").val("0.00");
+                $(currentrow).find("input[type=hidden][id*=pay_now]").val("0.00");
+                $(currentrow).find(".col-pay_now input[type=text]").attr("disabled","disabled");
+            }
+            $("#customer_managepayment_grid_table tfoot th.col-pay_now").html("<?php echo $this->getCurrencySymbol(); ?>"  + sum.toFixed(2));
+            $(".amount_capture").val(sum.toFixed(2));
+            checkPrice();
+        });
+
+        function clearInvoiceSelection(){
+            jQuery("input[type='radio'][name='check_invoice']").each(function() {
+                needlerow = $(this).parent("td").parent("tr");
+                $(needlerow).find(".col-pay_now input[type=text]").val("0.00");
+                $(needlerow).find("input[type=hidden][id*=pay_now]").val("0.00");
+                $(needlerow).find(".col-pay_now input[type=text]").attr("disabled","disabled");
+            });
+        }
+
+        $(".i95dev_click").on("change",function(eventdata){
+            currentrow=$(this).parent("tr");
+            if($(currentrow).find(".radio:checked").val() != undefined) {
+                var out_amt = $(currentrow).find(".col-outstanding_amount").text();
+                var int_amt = $(currentrow).find(".col-interest_amount").text();
+                var disc_amt = $(currentrow).find(".col-discount_amount").text();
+                disc_amt = parseFloat(disc_amt.match(/[\d\.\,]+/)[0].split(",").join(""));
+                var amt = parseFloat(out_amt.match(/[\d\.\,]+/)[0].split(",").join(""))
+                    + parseFloat(int_amt.match(/[\d\.\,]+/)[0].split(",").join(""));
+
+                var current_date = new Date();
+                var discount_date = new Date($(currentrow).find(".col-discount_dt").text());
+                if(+discount_date.setHours(0,0,0,0) >= +current_date.setHours(0,0,0,0)){
+                    amt = amt - disc_amt;
+                }
+
+                var paynow = $(currentrow).find("input[name=pay_now]").val();
+                if(amt<paynow){
+                    alert("Entered amount should not exceed Outstanding amount");
+                    $(currentrow).find("input[type=hidden][id*=pay_now]").val(amt.toFixed(2));
+                    $(currentrow).find("input[name=pay_now]").val(amt.toFixed(2));
+                }else{
+                    if(paynow == 0){
+                        $(currentrow).find("input[name=pay_now]").val(amt.toFixed(2));
+                        $(currentrow).find("input[type=hidden][id*=pay_now]").val(amt.toFixed(2));
+                    }
+                    $(currentrow).find("input[name=pay_now]").val(parseFloat(paynow).toFixed(2));
+                    $(currentrow).find("input[type=hidden][id*=pay_now]").val(parseFloat(paynow).toFixed(2));
+                }
+                sum = 0;
+                $(".col-pay_now input[type=text]").each(function(){
+                    sum += parseFloat($(this).val());
+                });
+            }else{
+                sum = sum - parseFloat($(currentrow).find(".col-pay_now input[type=text]").val());
+            }
+            $("#customer_managepayment_grid_table tfoot th.col-pay_now").html("<?php echo $this->getCurrencySymbol(); ?>"  + sum.toFixed(2));
+            $(".amount_capture").val(sum.toFixed(2));
+            checkPrice();
+        });
+
+        $("#paynowbutton").attr("disabled", true);
+        function checkPrice() {
+            var price = $(".amount_capture").val();
+            price = parseFloat(price).toFixed(2);
+
+            if (price <= 0 || isNaN(price)) {
+                $("#paynowbutton").attr("disabled", true);
+                $("#paymentinfo").hide();
+            } else {
+                $("#paynowbutton").removeAttr("disabled");
+            }
+        }
+    });
+</script>

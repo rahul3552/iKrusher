@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_NetTerms
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="I95DevConnect\I95DevServer\Model\I95DevServerRepository">
+        <arguments>
+            <argument name="apiServiceMethodRoutes" xsi:type="array">
+                <!--  reverse sync -->
+                <item name="createNetTermsList" xsi:type="array">
+                    <item name="entityCode" xsi:type="string">paymentTerm</item>
+                    <!-- Method Type -->
+                    <item name="methodType" xsi:type="string">reverse</item>
+                </item>
+                <!-- end Forward sync-->
+            </argument>
+        </arguments>
+    </type>
+    <type name="I95DevConnect\MessageQueue\Helper\DataPersistence">
+        <arguments>
+            <argument name="entityList" xsi:type="array">
+                <item name="paymentTerm" xsi:type="array">
+                    <item name="targetKey" xsi:type="string">targetNetTermsId</item>
+                    <item name="referenceKey" xsi:type="string">description</item>
+                    <item name="syncdetails" xsi:type="array">
+                        <item name="classObject" xsi:type="object" >\I95DevConnect\NetTerms\Model\DataPersistence\NetTermsSync</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Sales\Block\Adminhtml\Order\Create\Data">
+        <plugin name="save_net_terms_order" type="I95DevConnect\NetTerms\Plugin\Order\Create\Data" sortOrder="1"/>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="netterms_grid_data_source" xsi:type="string">I95DevConnect\NetTerms\Model\ResourceModel\NetTerms\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="I95DevConnect\NetTerms\Model\ResourceModel\NetTerms\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">i95dev_netterms</argument>
+            <argument name="eventPrefix" xsi:type="string">netterms_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">netterms_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">I95DevConnect\NetTerms\Model\ResourceModel\NetTerms</argument>
+        </arguments>
+    </type>
+    <virtualType name="NetTermsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">I95DevConnect\NetTerms\Model\ResourceModel\NetTerms\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">NetTermsGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="NetTermsGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <!-- UI Component issue for Net terms module in Magento admin - Class argument is invalid; Added the classWhitelist for M(2.3.X) -->
+    <type name="Magento\Framework\View\Element\UiComponent\Argument\Interpreter\ConfigurableObject">
+        <arguments>
+            <argument name="classWhitelist" xsi:type="array">
+                <item name="0" xsi:type="string">Magento\Framework\Data\OptionSourceInterface</item>
+                <item name="1" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProviderInterface</item>
+                <item name="2" xsi:type="string">Magento\Framework\View\Element\UiComponent\ContextInterface</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--<preference for="I95DevConnect\Creditlimits\Model\Creditlimits" type="I95DevConnect\NetTerms\Model\CustomPayment"/>-->
+</config>

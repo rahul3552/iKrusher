@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="vueai_productrecommendation" translate="label" sortOrder="10">
+            <label>Vue.ai</label>
+        </tab>
+        <section id="oauth_details" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>OAuth</label>
+            <tab>vueai_productrecommendation</tab>
+            <resource>Vueai_ProductRecommendations::config</resource>
+            <group id="oauth" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" >
+                <label>OAuth Token</label>
+                <field id="consumersecretkey" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Consumer Secret Key</label>
+                    <comment>Paste your integration's consumer secret key here</comment>
+                </field>
+                <field id="accesstokensecret" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Access Token Secret Key</label>
+                    <comment>Paste your integration's access token secret key here</comment>
+                </field>
+                <field id="consumerkey" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Consumer Key</label>
+                    <comment>Paste your integration's consumer key here</comment>
+                </field>
+                <field id="accesstoken" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Access Token</label>
+                    <comment>Paste your integration's access token here</comment>
+
+                </field>
+            </group>
+            <group id="catalog_update_frequency" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Catalog Update Frequency</label>
+                    <field id="timepicker" translate="label comment" sortOrder="4" type="text" showInDefault="1" showInStore="1" >
+                        <label>Time</label>
+                        <frontend_model>Vueai\ProductRecommendations\Block\DatePicker</frontend_model>
+                        <comment>Time(in UTC) at which product catalog will get synced with Vue.ai</comment>
+                    </field>
+            </group>
+        </section>
+    </system>
+</config>

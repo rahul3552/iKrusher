@@ -1,0 +1,40 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_NetTerms
+ * @codingStandardsIgnoreFile
+ */
+?>
+<div class="fieldset-wrapper customer-creditimit-information entry-edit form-inline">
+    <div class="fieldset-wrapper-title">
+        <span class="title">
+            <?php /* @escapeNotVerified */ echo $block->escapeHtml(__($block->getTabLabel())) ?>
+        </span>
+    </div>
+    <div>
+        <table class="admin__table-secondary" aria-describedby="Net Terms Info">
+            <tbody>
+                <?php
+                $netTerms = $block->getTargetNetTermsId();
+                ?>
+                <tr>
+                    <th scope="col"><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Net Terms')) ?></th>
+
+                    <?php
+                    if ($netTerms == '') {
+                        ?>
+                        <td><?php /* @noEscape */ echo __('Not Available'); ?></td>
+                        <?php
+                    } else {
+                        ?>
+                        <td><?php /* @noEscape */ echo $netTerms; ?></td>
+                        <?php
+                    }
+                    ?>
+                </tr>
+            </tbody>
+            <?php echo $block->getChildHtml(); ?>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_VatTax
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="I95DevConnect_VatTax::vatTaxSettings" title="VatTax Settings" module="I95DevConnect_VatTax"
+             sortOrder="60" parent="I95DevConnect_MessageQueue::i95devconfig" resource="I95DevConnect_VatTax::settings"
+             action="adminhtml/system_config/edit/section/i95devconnect_vattax"/>
+        <add id="I95DevConnect_VatTax::taxBusPostingGroup" dependsOnConfig="i95devconnect_vattax/vattax_enabled_settings/enable_vattax" title="Tax Bus Posting Groups" module="I95DevConnect_VatTax" sortOrder="101" parent="I95DevConnect_MessageQueue::i95devaddons" resource="I95DevConnect_VatTax::vattaxgrids" action="vatTax/vatTax/TaxBusPostingGroups"/>
+        <add id="I95DevConnect_VatTax::taxProductPostingGroup" dependsOnConfig="i95devconnect_vattax/vattax_enabled_settings/enable_vattax" title="Tax Product Posting Groups" module="I95DevConnect_VatTax" sortOrder="102" parent="I95DevConnect_MessageQueue::i95devaddons" resource="I95DevConnect_VatTax::vattaxgrids" action="vatTax/vatTax/TaxProductPostingGroups"/>
+        <add id="I95DevConnect_VatTax::taxPostingSetup" dependsOnConfig="i95devconnect_vattax/vattax_enabled_settings/enable_vattax" title="Tax Posting Setup" module="I95DevConnect_VatTax" sortOrder="103" parent="I95DevConnect_MessageQueue::i95devaddons" resource="I95DevConnect_VatTax::vattaxgrids" action="vatTax/vatTax/TaxPostingSetup"/>
+    </menu>
+</config>

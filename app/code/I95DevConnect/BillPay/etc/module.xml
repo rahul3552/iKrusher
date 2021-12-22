@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="I95DevConnect_BillPay" schema_version="2.0.0.5" setup_version="2.0.0.5" >
+        <sequence>
+            <module name="I95DevConnect_MessageQueue"/>
+            <module name="I95DevConnect_I95DevServer"/>
+            <module name="Magento_Payment"/>
+            <module name="ParadoxLabs_TokenBase"/>
+            <module name="ParadoxLabs_Authnetcim"/>
+        </sequence>
+    </module>
+</config>

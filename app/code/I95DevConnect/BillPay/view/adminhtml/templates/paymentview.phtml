@@ -1,0 +1,35 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<?php $_payments = $block->getPaymentsDetails(); ?>
+<?php if ($_payments && !empty($_payments)): ?>
+    <div class="entry-edit order-view" id="billpay_payment_view">
+        <div id="payment-messages"></div>
+        <section class="admin__page-section order-view-account-information">
+            <div class="admin__page-section-content">
+                <?php
+                $block->getChildBlock("billpay_payment_details")->setPayments($_payments);
+                echo $block->getChildHtml("billpay_payment_details");
+                ?>
+                <?php
+                $block->getChildBlock("billpay_transaction_details")->setPayments($_payments);
+                echo $block->getChildHtml("billpay_transaction_details");
+                ?>
+            </div>
+        </section>
+        <?php
+        $block->getChildBlock("billpay_list_details")->setPayments($_payments);
+        echo $block->getChildHtml("billpay_list_details");
+        ?>
+
+    </div>
+<?php else: ?>
+    <div class="message info empty">
+        <span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('You have no invoice.')); ?></span>
+    </div>
+<?php endif; ?>

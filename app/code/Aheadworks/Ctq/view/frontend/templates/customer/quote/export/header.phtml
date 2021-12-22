@@ -1,0 +1,26 @@
+<?php
+/* @var $block \Aheadworks\Ctq\Block\Customer\Quote\Header */
+
+// @codingStandardsIgnoreFile
+$viewModel = $block->getDataProviderViewModel();
+$quote = $viewModel->getQuote();
+?>
+
+<table>
+    <tr>
+        <td width="450" style="font-size: 16pt">
+            <strong><?= $block->escapeHtml(__('Quotation ')) ?></strong>
+            <span>#<?= $block->escapeHtml($quote->getId()) ?></span>
+        </td>
+        <td width="150">
+            <p align="right" style="font-size: 11pt">
+                <strong style="float: right"><?= $block->escapeHtml($viewModel->getUpdatedAt($quote)) ?></strong>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong><?= $block->escapeHtml(__('Your data')) ?></strong>
+        </td>
+    </tr>
+</table>

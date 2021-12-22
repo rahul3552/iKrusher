@@ -1,0 +1,30 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ * @codingStandardsIgnoreFile
+ */
+?>
+<style>
+    #billpay_orderdetails_grid {
+        float: left;
+        width : 100%;
+    }
+</style>
+<?php
+$order = $block->getOrder();
+$salesInfo = $block->getSalesInfo();
+if (!empty($order)) {
+    ?>
+    <div class="order_billingAddress" style="margin-bottom:10px;float:left; width:50%;">
+        <h3>Billing Address</h3>
+    <?php echo $salesInfo->getFormattedAddress($order->getBillingAddress()); ?>
+    </div>
+    <div class="order_shippingAddress" style="margin-bottom:10px;float:left; width:50%;">
+        <h3>Shipping Address</h3>
+    <?php echo $salesInfo->getFormattedAddress($order->getShippingAddress()); ?>
+    </div>
+    <?php
+}
+?>

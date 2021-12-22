@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="I95DevConnect\BillPay\Api\Data\AccountReceivablesInterface" type="I95DevConnect\BillPay\Model\Data\AccountReceivables"/>
+    <preference for="I95DevConnect\BillPay\Api\Data\CashReceiptInterface" type="I95DevConnect\BillPay\Model\Data\CashReceipt"/>
+    <preference for="I95DevConnect\BillPay\Api\Data\PaymentInterface" type="I95DevConnect\BillPay\Model\Data\Payment"/>
+    <preference for="I95DevConnect\BillPay\Api\Data\PaymentTransInterface" type="I95DevConnect\BillPay\Model\Data\PaymentTrans"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="i95devconnect_billpay_payment_grid_data_source" xsi:type="string">I95DevConnect\BillPay\Model\ResourceModel\Arbook\Grid\Collection</item>
+                <item name="billpay_paymentdetails_grid_data_source" xsi:type="string">I95DevConnect\BillPay\Model\ResourceModel\ArPayment\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="I95DevConnectBillPayPaymentDetailsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">I95DevConnect\BillPay\Model\ResourceModel\Arbook\Collection</argument>
+        </arguments>
+    </virtualType>
+	<type name="Magento\Framework\View\Element\Html\Links">
+		<plugin name="bill-pay-customer-account-links" type="I95DevConnect\BillPay\Controller\Account\Index" sortOrder="12"/>
+	</type>
+    <type name="I95DevConnect\MessageQueue\Helper\DataPersistence">
+        <arguments>
+            <argument name="entityList" xsi:type="array">
+                <item name="accountreceivables" xsi:type="array">
+                    <item name="targetKey" xsi:type="string">targetInvoiceId</item>
+                    <item name="referenceKey" xsi:type="string">targetCustomerId</item>
+                    <item name="syncdetails" xsi:type="array">
+                        <item name="classObject" xsi:type="object" >\I95DevConnect\BillPay\Model\DataPersistence\AccountReceivables\AccountReceivables</item>
+                    </item>
+                </item>
+                <item name="cashreceipts" xsi:type="array">
+                    <item name="targetKey" xsi:type="string">targetInvoiceId</item>
+                    <item name="referenceKey" xsi:type="string">targetCustomerId</item>
+                    <item name="syncdetails" xsi:type="array">
+                        <item name="classObject" xsi:type="object" >\I95DevConnect\BillPay\Model\DataPersistence\CashReceipts\CashReceipts</item>
+                    </item>
+                </item>
+                <item name="penalty" xsi:type="array">
+                    <item name="targetKey" xsi:type="string">targetInvoiceId</item>
+                    <item name="referenceKey" xsi:type="string">targetCustomerId</item>
+                    <item name="syncdetails" xsi:type="array">
+                        <item name="classObject" xsi:type="object" >\I95DevConnect\BillPay\Model\DataPersistence\AccountReceivables\AccountReceivables</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="I95DevConnect\I95DevServer\Model\I95DevServerRepository">
+        <arguments>
+            <argument name="apiServiceMethodRoutes" xsi:type="array">
+                <item name="getArPaymentsInfo" xsi:type="array">
+                    <!-- Entity Code -->
+                    <item name="entityCode" xsi:type="string">accountreceivables</item>
+                    <!-- Method Type -->
+                    <item name="methodType" xsi:type="string">forward</item>
+                    <item name="sendInfo" xsi:type="string">1</item>
+                </item>
+                <item name="setArPaymentsResponse" xsi:type="array">
+                    <!-- Entity Code -->
+                    <item name="entityCode" xsi:type="string">accountreceivables</item>
+                    <!-- Method Type -->
+                    <item name="methodType" xsi:type="string">forward</item>
+                    <item name="setResponse" xsi:type="string">1</item>
+                </item>
+                <!-- End Account Receivables Forward Sync -->
+                <item name="createAccountReceivablesList" xsi:type="array">
+                    <item name="entityCode" xsi:type="string">accountreceivables</item>
+                    <item name="methodType" xsi:type="string">reverse</item>
+                </item>
+                <item name="createCashReceiptList" xsi:type="array">
+                    <item name="entityCode" xsi:type="string">cashreceipts</item>
+                    <item name="methodType" xsi:type="string">reverse</item>
+                </item>
+                <item name="createPenaltiesList" xsi:type="array">
+                    <item name="entityCode" xsi:type="string">penalty</item>
+                    <item name="methodType" xsi:type="string">reverse</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+     <type name="\I95DevConnect\MessageQueue\Observer\OutboundObserver\BaseObserver">
+        <arguments>
+            <argument name="observerRouting" xsi:type="array">
+                <item name="erpconnect_billpay_accountreceivables_aftersave" xsi:type="array">
+                    <item name="entityCode" xsi:type="string">accountreceivables</item>
+                    <item name="sourceKeyMethod" xsi:type="string">getPrimaryId</item>
+                </item>
+            </argument>
+        </arguments>
+     </type>
+</config>

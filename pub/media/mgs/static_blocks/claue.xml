@@ -1,0 +1,460 @@
+<static_block>
+	<item>
+		<title><![CDATA[Claue Header 1 Top Left Link]]></title>
+		<identifier><![CDATA[header_1_top_left_link]]></identifier>
+		<content><![CDATA[<div class="top-custom-link">
+<ul class="d-flex align-items-center ">
+<li><a href="tel:+0123456789 "><span class="icon pe-7s-call">&nbsp;</span>+01 23456789</a></li>
+<li><a href="mailto:claue@domain.com"><span class="icon pe-7s-mail">&nbsp;</span>claue@domain.com</a></li>
+</ul>
+</div>]]></content>
+	</item>
+	<item>
+		<title><![CDATA[Claue Header 1 Top Middle Block]]></title>
+		<identifier><![CDATA[header_1_top_middle_block]]></identifier>
+		<content><![CDATA[<div class="conts  text-align-center text-des-center text-tb-right text-mb-center">Summer sale discount off <span style="color: #ec0101;">50%</span>! <a href="#">Shop Now</a></div>]]></content>
+	</item>
+	<item>
+		<title><![CDATA[Claue Header 1 Social Block]]></title>
+		<identifier><![CDATA[header_1_social_block]]></identifier>
+		<content><![CDATA[<ul class="social-link d-flex align-items-center hidden-lg hidden-tb hidden-mb">
+<li><a href="#">&nbsp;<span class="fa fa-facebook">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-twitter">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-google-plus">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-instagram">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-pinterest-p">&nbsp;</span></a></li>
+</ul>]]></content>
+	</item>
+	<item>
+		<title><![CDATA[Claue Header 2 Top Left Link]]></title>
+		<identifier><![CDATA[header_2_top_left_link]]></identifier>
+		<content><![CDATA[<div class="top-custom-link">
+<ul class="d-flex align-items-center ">
+<li><a href="tel:+0123456789 "><span class="icon pe-7s-call">&nbsp;</span>+01 23456789</a></li>
+<li><a href="mailto:claue@domain.com"><span class="icon pe-7s-mail">&nbsp;</span>claue@domain.com</a></li>
+<li><a href="{{store url="sales/order/history/"}}"><span class="pe-7s-car">&nbsp;</span>Track Your Order</a></li>
+<li><a href="{{store url="storelocator"}}"><span class="pe-7s-map-marker">&nbsp;</span>Store Locator</a></li>
+</ul>
+</div>]]></content>
+	</item>
+	<item>
+		<title><![CDATA[Footer 1 Contact Us]]></title>
+		<identifier><![CDATA[footer1_contact_us]]></identifier>
+		<content><![CDATA[<div class="margin-bottom25"><a href="{{store url=""}}"><img src="{{media url="wysiwyg/logo-2x.png"}}" alt="Claue" width="96" height="27"></a></div>
+<ul class="list-icon">
+<li><span class="theme-footer-icon icon pe-7s-map-marker">&nbsp;</span>184 Main Rd E, St Albans <br>VIC 3021, Australia</li>
+<li><span class="theme-footer-icon icon pe-7s-mail">&nbsp;</span><a href="mailto:contact@company.com">contact@company.com</a></li>
+<li><span class="theme-footer-icon icon pe-7s-call">&nbsp;</span> <a href="tel:+0012233456">+001 2233 456</a></li>
+</ul>
+<ul class="social-link margin-top15">
+<li><a href="#">&nbsp;<span class="fa fa-facebook">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-twitter">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-google-plus">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-instagram">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-pinterest-p">&nbsp;</span></a></li>
+</ul>]]></content>
+	</item>
+    <item>
+        <title><![CDATA[Footer 3 Contact Us]]></title>
+        <identifier><![CDATA[footer3_contact_us]]></identifier>
+        <content><![CDATA[<div class="margin-bottom25"><a href="{{store url=""}}"><img src="{{media url="wysiwyg/claue_furniture.png"}}" alt="Claue" width="96" height="27"></a></div>
+<ul class="list-icon">
+<li><span class="theme-footer-icon icon pe-7s-map-marker">&nbsp;</span>184 Main Rd E, St Albans <br>VIC 3021, Australia</li>
+<li><span class="theme-footer-icon icon pe-7s-mail">&nbsp;</span><a href="mailto:contact@company.com">contact@company.com</a></li>
+<li><span class="theme-footer-icon icon pe-7s-call">&nbsp;</span> <a href="tel:+0012233456">+001 2233 456</a></li>
+</ul>
+<ul class="social-link margin-top15">
+<li><a href="#">&nbsp;<span class="fa fa-facebook">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-twitter">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-google-plus">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-instagram">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-pinterest-p">&nbsp;</span></a></li>
+</ul>]]></content>
+    </item>
+	<item>
+		<title><![CDATA[Footer 1 Quick Link]]></title>
+		<identifier><![CDATA[footer_block_quick_link]]></identifier>
+		<content><![CDATA[<h6 class="margin-bottom30">Quick Links</h6>
+<ul class="menu">
+<li><a href="#">Store Location</a></li>
+<li><a href="#">My Account</a></li>
+<li><a href="#">Accessories</a></li>
+<li><a href="#">Orders Tracking</a></li>
+<li><a href="#">Size Guide</a></li>
+<li><a href="#">FAQs</a></li>
+</ul>]]></content>
+	</item>
+	<item>
+		<title><![CDATA[Footer 1 Subscribe Block]]></title>
+		<identifier><![CDATA[footer_block_subscribe]]></identifier>
+		<content><![CDATA[<p>Subscribe to our newsletter and get 10% off your first purchase</p>
+<div>{{block class="Magento\Newsletter\Block\Subscribe" name="static.newsletter" template="Magento_Newsletter::subscribe_footer.phtml"}}</div>
+<p class="margin-top25"><img src="{{media url="wysiwyg/payments.png"}}" alt="accept payment" width="197" height="20"></p>]]></content>
+	</item>
+	<item>
+		<title><![CDATA[Footer 1 Menu Bottom]]></title>
+		<identifier><![CDATA[footer_block_menu_bottom]]></identifier>
+		<content><![CDATA[<ul>
+<li><a href="#">Shop</a></li>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Blog</a></li>
+</ul>]]></content>
+	</item>
+    <item>
+        <title><![CDATA[Footer 1 Categories Menu]]></title>
+        <identifier><![CDATA[footer_block_categories]]></identifier>
+        <content><![CDATA[<h6 class="margin-bottom30">Categories</h6>
+<ul class="menu">
+<li><a href="#">Men</a></li>
+<li><a href="#">Women</a></li>
+<li><a href="#">Accessories</a></li>
+<li><a href="#">Shoes</a></li>
+<li><a href="#">Denim</a></li>
+<li><a href="#">Dress</a></li>
+</ul>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Claue Vertical Menu Header 3]]></title>
+        <identifier><![CDATA[claue_vertical_menu_header_3]]></identifier>
+        <content><![CDATA[{{block class="MGS\Mmegamenu\Block\Vertical" menu_id="2" mgs_panel_title="DEPARTMENTS" template="MGS_Mmegamenu::panel/vertical.phtml"}}]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Footer 2 Instagram Block]]></title>
+        <identifier><![CDATA[footer_block_instagram]]></identifier>
+        <content><![CDATA[<h6 class="margin-bottom30">Instagram Feed</h6>
+<div>{{block class="MGS\Fbuilder\Block\Social\Instagram" mgs_panel_title="" mgs_panel_note="" limit="6" resolution="low_resolution" link="1" perrow="3" use_slider="0" like="0" comment="0" template="widget/socials/instagram.phtml"}}</div>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Claue Contact Page Custom Block]]></title>
+        <identifier><![CDATA[contact_page_custom_block]]></identifier>
+        <content><![CDATA[<h2 class="margin-bottom15">GET OFFICE INFO</h2>
+<p class="sub-title margin-bottom30"><em>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.</em></p>
+<ul class="list-icon">
+<li><span class="icon pe-7s-map-marker">&nbsp;</span>184 Main Rd E, St Albans <br />VIC 3021, Australia</li>
+<li><span class="icon pe-7s-mail">&nbsp;</span><a href="mailto:contact@company.com">contact@company.com</a><br /><a href="mailto:contact@claue.com">contact@claue.com</a></li>
+<li><span class="icon pe-7s-call">&nbsp;</span> <a href="tel:+0123456789">+01 23456789</a><br /><a href="tel:+0012233456">+001 2233 456</a></li>
+<li><span class="icon pe-7s-timer">&nbsp;</span>
+<p>Monday: 13:00-18:00 (shops open later than usual)</p>
+<p>Tuesday, Wednesday, Friday &amp; Saturday: 09:00-18:00</p>
+<p>Thursday: 09:00-21:00 (late-night shopping)</p>
+<p>Sunday: 12:00-17:00 (This primarily applies to the shops&nbsp;on and near&nbsp;the Nieuwendijk and Kalverstraat. In some of the other shopping streets, you may find that only a selection of the shops are open on Sundays).</p>
+</li>
+</ul>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Claue Footer2 Block Newsletter]]></title>
+        <identifier><![CDATA[footer_block_newsletter_top]]></identifier>
+        <content><![CDATA[<div class="text-center">
+<h3 class="margin-bottom10">NEWSLETER SIGN UP</h3>
+<p>Subscribe our newsletter to get latest new about our new product and promo campaign.</p>
+</div>
+<div>{{block class="Magento\Newsletter\Block\Subscribe" name="static.newsletter" template="Magento_Newsletter::subscribe_footer.phtml"}}</div>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Mgs Default Sidebar Block]]></title>
+        <identifier><![CDATA[mgs_default_sidebar_block]]></identifier>
+        <content><![CDATA[<div class="block">
+<div class="block-title"><strong class="title">Sale Products</strong></div>
+<div>{{block class="MGS\ClaueTheme\Block\Products\Category" limit="3" block_type="list" category_ids="6" use_slider="0" template="MGS_Fbuilder::products/category_products/list.phtml" numbercol="1" percol="1"}}</div>
+</div>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Mgs Product Detail Bottom Block]]></title>
+        <identifier><![CDATA[mgs_product_detail_bottom_block]]></identifier>
+        <content><![CDATA[<div class="section-custom-product margin-top30">
+<div class="content-heading">
+<h3 class="title">DELIVERY &amp; RETURNS</h3>
+<div class="block-note">Custom static block for product detail</div>
+</div>
+<div class="frame no-padding">
+<div class="line">
+<div class="col-des-3 col-tb-6 col-mb-12 margin-bottom30">
+<div class="line">
+<div class="panel-block-row  panel-block col-des-12 col-tb-12 col-mb-12">
+<div>
+<div class="icon-service">
+<div class="icon"><em class="pe-7s-car">&nbsp;</em></div>
+<div class="text">
+<h6 class="margin-bottom5">FREE SHIPPING</h6>
+<p class="no-margin">Free shipping on all US order or order above $200</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-des-3 col-tb-6 col-mb-12 margin-bottom30">
+<div class="line">
+<div class="panel-block-row  panel-block col-des-12 col-tb-12 col-mb-12">
+<div>
+<div class="icon-service">
+<div class="icon"><em class="pe-7s-help2">&nbsp;</em></div>
+<div class="text">
+<h6 class="margin-bottom5">SUPPORT 24/7</h6>
+<p class="no-margin">Contact us 24 hours a day, 7 days a week</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-des-3 col-tb-6 col-mb-12 margin-bottom30">
+<div class="line">
+<div class="panel-block-row  panel-block col-des-12 col-tb-12 col-mb-12">
+<div>
+<div class="icon-service">
+<div class="icon"><em class="pe-7s-refresh">&nbsp;</em></div>
+<div class="text">
+<h6 class="margin-bottom5">30 DAYS RETURN</h6>
+<p class="no-margin">Simply return it within 30 days for an exchange.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-des-3 col-tb-6 col-mb-12 margin-bottom30">
+<div class="line">
+<div class="panel-block-row  panel-block col-des-12 col-tb-12 col-mb-12">
+<div>
+<div class="icon-service">
+<div class="icon"><em class="pe-7s-door-lock">&nbsp;</em></div>
+<div class="text">
+<h6 class="margin-bottom5">100% PAYMENT SECURE</h6>
+<p class="no-margin">We ensure secure payment with PEV</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Mgs Product Detail Top Block]]></title>
+        <identifier><![CDATA[mgs_product_detail_top_block]]></identifier>
+        <content><![CDATA[<div class="margin-top25 extra-link"><a href="javascript:void(0)" id="btn-guilde">Size Guilde </a><a href="javascript:void(0)" id="btn-delivery" class="margin-left20">Delivery &amp; Return</a></div>
+<div id="guilde-content">
+<div class="modal-body-content"><img class="img-responsive" src="{{media url="wysiwyg/sizecharts.png"}}" alt=""></div>
+</div>
+<div id="delivery-content">
+<div class="modal-body-content">
+<h6 class="margin-bottom10">Delivery</h6>
+<p>All orders shipped with UPS Express.</p>
+<p>Always free shipping for orders over US $250.</p>
+<p>All orders are shipped with a UPS tracking number.</p>
+<h6 class="margin-bottom10">Returns</h6>
+<p>Items returned within 14 days of their original shipment date in same as new condition will be eligible for a full refund or store credit.</p>
+<p>Refunds will be charged back to the original form of payment used for purchase.</p>
+<p>Customer is responsible for shipping charges when making returns and shipping/handling fees of original purchase is non-refundable.</p>
+<p>All sale items are final purchases.</p>
+<h6 class="margin-bottom10">Help</h6>
+<p>Give us a shout if you have any other questions and/or concerns.</p>
+<p>Email: <a href="mailto:contact@domain.com">contact@domain.com</a></p>
+<p>Phone: +1 (23) 456 789</p>
+</div>
+</div>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Header 4 Bottom Middle Block]]></title>
+        <identifier><![CDATA[header_4_bottom_middle_block]]></identifier>
+        <content><![CDATA[<div class="bottom-header-block">Use code&nbsp;<span class="label-code">"covid19"</span> for <span class="discount">15%</span> off!</div>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Claue Vertical Menu Header 4]]></title>
+        <identifier><![CDATA[claue_vertical_menu_header_4]]></identifier>
+        <content><![CDATA[{{block class="MGS\Mmegamenu\Block\Vertical" menu_id="3" mgs_panel_title="Shop By Category" mgs_panel_note="" template="MGS_Mmegamenu::panel/vertical.phtml"}}]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Claue Header 5 Social Block]]></title>
+        <identifier><![CDATA[header_5_social_block]]></identifier>
+        <content><![CDATA[<ul class="social-link d-flex align-items-center justify-content-center">
+<li><a href="#">&nbsp;<span class="fa fa-facebook">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-twitter">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-google-plus">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-instagram">&nbsp;</span></a></li>
+<li><a href="#">&nbsp;<span class="fa fa-pinterest-p">&nbsp;</span></a></li>
+</ul>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Contact Us Information Block]]></title>
+        <identifier><![CDATA[contact_us_information_block]]></identifier>
+        <content><![CDATA[<ul class="social-links">
+<li><a href="#" target="_self"><i class="theme-footer-icon icofont-facebook"></i></a></li>
+<li><a href="#" target="_self"> <i class="theme-footer-icon icofont-twitter"></i></a></li>
+<li><a href="#" target="_self"><i class="theme-footer-icon icofont-google-plus"></i></a></li>
+<li><a href="#" target="_self"><i class="theme-footer-icon icofont-pinterest"></i></a></li>
+<li><a href="#" target="_self"><i class="theme-footer-icon icofont-instagram"></i></a></li>
+</ul>
+<div class="contact-link">
+<div class="link-item">
+<h4 class="contact-title">Our Office</h4>
+<span>15 St Margarets Lane <br /> New York, NY 10033</span></div>
+<div class="link-item">
+<h4 class="contact-title">Get in Touch</h4>
+<p><strong>EMAIL:</strong><br /><a href="mailto:supro@example.com">supro@example.com</a></p>
+<p><strong>PHONE NUMBER:</strong><br /><a href="tel:6316796357">631-679-6357</a></p>
+</div>
+</div>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Contact Store Block]]></title>
+        <identifier><![CDATA[contact_store_block]]></identifier>
+        <content><![CDATA[<div class="contact-box">
+<div class="store-name">
+<h4 class="title">Store in London</h4>
+</div>
+<div class="contact-info localtion"><span class="box-label">LOCATION:</span><br /><span>16 Lolaire Road, New Abbey, <br />DG2 2SX</span></div>
+<div class="contact-info phone"><span class="box-label">PHONE NUMBER:</span><br /><span><a href="tel:07769416241">077 6941 6241</a></span></div>
+<div class="contact-info email"><span class="box-label">EMAIL:</span><br /><span><a href="mailto:suprolondon@example.com">suprolondon@example.com</a></span></div>
+</div>
+<div class="contact-box">
+<div class="store-name">
+<h4 class="title">Store in Sydney</h4>
+</div>
+<div class="contact-info localtion"><span class="box-label">LOCATION:</span><br /><span>57 Nerrigundah Drive, Dalmore, <br />VIC 3981</span></div>
+<div class="contact-info phone"><span class="box-label">PHONE NUMBER:</span><br /><span><a href="tel:0392546683">(03) 9254 6683</a></span></div>
+<div class="contact-info email"><span class="box-label">EMAIL:</span><br /><span><a href="mailto:suprosydney@example.com">suprosydney@example.com</a></span></div>
+</div>
+<div class="contact-box">
+<div class="store-name">
+<h4 class="title">Store in Hamburg</h4>
+</div>
+<div class="contact-info localtion"><span class="box-label">LOCATION:</span><br /><span>Boxhagener Str. 52 22113, <br /> Hamburg Horn</span></div>
+<div class="contact-info phone"><span class="box-label">PHONE NUMBER:</span><br /><span><a href="tel:040754635">040 75 46 35</a></span></div>
+<div class="contact-info email"><span class="box-label">EMAIL:</span><br /><span><a href="mailto:suprohamburg@example.com">suprohamburg@example.com</a></span></div>
+</div>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Mpanel Product Detail Top Block]]></title>
+        <identifier><![CDATA[mpanel_product_detail_top_block]]></identifier>
+        <content><![CDATA[<div class="margin-top25 extra-link"><a data-toggle="modal" data-target="#side_guilde_modal">Size Guilde</a> <a class="margin-left20" data-toggle="modal" data-target="#delivery_return_modal">Delivery &amp; Return</a></div>
+<div id="side_guilde_modal" class="modal fade"><button class="close" type="button" data-dismiss="modal">x</button>
+<div class="modal-dialog">
+<div class="modal-body"><img class="img-responsive" src="{{media url="wysiwyg/sizecharts.png"}}" alt="" /></div>
+</div>
+</div>
+<div id="delivery_return_modal" class="modal fade">
+<div class="modal-dialog">
+<div class="modal-content"><button class="close" type="button" data-dismiss="modal">x</button>
+<div class="modal-body">
+<h6 class="margin-bottom10">Delivery</h6>
+<p>All orders shipped with UPS Express.</p>
+<p>Always free shipping for orders over US $250.</p>
+<p>All orders are shipped with a UPS tracking number.</p>
+<h6 class="margin-bottom10">Returns</h6>
+<p>Items returned within 14 days of their original shipment date in same as new condition will be eligible for a full refund or store credit.</p>
+<p>Refunds will be charged back to the original form of payment used for purchase.</p>
+<p>Customer is responsible for shipping charges when making returns and shipping/handling fees of original purchase is non-refundable.</p>
+<p>All sale items are final purchases.</p>
+<h6 class="margin-bottom10">Help</h6>
+<p>Give us a shout if you have any other questions and/or concerns.</p>
+<p>Email: <a href="mailto:contact@domain.com">contact@domain.com</a></p>
+<p>Phone: +1 (23) 456 789</p>
+<p> </p>
+</div>
+</div>
+</div>
+</div>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Footer 1 Information Menu]]></title>
+        <identifier><![CDATA[footer_block_infomation]]></identifier>
+        <content><![CDATA[<h6 class="margin-bottom30">Infomation</h6>
+<ul class="menu">
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Terms &amp; Conditions</a></li>
+<li><a href="#">Returns &amp; Exchanges</a></li>
+<li><a href="#">Shipping &amp; Delivery</a></li>
+<li><a href="#">Privacy Policy</a></li>
+</ul>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Optimize Image Instagram]]></title>
+        <identifier><![CDATA[optimize_image_instagram]]></identifier>
+        <content><![CDATA[<div class="content-block instagram-block">
+<div class="content-heading">
+<h3 class="title">@ FOLLOW US ON INSTAGRAM</h3>
+</div>
+<div id="instagram-widget69741497285959" class="owl-carousel">
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxuDwAxlc/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18579995_1960696564188529_7337951998878154752_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">3</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxmYKg4mj/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18645533_136690066878663_4523806580914782208_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">4</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxkTQgL4a/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18580310_1291548824296385_6111465216388628480_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">3</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxeW9g8a-/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18581187_905994532874556_8779404218109788160_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">4</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxeAUArsL/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18645207_434752716902905_2313654373609111552_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">4</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxdo0Atns/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18580275_453343328353441_8935273786781990912_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">4</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxOjlgHCB/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18579548_315270792228161_7210431868649340928_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">2</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxHNTgEBO/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18579734_1292961420802281_1675115559873675264_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">1</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxFAOgupZ/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18580574_212082855974821_3393136429990150144_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">2</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxD2RgULA/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18580244_454060568275223_4979952255441567744_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">2</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxCcwA499/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18580811_268946606911008_4296061962904666112_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">2</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+<div>
+<div class="instagram-item"><a href="https://www.instagram.com/p/BUaxBZRA2-A/" target="_blank"> <img class="img-responsive" src="{{media url="wysiwyg/18644802_1337660439622660_3428268794319994880_n.jpg"}}" alt="" /> </a> <span class="social-count"> <span class="like-count"><span class="fa fa-heart-o"></span><span class="number">2</span></span> <span class="comment-count"><span class="fa fa-comments-o"></span><span class="number">0</span></span> </span></div>
+</div>
+</div>
+<script type="text/javascript">
+require([
+'jquery',
+'mgsowlcarousel'
+], function ($) {
+var owlinstagram69741497285959 = $('#instagram-widget69741497285959').owlCarousel({
+items: 6,
+autoplay: true,
+autoplayHoverPause: true,
+nav: true,
+dots: false,
+loop: true,
+autoHeight: true,
+navText: ["<i class='pe-7s-angle-left'></i>","<i class='pe-7s-angle-right'></i>"],
+responsive:{
+0:{
+items:2
+},
+480:{
+items:4
+},
+768: {
+items:4
+},
+992:{
+items:6}
+}
+});
+});
+</script>
+</div>]]></content>
+    </item>
+    <item>
+        <title><![CDATA[Static Block On Product Detail Tab]]></title>
+        <identifier><![CDATA[claue_product_detail_tab]]></identifier>
+        <content><![CDATA[<div class="text-center"><img src="{{media url="wysiwyg/care-icon.png"}}" alt="">
+<p class="margin-top20">LT01: 70% wool, 15% polyester, 10% polyamide, 5% acrylic 900 Grms/mt</p>
+</div>]]></content>
+    </item>
+</static_block>

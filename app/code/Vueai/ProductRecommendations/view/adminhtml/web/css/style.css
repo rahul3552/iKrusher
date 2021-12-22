@@ -1,0 +1,68 @@
+.productrecommendations{max-width: 450px;margin: 0 auto 15px;padding: 15px;}
+.productrecommendations .form-logo{max-width: 140px;margin: 0 auto 15px;}
+.productrecommendations .form-captionwrap{text-align: center;color: #999;margin-bottom: 30px;}
+.productrecommendations .fieldset{border: none;padding: 0;margin-bottom: 15px;}
+.productrecommendations .fieldset input,
+.productrecommendations .fieldset select{    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: none !important;
+    outline: none;
+    border: 1px solid #e5e5e5;background: #fff;}
+.productrecommendations .fieldset .field.choice input{width: auto;position: relative;    margin-right: 4px;height:auto;
+    top: 2px;}
+.productrecommendations .fieldset .field{
+    margin-bottom: 10px;}
+.productrecommendations .actions-toolbar .primary{text-align: center;}
+.productrecommendations .actions-toolbar .primary button{padding: 5px 40px 7px;border-radius: 4px;    box-shadow: none !important;}
+.productrecommendations label.mage-error{background: none;border: none;color: red;padding: 5px 0;}
+
+.signin-successpage{max-width: 450px;margin: 0 auto 15px;padding: 15px;text-align: center;min-height: 474.86px;}
+.signin-successpage .form-logo{max-width: 140px;margin: 0 auto 45px;}
+.signin-successpage .form-captionwrap h3{font-size: 26px;color: #4a4a4a;margin-bottom: 10px;}
+.signin-successpage .form-captionwrap{    color: #4a4a4a;}
+
+.vueai-style{box-shadow:0px 0px 11px 4px #d7d7d7;    margin-top: 50px;    min-height: 130px;
+    background: rgba(164, 169, 169, 0.2);display: flex;
+}
+.started-page{max-width: 670px;}
+.vueai-stylelogo{width: 120px;    margin: 5px 10px 5px 5px;
+    background: #fff;
+    min-height: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;}
+.vueai-stylecaption{    text-align: left;
+    padding: 10px;
+    width: calc(100% - 250px);
+    background: #fff;}
+.style-captionwrap{display: flex;align-items: center;}
+.style-captionwrap > div > *:last-child{margin-bottom: 0;}
+.vueai-stylecaption h3{    margin-bottom: 5px;
+    font-weight: 700;
+}
+.vueai-stylebutton{width: 180px;    display: flex;    padding-right: 10px;
+    align-items: center;
+    background: #fff;}
+.vueai-stylebutton button{    background: #2d84c6;
+    border-color: #2d84c6;
+    color: #fff;
+    width: 100%;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 10px 10px;}
+
+.form-stepsblock{text-align: left;padding-left: 2px;margin-top: 36px;}
+.form-stepsblock h3{font-size: 16px;color: #4a4a4a;margin-bottom: 12px;font-weight: 700;}
+.form-stepsblock .form-infoblock p{padding-left: 30px;font-weight: 600;color: #4a4a4a;margin-bottom: 2px;}
+
+.recommendation-block .form-stepsblock .form-infoblock{margin: 0 auto;max-width: 300px;}
+.recommendation-block .form-stepsblock{    padding-left: 0;}
+.recommendation-block .form-stepsblock > p{    font-weight: 600;text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 15px;}
+.recommendation-block .fieldset{padding: 15px 25px 0;}
+.signin-successpage .form-captionwrap.success{border-bottom: 1px solid gray;
+    padding-bottom: 20px;}

@@ -1,0 +1,11 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var Magento\Catalog\Block\Category\View $block */
+$categoryId = $block->getCurrentCategory()->getId();
+if ($categoryId):
+    ?>
+    <div class = "vue-ai-category-view" id="vue-ai-category-view-<?= $categoryId ?>" data-vue="<?= $categoryId ?>"></div>
+<?php
+endif;
+?>
+

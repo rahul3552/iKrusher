@@ -1,0 +1,109 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_NetTerms
+ * @codingStandardsIgnoreFile
+ */
+
+use Magento\Framework\App\ObjectManager;
+
+?>
+<?php
+$targetInvoiceIds = $block->getTargetInvoiceId();
+$targetShipmentIds = $block->getTargetShipmentId();
+$component = $block->getComponent();
+$_maxIdsToShow = 3;
+$counter = 0;
+$targetInvoiceId = '';
+if (count($targetInvoiceIds) > 1) {
+    foreach ($targetInvoiceIds as $invoiceid) {
+        $counter++;
+        $targetInvoiceId.=$invoiceid . ",";
+        if ($counter == $_maxIdsToShow) {
+            $targetInvoiceId.="<br>";
+            $counter = 0;
+        }
+    }
+    $targetInvoiceId = trim($targetInvoiceId, ",");
+} else {
+    $targetInvoiceId = isset($targetInvoiceIds[0]) ? $targetInvoiceIds[0] : "";
+}
+$targetShipmentId = '';
+if (count($targetShipmentIds) > 1) {
+    foreach ($targetShipmentIds as $shipmentid) {
+        $counter++;
+        $targetShipmentId.=$shipmentid . ",";
+        if ($counter == $_maxIdsToShow) {
+            $targetShipmentId.="<br>";
+            $counter = 0;
+        }
+    }
+    $targetShipmentId = trim($targetShipmentId, ",");
+} else {
+    $targetShipmentId = isset($targetShipmentIds[0]) ? $targetShipmentIds[0] : "";
+}
+$_order = $block->getOrderId();
+    $objectManager = ObjectManager::getInstance();
+    $netTermsData = $objectManager->create('\I95DevConnect\MessageQueue\Model\SalesOrder')->load($_order->getIncrementId(), 'source_order_id');
+    $netTermID = $netTermsData->getNetTermsId();
+?>
+    <table class="admin__table-secondary order-account-information-table" aria-describedby="Target NetTerms Info">
+        <tr>
+            <th scope="col"><?php /* @noEscape */ echo __('Target Netterms ID') ?></th>
+            <td><?php /* @noEscape */ echo $netTermID ?></td>
+        </tr>
+    </table>
+<?php
+if ($block->checkCustomAttribute()) {
+    ?>
+<div class="admin__page-section-title">
+    <span class="title"><?php /* @noEscape */ echo __('Target Information') ?></span></div>
+<table class="admin__table-secondary order-information-table" aria-describedby="Custom Info">
+    <?php $order = $block->getTargetOrderId(); ?>
+    <?php
+    $targetOrderId = isset($order[0]['target_order_id']) ? $order[0]['target_order_id'] : '';
+    $targetOrderStatus = isset($order[0]['target_order_status']) ? $order[0]['target_order_status'] : '';
+
+    if ($targetOrderId != null) {
+        ?>
+        <tr>
+            <th scope="col"><?php /* @noEscape */ echo __('Target Order ID') ?></th>
+            <td><?php /* @noEscape */ echo $targetOrderId ?></td>
+        </tr>
+        <tr>
+            <th scope="col"><?php /* @noEscape */ echo __('Target Order Status') ?></th>
+            <td><?php /* @noEscape */ echo $targetOrderStatus ?></td>
+        </tr>
+        <?php
+    } else {
+        ?>
+        <tr>
+            <th scope="col"><?php /* @noEscape */  echo $block->getCustomAttribute(); ?></th>
+        </tr>
+        <?php
+    }
+    ?>
+
+    <?php
+    if ($targetInvoiceId != '') {
+        ?>
+        <tr>
+            <th scope="col"><?php /* @noEscape */ echo __('Target Invoice ID') ?></th>
+            <td><?php /* @noEscape */ echo $targetInvoiceId ?></td>
+        </tr>
+
+        <?php
+    }
+    if ($targetShipmentId != '' && $component != 'GP') {
+        ?>
+        <tr>
+            <th scope="col"><?php /* @noEscape */ echo __('Target Shipment ID') ?></th>
+            <td><?php /* @noEscape */ echo $targetShipmentId ?></td>
+        </tr>
+
+        <?php
+    }
+    ?>
+</table>
+<?php } ?>

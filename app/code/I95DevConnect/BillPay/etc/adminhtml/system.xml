@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_BillPay
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="i95dev_connect_extensions" translate="label" sortOrder="1000000">
+            <label>I95Dev Connect</label>
+        </tab>
+        <section id="i95devconnect_billpay" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>i95Dev Connect BillPay</label>
+            <class>separator-top</class>
+            <tab>i95dev_connect_extensions</tab>
+            <resource>I95DevConnect_BillPay::settings</resource>
+            <group id="billpay_enabled_settings" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable(extension)</label>
+                    <comment>To enable or disable the extension.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Magento\Contact\Model\System\Config\Backend\Links</backend_model>
+                </field>
+                <field id="recipient_email" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Emails To</label>
+                    <comment>Enter recipient mail id.</comment>
+                    <validate>validate-email required-entry</validate>
+                </field>
+                <field id="sender" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <backend_model>Magento\Contact\Model\System\Config\Backend\Links</backend_model>
+                </field>
+                <field id="email_template" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <comment>Select email to be send</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <backend_model>Magento\Contact\Model\System\Config\Backend\Links</backend_model>
+                </field>
+                <field id="payment_backend" translate="label" type="multiselect" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Payment Method On Back End</label>
+                    <source_model>I95DevConnect\BillPay\Model\AdminPaymentOptions</source_model>
+                </field>
+                <field id="payment_frontend" translate="label" type="multiselect" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Payment Method On Front End</label>
+                    <source_model>I95DevConnect\BillPay\Model\PaymentOptions</source_model>
+                </field>
+                <field id="enable_customergroups" translate="label" type="multiselect" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Module for Specified Customer Groups</label>
+                    <source_model>I95DevConnect\BillPay\Model\CustomergroupOptions</source_model>
+                </field>
+                <field id="pdf_text" translate="label" type="textarea" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PDF Footer Text</label>
+                    <comment>This text will appear in footer section of Billpay PDF.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

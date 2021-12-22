@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_VatTax
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="custom_info">
+            <block class="I95DevConnect\VatTax\Block\Adminhtml\Edit\Tab\View\CustomerTaxInfo" name="custom_tax_info" after = "personal_info"/>
+        </referenceBlock>
+    </body>
+</page>
+
+ 

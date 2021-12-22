@@ -1,0 +1,32 @@
+<?php
+/**
+ * @author i95Dev Team
+ * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
+ * @package I95DevConnect_VatTax
+ */
+?>
+<?php
+if ($block->isEnable()) {
+    ?>
+    <div class="fieldset-wrapper customer-information">
+        <table class="admin__table-secondary">
+            <tbody>
+                <tr>
+                    <th><?= /* @noEscape */  __('Tax Product Posting Group:') ?></th>
+                    <th><?php
+                    $productTax = $block->getCustomProductAttribute();
+                    if ($productTax == '') {
+                        ?>
+                        <td><?= /* @noEscape */  __('Not Available'); ?></td>
+                        <?php
+                    } else {
+                        ?>
+                        <td><?= /* @noEscape */  $productTax; ?></td>
+                        <?php
+                    }
+                    ?></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<?php } ?>

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="i95dev">
+        <job instance="I95DevConnect\ShippingMapping\Cron\sendShippingMapping" method="execute"
+             name="send_shipping_mapping">
+            <schedule>* 0 * * *</schedule>
+        </job>
+    </group>
+</config>
