@@ -517,5 +517,13 @@ require([
 				}
 			});
 		});
+        $(window).scroll(function(){
+            var sticky = $('.header'),
+                scroll = $(window).scrollTop();
+          
+            if (scroll >= 100) sticky.addClass('active-sticky');
+            else sticky.removeClass('active-sticky');
+        });
 	})(jQuery);
 });
+0

@@ -11,7 +11,7 @@
 		
 		<add id="MGS_Mpanel::mgs_elements" title="MGS Theme" module="MGS_Mpanel" sortOrder="10" parent="Magento_Backend::mgs" resource="MGS_Mpanel::mgs_elements"/>
 		<add id="MGS_Mpanel::general_setting" title="General Setting" module="MGS_Mpanel" sortOrder="10" parent="MGS_Mpanel::mgs_elements" action="adminhtml/system_config/edit/section/mpanel" resource="MGS_Mpanel::general_setting"/>
-		<add id="MGS_Mpanel::theme_setting" title="Theme Setting V2.0.1" module="MGS_Mpanel" sortOrder="20" parent="MGS_Mpanel::mgs_elements" action="adminhtml/system_config/edit/section/mgstheme" resource="MGS_Mpanel::theme_setting"/>
+		<add id="MGS_Mpanel::theme_setting" title="Theme Setting V1.9.9" module="MGS_Mpanel" sortOrder="20" parent="MGS_Mpanel::mgs_elements" action="adminhtml/system_config/edit/section/mgstheme" resource="MGS_Mpanel::theme_setting"/>
 		<add id="MGS_Mpanel::color_setting" title="Color Setting" module="MGS_Mpanel" sortOrder="30" parent="MGS_Mpanel::mgs_elements" action="adminhtml/system_config/edit/section/color" resource="MGS_Mpanel::color_setting"/>
     </menu>
 </config>

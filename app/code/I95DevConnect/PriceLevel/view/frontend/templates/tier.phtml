@@ -4,8 +4,10 @@
  * @copyright Copyright (c) 2019 i95Dev(https://www.i95dev.com)
  * @package I95DevConnect_PriceLevel
  */
+
 $tierPrices = $block->getProductPriceList();
-if (!empty($tierPrices) && count($tierPrices) > 1) {
+
+if (!empty($tierPrices) && count($tierPrices) > 0) {
     ?>
     <ul class="prices-tier items">
     <?php

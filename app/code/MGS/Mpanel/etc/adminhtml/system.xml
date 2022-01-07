@@ -436,7 +436,7 @@
 		</section>
 		
 		<section id="mgstheme" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
-			<label>Theme Settings (v2.0.1)</label>
+			<label>Theme Settings (v1.9.9)</label>
 			<tab>mgs</tab>
 			<resource>MGS_Mpanel::config_mgstheme</resource>
 			<group id="install" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">

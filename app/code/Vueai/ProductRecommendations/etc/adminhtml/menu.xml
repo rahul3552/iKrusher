@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-    <menu>
-        <add id="Vueai_ProductRecommendations::productrecommendations" title="Vue.ai" module="Vueai_ProductRecommendations" sortOrder="45" resource="Vueai_ProductRecommendations::productrecommendations" parent="Magento_Backend::marketing"/>
-        <add id="Vueai_ProductRecommendations::signup" title="Personalization and Styling" module="Vueai_ProductRecommendations" sortOrder="20" parent="Vueai_ProductRecommendations::productrecommendations" action="productrecommendations/index/signup" resource="Vueai_ProductRecommendations::signup"/>
-    </menu>
-</config>

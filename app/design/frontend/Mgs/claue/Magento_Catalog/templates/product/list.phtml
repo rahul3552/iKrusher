@@ -23,7 +23,7 @@ $_aHelper = $this->helper('MGS\AjaxCart\Helper\Data');
 
 $colClassRow = $themeHelper->getColClass();
 $arrColClass = explode(' ', $colClassRow);
-$pageType = 'catalog';
+// $pageType = 'catalog';
 $settings = $themeHelper->getThemeSettings();
 $lazyLoad = $themeHelper->getStoreConfig('mgstheme/general/lazy_load');
 $baseImage = $this->getViewFileUrl('MGS_Mpanel::images/blank.png');
@@ -33,21 +33,21 @@ $animationType = $_aHelper->getConfig('ajaxcart/additional/animation_type');
 
 $changeProductPerRow = $themeHelper->getEnableChangeProductPerRow();
 
-if($this->hasData('page_type')){
-	$pageType = $this->getData('page_type');
-}
-print_r($pageType);
-if($pageType == 'catalog'){
-	$perrow = $settings['catalog']['per_row'];
-}elseif($pageType == 'catalogsearch') {
-	if($settings['catalogsearch']['per_row']){
-		$perrow = $settings['catalogsearch']['per_row'];
-	}
-}elseif($pageType == 'catalog_brand') {
-	if($settings['catalog_brand']['per_row']){
-		$perrow = $settings['catalog_brand']['per_row'];
-	}
-}
+// if($this->hasData('page_type')){
+// 	$pageType = $this->getData('page_type');
+// }
+// // print_r($pageType);
+// if($pageType == 'catalog'){
+// 	$perrow = $settings['catalog']['per_row'];
+// }elseif($pageType == 'catalogsearch') {
+// 	if($settings['catalogsearch']['per_row']){
+// 		$perrow = $settings['catalogsearch']['per_row'];
+// 	}
+// }elseif($pageType == 'catalog_brand') {
+// 	if($settings['catalog_brand']['per_row']){
+// 		$perrow = $settings['catalog_brand']['per_row'];
+// 	}
+// }
 
 $hover_effect = "";
 if ($themeHelper->getStoreConfig('mpanel/catalog/disable_hover_effect')== 1){

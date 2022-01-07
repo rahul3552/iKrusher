@@ -175,6 +175,18 @@ class ItemPrice extends AbstractModel
         $this->logger->debug($priceLevel);
         return $priceLevel;
     }
+    
+    
+    /**
+     * Get customer assigned price level
+     *
+     * @param  int $customerId
+     * @return string $priceLevel
+     */
+    public function getCustomerPriceLevel($customerId)
+    {
+	return $this->customerFactory->create()->load($customerId)->getPricelevel();
+    }
 
     /**
      * Get product's price levels list

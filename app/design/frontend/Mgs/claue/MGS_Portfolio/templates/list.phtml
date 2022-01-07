@@ -22,7 +22,7 @@
 	<?php $portfolios = $this->getPortfolios(); ?>
 	<?php if(count($portfolios)): ?>
 		<?php foreach($portfolios as $portfolio): ?>
-			<div class="item item_all <?php echo $this->getFilterClass($portfolio) ?>  col-md-4 col-sm-6 col-xs-12">
+			<div class="item item_all <?php echo $this->getFilterClass($portfolio) ?>">
 			    <div class="item_inner">
 					<div class="portfolio-top-content">
 						<div class="image">
@@ -51,7 +51,7 @@
 		<?php foreach($menu as $_menu ): ?>
 			<?php $portfoliosCate = $this->getPortfolios($_menu->getId()); ?>
 			<?php if(!count($portfoliosCate)): ?>
-				<div class="item col-xs-12 item_<?php echo $_menu->getId(); ?>">
+				<div class="item item_<?php echo $_menu->getId(); ?>">
 					<div class="item_inner">
 					<div class="message warning"><span><?php echo __('There are no portfolios matching the selection.') ?></span></div>
 					</div>

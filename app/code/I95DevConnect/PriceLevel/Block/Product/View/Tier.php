@@ -11,6 +11,7 @@ namespace I95DevConnect\PriceLevel\Block\Product\View;
 use Magento\Framework\View\Element\Template;
 use I95DevConnect\PriceLevel\Model\ItemPrice as ItemPrice;
 
+
 /**
  * Product Price List
  * @api
@@ -82,6 +83,7 @@ class Tier extends Template
         $finalPrices = [];
         $tierQty = [];
         $customerSession = $this->customerSession;
+
         if ($customerSession->isLoggedIn()) {
             $customerId = $customerSession->getCustomerId();
             $SKU = $this->getProductSku();
@@ -91,6 +93,7 @@ class Tier extends Template
             }
             $tierPricesCollection = $this->itemPrice->getItemPriceList($customerPriceLevel, $SKU)
                     ->setOrder('qty', 'ASC')->setOrder('price', 'ASC')->getData();
+
             foreach ($tierPricesCollection as $tierPrices) {
                 if (!in_array($tierPrices['qty'], $tierQty)) {
                     $tierQty[] = $tierPrices['qty'];
@@ -98,6 +101,7 @@ class Tier extends Template
                 }
             }
         }
+
         return $finalPrices;
     }
 

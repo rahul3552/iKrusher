@@ -9,5 +9,6 @@
 	<head>
         <css src="css/custom.css" /> 
         <css src="css/claue_home_boxed.css" /> 
+        <css src="claue_home_boxed_responsive.css" />
     </head>
 </page>

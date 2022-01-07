@@ -159,7 +159,7 @@ define([
             addToCartButton.attr('title', addToCartButtonTextAdded);
 
             setTimeout(function() {
-                var addToCartButtonTextDefault = self.options.addToCartButtonTextDefault || $t('Add to Cart');
+                var addToCartButtonTextDefault = self.options.addToCartButtonTextDefault || $t('Show Now');
                 addToCartButton.removeClass(self.options.addToCartButtonDisabledClass);
                 addToCartButton.find('span:not(.fa)').text(addToCartButtonTextDefault);
 				addToCartButton.find('.fa').removeClass('fa-added');

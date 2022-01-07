@@ -3573,9 +3573,8 @@ body.catalog-product-view .swatch-option.text[option-label = "Black"]{
 body.catalog-product-view .swatch-option.text[option-label = "White"]{
     background-color:#ffffff;
 }
-
-body.checkout-cart-index section.page-main.container .cart-container form.form.form-cart .cart.table-wrapper table tr.item-info td .product-item-details dl.item-options{
-    display: none;
+.availability.only.configurable-variation-qty {
+    display: none !important;
 }
 
 @media (max-width:991px) {

@@ -67,9 +67,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                 <?php if ($addInfoBlock) :?>
                     <?= $addInfoBlock->setItem($_item)->toHtml() ?>
                 <?php endif;?>
-				<div class="item-actions">
-					<?= /* @noEscape */ $block->getActions($_item) ?>
-				</div>
+
             </div>
 			
         </td>
@@ -100,7 +98,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
         <td class="col qty" data-th="<?= $block->escapeHtmlAttr(__('Qty')) ?>">
             <div class="field qty">
                 <div class="control qty">
-                     <span class="edit-qty minus" onclick="minusQty('cart-<?php /* @escapeNotVerified */ echo $_item->getId() ?>-qty')">-</span>
+                 
 						<input id="cart-<?php /* @escapeNotVerified */ echo $_item->getId() ?>-qty"
                            name="cart[<?php /* @escapeNotVerified */ echo $_item->getId() ?>][qty]"
                            data-cart-item-id="<?php /* @escapeNotVerified */ echo $_item->getSku() ?>"
@@ -115,15 +113,22 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                            data-validate="{required:true,'validate-greater-than-zero':true}"
                            data-role="cart-item-qty"/>
                     
-                    <span class="edit-qty plus" onclick="plusQty('cart-<?php /* @escapeNotVerified */ echo $_item->getId() ?>-qty')">+</span>
+                    <div class="cart-qty-edit-delete"><span class="edit-qty plus" onclick="plusQty('cart-<?php /* @escapeNotVerified */ echo $_item->getId() ?>-qty')"><i class="arrow up"></i></span>
+					<span class="edit-qty minus" onclick="minusQty('cart-<?php /* @escapeNotVerified */ echo $_item->getId() ?>-qty')"><i class="arrow down"></i></span></div>
                 </div>
             </div>
         </td>
 
         <td class="col subtotal" data-th="<?= $block->escapeHtmlAttr(__('Subtotal')) ?>">
             <?php if ($canApplyMsrp) :?>
+							<div class="item-actions">
+					<?= /* @noEscape */ $block->getActions($_item) ?>
+				</div>
                 <span class="cart msrp subtotal">--</span>
             <?php else :?>
+							<div class="item-actions">
+					<?= /* @noEscape */ $block->getActions($_item) ?>
+				</div>
                 <?= $block->getRowTotalHtml($_item) ?>
             <?php endif; ?>
         </td>
