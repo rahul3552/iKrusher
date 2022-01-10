@@ -7,5 +7,6 @@
         <referenceContainer name="before.body.end">
             <block class="Magento\Framework\View\Element\Template" name="mgs.quickview.initialize" template="MGS_QuickView::initialize.phtml" />
         </referenceContainer>
+        <referenceBlock name="catalog.product.related" remove="true"/>
     </body>
 </page>
