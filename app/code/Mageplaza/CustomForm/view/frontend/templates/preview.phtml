@@ -1,0 +1,36 @@
+<?php
+use Mageplaza\CustomForm\Block\CustomForm;
+
+/** @var CustomForm $block */
+$formData = $block->getCustomFormData();
+$formId   = uniqid('', false);
+/** @var \Mageplaza\CustomForm\Model\Form $customForm */
+$customForm = $block->loadCustomForm();
+?>
+<form id="mp-custom-form-<?= /* @noEscape */ $formId ?>" data-ns="customForm-<?= /* @noEscape */ $formId ?>"
+      method="POST"
+      data-bind="scope:'customForm-<?= /* @noEscape */ $formId ?>'">
+    <input type="hidden" value="<?= /* @noEscape */ $customForm->getId() ?>" name="formId">
+    <input type="hidden" value="<?= /* @noEscape */ $customForm->getId() ?>" name="afterSubmitUrl">
+    <div class="mp-custom-form-popup" <?= $customForm->getFormStyle() === 'popup' ? 'style="display:none;"' : '' ?>>
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <script type="text/x-magento-init">
+        {
+            "#mp-custom-form-<?= /* @noEscape */ $formId ?>": {
+                "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getCustomFormJsLayout($formId) ?>
+            }
+        }
+        </script>
+    </div>
+    <?php if ($customForm->getFormStyle() === 'popup') : ?>
+        <button id="mp-cf-open-form-<?= /* @noEscape */ $formId ?>"
+                type="button"
+                class="action primary button mp-open-custom-form"
+                style="display: none">
+            <span><?= $block->escapeHtml($customForm->getFbButtonText()) ?></span>
+        </button>
+    <?php endif; ?>
+    <style>
+        <?= $block->escapeHtml($customForm->getCustomCss()) ?>
+    </style>
+</form>

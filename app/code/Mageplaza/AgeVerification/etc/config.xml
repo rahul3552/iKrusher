@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_AgeVerification
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mpageverify>
+            <general>
+                <enabled>1</enabled>
+                <verify_age>18</verify_age>
+                <enabled_term_condition>0</enabled_term_condition>
+                <link_term>I agree with the </link_term>
+                <anchor_text>Terms and Conditions</anchor_text>
+                <cookie_time>365</cookie_time>
+                <customer_groups>0</customer_groups>
+                <auto_verify>1</auto_verify>
+                <redirect>https://www.google.com/</redirect>
+            </general>
+            <page_verify>
+                <apply_for>0</apply_for>
+                <apply_for_cms>0</apply_for_cms>
+                <enabled_condition>0</enabled_condition>
+                <apply_for_category>default</apply_for_category>
+            </page_verify>
+            <purchase_verify>
+                <enable>0</enable>
+                <notice_type>1</notice_type>
+                <message>You must verify your age to buy this product.</message>
+            </purchase_verify>
+            <design>
+                <verify_type>3</verify_type>
+                <title>AGE VERIFICATION</title>
+                <description>You must be older than {{age}} years old to enter this page.</description>
+                <confirm_label>Enter</confirm_label>
+                <cancel_label>Cancel</cancel_label>
+                <title_bg>#61BB61</title_bg>
+                <content_bg>#FFFFFF</content_bg>
+                <button_color>#006BB4</button_color>
+                <text_color>#333333</text_color>
+            </design>
+        </mpageverify>
+    </default>
+</config>

@@ -1,0 +1,191 @@
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<form id="mp_productgrid_attachments-<%- popupId %>">
+    <div id="mp_attachments_popup">
+        <div id="mp_attachments_location_container-<%- popupId %>" class="admin__field mp-admin__field"
+             data-bind="css: $data.additionalClasses, attr: {'data-index': index}, visible: visible"
+             data-index="attachment_location">
+            <label class="admin__field-label" data-bind="attr: {for: uid}, visible: $data.labelVisible"
+                   for="mp_attachments_location-<%- popupId %>">
+                <span data-bind="attr: {'data-config-scope': $data.scopeLabel}, text: label"
+                      data-config-scope="[GLOBAL]"><%- label.showOn %></span>
+            </label>
+            <div class="admin__field-control mp_attachments_location_container__selection"
+                 data-bind="css: {'_with-tooltip': $data.tooltip, '_with-reset': $data.showFallbackReset; $data.isDifferedFromDefault}">
+                <select multiple class="admin__control-multiselect"
+                        name="product[mpattachments][attachment_location]"
+                        id="mp_attachments_location-<%- popupId %>" size="6"
+                        aria-describedby="notice-mp_attachments_location">
+                    <% _.each(fileSystem, function(field, key) { %>
+                    <% if((location != null &&location.indexOf(field.value) >=0)
+                    ||(location == null &&defaultValue.indexOf(field.value) >=0)) { %>
+                    <option data-title="<%- field.label %>"
+                            value="<%- field.value %>" selected><%- field.label %>
+                    </option>
+                    <% } else { %>
+                        <option data-title="<%- field.label %>"
+                                value="<%- field.value %>"><%- field.label %>
+                        </option>
+                    <% } %>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="admin__field-control"
+                 data-bind="css: {'_with-tooltip': $data.tooltip, '_with-reset': $data.showFallbackReset &amp;&amp; $data.isDifferedFromDefault}">
+                <div class="admin__field admin__field-option">
+
+                    <% if(location == null || location == 0 || location == defaultValue) { %>
+                    <input class="admin__control-checkbox"
+                           id="use_config_mp_attachments_location-<%- popupId %>"
+                           name="product[mpattachments][attachment_location][use_system_config]"
+                           value="1"
+                           checked
+                           type="checkbox">
+                    <% } else { %>
+                    <input class="admin__control-checkbox"
+                           id="use_config_mp_attachments_location-<%- popupId %>"
+                           name="product[mpattachments][attachment_location][use_system_config]"
+                           value="0"
+                           type="checkbox"/>
+                    <% } %>
+
+                    <label class="admin__field-label" data-bind="attr: {for: uid}, text: description"
+                           for="use_config_mp_attachments_location-<%- popupId %>"><%- label.useConfig %></label>
+                </div>
+            </div>
+        </div>
+        <a id="mp-popup-attachment-save-<%- popupId %>" class="mp-attachment-details-save" href="#"><%- label.save
+            %></a>
+        <% _.each(fileSystem, function(field, key) { %>
+        <input type="hidden"
+               name="product[mpattachments][attachment_location][<%- field.value %>]"
+               value="<% if(field.value === '') { %>1<% } else { %>0<% } %>"
+               data-value="<% if(field.value === '') { %>-1<% } else { %><%-field.value%><% } %>"
+               class="mp_selection"/>
+        <% }); %>
+        <div style="clear: both;"></div>
+            <div class="admin__field mp-admin__field" style="margin-top: 5px;">
+                <label class="admin__field-label" for="file_type"><span>File Type</span></label>
+                <div class="admin__field-control mp_attachments_location_container__selection">
+                    <select id="mp_attachments_type-<%- popupId %>" name="product[mpattachments][type]" title="File Type" class="admin__control-select" style="width: 89%;min-width: 15rem;">
+                        <option value="1">Link other</option>
+                        <option value="0" selected="selected">File in Store</option>
+                    </select>
+                </div>
+            </div>
+        <div style="clear: both;"></div>
+            <div class="admin__field mp-admin__field required _required" style="margin-top: 5px;" id="mp_attachments_link">
+            </div>
+        <div style="clear: both;"></div>
+        <div class="admin__field mp-admin__field required _required" style="margin-top: 5px;" id="mp_attachments_label">
+        </div>
+        <div style="clear: both;"></div>
+        <div class="admin__field mp-admin__field required _required" style="margin-top: 5px;" id="mp_attachments_name">
+        </div>
+        <div style="clear: both;"></div>
+        <div class="admin__field mp-admin__field" style="margin-top: 5px;margin-left: 31.5rem;" id="mp_attachments_link_button">
+        </div>
+        <div style="clear: both;"></div>
+        <div id="mp-productgrid-attachments" class="mp-ui-sortable">
+            <% _.each(fileData, function(field, key) { %>
+            <div class="image item">
+                <input type="hidden" name="product[mpattachments][images][<%- field.file_id %>][position]"
+                       value="<%- field.file_position %>" class="position"/>
+                <input class="file-id" name="product[mpattachments][images][<%- field.file_id %>][value_id]"
+                       value="<%- field.file_id %>" type="hidden">
+                <input class="file-label" name="product[mpattachments][images][<%- field.file_id %>][label]"
+                       value="<%- field.file_label %>" type="hidden">
+                <input class="file-name" name="product[mpattachments][images][<%- field.file_id %>][name]"
+                       value="<%- field.file_name %>" type="hidden">
+                <input class="file-status" name="product[mpattachments][images][<%- field.file_id %>][status]"
+                       value="<%- field.file_status %>" type="hidden">
+                <input class="file-storeid" name="product[mpattachments][images][<%- field.file_id %>][store_ids]"
+                       value="<%- field.file_stores %>" type="hidden">
+                <input class="file-action" name="product[mpattachments][images][<%- field.file_id %>][file_action]"
+                       value="<%- field.file_action %>" type="hidden">
+                <input class="is-removed" name="product[mpattachments][images][<%- field.file_id %>][removed]"
+                       value="" type="hidden">
+                <input class="is-updated" name="product[mpattachments][images][<%- field.file_id %>][is_updated]"
+                       value="" type="hidden">
+                <input class="is-new" name="product[mpattachments][images][<%- field.file_id %>][is_new]"
+                       value="" type="hidden">
+                <input class="file-size" name="product[mpattachments][images][<%- field.file_id %>][size]"
+                       value="<%- field.file_size %>" type="hidden">
+                <input class="file-path" name="product[mpattachments][images][<%- field.file_id %>][file_path]"
+                       value="<%- field.file_path %>" type="hidden">
+                <input class="file-icon-path"
+                       name="product[mpattachments][images][<%- field.file_id %>][file_icon_path]"
+                       value="<%- field.file_icon_path %>" type="hidden">
+                <input class="file-customer-login"
+                       name="product[mpattachments][images][<%- field.file_id %>][customer_login]"
+                       value="<%- field.file_customer_login %>" type="hidden">
+                <input class="file-customer-group"
+                       name="product[mpattachments][images][<%- field.file_id %>][customer_group]"
+                       value="<%- field.file_customer_group %>" type="hidden">
+                <input class="file-priority" name="product[mpattachments][images][<%- field.file_id %>][priority]"
+                       value="<%- field.file_priority %>" type="hidden">
+                <input class="file-is-buyer" name="product[mpattachments][images][<%- field.file_id %>][is_buyer]"
+                       value="<%- field.file_is_buyer %>" type="hidden">
+                <div class="product-image-wrapper">
+                    <img class="product-image" src="<%- field.file_url %>" alt="default-chart-icon">
+                    <div class="actions">
+                        <button type="button" class="action-remove" title="Delete file">
+                            <span><%- label.fileDelete %></span>
+                        </button>
+                        <div class="draggable-handle"></div>
+                    </div>
+                    <div class="image-fade"><span><%- label.hidden %></span></div>
+                </div>
+                <div class="item-description">
+                    <div class="item-title"><%- field.file_name %></div>
+                    <div class="item-size">
+                        <span><%- field.file_size %></span>
+                    </div>
+                </div>
+                <div class="item-roles"><span class="item-role"><%- field.file_action %></span></div>
+            </div>
+            <% }); %>
+            <div id="mp-image-placeholder-<%- popupId %>" class="image image-placeholder">
+                <div id="mp_attachments_uploader" class="uploader">
+                    <div class="fileinput-button form-buttons button">
+                        <span><%- label.browseFile %></span>
+                        <input id="fileupload-<%- popupId %>" name="image" multiple="multiple"
+                               type="file">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div id="mp-product-image-wrapper" class="product-image-wrapper">
+                    <p class="image-placeholder-text"><%- label.browseFileText %></p>
+                </div>
+                <div class="mp_image_loader">
+                    <img src="<%- loaderUrl %>"
+                         alt="Loading...">
+                </div>
+            </div>
+        </div>
+        <div id="ln_overlay" class="ln_overlay">
+            <div class="loader">
+                <img src="<%- loaderUrl %>" alt="Loading...">
+            </div>
+        </div>
+    </div>
+</form>

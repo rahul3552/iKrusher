@@ -1,0 +1,96 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_AgeVerification
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\AgeVerification\Block\Action $block */ ?>
+
+<div id="mpageverify-popup-dob">
+    <div class="label"><?= __('Date of Birth') ?></div>
+    <div class="mpageverify-select-wrapper">
+        <select name="day" class="required-entry" id="mpageverify-day">
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+        </select>
+    </div>
+    <div class="mpageverify-select-wrapper mpageverify-month">
+        <select name="month" class="required-entry" id="mpageverify-month">
+            <option value="01"><?= __('Jan') ?></option>
+            <option value="02"><?= __('Feb') ?></option>
+            <option value="03"><?= __('Mar') ?></option>
+            <option value="04"><?= __('Apr') ?></option>
+            <option value="05"><?= __('May') ?></option>
+            <option value="06"><?= __('Jun') ?></option>
+            <option value="07"><?= __('Jul') ?></option>
+            <option value="08"><?= __('Aug') ?></option>
+            <option value="09"><?= __('Sep') ?></option>
+            <option value="10"><?= __('Oct') ?></option>
+            <option value="11"><?= __('Nov') ?></option>
+            <option value="12"><?= __('Dec') ?></option>
+        </select>
+    </div>
+    <div class="mpageverify-select-wrapper mpageverify-year">
+        <select name="year" class="required-entry" id="mpageverify-year"></select>
+    </div>
+    <script>
+        require([
+            'jquery'
+        ], function ($) {
+            var yearEl = $('#mpageverify-year'),
+                currentYear = parseInt(new Date().getFullYear()),
+                optionHtml = '<option value="' + currentYear + '">' + currentYear + '</option>';
+
+            for (var i = 1; i <= 80; i++) {
+                var year = currentYear - i;
+                optionHtml += '<option value="' + year + '">' + year + '</option>';
+            }
+
+            yearEl.html(optionHtml);
+        })
+    </script>
+</div>

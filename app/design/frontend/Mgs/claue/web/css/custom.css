@@ -3593,3 +3593,6 @@ body.catalog-product-view .swatch-option.text[option-label = "White"]{
 body.cms-index-index .page-title-wrapper+.page-main {
     margin-top: 0px;
 }
+.margin-top60 {
+    display: none;
+}

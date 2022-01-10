@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mageplaza_ProductAttachments::productattachments" title="Product Attachments" module="Mageplaza_ProductAttachments" sortOrder="110" resource="Mageplaza_ProductAttachments::productattachments" parent="Magento_Catalog::catalog"/>
+        <add id="Mageplaza_ProductAttachments::file" title="Manage Files" module="Mageplaza_ProductAttachments" sortOrder="10" action="mpproductattachments/file" resource="Mageplaza_ProductAttachments::file" parent="Mageplaza_ProductAttachments::productattachments"/>
+        <add id="Mageplaza_ProductAttachments::log" title="Logs" module="Mageplaza_ProductAttachments" sortOrder="20" action="mpproductattachments/log" resource="Mageplaza_ProductAttachments::log" parent="Mageplaza_ProductAttachments::productattachments"/>
+        <add id="Mageplaza_ProductAttachments::configuration" title="Configuration" module="Mageplaza_ProductAttachments" sortOrder="1000" action="adminhtml/system_config/edit/section/productattachments" resource="Mageplaza_ProductAttachments::configuration" parent="Mageplaza_ProductAttachments::productattachments"/>
+    </menu>
+</config>

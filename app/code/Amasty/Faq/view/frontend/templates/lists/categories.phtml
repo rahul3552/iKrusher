@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var \Amasty\Faq\Block\Lists\CategoryList $block
+ */
+
+$currentCategoryId = $block->getCurrentCategoryId();
+if ($categories = $block->getCategories()): ?>
+    <div class="amfaq_categories">
+        <div class="item title">
+                <?= $block->escapeHtml(__('Categories:')); ?>
+        </div>
+        <br/>
+        <?php foreach ($categories as $category): ?>
+            <div class="item<?= ($category->getCategoryId() == $currentCategoryId) ? ' current':''; ?> faq-cat-list">
+                <a href="<?= $block->escapeUrl($block->getCategoryUrl($category)) ?>">
+                    <?= $block->escapeHtml($category->getTitle()); ?>
+                </a>
+            </div>
+            <hr/>
+        <?php endforeach; ?>
+    </div>
+<?php endif;

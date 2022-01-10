@@ -1,0 +1,252 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+use Mageplaza\ProductAttachments\Block\Adminhtml\Product\Form\Attachments;
+use Mageplaza\ProductAttachments\Model\Config\Source\FileAction;
+
+/** @var $block Attachments */
+
+?>
+<form id="mp_productgrid_attachments" method="post" action="#">
+    <div id="mp_attachments_location_container" class="admin__field"
+         data-bind="css: $data.additionalClasses, attr: {'data-index': index}, visible: visible"
+         data-index="attachment_location">
+        <label class="admin__field-label" data-bind="attr: {for: uid}, visible: $data.labelVisible"
+               for="mp_attachments_location">
+            <span data-bind="attr: {'data-config-scope': $data.scopeLabel}, text: label"
+                  data-config-scope="[GLOBAL]"><?= $block->escapeHtml(__('Show Block On')) ?></span>
+        </label>
+        <div class="admin__field-control mp_attachments_location_container__selection"
+             data-bind="css: {'_with-tooltip': $data.tooltip, '_with-reset': $data.showFallbackReset; $data.isDifferedFromDefault}">
+            <select multiple class="admin__control-multiselect"
+                    name="product[mp_product_attachments][attachment_location]"
+                    id="mp_attachments_location" size="6" aria-describedby="notice-mp_attachments_location">
+                <?php foreach ($block->helperData->getShowOnLocation() as $location) : ?>
+                    <?php $currentLocations = explode(',', $block->getCurrentLocation()) ?>
+                    <option data-title='<?= $block->escapeHtmlAttr($location['label']) ?>'
+                            value="<?= $block->escapeHtmlAttr($location['value']) ?>"
+                        <?= in_array((string)$location['value'], $currentLocations, true) ? 'selected' : '' ?>>
+                        <?= $block->escapeHtml($location['label']) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="admin__field-control"
+             data-bind="css: {'_with-tooltip': $data.tooltip, '_with-reset': $data.showFallbackReset &amp;&amp; $data.isDifferedFromDefault}">
+            <div class="admin__field admin__field-option">
+                <input class="admin__control-checkbox"
+                       id="use_config_mp_attachments_location"
+                       name="product[mpattachments][attachment_location][use_system_config]"
+                       value="0"
+                       data-form-part="product_form"
+                    <?= (!$block->getCurrentLocation() || !$block->getCurrentLocation()) ? 'checked' : '' ?>
+                       type="checkbox">
+
+                <label class="admin__field-label" data-bind="attr: {for: uid}, text: description"
+                       for="use_config_mp_attachments_location">
+                    <?= $block->escapeHtml(__('Use Config Settings')) ?>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+        <div class="admin__field mp-admin__field" style="margin-top: 5px;">
+            <label class="admin__field-label" for="file_type"><span>File Type</span></label>
+            <div class="admin__field-control mp_attachments_location_container__selection">
+                <select id="mp_attachments_file_type" name="product[mpattachments][type]" title="File Type"
+                        class="admin__control-select" style="width: 89%;min-width: 15rem;">
+                    <option value="1">Link other</option>
+                    <option value="0" selected="selected">File in Store</option>
+                </select>
+            </div>
+        </div>
+    <div style="clear: both;"></div>
+        <div class="admin__field mp-admin__field required _required" style="margin-top: 5px;" id="mp_attachments_link">
+        </div>
+    <div style="clear: both;"></div>
+        <div class="admin__field mp-admin__field required _required" style="margin-top: 5px;" id="mp_attachments_label">
+        </div>
+    <div style="clear: both;"></div>
+        <div class="admin__field mp-admin__field required _required" style="margin-top: 5px;" id="mp_attachments_name">
+        </div>
+    <div style="clear: both;"></div>
+        <div class="admin__field mp-admin__field" style="margin-top: 5px;margin-left: 32rem;"
+             id="mp_attachments_link_button">
+        </div>
+    <div style="clear: both;"></div>
+</form>
+<?php foreach ($block->helperData->getShowOnLocation() as $location) : ?>
+    <input type="hidden"
+           name="product[mpattachments][attachment_location][<?= /* @noEscape */ ($location['value'] === '') ? 'default' : $location['value'] ?>]"
+           value="<?= ($location['value'] === '') ? 1 : 0 ?>"
+           data-value="<?= /* @noEscape */ ($location['value'] === '') ? -1 : $location['value'] ?>"
+           data-form-part="product_form" class="mp_selection"/>
+<?php endforeach; ?>
+<div style="clear: both;"></div>
+<div id="mp_product_attachments_content" class="mp-ui-sortable">
+    <?php foreach ($block->getFileCollection() as $file) : ?>
+        <div class="image item" data-role="mp_file">
+            <input type="hidden" name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][position]"
+                   value="<?= /* @noEscape */ $file->getPosition() ?>" data-form-part="product_form" class="position"/>
+            <input class="file-id"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][value_id]"
+                   value="<?= /* @noEscape */ $file->getId() ?>" data-form-part="product_form"
+                   type="hidden">
+            <input class="file-label"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][label]"
+                   value="<?= /* @noEscape */ $file->getLabel() ?>"
+                   data-form-part="product_form"
+                   type="hidden">
+            <input class="file-name"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][name]"
+                   value="<?= /* @noEscape */ $file->getName() ?>"
+                   data-form-part="product_form" type="hidden">
+            <input class="file-status"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][status]"
+                   value="<?= /* @noEscape */ $file->getStatus() ?>"
+                   data-form-part="product_form" type="hidden">
+            <input class="file-storeid"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][store_ids]"
+                   value="<?= /* @noEscape */ $file->getStoreIds() ?>" data-form-part="product_form"
+                   type="hidden">
+            <input class="file-action"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][file_action]"
+                   value="<?= /* @noEscape */ $file->getFileAction() ?>" data-form-part="product_form"
+                   type="hidden">
+            <input class="file-type"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][file_type]"
+                   value="<?= /* @noEscape */ $file->getType() ?>" data-form-part="product_form"
+                   type="hidden">
+            <input class="is-removed"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][removed]"
+                   value=""
+                   data-form-part="product_form" type="hidden">
+            <input class="is-updated"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][is_updated]"
+                   value=""
+                   data-form-part="product_form" type="hidden">
+            <input class="is-new"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][is_new]" value=""
+                   data-form-part="product_form"
+                   type="hidden">
+            <input class="file-size" name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][size]"
+                   value="<?= /* @noEscape */ $file->getSize() ?>"
+                   data-form-part="product_form" type="hidden">
+            <input class="file-path" name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][file_path]"
+                   value="<?= /* @noEscape */ $file->getFilePath() ?>"
+                   data-form-part="product_form" type="hidden">
+            <input class="file-icon-path"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][file_icon_path]"
+                   value="<?= /* @noEscape */ $file->getFileIconPath() ?>"
+                   data-form-part="product_form" type="hidden">
+            <input class="file-customer-login"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][customer_login]"
+                   value="<?= /* @noEscape */ $file->getCustomerLogin() ?>"
+                   data-form-part="product_form" type="hidden">
+            <input class="file-customer-group"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][customer_group]"
+                   value="<?= /* @noEscape */ $file->getCustomerGroup() ?>"
+                   data-form-part="product_form" type="hidden">
+            <input class="file-group"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][group]"
+                   value="<?= /* @noEscape */ $file->getGroup() ?>"
+                   data-form-part="product_form" type="hidden">
+            <input class="file-priority"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][priority]"
+                   value="<?= /* @noEscape */ $file->getPriority() ?>"
+                   data-form-part="product_form" type="hidden">
+            <input class="file-is-buyer"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][is_buyer]"
+                   value="<?= /* @noEscape */ $file->getIsBuyer() ?>"
+                   data-form-part="product_form" type="hidden">
+            <input class="file-order-statuses"
+                   name="product[mpattachments][images][<?= /* @noEscape */ $file->getId() ?>][order_statuses]"
+                   value="<?= /* @noEscape */ $file->getOrderStatuses() ?>"
+                   data-form-part="product_form" type="hidden">
+            <div class="product-image-wrapper">
+                <img class="product-image" data-role="image-element"
+                     src="<?= /* @noEscape */ !empty($file->getFileIconPath())
+                         ? $block->helperData->getImageUrl($file->getFileIconPath())
+                         : $block->helperData->getDefaultIconUrl() ?>"
+                     alt="<?= /* @noEscape */ $file->getLabel() ?>">
+                <div class="actions">
+                    <button type="button" class="action-remove" title="Delete file">
+                        <span><?= $block->escapeHtml(__('Delete file')) ?></span>
+                    </button>
+                    <div class="draggable-handle"></div>
+                </div>
+                <div class="image-fade"><span><?= $block->escapeHtml(__('Hidden')) ?></span></div>
+            </div>
+            <div class="item-description">
+                <div class="item-title" data-role="img-title"><?= $block->escapeHtml($file->getLabel()) ?></div>
+                <div class="item-size">
+                    <span data-role="image-size">
+                        <?= /* @noEscape */ $block->helperData->fileSizeFormat($file->getSize()) ?></span>
+                </div>
+            </div>
+            <div class="item-roles">
+                <span class="item-role">
+                    <?= $file->getFileAction() === FileAction::VIEWONLINE ? $block->escapeHtml(__('View Online')) : $block->escapeHtml(__('Download')) ?>
+                </span>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <div id="mp-image-placeholder" class="image image-placeholder">
+        <div id="mp_attachments_uploader" class="uploader">
+            <div class="fileinput-button form-buttons button">
+                <span><?= $block->escapeHtml(__('Browse Files...')) ?></span>
+                <input id="fileupload" name="image" multiple="multiple" type="file">
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="mp-product-image-wrapper" class="product-image-wrapper">
+            <p class="image-placeholder-text"><?= $block->escapeHtml(__('Browse to find or drag file here')) ?></p>
+        </div>
+        <div class="mp_image_loader">
+            <img src="<?= $block->escapeUrl($block->getViewFileUrl('images/loader-1.gif')) ?>"
+                 alt="Loading...">
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    require(['jquery', 'mp_productGallery'], function ($, mp_productGallery) {
+        var config = {
+            iconUrl: {
+                fileIcon: '<?= /* @noEscape */ $block->helperData->getIconUrl() ?>',
+                defaultIcon: '<?= /* @noEscape */ $block->helperData->getDefaultIconUrl() ?>'
+            },
+            options: {
+                iconList: JSON.parse('<?= /* @noEscape */ $block->getIconList() ?>'),
+                customerAction: JSON.parse('<?= /* @noEscape */ $block->getCustomerAction() ?>'),
+                customerGroup: JSON.parse('<?= /* @noEscape */ $block->getCustomerGroup() ?>'),
+                groups: JSON.parse('<?= /* @noEscape */ $block->getGroups() ?>'),
+                orderStatuses: JSON.parse('<?= /* @noEscape */ $block->getOrderStatuses() ?>'),
+                storeView: JSON.parse('<?= /* @noEscape */ $block->getStoreStructure() ?>'),
+                fileStatus: JSON.parse('<?= /* @noEscape */ $block->getFileStatus() ?>')
+            },
+            defaultShow: '<?= /* @noEscape */ $block->getDefaultShowOn()?>',
+            ajaxUrl: '<?= /* @noEscape */ $block->getUrl(
+                'mpproductattachments/file_attachment/upload',
+                ['form_key' => $block->getFormKey()]
+            ) ?>'
+        };
+        mp_productGallery(config);
+    });
+</script>

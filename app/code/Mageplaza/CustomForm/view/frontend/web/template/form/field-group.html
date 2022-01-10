@@ -1,0 +1,31 @@
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+
+<li class="mp-custom-form field-group" style="margin: 25px 0">
+    <div class="mp-field-group-title" data-bind="text: title" data-role="title" style="font-size: 2rem;"></div>
+    <div class="mp-field-group-description" data-bind="text: description" data-role="description" style="margin-bottom: 15px;"></div>
+    <div class="mp-field-group-content fieldset" data-role="content" style="margin-left: 10px">
+        <!-- ko foreach: {data: getRegion('fields'), as: 'element'} -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+    </div>
+</li>

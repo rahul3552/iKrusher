@@ -1,0 +1,67 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\CustomForm\Block\CustomForm $block */
+$formData = $block->getCustomFormData();
+$formId = uniqid('', false);
+
+/** @var \Mageplaza\CustomForm\Model\Form $customForm */
+$customForm       = $block->loadCustomForm();
+
+$customerGroupIds = \Mageplaza\CustomForm\Helper\Data::jsonEncode($customForm->getCustomerGroupIds());
+?>
+<?php if ($block->isValidForm()) : ?>
+    <form id="mp-custom-form-<?= /* @noEscape */ $formId ?>" class="mp-custom-form" data-ns="customForm-<?= /* @noEscape */ $formId ?>"
+          action="<?= /* @noEscape */ $block->getUrl('mpcustomform/customform/submit') ?>"
+          method="POST"
+          data-bind="scope:'customForm-<?= /* @noEscape */ $formId ?>'">
+        <input type="hidden" value="<?= /* @noEscape */ $customForm->getId() ?>" name="formId">
+        <input type="hidden" value="<?= /* @noEscape */ $block->getRedirectUrl() ?>" name="afterSubmitUrl">
+        <div class="mp-custom-form-popup" <?= $customForm->getFormStyle() === 'popup' ? 'style="display:none;"' : '' ?>>
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <script type="text/x-magento-init">
+                {
+                    "#mp-custom-form-<?= /* @noEscape */ $formId ?>": {
+                        "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getCustomFormJsLayout($formId) ?>
+                    }
+                }
+            </script>
+        </div>
+        <?php if ($customForm->getFormStyle() === 'popup') : ?>
+            <button id="mp-cf-open-form-<?= /* @noEscape */ $formId ?>"
+                    type="button" class="action primary button mp-open-custom-form"
+                    style="display: none">
+                <span><?= $block->escapeQuote($customForm->getFbButtonText()) ?></span>
+            </button>
+        <?php endif; ?>
+        <style>
+            <?= $block->escapeHtml($customForm->getCustomCss()) ?>
+        </style>
+    </form>
+    <link rel="stylesheet"
+          type="text/css"
+          media="all"
+          href="<?= /* @noEscape */ $block->getViewFileUrl('Mageplaza_Core::css/font-awesome.min.css') ?>">
+    <link rel="stylesheet"
+          type="text/css"
+          media="all"
+          href="<?= /* @noEscape */ $block->getViewFileUrl('Mageplaza_CustomForm::css/style.css') ?>">
+<?php endif; ?>

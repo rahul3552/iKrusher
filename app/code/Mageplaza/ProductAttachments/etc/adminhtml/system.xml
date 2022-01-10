@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="productattachments" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Product Attachments</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_ProductAttachments::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select <b>Yes</b> to enable this module.]]></comment>
+                </field>
+                <field id="title" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Title</label>
+                    <comment><![CDATA[This is the title of the attachment block. It is also the name of the product tab which attachments are placed in.]]></comment>
+                </field>
+                <field id="show_on" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show On</label>
+                    <source_model>Mageplaza\ProductAttachments\Model\Config\Source\System\ShowOn</source_model>
+                </field>
+                <field id="display_file_size" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Attachment File Size</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If Yes, display the file size next to the attachment in the frontend.]]></comment>
+                </field>
+                <field id="file_size_limit" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>File Size Limit Allowed(MB)</label>
+                    <validate>validate-zero-or-greater validate-number validate-not-negative-number</validate>
+                    <comment><![CDATA[Note that the limit for sending attachments in gmail cannot exceed 25 MB. Please select below 25 MB to fully view the best quality attached file. If empty or 0, the limit will be 25 MB by default.]]></comment>
+                </field>
+                <field id="allow_attached_files" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Add Attachments in Order Emails</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If Yes, add the attachment to the order email.]]></comment>
+                </field>
+                <field id="groups" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Groups</label>
+                    <frontend_model>Mageplaza\ProductAttachments\Block\Adminhtml\System\Config\Groups</frontend_model>
+                    <backend_model>Mageplaza\ProductAttachments\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <group id="manage_icon" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Manage Icon</label>
+                    <field id="icons" translate="label comment" type="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Icons</label>
+                        <frontend_model>Mageplaza\ProductAttachments\Block\Adminhtml\System\IconManagement</frontend_model>
+                        <backend_model>Mageplaza\ProductAttachments\Model\Config\Backend\Image</backend_model>
+                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/product_attachments/file_icons</upload_dir>
+                        <base_url type="media" scope_info="1">mageplaza/product_attachments/file_icons</base_url>
+                        <comment><![CDATA[<a href="https://www.flaticon.com/packs/file-types" target="_blank">Download sample icons.</a> Recommendation size 64x64.]]></comment>
+                    </field>
+                </group>
+            </group>
+            <group id="default_value" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Default Value</label>
+                <field id="store_view" translate="label comment" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Store Views</label>
+                    <source_model>Mageplaza\ProductAttachments\Model\Config\Source\System\Store</source_model>
+                    <comment><![CDATA[This value will be used as default value when uploading files for each product.]]></comment>
+                </field>
+                <field id="customer_group" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Customer Group</label>
+                    <source_model>Magento\Customer\Model\ResourceModel\Group\Collection</source_model>
+                    <comment><![CDATA[This value will be used as default value when uploading files for each product.]]></comment>
+                </field>
+                <field id="is_login" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Customer must login to download file</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Customer must log in to download files. <a href="https://www.mageplaza.com/magento-2-social-login-extension/">Compatible with Mageplaza Social Login</a>]]></comment>
+                </field>
+                <field id="is_buyer" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Only available for verified buyers</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="order_status" translate="label comment" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Order Status</label>
+                    <source_model>Mageplaza\ProductAttachments\Model\Config\Source\OrderStatus</source_model>
+                    <depends>
+                        <field id="is_buyer">1</field>
+                    </depends>
+                    <comment><![CDATA[When the customer place orders and the order status is satisfied, the attached file can be viewed / downloaded.]]></comment>
+                </field>
+                <field id="customer_action" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Customer Action</label>
+                    <source_model>Mageplaza\ProductAttachments\Model\Config\Source\FileAction</source_model>
+                    <comment><![CDATA[The View Online feature is only available with online-viewable files such as .pdf, .csv, .doc, .docx, .png,...]]></comment>
+                </field>
+            </group>
+            <group id="snippet" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Snippet</label>
+                <field id="custom_position" translate="label" type="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <frontend_model>Mageplaza\ProductAttachments\Block\Adminhtml\System\Snippet</frontend_model>
+                </field>
+                <comment><![CDATA[Use the following code to show the attachments block in any place on product page you want.]]></comment>
+            </group>
+        </section>
+    </system>
+</config>

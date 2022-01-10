@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_AgeVerification
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mpageverify" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Age Verification</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_AgeVerification::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to enable this module</comment>
+                </field>
+                <field id="verify_age" translate="label comment" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Verification Age</label>
+                    <validate>required-entry validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="enabled_term_condition" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Term &amp; Condition</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to enable Term &amp; Condition</comment>
+                </field>
+                <field id="link_term" translate="label comment" sortOrder="32" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Link Title</label>
+                    <depends>
+                        <field id="enabled_term_condition">1</field>
+                    </depends>
+                </field>
+                <field id="anchor_text" translate="label comment" sortOrder="35" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Anchor Text</label>
+                    <depends>
+                        <field id="enabled_term_condition">1</field>
+                    </depends>
+                </field>
+                <field id="anchor_url" translate="label comment" sortOrder="37" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Anchor URL</label>
+                    <validate>required-entry validate-url</validate>
+                    <depends>
+                        <field id="enabled_term_condition">1</field>
+                    </depends>
+                </field>
+                <field id="cookie_time" translate="label comment" sortOrder="50" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Cookie life-time</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <comment>Counted by day(s). Default: 365 days</comment>
+                </field>
+                <field id="customer_groups" translate="label comment" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Apply for Customer Groups</label>
+                    <source_model>Mageplaza\AgeVerification\Model\Config\Source\CustomerGroups</source_model>
+                </field>
+                <field id="auto_verify" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Auto verify age from the saved customers' DOB</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="redirect" translate="label comment" sortOrder="80" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Re-direct URL</label>
+                    <validate>required-entry validate-url</validate>
+                    <comment>Visitors will be auto-redirected to this URL if their ages are not verified</comment>
+                </field>
+            </group>
+            <group id="page_verify" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <label>Page Verification Configuration</label>
+                <field id="apply_for" translate="label comment" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Apply for</label>
+                    <source_model>Mageplaza\AgeVerification\Model\Config\Source\ApplyFor</source_model>
+                </field>
+                <field id="apply_for_cms" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Apply for CMS Page(s)</label>
+                    <source_model>Mageplaza\AgeVerification\Model\Config\Source\Cms</source_model>
+                </field>
+                <field id="apply_for_category" translate="label comment" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Apply for Category Page(s)</label>
+                    <source_model>Mageplaza\AgeVerification\Model\Config\Source\Category</source_model>
+                    <comment><![CDATA[Compatible with <a href="https://www.mageplaza.com/magento-2-product-labels" target="_blank">Mageplaza Product Labels</a> to add "Age Verify" label for product.]]></comment>
+                </field>
+                <field id="enabled_condition" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Apply for Product Detail Page(s)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="condition" translate="label comment" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Condition</label>
+                    <frontend_model>Mageplaza\AgeVerification\Block\Adminhtml\System\Config\Condition</frontend_model>
+                    <backend_model>Mageplaza\AgeVerification\Model\Config\Backend\Condition</backend_model>
+                    <depends>
+                        <field id="enabled_condition">1</field>
+                    </depends>
+                </field>
+                <field id="include_pages" translate="label" sortOrder="50" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Include Custom Page(s)</label>
+                    <comment><![CDATA[
+                            <span>Age verification will be required when visitors enter the above page(s). Separated by line breaks.</span><br />
+                            <span>Example: if /men/ is entered, visitors who enter all pages with URLs containing /men/ such as /men/top, /men/top/t-shirt, /clothes/men will be age verified.</span><br />
+                            <span>Support Regular expression</span>
+                        ]]>
+                    </comment>
+                </field>
+                <field id="exclude_pages" translate="label" sortOrder="60" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Exclude Custom Page(s)</label>
+                    <comment><![CDATA[
+                            <span>Age verification will NOT be required when visitors enter the above page(s). Separated by line breaks.</span><br />
+                            <span>Example: if /women/ is entered, visitors who enter all pages with URLs containing /women/ such as /women/top, /women/top/t-shirt, /clothes/women/ will NOT be age verified.</span><br />
+                            <span>Support Regular expression</span>
+                        ]]>
+                    </comment>
+                </field>
+            </group>
+            <group id="purchase_verify" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Purchase Verification Configuration</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Select Product Condition(s)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="condition" translate="label comment" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Condition</label>
+                    <frontend_model>Mageplaza\AgeVerification\Block\Adminhtml\System\Config\PurchaseCondition</frontend_model>
+                    <backend_model>Mageplaza\AgeVerification\Model\Config\Backend\PurchaseCondition</backend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="notice_type" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Age Notice</label>
+                    <source_model>Mageplaza\AgeVerification\Model\Config\Source\TypeNotice</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Notice Image</label>
+                    <backend_model>Mageplaza\AgeVerification\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/mpageverify/notice_image</upload_dir>
+                    <base_url type="media" scope_info="1">mageplaza/mpageverify/notice_image</base_url>
+                    <comment>Leave empty to use default image</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="notice_type">1</field>
+                    </depends>
+                </field>
+                <field id="message" translate="label comment" sortOrder="30" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Notice Message</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="notice_type">2</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="design" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Design</label>
+                <field id="verify_type" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Verification Type</label>
+                    <source_model>Mageplaza\AgeVerification\Model\Config\Source\VerifyType</source_model>
+                </field>
+                <field id="preview" translate="label comment" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="0">
+                    <frontend_model>Mageplaza\AgeVerification\Block\Adminhtml\System\Config\Preview</frontend_model>
+                </field>
+                <field id="image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Icon</label>
+                    <backend_model>Mageplaza\AgeVerification\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="2">mageplaza/mpageverify/icon</upload_dir>
+                    <base_url type="media" scope_info="2">mageplaza/mpageverify/icon</base_url>
+                    <comment>Leave empty to use default image</comment>
+                </field>
+                <field id="title" translate="label comment" sortOrder="30" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="description" translate="label comment" sortOrder="40" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Description</label>
+                    <comment>The variable {{age}} will automatically receive the age-verification input value above.</comment>
+                </field>
+                <field id="confirm_label" translate="label comment" sortOrder="50" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Confirm Button Label</label>
+                </field>
+                <field id="cancel_label" translate="label comment" sortOrder="60" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Cancel Button Label</label>
+                </field>
+                <field id="title_bg" translate="label comment" type="text" sortOrder="70" showInWebsite="1" showInStore="1" showInDefault="1" canRestore="1">
+                    <label>Header Background Color</label>
+                    <validate>jscolor {hash:true,refine:false}</validate>
+                </field>
+                <field id="content_bg" translate="label comment" type="text" sortOrder="80" showInWebsite="1" showInStore="1" showInDefault="1" canRestore="1">
+                    <label>Body Background Color</label>
+                    <validate>jscolor {hash:true,refine:false}</validate>
+                </field>
+                <field id="button_color" translate="label comment" type="text" sortOrder="90" showInWebsite="1" showInStore="1" showInDefault="1" canRestore="1">
+                    <label>Button Color</label>
+                    <validate>jscolor {hash:true,refine:false}</validate>
+                </field>
+                <field id="text_color" translate="label comment" type="text" sortOrder="100" showInWebsite="1" showInStore="1" showInDefault="1" canRestore="1">
+                    <label>Text Color</label>
+                    <validate>jscolor {hash:true,refine:false}</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

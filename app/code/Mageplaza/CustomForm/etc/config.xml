@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mp_custom_form>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <customer_notification>
+                <auto_response_enabled>1</auto_response_enabled>
+                <sender>general</sender>
+                <email_template>mp_custom_form_customer_notification_email_template</email_template>
+                <customer_attach_file>1</customer_attach_file>
+            </customer_notification>
+            <admin_notification>
+                <enabled>1</enabled>
+                <sender>general</sender>
+                <email_template>mp_custom_form_admin_notification_email_template</email_template>
+                <admin_attach_file>1</admin_attach_file>
+            </admin_notification>
+        </mp_custom_form>
+    </default>
+</config>

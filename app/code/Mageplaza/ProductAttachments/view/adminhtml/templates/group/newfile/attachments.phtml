@@ -1,0 +1,136 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+use Mageplaza\ProductAttachments\Block\Adminhtml\Product\Form\Attachments;
+use Mageplaza\ProductAttachments\Model\Config\Source\FileAction;
+
+/** @var $block Attachments */
+$helper  = $block->getHelper();
+$newFile = $block->getFileData();
+$isGrid  = $block->getIsGrid();
+?>
+<div id="mp_new_file">
+    <div class="image item" data-role="mp_file_new_<?= $block->escapeHtmlAttr($newFile['file_id']) ?>">
+        <input type="hidden" name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][position]"
+               value="<?= /* @noEscape */ $newFile['position'] ?>"
+            <?= (!$block->getIsGrid()) ? 'data-form-part="product_form"' : '' ?>
+               class="position"/>
+        <input class="file-id"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][value_id]"
+               value="<?= /* @noEscape */ $newFile['file_id'] ?>"
+            <?= (!$block->getIsGrid()) ? 'data-form-part="product_form"' : '' ?>
+               type="hidden">
+        <input class="file-label"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][label]"
+               value="<?= /* @noEscape */ $newFile['label'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?>
+               type="hidden">
+        <input class="file-name"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][name]"
+               value="<?= /* @noEscape */ $newFile['name'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="file-type"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][type]"
+               value="<?= /* @noEscape */ $newFile['type'] ?>"
+                <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="file-status"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][status]"
+               value="<?= /* @noEscape */ $newFile['status'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="file-storeid"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][store_ids]"
+               value="<?= /* @noEscape */ $newFile['store_ids'] ?>"
+                <?= /* @noEscape */ (!$isGrid) ? 'data-form-part="product_form"' : '' ?>
+               type="hidden">
+        <input class="file-action"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][file_action]"
+               value="<?= /* @noEscape */ $newFile['file_action'] ?>"
+                <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?>
+               type="hidden">
+        <input class="is-removed"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][removed]"
+               value=""
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="is-updated"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][is_updated]"
+               value=""
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="is-new"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][is_new]"
+               value="<?= /* @noEscape */ $newFile['is_new'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?>
+               type="hidden">
+        <input class="file-size"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][size]"
+               value="<?= /* @noEscape */ $newFile['size'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="file-path"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][file_path]"
+               value="<?= /* @noEscape */ $newFile['file_path'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="file-icon-path"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][file_icon_path]"
+               value="<?= /* @noEscape */ $newFile['file_icon_path'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="file-customer-login"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][customer_login]"
+               value="<?= /* @noEscape */ $newFile['customer_login'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="file-customer-group"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][customer_group]"
+               value="<?= /* @noEscape */ $newFile['customer_group'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="file-priority"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][priority]"
+               value="<?= /* @noEscape */ $newFile['priority'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="file-is-buyer"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][is_buyer]"
+               value="<?= /* @noEscape */ $newFile['is_buyer'] ?>"
+            <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <input class="file-oreder-statuses"
+               name="product[mpattachments][images][<?= /* @noEscape */ $newFile['file_id'] ?>][order_statuses]"
+               value="<?= /* @noEscape */ $newFile['order_statuses'] ?>" <?= (!$isGrid) ? 'data-form-part="product_form"' : '' ?> type="hidden">
+        <div class="product-image-wrapper">
+            <img class="product-image" data-role="image-element"
+                 src="<?= /* @noEscape */ $newFile['url'] ?>"
+                 alt="<?= /* @noEscape */ $newFile['label'] ?>">
+            <div class="actions">
+                <button type="button" class="action-remove" title="Delete file">
+                    <span><?= $block->escapeHtml(__('Delete file')) ?></span>
+                </button>
+                <div class="draggable-handle"></div>
+            </div>
+            <div class="image-fade"><span><?= $block->escapeHtml(__('Hidden')) ?></span></div>
+        </div>
+        <div class="item-description">
+            <div class="item-title" data-role="img-title"><?= $block->escapeHtml($newFile['label']) ?></div>
+            <div class="item-size">
+                <span data-role="image-size"><?= $block->escapeHtml($helper->fileSizeFormat($newFile['size'])) ?></span>
+            </div>
+        </div>
+        <div class="item-roles">
+            <span class="item-role">
+                <?= ($newFile['file_action'] === FileAction::VIEWONLINE) ? $block->escapeHtml(__('View Online')) : $block->escapeHtml(__('Download')) ?>
+            </span>
+        </div>
+    </div>
+</div>

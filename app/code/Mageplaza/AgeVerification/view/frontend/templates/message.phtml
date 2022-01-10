@@ -1,0 +1,53 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_AgeVerification
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\AgeVerification\Block\Action $block */
+
+/** @var \Mageplaza\AgeVerification\Helper\Data $helperData */
+$helperData = $this->helper(\Mageplaza\AgeVerification\Helper\Data::class);
+
+if ($block->checkPurchaseVerify()): ?>
+    <?php if ($block->isNoticeMessage()): ?>
+        <div role="alert" class="mpageverify-message messages">
+            <div class="message-warning warning message">
+                <div><?= $block->escapeHtml(__($helperData->getNoticeMessage())) ?></div>
+            </div>
+        </div>
+    <?php endif ?>
+
+    <?php if ($block->isImageMessage()): ?>
+        <div class="mpageverify-message mpageverify-img-notice">
+            <img src="<?= $block->getImageNoticeUrl() ?>" alt="Image Notice"/>
+        </div>
+
+        <script type="text/javascript">
+            require([
+                'jquery'
+            ], function ($) {
+                var label = $('.mpageverify-img-notice');
+                $("[data-gallery-role=gallery-placeholder]").on('gallery:loaded', function () {
+                    var productImgEl = $('.fotorama__stage');
+                    productImgEl.prepend(label);
+                });
+            })
+        </script>
+    <?php endif ?>
+<?php endif; ?>

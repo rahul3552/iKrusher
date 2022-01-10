@@ -1,0 +1,4 @@
+label,name,status,store_ids,customer_group,file_path,customer_login,is_buyer,file_action,priority,product_sku,group
+File1,File1.jpg,1,0,0,attachments/ninh.jpg,0,0,1,50,"24-MB01,24-MB04",
+File2,File2.jpg,0,0,0,attachments/ARP.zip,0,0,1,50,,
+File3,File3.jpg,1,0,0,attachments/Audio.mp3,0,0,1,50,,

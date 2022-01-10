@@ -1,0 +1,204 @@
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<div id="mp_attachments-details" class="image-panel">
+    <div class="image-panel-preview"><img src="<%- data.iconUrl %>" alt="<%- data.fileLabel %>"/></div>
+    <div class="image-panel-controls admin__scope-old">
+        <fieldset class="admin__fieldset fieldset-image-panel">
+            <div class="admin__field field-image-label">
+                <label class="admin__field-label" for="image-label">
+                    <span><%- label.fileLabel %></span>
+                </label>
+                <div class="admin__field-control">
+                    <input id="image-label" class="admin__control-input"
+                           name="product[mpattachments][images][<%- data.fileId %>][label]" type="text" value=""/>
+                </div>
+            </div>
+            <div class="admin__field field-image-name">
+                <label class="admin__field-label" for="image-name">
+                    <span><%- label.fileName %></span>
+                </label>
+                <div class="admin__field-control">
+                    <input id="image-name" class="admin__control-input"
+                           name="product[mpattachments][images][<%- data.fileId %>][name]" type="text" value=""/>
+                </div>
+            </div>
+            <div class="admin__field field-image-status">
+                <label class="admin__field-label" for="image-status"><span><%- label.fileStatus %></span></label>
+                <div class="admin__field-control">
+                    <select id="image-status" class="admin__control-select"
+                            name="product[mpattachments][images][<%- data.fileId %>][status]">
+                        <% _.each(options.fileStatus, function(field, key) { %>
+                        <option value="<%- field.value %>"><%- field.label %></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+            <% if (data.fileType !== '1') { %>
+            <div class="admin__field field-image-file-action">
+                <label class="admin__field-label" for="image-file-action">
+                    <span><%- label.fileAction %></span>
+                </label>
+                <div class="admin__field-control">
+                    <select id="image-file-action"
+                            class="admin__control-select"
+                            name="product[mpattachments][images][<%- data.fileId %>][file_action]">
+                        <% _.each(options.customerAction, function(field, key) { %>
+                        <option value="<%- field.value %>"><%- field.label %></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+            <% } %>
+            <div class="admin__field field-image-store-ids">
+                <label class="admin__field-label" for="image-store-ids">
+                    <span><%- label.fileStoreView %></span>
+                </label>
+                <div class="admin__field-control">
+                    <select multiple id="image-store-ids"
+                            class="admin__control-multiselect"
+                            name="product[mpattachments][images][<%- data.fileId %>][store_ids]">
+                        <% _.each(options.storeView, function(website, key) { %>
+                        <% if(!Array.isArray(website.value)) { %>
+                        <option value="<%- website.value %>"><%- website.label %></option>
+                        <% } else { %>
+                        <optgroup label="<%- website.label %>"></optgroup>
+                        <% } %>
+                        <% if(Array.isArray(website.value) && website.value.length > 0 ) { %>
+                        <% _.each(website.value, function(store, key) { %>
+                        '&nbsp;''&nbsp;''&nbsp;'
+                        <option
+                                value="<%- store.value %>"><%- store.label %>
+                        </option>
+                        <% }); %>
+                        <% } %>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+            <div class="admin__field field-image-customer-group">
+                <label class="admin__field-label" for="image-customer-group">
+                    <span><%- label.fileCustomerGroup %></span>
+                </label>
+                <div class="admin__field-control">
+                    <select multiple id="image-customer-group"
+                            class="admin__control-multiselect"
+                            name="product[mpattachments][images][<%- data.fileId %>][customer_group]">
+                        <% _.each(options.customerGroup, function(field, key) { %>
+                        <option value="<%- field.value %>"><%- field.label %></option>
+                        <% }); %>
+                    </select>
+                    <div class="note admin__field-note" id="image-customer-group-note"><%- label.fileCustomerGroupNote
+                        %>
+                    </div>
+                </div>
+            </div>
+            <div class="admin__field field-image-group">
+                <label class="admin__field-label" for="image-group">
+                    <span><%- label.fileGroup %></span>
+                </label>
+                <div class="admin__field-control">
+                    <select id="image-group"
+                            class="admin__control-select"
+                            name="product[mpattachments][images][<%- data.fileId %>][group]">
+                        <% _.each(options.groups, function(field, key) { %>
+                        <option value="<%- field.value %>"><%- field.label %></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+            <div class="admin__field field-image-icon">
+                <label class="admin__field-label" for="image-icon">
+                    <span><%- label.fileIcon %></span>
+                </label>
+                <div class="admin__field-control">
+                    <select id="image-icon"
+                            class="admin__control-select"
+                            name="product[mpattachments][images][<%- data.fileId %>][file_icon_path]">
+                        <% _.each(options.iconList, function(field, key) { %>
+                        <option value="<%- field.value %>"><%- field.label %></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+            <div class="admin__field field-image-priority">
+                <label class="admin__field-label" for="image-priority">
+                    <span><%- label.filePriority %></span>
+                </label>
+                <div class="admin__field-control">
+                    <input id="image-priority"
+                           class="admin__control-input"
+                           name="product[mpattachments][images][<%- data.fileId %>][priority]"
+                           type="text" value=""
+                    />
+                </div>
+            </div>
+            <div class="admin__field field-image-customer-login">
+                <div class="admin__field-control">
+                    <div class="admin__field admin__field-option">
+                        <input type="checkbox"
+                               id="mpfile-customer-login"
+                               value="1"
+                               class="admin__control-checkbox"
+                               name="product[mpattachments][images][<%- data.fileId %>][customer_login]"/>
+                        <label for="mpfile-customer-login" class="admin__field-label"><%- label.fileCustomerLogin
+                            %></label>
+                    </div>
+                </div>
+            </div>
+            <div class="admin__field field-image-is-buyer">
+                <div class="admin__field-control">
+                    <div class="admin__field admin__field-option">
+                        <input type="checkbox"
+                               id="mpfile-is-buyer"
+                               value="1"
+                               class="admin__control-checkbox"
+                               name="product[mpattachments][images][<%- data.fileId %>][is_buyer]"/>
+                        <label for="mpfile-is-buyer" class="admin__field-label"><%- label.fileIsBuyer %></label>
+                    </div>
+                </div>
+            </div>
+            <div class="admin__field field-order-statuses">
+                <label class="admin__field-label" for="order-statuses">
+                    <span><%- label.fileOrderStatuses %></span>
+                </label>
+                <div class="admin__field-control">
+                    <select multiple id="order-statuses"
+                            class="admin__control-multiselect"
+                            name="product[mpattachments][images][<%- data.fileId %>][order_statuses]">
+                        <% _.each(options.orderStatuses, function(field, key) { %>
+                        <option value="<%- field.value %>"><%- field.label %></option>
+                        <% }); %>
+                    </select>
+                    <div class="note admin__field-note" id="order-statuses-note"><%- label.fileOrderStatusesNote
+                        %>
+                    </div>
+                </div>
+            </div>
+            <div class="admin__field admin__field-inline field-image-size">
+                <label class="admin__field-label">
+                    <span><%- label.fileSize %></span>
+                </label>
+                <div class="admin__field-value"><%- data.fileSize %></div>
+            </div>
+        </fieldset>
+    </div>
+</div>

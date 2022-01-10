@@ -1,0 +1,28 @@
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+
+<div data-bind="html: html, attr: {for: uid}" style="float: left;">
+</div>
+<div class="clearfix" style="clear: both"></div>
+<!-- ko if: notice -->
+<div class="field-note" data-bind="attr: {id: noticeId}"><span data-bind="text: notice"></span></div>
+<!-- /ko -->

@@ -1,0 +1,899 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\CustomForm\Block\Adminhtml\Form\Edit\Tab\FormCreator $block */
+$fieldTypes = $block->getFieldTypes()
+?>
+<div class="entry-edit form-inline mpcss">
+    <fieldset class="fieldset admin__fieldset fieldset-wide" id="form_creator_fieldset"
+              data-mage-init='{"Mageplaza_CustomForm/js/form/form-creator":<?= $block->escapeQuote($block->getFormCreatorData()) ?>}'>
+        <legend class="admin__legend legend">
+            <span><?= $block->escapeHtml(__('Form Creator')) ?></span>
+        </legend>
+        <div class="messages"></div>
+        <div class="form-creator-top">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="load-template">
+                        <label class="label admin__field-label" for="load-template">
+                            <span><?= $block->escapeHtml(__('Form Templates')) ?></span>
+                            <select id="load-template">
+                                <option value="feedback"><?= $block->escapeHtml(__('Feedback Form')) ?></option>
+                                <option value="contact-form"><?= $block->escapeHtml(__('Contact Form')) ?></option>
+                                <option value="pre-order"><?= $block->escapeHtml(__('Pre-Order Form')) ?></option>
+                                <option value="survey-form"><?= $block->escapeHtml(__('Survey Form')) ?></option>
+                                <option value="customer-order-request"><?= $block->escapeHtml(__("Customer's Order Request")) ?></option>
+                            </select>
+                        </label>
+                        <button type="button" class="secondary load-template">
+                            <span><?= $block->escapeHtml(__('Load Template')) ?></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-control-button" style="float: right;">
+                        <button type="button" class="primary add-new-page">
+                            <?= $block->escapeHtml(__('Add New Page')) ?>
+                        </button>
+                        <button type="button" class="primary preview" data-url="<?= $block->escapeUrl($block->getPreviewUrl()) ?>">
+                            <?= $block->escapeHtml(__('Preview')) ?>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-creator-block"
+             data-mage-init='{"accordion":{"openedState": "active", "saveState": true, "collapsible": false }}'>
+        </div>
+    </fieldset>
+</div>
+<div id="page_template" style="display: none">
+    <div class="admin__collapsible-block-wrapper" data-id="<%- data._id %>"
+         id="page-wrapper-<%- data._id %>"
+         data-parentname="form[page][<%- data._id %>]"
+         data-role="page-wrapper-<%- data._id %>">
+        <input type="hidden" value="<%- data._id %>" name="form[page][<%- data._id %>][_id]">
+        <input type="hidden" value="<%- data.default %>" name="form[page][<%- data._id %>][default]">
+        <div class="fieldset-wrapper-title admin__fieldset-wrapper-title">
+            <span class="admin__collapsible-title" data-toggle="collapse"
+                  data-target="#page-content-<%- data._id %>">
+                <span class="custom-page-title">Page 1</span>
+            </span>
+        </div>
+        <div class="fieldset-wrapper-content admin__fieldset-wrapper-content collapse"
+             id="page-content-<%- data._id %>" data-role="page-content-<%- data._id %>">
+            <div class="row custom-page-content">
+                <div class="page-control-button">
+                    <button type="button" class="secondary duplicate-page">
+                        <?= $block->escapeHtml(__('Duplicate')) ?>
+                    </button>
+                    <% if(data.default != 1) { %>
+                    <button type="button" class="secondary delete-page">
+                        <?= $block->escapeHtml(__('Delete')) ?>
+                    </button>
+                    <% } %>
+                    <button type="button" class="primary add-new-field">
+                        <?= $block->escapeHtml(__('Add New Field group')) ?>
+                    </button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-4">
+                    <div class="admin__field field field-custom-page-title">
+                        <label class="label admin__field-label" for="form_page_<%- data._id %>_title">
+                            <span><?= $block->escapeHtml(__('Page Title')) ?></span>
+                        </label>
+                        <div class="admin__field-control control">
+                            <input id="form_page_<%- data._id %>_title" name="form[page][<%- data._id %>][title]"
+                                   value="<%- data.title %>"
+                                   title="<?= $block->escapeHtml(__('Page Title')) ?>" type="text"
+                                   class="input-text admin__control-text"
+                                   aria-required="true">
+                        </div>
+                    </div>
+                    <div class="admin__field field field-page-description">
+                        <label class="label admin__field-label" for="form_page_<%- data._id %>_description">
+                            <span><?= $block->escapeHtml(__('Page Description')) ?></span>
+                        </label>
+                        <div class="admin__field-control control">
+                                    <textarea id="form_page_<%- data._id %>_description"
+                                              name="form[page][<%- data._id %>][description]" value=""
+                                              title="<?= $block->escapeHtml(__('Page Description')) ?>"
+                                              class="mp-page-description">
+                                        <%- data.description %>
+                                    </textarea>
+                        </div>
+                    </div>
+                    <div class="admin__field field field-page-sm-button-text">
+                        <label class="label admin__field-label" for="form_page_<%- data._id %>_sm_button_text">
+                            <span><?= $block->escapeHtml(__('Submit Button Text')) ?></span>
+                        </label>
+                        <div class="admin__field-control control">
+                            <input id="form_page_<%- data._id %>_sm_button_text"
+                                   name="form[page][<%- data._id %>][sm_button_text]"
+                                   value="<%- data.sm_button_text %>"
+                                   title="<?= $block->escapeHtml(__('Submit Button Text')) ?>" type="text"
+                                   class="input-text admin__control-text"
+                                   aria-required="true">
+                        </div>
+                    </div>
+                    <div class="admin__field field field-page-sm-button-class">
+                        <label class="label admin__field-label" for="form_page_<%- data._id %>_sm_button_class">
+                            <span><?= $block->escapeHtml(__('Submit Button Class')) ?></span>
+                        </label>
+                        <div class="admin__field-control control">
+                            <input id="form_page_<%- data._id %>_sm_button_text"
+                                   name="form[page][<%- data._id %>][sm_button_class]"
+                                   value="<%- data.sm_button_class %>"
+                                   title="<?= $block->escapeHtml(__('Submit Button Class')) ?>" type="text"
+                                   class="input-text admin__control-text"
+                                   aria-required="true">
+                        </div>
+                    </div>
+                    <div class="field-groups">
+                        <% _.each(data['field_groups'], function(fieldGroupData) { %>
+                        <%= data.renderFieldGroup(fieldGroupData) %>
+                        <% }); %>
+                    </div>
+                </div>
+                <div class="col-md-8 form-view">
+                    <% _.each(data['field_groups'], function(fieldGroupData) { %>
+                    <%= data.renderFieldGroupView(fieldGroupData) %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="field_group_template" style="display: none">
+    <div id="field-group-<%- data._id %>-container" data-parentname="<%- data.parentName %>" data-id="<%- data._id %>"
+         class="custom-field-group">
+        <input type="hidden" name="<%- data.parentName %>[<%- data._id %>][parentName]" value="<%- data.parentName %>">
+        <input type="hidden" value="<%- data._id %>" name="<%- data.parentName %>[<%- data._id %>][_id]">
+        <input type="hidden" value="<%- data.default %>" name="<%- data.parentName %>[<%- data._id %>][default]">
+        <div class="fieldset-wrapper-title admin__fieldset-wrapper-title">
+            <span class="admin__collapsible-title" data-toggle="collapse"
+                  data-target="#field-group-<%- data._id %>">
+                <span><?= $block->escapeHtml(__('Field Group 1')) ?></span>
+            </span>
+        </div>
+        <div class="fieldset-wrapper-content admin__fieldset-wrapper-content in collapse"
+             id="field-group-<%- data._id %>" data-role="advanced_fieldset-content">
+            <div class="field-group-control-button" style="margin: 20px">
+                <button type="button" class="secondary duplicate-field-group">
+                    <?= $block->escapeHtml(__('Duplicate')) ?>
+                </button>
+                <% if(data.default != 1) { %>
+                <button type="button" class="secondary delete-field-group">
+                    <?= $block->escapeHtml(__('Delete')) ?>
+                </button>
+                <% } %>
+            </div>
+            <div class="admin__field field field-page-field-group">
+                <label class="label admin__field-label"
+                       for="form_page_default_field_groups_<%- data._id %>_name">
+                    <span><?= $block->escapeHtml(__('Field Group Name')) ?></span>
+                </label>
+                <div class="admin__field-control control">
+                    <input name="<%- data.parentName %>[<%- data._id %>][title]"
+                           value="<%- data.title %>"
+                           title="<?= $block->escapeHtml(__('Field group Name')) ?>"
+                           type="text"
+                           class="input-text admin__control-text field-group-name">
+                </div>
+            </div>
+            <div class="admin__field field field-page-field-group-description">
+                <label class="label admin__field-label"
+                       for="form_page_default_field_groups_<%- data._id %>_description">
+                    <span><?= $block->escapeHtml(__('Field Group Description')) ?></span>
+                </label>
+                <div class="admin__field-control control">
+                    <input name="<%- data.parentName %>[<%- data._id %>][description]"
+                           value="<%- data.description %>"
+                           title="<?= $block->escapeHtml(__('Field group Description')) ?>"
+                           type="text"
+                           class="input-text admin__control-text">
+                </div>
+            </div>
+            <div class="admin__field field field-page-field-group-add-field">
+                <label class="label admin__field-label" for="add_field_<%- data._id %>">
+                    <span><?= $block->escapeHtml(__('Select Field Type')) ?></span>
+                </label>
+                <div class="admin__field-control control">
+                    <select id="add_field_<%- data._id %>"
+                            data-id="<%- data._id %>"
+                            title="<?= $block->escapeHtml(__('Select Field Type')) ?>"
+                            class="select admin__control-select add-field">
+                        <?php foreach ($fieldTypes as $type => $typeLabel) : ?>
+                            <option value="<?= /* @noEscape */ $type ?>"><?= $block->escapeHtml($typeLabel) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <button type="button" class="primary add-field">
+                        <?= $block->escapeHtml(__('Add')) ?>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="field_group_view_template" style="display: none;">
+    <div class="field-group-view-container" data-id="<%- data._id %>"
+         data-parentname="<%- data.parentName %>[<%- data._id %>]">
+        <input type="hidden" name="<%- data.parentName %>[<%- data._id %>][parentName]" value="<%- data.parentName %>">
+        <div class="field-group-label" data-id="<%- data._id %>"><span><%- data.title %></span></div>
+        <div class="field-group-view" data-id="<%- data._id %>">
+            <% _.each(data.fields, function(fieldData) { %>
+            <%= data.renderField(fieldData) %>
+            <% }); %>
+        </div>
+    </div>
+</div>
+<div id="required-field-template" style="display: none;">
+    <input class="field-type" type="hidden" value="<%- data.type %>"
+           name="<%- data.parentName %>[<%- data._id %>][type]">
+    <input class="field-parent-name" type="hidden" value="<%- data.parentName %>"
+           name="<%- data.parentName %>[<%- data._id %>][parentName]">
+    <input class="field-id" type="hidden" value="<%- data._id %>" name="<%- data.parentName %>[<%- data._id %>][_id]">
+    <div class="admin__legend legend"><span></span></div>
+    <div class="field-option admin__field field">
+        <label class="label admin__field-label">
+            <span><?= $block->escapeHtml(__('Title')) ?></span>
+        </label>
+        <div class="admin__field-control control">
+            <input type="text" class="option-title" name="<%- data.parentName %>[<%- data._id %>][title]"
+                   value="<%- data.title %>">
+        </div>
+    </div>
+    <div class="field-option admin__field field">
+        <label class="label admin__field-label">
+            <span><?= $block->escapeHtml(__('Tooltip')) ?></span>
+        </label>
+        <div class="admin__field-control control">
+            <input type="text" name="<%- data.parentName %>[<%- data._id %>][tooltip]" value="<%- data.tooltip %>">
+        </div>
+    </div>
+    <div class="field-option admin__field field">
+        <label class="label admin__field-label">
+            <span><?= $block->escapeHtml(__('Notice')) ?></span>
+        </label>
+        <div class="admin__field-control control">
+            <input type="text" name="<%- data.parentName %>[<%- data._id %>][notice]" value="<%- data.notice %>">
+        </div>
+    </div>
+    <div class="field-option admin__field field">
+        <label class="label admin__field-label">
+            <span><?= $block->escapeHtml(__('Additional Class')) ?></span>
+        </label>
+        <div class="admin__field-control control">
+            <input type="text" name="<%- data.parentName %>[<%- data._id %>][additional_class]" value="<%- data.additional_class %>">
+        </div>
+    </div>
+    <div class="field-option admin__field field">
+        <label class="label admin__field-label">
+            <span><?= $block->escapeHtml(__('Is Required')) ?></span>
+        </label>
+        <div class="admin__field-control control">
+            <% if(data.is_required) { %>
+            <input type="checkbox" name="<%- data.parentName %>[<%- data._id %>][is_required]" checked>
+            <% }else{ %>
+            <input type="checkbox" name="<%- data.parentName %>[<%- data._id %>][is_required]">
+            <% } %>
+        </div>
+    </div>
+    <div class="field-option admin__field field">
+        <label class="label admin__field-label">
+            <span><?= $block->escapeHtml(__('Validation Class')) ?></span>
+        </label>
+        <div class="admin__field-control control">
+            <input type="text" name="<%- data.parentName %>[<%- data._id %>][validate_class]"
+                   value="<%- data['validate_class'] %>">
+            <p><?= $block->escapeHtml(__('Separate by space, you can see list of validations classes rules supported by magento 2')) ?>
+                <a href="http://blog.i13websolution.com/magento-2-validation-rules/" target="_blank"><?= $block->escapeHtml(__('here')) ?></a>
+            </p>
+        </div>
+    </div>
+    <div class="field-option admin__field field">
+        <label class="label admin__field-label">
+            <span><?= $block->escapeHtml(__('Width')) ?></span>
+        </label>
+        <div class="admin__field-control control">
+            <select class="option-width" name="<%- data.parentName %>[<%- data._id %>][width]">
+                <% if(data.width == 50) { %>
+                <option value="100"><?= $block->escapeHtml(__('100%')) ?></option>
+                <option value="50" selected><?= $block->escapeHtml(__('50%')) ?></option>
+                <% } else { %>
+                <option value="100" selected><?= $block->escapeHtml(__('100%')) ?></option>
+                <option value="50"><?= $block->escapeHtml(__('50%')) ?></option>
+                <% } %>
+            </select>
+        </div>
+    </div>
+    <div class="field-option admin__field field">
+        <label class="label admin__field-label">
+            <span><?= $block->escapeHtml(__('Depend')) ?></span>
+        </label>
+        <div class="field-depend admin__field-control control">
+            <%= data.renderFieldDepend(data) %>
+            <button type="button" class="add-depend secondary">
+                <span><?= $block->escapeHtml(__('Add depend')) ?></span>
+            </button>
+            <div class="messages"></div>
+        </div>
+    </div>
+</div>
+<div id="field-depends-template" style="display: none;">
+    <ul>
+        <% _.each(data.depends, function(depend,id) { %>
+        <li>
+            <select class="field-depend-field" id="<%- id %>"
+                    name="<%- data.parentName %>[<%- data._id %>][depends][<%- id %>][field]">
+                <option><?= $block->escapeHtml(__('--Please Select--')) ?></option>
+                <option value="<%- depend.field %>" selected></option>
+            </select>
+            <select class="field-depend-value field-value"
+                    name="<%- data.parentName %>[<%- data._id %>][depends][<%- id %>][value]">
+                <option value="<%- depend.value %>" selected></option>
+            </select>
+            <a href="#" class="remove-depend">x</a>
+        </li>
+        <% }); %>
+    </ul>
+</div>
+<div id="field-control-button-template" style="display: none">
+    <div class="field-control-button">
+        <a class="btn duplicate" href="#"><?= $block->escapeHtml(__('Duplicate')) ?></a>
+        <a class="btn edit" href="#"><?= $block->escapeHtml(__('Edit')) ?></a>
+        <a class="btn delete" href="#"><?= $block->escapeHtml(__('Delete')) ?></a>
+    </div>
+</div>
+<div id="field-template-text" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>" class="field-container admin__field text"
+         style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong><%- data.title %></strong>
+        </label>
+        <div class="admin__field-control">
+            <input type="text" class="admin__control-text">
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-textarea" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>" class="field-container admin__field"
+         style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong style="float: left;"><%- data.title %></strong>
+        </label>
+        <div class="admin__field-control">
+            <textarea type="text" class="admin__control-textarea"></textarea>
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-html" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>" class="field-container admin__field"
+         style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong style="float: left;"><%- data.title %></strong>
+        </label>
+        <div class="admin__field-control">
+            <textarea name="<%- data.parentName %>[<%- data._id %>][html]" type="text" class="admin__control-html"><%- data.html %></textarea>
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-dropdown" style="display: none">
+    <div data-id="<%- data._id %>" class="field-container admin__field field-dropdown dependable"
+         data-parentname="<%- data.parentName %>" style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+                <div class="field-option admin__field field">
+                    <label class="admin__field-label label">
+                        <span><?= $block->escapeHtml(__('Dropdown Options')) ?></span>
+                    </label>
+                    <div class="dropdown-options admin__field-control control">
+                        <ul>
+                            <% _.each(data.options,function(option,index) { %>
+                            <li>
+                                <label>
+                                    <span><?= $block->escapeHtml(__('Label')) ?></span>
+                                    <input class="option-label mp-required"
+                                           name="<%- data.parentName %>[<%- data._id %>][options][<%- index %>][label]"
+                                           type="text" value="<%- option.label %>">
+                                </label>
+                                <label>
+                                    <span><?= $block->escapeHtml(__('Value')) ?></span>
+                                    <input class="option-value mp-required"
+                                           name="<%- data.parentName %>[<%- data._id %>][options][<%- index %>][value]"
+                                           type="text" value="<%- option.value %>">
+                                </label>
+                                <a href="#" class="remove-option">x</a>
+                                <div class="validate-container"></div>
+                            </li>
+                            <% }) %>
+                        </ul>
+                        <button class="mp-add-option secondary" type="button">
+                            <span><?= $block->escapeHtml(__('Add Option')) ?></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong><%- data.title %></strong>
+        </label>
+        <div class="admin__field-control">
+            <select name="<%- data.parentName %>[<%- data._id %>][default]"
+                    class="dropdown select admin__control-select">
+                <% _.each(data.options,function(option,index) { %>
+                <% if(data.default == option.value) { %>
+                <option value="<%- option.value %>" selected><%- option.label %></option>
+                <% }else{ %>
+                <option value="<%- option.value %>"><%- option.label %></option>
+                <% } %>
+                <% }); %>
+            </select>
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-datetime" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>" class="field-container admin__field"
+         style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+                <div class="field-option admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Date Time Type')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <select class="option-date" name="<%- data.parentName %>[<%- data._id %>][dateTimeType]">
+                            <% if(data.dateTimeType == 'date') { %>
+                            <option value="date" selected><?= $block->escapeHtml(__('Date')) ?></option>
+                            <% }else{ %>
+                            <option value="date"><?= $block->escapeHtml(__('Date')) ?></option>
+                            <% } %>
+                            <% if(data.dateTimeType == 'time') { %>
+                            <option value="time" selected><?= $block->escapeHtml(__('Time')) ?></option>
+                            <% }else{ %>
+                            <option value="time"><?= $block->escapeHtml(__('Time')) ?></option>
+                            <% } %>
+                            <% if(data.dateTimeType == 'datetime-local') { %>
+                            <option value="datetime-local" selected><?= $block->escapeHtml(__('Date Time')) ?></option>
+                            <% }else{ %>
+                            <option value="datetime-local"><?= $block->escapeHtml(__('Date Time')) ?></option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong><%- data.title %></strong>
+        </label>
+        <div class="admin__field-control">
+            <input type="<%- data.dateTimeType %>" class="admin__control-text date-time">
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-checkbox" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>"
+         class="field-container admin__field field-checkbox dependable" style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+                <div class="field-option admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Number of Rows')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input class="checkbox-row" type="text" value="<%- data.row_count %>"
+                               name="<%- data.parentName %>[<%- data._id %>][row_count]">
+                    </div>
+                </div>
+                <div class="field-option admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Options')) ?></span>
+                    </label>
+                    <div class="checkbox-options admin__field-control control">
+                        <ul>
+                            <% _.each(data.options,function(option,index) { %>
+                            <li data-id="<%- index %>">
+                                <label>
+                                    <span><?= $block->escapeHtml(__('Label')) ?></span>
+                                    <input class="option-label mp-required"
+                                           name="<%- data.parentName %>[<%- data._id %>][options][<%- index %>][label]"
+                                           type="text" value="<%- option.label %>">
+                                </label>
+                                <label>
+                                    <span><?= $block->escapeHtml(__('Value')) ?></span>
+                                    <input class="option-value mp-required"
+                                           name="<%- data.parentName %>[<%- data._id %>][options][<%- index %>][value]"
+                                           type="text" value="<%- option.value %>">
+                                </label>
+                                <a href="#" class="remove-option">x</a>
+                            </li>
+                            <% }) %>
+                        </ul>
+                        <button class="mp-add-option secondary" type="button">
+                            <span><?= $block->escapeHtml(__('Add Option')) ?></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong><%- data.title %></strong>
+        </label>
+        <div class="checkbox-options-view admin__field-control">
+            <%= data.renderCheckboxOptionsView(data) %>
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-radio" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>"
+         class="field-container admin__field field-radio dependable" style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+                <div class="field-option admin__field field">
+                    <label class="label admin__field-label">
+                        <strong><?= $block->escapeHtml(__('Number of Rows')) ?></strong>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input class="checkbox-row" type="text" value="<%- data.row_count %>"
+                               name="<%- data.parentName %>[<%- data._id %>][row_count]">
+                    </div>
+                </div>
+                <div class="field-option admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Options')) ?></span>
+                    </label>
+                    <div class="checkbox-options admin__field-control control">
+                        <ul>
+                            <% _.each(data.options,function(option,index) { %>
+                            <li data-id="<%- index %>">
+                                <label>
+                                    <span><?= $block->escapeHtml(__('Label')) ?></span>
+                                    <input class="option-label mp-required"
+                                           name="<%- data.parentName %>[<%- data._id %>][options][<%- index %>][label]"
+                                           type="text" value="<%- option.label %>">
+                                </label>
+                                <label>
+                                    <span><?= $block->escapeHtml(__('Value')) ?></span>
+                                    <input class="option-value mp-required"
+                                           name="<%- data.parentName %>[<%- data._id %>][options][<%- index %>][value]"
+                                           type="text" value="<%- option.value %>">
+                                </label>
+                                <a href="#" class="remove-option">x</a>
+                            </li>
+                            <% }) %>
+                        </ul>
+                        <button class="mp-add-option secondary" type="button">
+                            <span><?= $block->escapeHtml(__('Add Option')) ?></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong><%- data.title %></strong>
+        </label>
+        <div class="checkbox-options-view admin__field-control">
+            <%= data.renderCheckboxOptionsView(data) %>
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-grid" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>"
+         class="field-container admin__field field-radio dependable" style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+                <div class="field-option admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Row Options')) ?></span>
+                    </label>
+                    <div class="grid-rows admin__field-control control">
+                        <ul class="row-list">
+                            <% _.each(data.rows,function(option,index) { %>
+                            <li data-id="<%- index %>">
+                                <label>
+                                    <span><?= $block->escapeHtml(__('Label')) ?></span>
+                                    <input class="option-row mp-unique mp-required"
+                                           name="<%- data.parentName %>[<%- data._id %>][rows][<%- index %>]"
+                                           type="text" value="<%- option %>">
+                                </label>
+                                <a href="#" class="remove-row">x</a>
+                                <div class="validate-container"></div>
+                            </li>
+                            <% }) %>
+                        </ul>
+                        <button class="mp-add-row secondary" type="button">
+                            <span><?= $block->escapeHtml(__('Add Option')) ?></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="field-option admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Column Options')) ?></span>
+                    </label>
+                    <div class="grid-columns admin__field-control control">
+                        <ul>
+                            <% _.each(data.columns,function(option,index) { %>
+                            <li data-id="<%- index %>">
+                                <label>
+                                    <span><?= $block->escapeHtml(__('Label')) ?></span>
+                                    <input class="option-column mp-unique mp-required"
+                                           name="<%- data.parentName %>[<%- data._id %>][columns][<%- index %>]"
+                                           type="text" value="<%- option %>">
+                                </label>
+                                <a href="#" class="remove-column">x</a>
+                                <div class="validate-container"></div>
+                            </li>
+                            <% }) %>
+                        </ul>
+                        <button class="mp-add-column secondary" type="button">
+                            <span><?= $block->escapeHtml(__('Add Option')) ?></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="field-option admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Select Type')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <select class="grid-select-type" name="<%- data.parentName %>[<%- data._id %>][select_type]">
+                            <% if(data.select_type == 'checkbox') { %>
+                            <option value="radio"><?= $block->escapeHtml(__('Radio')) ?></option>
+                            <option value="checkbox" selected><?= $block->escapeHtml(__('Checkbox')) ?></option>
+                            <% } else { %>
+                            <option value="radio" selected><?= $block->escapeHtml(__('Radio')) ?></option>
+                            <option value="checkbox"><?= $block->escapeHtml(__('Checkbox')) ?></option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong><%- data.title %></strong>
+        </label>
+        <div class="grid-container admin__field-control">
+            <%= data.renderGrid(data) %>
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-upload" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>" class="field-container admin__field"
+         style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+                <div class="field-option admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Maximum File Size Allowed')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input type="text" name="<%- data.parentName %>[<%- data._id %>][file_size]"
+                               value="<%- data['file_size'] %>" placeholder="1000000">
+                    </div>
+                </div>
+                <div class="field-option admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('File Types Allowed')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input type="text" name="<%- data.parentName %>[<%- data._id %>][file_type_allow]"
+                               value="<%- data['file_type_allow'] %>" class="file-type-allowed" placeholder="txt,jpg,html">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong><%- data.title %></strong>
+        </label>
+        <div class="admin__field-control">
+            <input type="file">
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-rating" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>" class="field-container admin__field"
+         style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+                <div class="field-option number-star admin__field field">
+                    <label class="label admin__field-label">
+                        <strong><?= $block->escapeHtml(__('Number of Stars')) ?></strong>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input type="number" min="1" max="20"
+                               name="<%- data.parentName %>[<%- data._id %>][number_star]"
+                               class="<%- data['validate'] %>"
+                               value="<%= +data['number_star'] %>">
+                    </div>
+                </div>
+                <div class="field-option default-star admin__field field">
+                    <label class="label admin__field-label">
+                        <strong><?= $block->escapeHtml(__('Default Display')) ?></strong>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input type="number" min="0" name="<%- data.parentName %>[<%- data._id %>][default]"
+                               value="<%= +data['default'] %>">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong><%- data.title %></strong>
+        </label>
+        <div class="rating-stars text-center admin__field-control">
+            <ul class="stars">
+                <%= data.renderStars(data) %>
+            </ul>
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-map" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>" class="field-container admin__field"
+         style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup" data-id="<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong><%- data.title %></strong>
+        </label>
+        <input type="hidden" class="map-zoom" name="<%- data.parentName %>[<%- data._id %>][zoom]"
+               value="<%- data.zoom %>">
+        <input type="hidden" class="map-position" name="<%- data.parentName %>[<%- data._id %>][position]"
+               value="<%- data.position %>">
+        <input type="text" class="map-search" name="<%- data.parentName %>[<%- data._id %>][address]"
+               value="<%- data.address %>">
+        <div id="map" class="google-map admin__field-control" style="height: 300px">
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>
+<div id="field-template-agreement" style="display: none">
+    <div data-id="<%- data._id %>" data-parentname="<%- data.parentName %>" class="field-container admin__field"
+         style="width: <%- data.width %>%;">
+        <div class="mp-popup-container">
+            <div class="edit-popup agreement" data-id="field-<%- data._id %>" style="display: none"
+                 data-parentname="<%- data.parentName %>">
+                <%= data.renderFieldRequired(data) %>
+                <div class="field-option checkbox-label admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Checkbox Label')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input type="text" name="<%- data.parentName %>[<%- data._id %>][checkbox_label]"
+                               value="<%- data['checkbox_label'] %>">
+                    </div>
+                </div>
+                <div class="field-option anchor-text admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Anchor Text')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input type="text" name="<%- data.parentName %>[<%- data._id %>][anchor_text]"
+                               value="<%- data['anchor_text'] %>">
+                    </div>
+                </div>
+                <div class="field-option anchor-type admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Anchor Type')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <select class="select-anchor-type" name="<%- data.parentName %>[<%- data._id %>][anchor_type]">
+                            <% if(data.anchor_type == 'popup') { %>
+                            <option value="redirect"><?= $block->escapeHtml(__('Redirect')) ?></option>
+                            <option value="popup" selected><?= $block->escapeHtml(__('Popup')) ?></option>
+                            <% }else{ %>
+                            <option value="redirect" selected><?= $block->escapeHtml(__('Redirect')) ?></option>
+                            <option value="popup"><?= $block->escapeHtml(__('Popup')) ?></option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field-option agreement-url admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('URl')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input type="text" name="<%- data.parentName %>[<%- data._id %>][url]"
+                               value="<%- data['url'] %>">
+                    </div>
+                </div>
+                <div class="field-option agreement-title admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Policy Checkbox Title')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input type="text" name="<%- data.parentName %>[<%- data._id %>][agreement_title]"
+                               value="<%- data['agreement_title'] %>">
+                    </div>
+                </div>
+                <div class="field-option agreement-content admin__field field">
+                    <label class="label admin__field-label">
+                        <span><?= $block->escapeHtml(__('Policy Checkbox Content')) ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <textarea name="<%- data.parentName %>[<%- data._id %>][agreement_content]"
+                                  value="<%- data['agreement_content'] %>"><%- data['agreement_content'] %></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="field-title admin__field-label">
+            <strong><%- data.title %></strong>
+        </label>
+        <div class="checkbox-label admin__field-control">
+            <input type="checkbox" name="<%- data.parentName %>[<%- data._id %>][default]">
+            <% if(data.anchor_type == 'redirect') { %>
+            <span><%= data.checkbox_label.replace('{anchor}','<a href="'+ data.url +'" target="_blank">'+data.anchor_text+'</a>') %></span>
+            <% }else{ %>
+            <span><%= data.checkbox_label.replace('{anchor}','<a href="#" class="open-agreement-modal">'+data.anchor_text+'</a>') %></span>
+            <% } %>
+        </div>
+        <div class="anchor-modal" style="display: none;">
+            <%- data.agreement_title %>
+        </div>
+        <%= data.renderFieldControlButton() %>
+    </div>
+</div>

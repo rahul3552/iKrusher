@@ -283,16 +283,16 @@ $dataCol = '';
 
 											 ?>
 											<?php if($animationType == 'cartshow' && ($_product->getTypeId() == 'configurable' || $_product->getTypeId() == 'bundle' || $_product->getTypeId() == 'grouped' || ($_product->getTypeId() == 'simple' && $has_option == 1) )): ?>
-												<button class="action btn-cart tocart" type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>" onclick="window.location.href = '<?php echo $_product->getProductUrl() ?>'">
+												<button class="action btn-cart tocart" type="button" title="<?php /* @escapeNotVerified */ echo __('Shop Now') ?>" onclick="window.location.href = '<?php echo $_product->getProductUrl() ?>'">
 													<span class="icon pe-7s-shopbag"></span>
 													<span class="product-item-link">
-														<?php echo __('Add to cart'); ?>
+														<?php echo __('Shop Now'); ?>
 													</span>
 												</button>	
 											<?php else: ?>
-												<button class="action tocart btn-cart" type="submit" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+												<button class="action tocart btn-cart" type="submit" title="<?php /* @escapeNotVerified */ echo __('Shop Now') ?>">
 													<span class="icon pe-7s-shopbag"></span>
-													<span class="text"><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+													<span class="text"><?php /* @escapeNotVerified */ echo __('Shop Now') ?></span>
 												</button>
 											<?php endif ?>
 										</form>
@@ -325,9 +325,9 @@ $dataCol = '';
 											<input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
 											<input type="hidden" name="uenc" value="<?php /* @escapeNotVerified */ echo $postParams['data']['uenc']; ?>">
 											<input name="form_key" type="hidden" value="<?php echo $this->getFormKey() ?>" />
-											<button class="action tocart btn-cart hover_effect" type="submit" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+											<button class="action tocart btn-cart hover_effect" type="submit" title="<?php /* @escapeNotVerified */ echo __('Shop Now') ?>">
 												<span class="icon pe-7s-shopbag"></span>
-												<span class="text"><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+												<span class="text"><?php /* @escapeNotVerified */ echo __('Shop Now') ?></span>
 											</button>
 										</form>
 									</div>
@@ -406,16 +406,16 @@ $dataCol = '';
 												
 											 ?>
 											<?php if($animationType == 'cartshow' && ($_product->getTypeId() == 'configurable' || $_product->getTypeId() == 'bundle' || $_product->getTypeId() == 'grouped' || ($_product->getTypeId() == 'simple' && $has_option == 1) )): ?>
-												<button class="action btn-cart tocart" type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>" onclick="window.location.href = '<?php echo $_product->getProductUrl() ?>'">
+												<button class="action btn-cart tocart" type="button" title="<?php /* @escapeNotVerified */ echo __('Shop Now') ?>" onclick="window.location.href = '<?php echo $_product->getProductUrl() ?>'">
 													<span class="icon pe-7s-shopbag"></span>
 													<span class="product-item-link">
-														<?php echo __('Add to cart'); ?>
+														<?php echo __('Shop Now'); ?>
 													</span>
 												</button>	
 											<?php else: ?>
-												<button class="action tocart btn-cart" type="submit" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+												<button class="action tocart btn-cart" type="submit" title="<?php /* @escapeNotVerified */ echo __('Shop Now') ?>">
 													<span class="icon pe-7s-shopbag"></span>
-													<span class="text"><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+													<span class="text"><?php /* @escapeNotVerified */ echo __('Shop Now') ?></span>
 												</button>
 											<?php endif ?>
 											</form></li>

@@ -1,0 +1,69 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_AgeVerification
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\AgeVerification\Block\Action $block */
+/** @var \Mageplaza\AgeVerification\Helper\Data $helperData */
+$helperData = $this->helper(\Mageplaza\AgeVerification\Helper\Data::class); ?>
+
+<div id="mpageverify-popup" data-mage-init='{"mpageverify": <?= $block->getPopupData() ?>}'>
+    <div id="mpageverify-popup-content"
+         style="background:<?= $helperData->getContentBg(); ?> ;color:<?= $helperData->getTextColor(); ?>"
+         data-type="<?= $helperData->getVerifyType() ?>">
+        <div class="mpageverify-popup-title"
+             style="background:<?= $helperData->getTitleBg(); ?>"><?= $block->getTitlePopup() ?></div>
+        <?php if ($block->getLogoPopupUrl()): ?>
+            <div class="mpageverify-popup-logo">
+                <img src="<?= $block->getLogoPopupUrl() ?>" alt="Image Notice"/>
+            </div>
+        <?php endif; ?>
+        <div class="mpageverify-popup-description"><?= $block->getDescriptionPopup() ?></div>
+
+        <form method="post" id="mpageverify-form">
+            <?php if ($block->isCheckboxType()): ?>
+                <div class="mpageverify-verify-checkbox">
+                    <input type="checkbox" id="mpageverify-verify-checkbox" required/>
+                    <label for="mpageverify-verify-checkbox"><?= __('By checking the check box, you agree that you are old enough to access.') ?></label>
+                </div>
+            <?php endif; ?>
+            <?php if ($block->isDOBType()): ?>
+                <?= $block->getChildHtml() ?>
+            <?php endif; ?>
+            <?php if ($block->isEnableTerm()): ?>
+                <div class="mpageverify-verify-checkbox">
+                    <input type="checkbox" id="mpageverify-verify-agree" required/>
+                    <label for="mpageverify-verify-agree">
+                        <?= $helperData->getTermTitle() ?>
+                        <a href="<?= $helperData->getAnchorUrl() ?>"
+                           target="_blank"><?= $helperData->getAnchorText() ?></a>
+                    </label>
+                </div>
+            <?php endif; ?>
+            <div class="mpageverify-verify-action">
+                <input type="submit" title="Confirm" class="action primary mpageverify-confirm"
+                       value="<?= $block->getConfirmLabel() ?>"
+                       style="background: <?= $helperData->getButtonColor(); ?>"/>
+                <input type="submit" title="Cancel" class="action primary mpageverify-cancel"
+                       value="<?= $block->getCancelLabel() ?>"
+                       style="background: <?= $helperData->getButtonColor(); ?>"/>
+            </div>
+        </form>
+    </div>
+</div>

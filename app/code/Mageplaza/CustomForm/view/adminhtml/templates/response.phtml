@@ -1,0 +1,114 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+use Mageplaza\CustomForm\Model\Responses;
+
+/** @var \Mageplaza\CustomForm\Block\Adminhtml\Responses\Edit\Form $block */
+/** @var Responses $response */
+$response   = $block->getResponse();
+$customForm = $block->getCustomForm($response->getFormId());
+$data       = $block->prepareCustomFormData($response);
+?>
+<div class="admin__page-section-item-title">
+    <span class="title"><?= /* @noEscape */ __('Form ') . $customForm->getName() ?></span>
+</div>
+<table class="admin__table-secondary order-information-table" style="width: 50%">
+    <tbody>
+    <tr>
+        <th><strong><?= /* @noEscape */ __('Customer Name') ?></strong></th>
+        <td>
+            <?php if ($_customerUrl = $block->getCustomerViewUrl($response->getCustomerId())) : ?>
+                <a href="<?= /* @noEscape */ $_customerUrl ?>" target="_blank">
+                    <span><?= $block->escapeHtml($response->getCustomerName()) ?></span>
+                </a>
+            <?php else : ?>
+                <?= $block->escapeHtml($response->getCustomerName()) ?>
+            <?php endif; ?>
+        </td>
+    </tr>
+    <tr>
+        <th><strong><?= /* @noEscape */ __('Customer Email') ?></strong></th>
+        <td><a href="mailto:<?= $block->escapeHtml($response->getCustomerEmail()) ?>">
+                <?= $block->escapeHtml($response->getCustomerEmail()) ?>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <th><strong><?= /* @noEscape */ __('Store View') ?></strong></th>
+        <td><?= /* @noEscape */ $block->getStoreView($response->getStoreIds()) ?></td>
+    </tr>
+    <tr>
+        <th><strong><?= /* @noEscape */ __('Created Date') ?></strong></th>
+        <td><?= /* @noEscape */ $block->getDateFormat($response->getCreatedAt()) ?></td>
+    </tr>
+    </tbody>
+</table>
+<div class="custom-form-container">
+    <div class="page-container"
+         data-mage-init='{"accordion":{}}'>
+        <?php foreach ($data as $page) : ?>
+            <div class="page admin__collapsible-block-wrapper"
+                 id="page-wrapper-<?= /* @noEscape */ $page['_id']?>"
+                 data-role="page-wrapper-<?= /* @noEscape */ $page['_id']?>">
+                <div class="page-title fieldset-wrapper-title admin__fieldset-wrapper-title">
+                    <span class="admin__collapsible-title" data-toggle="collapse"
+                          data-target="#page-content-<?= /* @noEscape */ $page['_id']?>">
+                        <span class="custom-page-title"><?= $block->escapeQuote($page['title']) ?></span>
+                    </span>
+                </div>
+                <div class="page-content admin__scope-old fieldset-wrapper-content admin__fieldset-wrapper-content"
+                     id="page-content-<?= /* @noEscape */ $page['_id']?>"
+                     data-role="page-content-<?= /* @noEscape */ $page['_id']?>" style="display: none">
+                    <?php if (!empty($page['field_groups'])) : ?>
+                        <div class="field-group-container admin__fieldset-wrapper-content">
+                            <?php foreach ((array) $page['field_groups'] as $fieldGroup) : ?>
+                                <div class="field-group admin__fieldset">
+                                    <div class="field-group-title">
+                                        <span><?= $block->escapeQuote($fieldGroup['title']) ?></span>
+                                    </div>
+                                    <div class="field-group-description">
+                                        <span><?= $block->escapeQuote($fieldGroup['description']) ?></span>
+                                    </div>
+                                    <?php if (!empty($fieldGroup['fields'])) : ?>
+                                        <?php foreach ((array) $fieldGroup['fields'] as $field) : ?>
+                                            <div class="field-container admin__field">
+                                                <?= $block->renderFieldHtml($field) ?>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Mageplaza_CustomForm/js/response": {
+                "mpGoogleMapKey": "<?= /* @noEscape */ $block->getGoogleMapApi() ?>"
+            }
+        }
+    }
+</script>

@@ -1,0 +1,222 @@
+"Save and Continue Edit","Save and Continue Edit"
+"Admin Notification","Admin Notification"
+Enable,Enable
+"Send To","Send To"
+"Use Config","Use Config"
+"Send Time","Send Time"
+Sender,Sender
+"Email Template","Email Template"
+Auto-responder,Auto-responder
+"Email Address Field","Email Address Field"
+"Select field including email address of respondents","Select field including email address of respondents"
+"Send After can be in text which is in relative formats.","Send After can be in text which is in relative formats."
+"Eg: Send After = +3 days","Eg: Send After = +3 days"
+"=> The email will be sent after 3 days.","=> The email will be sent after 3 days."
+"Please refer %1 for more custom duration.","Please refer %1 for more custom duration."
+"Email Planning","Email Planning"
+"Email Notification","Email Notification"
+"Form Behavior","Form Behavior"
+"Form Style","Form Style"
+"Button Text","Button Text"
+"Popup Type","Popup Type"
+"Custom CSS","Custom CSS"
+Actions,Actions
+"After Submitting Form","After Submitting Form"
+"Redirect URL","Redirect URL"
+"CMS Page","CMS Page"
+"Form Creator","Form Creator"
+Text,Text
+Textarea,Textarea
+Dropdown,Dropdown
+Checkbox,Checkbox
+Radio,Radio
+"Date & Time","Date & Time"
+Grid,Grid
+"Upload File","Upload File"
+"Policy Checkbox","Policy Checkbox"
+"Star Rating","Star Rating"
+"Google Map","Google Map"
+HTML,HTML
+General,General
+Name,Name
+Status,Status
+"Store Views","Store Views"
+"Customer Groups","Customer Groups"
+"Valid From Date","Valid From Date"
+"Valid To Date","Valid To Date"
+Snippet,Snippet
+"Use the following code to display this form at any places you want.","Use the following code to display this form at any places you want."
+CMS,CMS
+Phtml,Phtml
+Layout,Layout
+Template,Template
+"Send After","Send After"
+Add,Add
+View,View
+ID,ID
+Customer,Customer
+"IP Address","IP Address"
+Date,Date
+Action,Action
+"Responses Detail","Responses Detail"
+"Something went wrong while preparing response summary","Something went wrong while preparing response summary"
+"%1 Star","%1 Star"
+"%1 Stars","%1 Stars"
+"Response Summary","Response Summary"
+"%1 responses","%1 responses"
+"%1 response","%1 response"
+"FORM INFORMATION","FORM INFORMATION"
+Guest,Guest
+" [deleted]"," [deleted]"
+"This form no longer exists.","This form no longer exists."
+"The Form has been deleted.","The Form has been deleted."
+"Form to delete was not found.","Form to delete was not found."
+Forms,Forms
+"New Form","New Form"
+"Manage Forms","Manage Forms"
+"Please correct the data sent.","Please correct the data sent."
+"Something went wrong while saving the Form. %1","Something went wrong while saving the Form. %1"
+"Something went wrong while deleting for %1.","Something went wrong while deleting for %1."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"Something went wrong while updating status for %1.","Something went wrong while updating status for %1."
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"The form has been saved.","The form has been saved."
+"Something went wrong while saving the Form.","Something went wrong while saving the Form."
+"The Response has been deleted.","The Response has been deleted."
+"Response to delete was not found.","Response to delete was not found."
+Response,Response
+"View Customer's Response","View Customer's Response"
+"This response no longer exists.","This response no longer exists."
+"Manage Responses","Manage Responses"
+"Something went wrong while deleting for response %1.","Something went wrong while deleting for response %1."
+"Your form have been submitted successfully ","Your form have been submitted successfully "
+"Something went wrong while submit form %1","Something went wrong while submit form %1"
+"Page not found.","Page not found."
+"$_FILES array is empty.","$_FILES array is empty."
+"We don't recognize or support this file extension type.","We don't recognize or support this file extension type."
+Active,Active
+Inactive,Inactive
+"Keep current page","Keep current page"
+"Redirect to URL","Redirect to URL"
+"Redirect to CMS page","Redirect to CMS page"
+Static,Static
+"Popup after click button","Popup after click button"
+Popup,Popup
+Slide,Slide
+Daily,Daily
+Immediately,Immediately
+"All Store Views","All Store Views"
+"Add after","Add after"
+Delete,Delete
+"Form Templates","Form Templates"
+"Feedback Form","Feedback Form"
+"Contact Form","Contact Form"
+"Pre-Order Form","Pre-Order Form"
+"Survey Form","Survey Form"
+"Customer's Order Request","Customer's Order Request"
+"Load Template","Load Template"
+"Add New Page","Add New Page"
+Preview,Preview
+Duplicate,Duplicate
+"Add New Field group","Add New Field group"
+"Page Title","Page Title"
+"Page Description","Page Description"
+"Submit Button Text","Submit Button Text"
+"Submit Button Class","Submit Button Class"
+"Field Group 1","Field Group 1"
+"Field Group Name","Field Group Name"
+"Field group Name","Field group Name"
+"Field Group Description","Field Group Description"
+"Field group Description","Field group Description"
+"Select Field Type","Select Field Type"
+Title,Title
+Tooltip,Tooltip
+Notice,Notice
+"Additional Class","Additional Class"
+"Is Required","Is Required"
+"Validation Class","Validation Class"
+"Separate by space, you can see list of validations classes rules supported by magento 2","Separate by space, you can see list of validations classes rules supported by magento 2"
+here,here
+Width,Width
+100%,100%
+50%,50%
+Depend,Depend
+"Add depend","Add depend"
+"--Please Select--","--Please Select--"
+Edit,Edit
+"Dropdown Options","Dropdown Options"
+Label,Label
+Value,Value
+"Add Option","Add Option"
+"Date Time Type","Date Time Type"
+Time,Time
+"Date Time","Date Time"
+"Number of Rows","Number of Rows"
+Options,Options
+"Row Options","Row Options"
+"Column Options","Column Options"
+"Select Type","Select Type"
+"Maximum File Size Allowed","Maximum File Size Allowed"
+"File Types Allowed","File Types Allowed"
+"Number of Stars","Number of Stars"
+"Default Display","Default Display"
+"Checkbox Label","Checkbox Label"
+"Anchor Text","Anchor Text"
+"Anchor Type","Anchor Type"
+Redirect,Redirect
+URl,URl
+"Policy Checkbox Title","Policy Checkbox Title"
+"Policy Checkbox Content","Policy Checkbox Content"
+"No response","No response"
+"Form ","Form "
+"Customer Name","Customer Name"
+"Customer Email","Customer Email"
+"Store View","Store View"
+"Created Date","Created Date"
+"You have got new responses from customers!","You have got new responses from customers!"
+"There are new responses from your customers!","There are new responses from your customers!"
+"Hi Admin,","Hi Admin,"
+"You have %responses_count new response(s) for form %form_name from your customers. The content of the customer feedback form is as follows:","You have %responses_count new response(s) for form %form_name from your customers. The content of the customer feedback form is as follows:"
+"Please visit the admin site, follow this direction: ","Please visit the admin site, follow this direction: "
+"Content > Custom Forms > Manage Responses to view the latest response(s).","Content > Custom Forms > Manage Responses to view the latest response(s)."
+"Best Regard.","Best Regard."
+"%store_name: Thanks for your response","%store_name: Thanks for your response"
+"You have just sent a response to our store!","You have just sent a response to our store!"
+"Hi %customer_name,","Hi %customer_name,"
+"Thank you for your response for form %form_name that you have just sent us. Hope you will continue to support us in the future and enjoy the happy time when shopping at our store.","Thank you for your response for form %form_name that you have just sent us. Hope you will continue to support us in the future and enjoy the happy time when shopping at our store."
+"Page ","Page "
+Submit,Submit
+"Field Group ","Field Group "
+"Field Group","Field Group"
+"Option A","Option A"
+"Option B","Option B"
+"Option C","Option C"
+" Option"," Option"
+Ok,Ok
+Cancel,Cancel
+"No field available to depend","No field available to depend"
+"This value must be unique","This value must be unique"
+"This value is required","This value is required"
+"Some file type is not allowed","Some file type is not allowed"
+"This field requires at least one per row","This field requires at least one per row"
+"Custom Form","Custom Form"
+"Select <strong>Yes</strong> to enable the module.","Select <strong>Yes</strong> to enable the module."
+"Customer Notification","Customer Notification"
+"Enable Auto Response","Enable Auto Response"
+"Install <a href=""https://www.mageplaza.com/magento-2-smtp/?utm_source=mageplaza&utm_medium=mageplaza&utm_campaign=mageplaza-review&utm_content=SMTP"">Mageplaza SMTP</a> to avoid sending email to spam box.","Install <a href=""https://www.mageplaza.com/magento-2-smtp/?utm_source=mageplaza&utm_medium=mageplaza&utm_campaign=mageplaza-review&utm_content=SMTP"">Mageplaza SMTP</a> to avoid sending email to spam box."
+"Separated by comma(,).","Separated by comma(,)."
+"API Key","API Key"
+"Create New Form","Create New Form"
+"Delete Forms","Delete Forms"
+"Are you sure you want to delete selected Form?","Are you sure you want to delete selected Form?"
+"Change status","Change status"
+Disable,Disable
+"Customer Group(s)","Customer Group(s)"
+"Number of Responses","Number of Responses"
+"Delete Responses","Delete Responses"
+"Are you sure you want to delete selected Responses?","Are you sure you want to delete selected Responses?"
+"Attach Uploads File to Email","Attach Uploads File to Email"
+"If yes, will attach uploaded files to the notification email sent to the customer.","If yes, will attach uploaded files to the notification email sent to the customer."
+"If yes, will attach uploaded files to the notification email sent to the admin.","If yes, will attach uploaded files to the notification email sent to the admin."
+"CC to Emails","CC to Emails"
+"BCC to Emails","BCC to Emails"

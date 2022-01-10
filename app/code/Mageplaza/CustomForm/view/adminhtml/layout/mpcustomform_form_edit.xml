@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Mageplaza_Core::css/mp.css"/>
+        <css src="Mageplaza_Core::css/grid-mageplaza.css"/>
+        <css src="Mageplaza_Core::css/font-awesome.min.css"/>
+        <css src="Mageplaza_CustomForm::css/form/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Mageplaza\CustomForm\Block\Adminhtml\Form\Edit" name="mageplaza_custom_form_form_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Mageplaza\CustomForm\Block\Adminhtml\Form\Edit\Tabs" name="mageplaza_custom_form_form_tabs">
+                <block class="Mageplaza\CustomForm\Block\Adminhtml\Form\Edit\Tab\General" name="mageplaza_custom_form_form_general"/>
+                <block class="Mageplaza\CustomForm\Block\Adminhtml\Form\Edit\Tab\FormBehavior" name="mageplaza_custom_form_form_behavior"/>
+                <block class="Mageplaza\CustomForm\Block\Adminhtml\Form\Edit\Tab\EmailNotification" name="mageplaza_custom_form_form_email_notification"/>
+                <block class="Mageplaza\CustomForm\Block\Adminhtml\Form\Edit\Tab\FormCreator" name="mageplaza_custom_form_form_creator"/>
+                <block class="Mageplaza\CustomForm\Block\Adminhtml\Form\Edit\Tab\ResponsesSummary" name="mageplaza_custom_form_responses_summary"/>
+                <block class="Mageplaza\CustomForm\Block\Adminhtml\Form\Edit\Tab\ResponsesDetail" name="mageplaza_custom_form_responses_detail"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">general</argument>
+                    <argument name="block" xsi:type="string">mageplaza_custom_form_form_general</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">form_behavior</argument>
+                    <argument name="block" xsi:type="string">mageplaza_custom_form_form_behavior</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">email_notification</argument>
+                    <argument name="block" xsi:type="string">mageplaza_custom_form_form_email_notification</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">form_creator</argument>
+                    <argument name="block" xsi:type="string">mageplaza_custom_form_form_creator</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">responses_summary</argument>
+                    <argument name="block" xsi:type="string">mageplaza_custom_form_responses_summary</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">responses_detail</argument>
+                    <argument name="block" xsi:type="string">mageplaza_custom_form_responses_detail</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

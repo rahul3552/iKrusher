@@ -1,0 +1,174 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+use Mageplaza\ProductAttachments\Block\Adminhtml\System\Config\Groups;
+
+/** @var $block Groups */
+$element = $block->getElement();
+?>
+<tr id="row_mageplaza_pa_group">
+    <td class="label">
+        <label for="row_mageplaza_pa_group">
+            <?= $block->getLabelHtml($element->getScopeLabel()) ?>
+        </label>
+    </td>
+    <td class="value">
+        <div id="manage-options-panel" data-index="attribute_options_select_container">
+            <table class="admin__control-table" data-index="attribute_options_select">
+                <thead>
+                <tr id="attribute-options-table">
+                    <th class="col-default control-table-actions-th _required"><span><?= $block->escapeHtml(__('Name')) ?></span></th>
+                    <th class="col-default control-table-actions-th"><?= $block->escapeHtml(__('Value')) ?></th>
+                    <th class="col-default control-table-actions-th"><?= $block->escapeHtml(__('Position')) ?></th>
+                    <th class="col-delete"><?= $block->escapeHtml(__('Action')) ?></th>
+                </tr>
+                </thead>
+                <tbody data-role="options-container" class="ignore-validate"></tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="4" class="validation" style="padding-bottom: 5px">
+                        <input type="hidden" class="mprequired-dropdown-attribute-entry"
+                               name="mpdropdown_attribute_validation"/>
+                        <input type="hidden" class="mprequired-number"
+                               name="mprequired_number"/>
+                        <input type="hidden" class="mp-validate-zero-or-greater"
+                               name="mp_validate_zero_or_greater"/>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="4" class="col-actions-add">
+                        <button id="add_new_option_button" data-action="add_new_row"
+                                title="<?= $block->escapeHtmlAttr(__('Add Option')) ?>"
+                                type="button" class="action- scalable add">
+                            <span><?= $block->escapeHtml(__('Add Option')) ?></span>
+                        </button>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <p class="note"><span><?= $block->escapeHtml(__('Add group to sort attachment files. Groups will be displayed with the attachment file on the product page.'))?></span></p>
+        <script id="row-template" type="text/x-magento-template">
+            <tr>
+                <td class="col-default-group">
+                    <input class="col-default required-option" type="text"
+                           name="groups[general][fields][groups][value][option][value][<%- data.id %>][name]"
+                           value="<%- data.name %>" />
+                </td>
+                <td class="col-default-group">
+                    <span><%- data.id %></span>
+                    <input class="col-default" type="hidden"
+                           name="groups[general][fields][groups][value][option][value][<%- data.id %>][value]"
+                           value="<%- data.id %>" />
+                </td>
+                <td class="col-default-group">
+                    <input class="col-default required-number validate-zero-or-greater" type="text"
+                           name="groups[general][fields][groups][value][option][value][<%- data.id %>][position]"
+                           value="<%- data.position %>" />
+                </td>
+                <td id="delete_button_container_<%- data.id %>" class="col-delete">
+                    <input type="hidden" class="delete-flag"
+                           name="groups[general][fields][groups][value][option][delete][<%- data.id %>]"
+                           value=""/>
+                    <button id="delete_button_<%- data.id %>"
+                            title="<?= $block->escapeHtml(__('Delete')) ?>"
+                            type="button"
+                            class="action- scalable delete delete-option action-delete">
+                        <span><?= $block->escapeHtml(__('Delete')) ?></span>
+                    </button>
+                </td>
+            </tr>
+        </script>
+        <?php
+        $values = [];
+        foreach ($block->getOptionValues() as $value) {
+            $value    = $value->getData();
+            $values[] = is_array($value) ? array_map('htmlspecialchars_decode', $value) : $value;
+        }
+        ?>
+        <script>
+            require([
+                'jquery',
+                'mage/translate',
+                'mage/backend/validation'
+            ], function ($) {
+                $.validator.addMethod('mprequired-dropdown-attribute-entry',
+                    function (value, element) {
+                        var empty = $(element).closest('table')
+                            .find('input.required-option:visible')
+                            .filter(function (i, el) {
+                                return $.mage.isEmpty(el.value);
+                            }).length;
+
+                        return empty === 0;
+                    },
+                    $.mage.__('Group Name is a required field in each row.')
+                );
+                $.validator.addMethod('mprequired-number',
+                    function (value, element) {
+                        var number = $(element).closest('table')
+                        .find('input.required-number:visible')
+                        .filter(function (i, el) {
+                            var numberRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
+
+                            if (el.value !== '') {
+                                return !numberRegex.test(el.value);
+                            }
+
+                            return false;
+                        }).length;
+
+                        return number === 0;
+
+                    },
+                    $.mage.__('Position must be number in each row.')
+                );
+                $.validator.addMethod('mp-validate-zero-or-greater',
+                    function (value, element) {
+                        var number = $(element).closest('table')
+                        .find('input.validate-zero-or-greater:visible')
+                        .filter(function (i, el) {
+                            if (el.value !== '') {
+                                return parseInt(el.value) < 0;
+                            }
+
+                            return false;
+                        }).length;
+
+                        return number === 0;
+
+                    },
+                    $.mage.__('Position must be greater than or equal to 0.')
+                )
+            });
+
+        </script>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Mageplaza_ProductAttachments/js/options": {
+                    "attributesData": <?= /** noEscape */ json_encode($values, JSON_HEX_QUOT) ?>
+                }
+            }
+        }
+        </script>
+    </td>
+</tr>

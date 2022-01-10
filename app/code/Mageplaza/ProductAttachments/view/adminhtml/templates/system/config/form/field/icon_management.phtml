@@ -1,0 +1,159 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+use Mageplaza\ProductAttachments\Block\Adminhtml\System\IconManagement;
+
+/** @var IconManagement $block */
+$_htmlId  = $block->getHtmlId() ? : '_' . uniqid('', false);
+$_colspan = $block->isAddAfter() ? 2 : 1;
+?>
+<div class="design_theme_ua_regexp" id="grid<?= $block->escapeHtmlAttr($_htmlId) ?>">
+    <div class="admin__control-table-wrapper">
+        <table class="admin__control-table">
+            <thead>
+            <tr>
+                <?php foreach ($block->getColumns() as $columnName => $column) : ?>
+                    <th class="mp_attachments_label_<?= $block->escapeHtmlAttr($columnName) ?>">
+                        <?= $block->escapeHtml($column['label']) ?></th>
+                <?php endforeach; ?>
+                <th class="col-actions" colspan="<?= /* @noEscape */ $_colspan ?>">
+                    <?= $block->escapeHtml(__('Action')) ?></th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td colspan="<?= count($block->getColumns()) + $_colspan ?>" class="col-actions-add">
+                    <button id="addToEndBtn<?= $block->escapeHtmlAttr($_htmlId) ?>" class="action-add"
+                            title="<?= $block->escapeHtmlAttr(__('Add')) ?>" type="button">
+                        <span><?= $block->escapeHtml(__('Add')) ?></span>
+                    </button>
+                </td>
+            </tr>
+            </tfoot>
+            <tbody id="addRow<?= $block->escapeHtmlAttr($_htmlId) ?>"></tbody>
+        </table>
+    </div>
+    <input type="hidden" name="<?= /* @noEscape */ $block->getElement()->getName() ?>[__empty]" value=""/>
+    <script>
+        require([
+            'mage/template',
+            'prototype'
+        ], function (mageTemplate) {
+            // create row creator
+            window.arrayRow<?= /* @noEscape */ $_htmlId ?> = {
+                // define row prototypeJS template
+                template: mageTemplate(
+                    '<tr id="<%- _id %>">'
+                    <?php foreach ($block->getColumns() as $columnName => $column) : ?>
+                    + '<td id="mpattachments-col-<?= /* @noEscape */ $columnName ?>">'
+                    + '<?= /* @noEscape */ $block->renderCellTemplate($columnName)?>'
+                    + '<\/td>'
+                    <?php endforeach; ?>
+
+                    <?php if ($block->isAddAfter()) : ?>
+                    + '<td><button class="action-add" type="button" id="addAfterBtn<%- _id %>"><span><?= $block->escapeHtml(__('Add after')) ?><\/span><\/button><\/td>'
+                    <?php endif; ?>
+
+                    + '<td class="col-actions""><button id="mpattachments-action-del" onclick="arrayRow<?= /* @noEscape */ $_htmlId ?>.del(\'<%- _id %>\')" class="action-delete" type="button"><span><?= /* @noEscape */ __('Delete') ?><\/span><\/button><\/td>'
+                    + '<\/tr>'
+                ),
+
+                add: function (rowData, insertAfterId) {
+                    // generate default template data
+                    var templateValues;
+                    var defaultImage = '<?= /* @noEscape */ $block->helperData->getDefaultIconUrl() ?>';
+                    // Prepare template values
+                    if (rowData) {
+                        templateValues = rowData;
+                    } else {
+                        var d = new Date();
+                        templateValues = {
+                            <?php foreach ($block->getColumns() as $columnName => $column) : ?>
+                                <?= /* @noEscape */ $columnName ?>:'', 'option_extra_attrs':{},
+                            <?php endforeach; ?>
+                            _id: '_' + d.getTime() + '_' + d.getMilliseconds()
+                        };
+                    }
+
+                    // Insert new row after specified row or at the bottom
+                    if (insertAfterId) {
+                        Element.insert($(insertAfterId), {after: this.template(templateValues)});
+                    } else {
+                        Element.insert(
+                            $('addRow<?= /* @noEscape */ $_htmlId ?>'), {bottom: this.template(templateValues)});
+                    }
+
+                    // Fill controls with data
+                    if (rowData) {
+                        var rowInputElementNames = Object.keys(rowData.column_values);
+                        if ($(rowInputElementNames[0])) {
+                            $(rowInputElementNames[0]).value = rowData.column_values[rowInputElementNames[0]];
+                        }
+                        if ($(rowInputElementNames[1])) {
+                            $(rowInputElementNames[1]).value = rowData.column_values[rowInputElementNames[2]];
+                        }
+                    } else {
+                        var selector = '#' + templateValues._id + ' #mpattachments-col-file_icon img';
+                        var inputSelector = '#' + templateValues._id + ' #mpattachments-col-file_icon #'
+                            + templateValues._id + '_file_icon';
+                        jQuery(selector).attr('src', defaultImage);
+                        jQuery(inputSelector).addClass('required-entry');
+                    }
+                    // Add event for {addAfterBtn} button
+                    <?php if ($block->isAddAfter()) : ?>
+                    Event.observe('addAfterBtn' + templateValues._id,
+                        'click', this.add.bind(this, false, templateValues._id));
+                    <?php endif; ?>
+                },
+
+                del: function (rowId) {
+                    $(rowId).remove();
+                }
+            };
+
+            jQuery('body').on('change', '#mpattachments-col-file_icon input', function () {
+                if (this.files && this.files[0]) {
+                    var el = this;
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        jQuery(el).parent().find('img').attr('src', e.target.result);
+                    };
+
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            // bind add action to "Add" button in last row
+            Event.observe('addToEndBtn<?= /* @noEscape */ $_htmlId ?>', 'click',
+                arrayRow<?= /* @noEscape */ $_htmlId ?>.add.bind(arrayRow<?= /* @noEscape */ $_htmlId ?>, false, false)
+            );
+
+            // add existing rows
+            <?php foreach ($block->getArrayRows() as $_rowId => $_row) : ?>
+                <?= /* @noEscape */ "arrayRow{$_htmlId}.add(" . $_row->toJson() . ");\n" ?>
+            <?php endforeach; ?>
+
+            // Toggle the grid availability, if element is disabled (depending on scope)
+            <?php if ($block->getElement()->getDisabled()) :?>
+            toggleValueElements({checked: true}, $('grid<?= /* @noEscape */ $_htmlId ?>').parentNode);
+            <?php endif;?>
+        });
+    </script>
+</div>

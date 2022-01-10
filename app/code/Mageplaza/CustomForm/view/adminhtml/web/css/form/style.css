@@ -1,0 +1,419 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+.summary-field-container.admin__field {
+    clear: both;
+}
+
+.admin__collapsible-block-wrapper .admin__collapsible-title.active:before {
+    content: '\e615';
+}
+
+.admin__field-control .admin__control-html {
+    width: 100%;
+}
+
+/* response summary rating */
+.admin__field-control.rating {
+    margin-bottom: 20px;
+}
+
+.admin__field-control.rating .block-content {
+    display: inline-block;
+    width: 100%;
+}
+
+.admin__field-control.rating .block-title h2 {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.admin__field-control.rating .mp-review-details {
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.admin__field-control.rating .mp-review-details .stars-title {
+    display: inline-block;
+    width: 60px;
+}
+
+.admin__field-control.rating .mp-review-details .stars-process {
+    display: inline-block;
+    width: 50%;
+    margin: 1px 20px;
+    height: 7px;
+    background-color: #c7c7c7;
+    position: relative;
+}
+
+.admin__field-control.rating .mp-review-details .stars-process-active {
+    position: absolute;
+    display: inline-block;
+    width: 67%;
+    height: 7px;
+    background-color: #ff5501;
+}
+
+.summary-points .summary-points-text {
+    font-size: 5.5rem;
+    text-align: center;
+    padding: 0 15px 0 3px;
+}
+
+.summary-points .product-reviews-summary {
+    display: inline-block;
+}
+
+.admin__field-control.rating .rating-result {
+    width: 141px;
+}
+
+.admin__field-control.rating .rating-summary, .admin__field-control.rating .reviews-actions {
+    display: block;
+}
+
+.admin__field-control.rating .rating-summary .rating-result:before, .admin__field-control.rating .rating-summary .rating-result > span:before {
+    font-size: 27px;
+    height: 27px;
+    line-height: 27px;
+    letter-spacing: 4px;
+}
+
+.rating-summary {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.rating-summary .rating-result {
+    width: 88px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+.rating-summary .rating-result:before {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-font-smoothing: antialiased;
+    color: #c7c7c7;
+    font-family: 'FontAwesome';
+    font-size: 16px;
+    height: 16px;
+    letter-spacing: 2px;
+    line-height: 16px;
+    content: '\f005' '\f005' '\f005' '\f005' '\f005';
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+}
+
+.rating-summary .rating-result > span:before {
+    position: relative;
+    z-index: 2;
+    -webkit-font-smoothing: antialiased;
+    color: #ff5501;
+    font-family: 'FontAwesome';
+    font-size: 16px;
+    height: 16px;
+    letter-spacing: 2px;
+    line-height: 16px;
+    content: '\f005' '\f005' '\f005' '\f005' '\f005';
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+}
+
+.rating-summary .rating-result > span {
+    display: block;
+    overflow: hidden;
+}
+
+.rating-summary .rating-result > span span {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/* datetime responses css */
+
+.mp-date-responses-container {
+    display: table;
+}
+
+.mp-year-moth-label {
+    display: table-cell;
+    font: 500 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    border-right: 1px solid #000;
+    min-width: 95px;
+    padding: 10px 16px;
+    text-align: right;
+}
+
+.mp-day-container {
+    display: table;
+    font: 400 13px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    padding-left: 16px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.mp-day {
+    display: table-row;
+}
+
+.mp-times-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15px;
+}
+
+.mp-times-col {
+    display: table-cell;
+}
+
+.mp-time-response {
+    display: flex;
+    background-color: rgb(240, 235, 248);
+    border-radius: 14px;
+    margin: 2px;
+    padding: 6px 10px;
+    align-items: center;
+}
+
+.datetime > .mp-day > span {
+    background-color: rgb(240, 235, 248);
+    border-radius: 14px;
+    margin: 2px;
+    padding: 6px 10px;
+    display: flex;
+}
+
+.count {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: rgb(103, 58, 183);
+    border-radius: 14px;
+    margin-left: 8px;
+    padding: 3px 7px;
+}
+
+.mp-year-moth-row {
+    display: table-row;
+}
+
+.with-count, .mp-day-container.date > .mp-day.with-count {
+    background-color: rgb(103, 58, 183);
+    color: rgba(255, 255, 255, 1);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 3px;
+}
+
+.mp-day-container.date {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mp-day-container.date .mp-day {
+    display: flex;
+    background-color: rgb(240, 235, 248);
+    border-radius: 14px;
+    margin: 2px;
+    padding: 6px 10px;
+    align-items: center;
+}
+
+.summary-field-container .admin__field-control {
+    margin-left: 20px;
+}
+
+.summary-field-container .admin__field-control ul {
+    list-style: none;
+}
+
+.summary-field-container .admin__field-control ul li {
+    padding: 2px;
+}
+
+.summary-field-container .admin__field-control ul li:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+.responses-total {
+    margin-bottom: 20px;
+}
+
+/* email notification css */
+
+.admin__scope-old #form_tabs_email_notification_content .field .control select[disabled] ~ .addafter {
+    background-color: inherit;
+    border-color: inherit;
+    color: inherit;
+    opacity: inherit;
+    cursor: inherit;
+}
+
+label.mp-use-config-label {
+    float: right;
+}
+
+.admin__scope-old .form-inline #form_creator_fieldset .edit-popup .label.admin__field-label {
+    width: 20%;
+}
+
+#form_creator_fieldset .edit-popup ul{
+    list-style: none;
+}
+
+.admin__scope-old .form-inline #form_creator_fieldset .label.admin__field-label {
+    width: 40%;
+}
+
+#form_tabs_form_creator_content .mpcss button {
+    color: white;
+}
+#form_tabs_form_creator_content .mpcss button.action-close{
+    color: inherit;
+}
+
+.form-creator-block {
+    margin-left: 30px;
+}
+
+.admin__collapsible-block-wrapper {
+    border-bottom: none;
+}
+
+.admin__collapsible-block-wrapper .admin__collapsible-title {
+    padding: 1.9rem 2.8rem 0 0;
+}
+
+.page-control-button {
+    float: right;
+}
+
+.admin__scope-old .form-inline div:not([class*='fields-group']) > .field > .label span, .admin__scope-old .form-inline .fieldset > .field > .label span {
+    word-break: unset;
+}
+
+.field-groups {
+    margin-left: 20px;
+}
+
+.fieldset-wrapper-title.admin__fieldset-wrapper-title {
+    margin-bottom: 20px;
+}
+
+.field-container {
+    float: left;
+    margin-top: 1.5rem;
+}
+
+/* Rating Star Widgets Style */
+.rating-stars ul {
+    list-style-type: none;
+    padding: 0;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.rating-stars ul > li.star {
+    display: inline-block;
+
+}
+
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+    font-size: 2.5em; /* Change the size of the stars */
+    color: #ccc; /* Color on idle state */
+}
+
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+    color: #FFCC36;
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+    color: #FF912C;
+}
+
+.field-group-label {
+    font-size: 20px;
+}
+
+.mpcss .field-container .modal-content {
+    border: unset;
+    border-radius: unset;
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    outline: 0;
+}
+
+.checkbox-options-view.admin__field-control label {
+    margin-left: 10px;
+}
+
+@media all and (min-width: 768px) {
+    .page-layout-admin-2columns-left .page-columns .side-col {
+        width: calc((100%) * 0.2 - 30px);
+    }
+}
+
+@media all and (min-width: 768px) {
+    .page-layout-admin-2columns-left .page-columns .main-col {
+        width: calc((100%) * 0.8 - 30px);
+        float: right;
+    }
+}
+
+.admin__scope-old label {
+    display: unset;
+}
+
+label.label.admin__field-label[for="load-template"] {
+    min-width: 350px;
+}
+
+span.admin__collapsible-title {
+    min-height: 20px;
+}
+
+
+.form-creator-block .defaultSkin td, .form-creator-block .defaultSkin *{
+    white-space: normal;
+}
+
+li[data-ui-id="mageplaza-custom-form-form-tabs-tab-item-responses-summary"] {
+    display: none;
+}

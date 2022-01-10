@@ -1,0 +1,193 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+use Mageplaza\CustomForm\Block\Adminhtml\Form\Edit\Tab\Renderer\EmailPlaning;
+
+/* @var $block EmailPlaning */
+$element            = $block->getElement();
+$note               = $element->getNote() ? '<div class="note admin__field-note" id="' . $element->getId() . '-note">'
+    . $element->getNote() . '</div>' : '';
+$elementBeforeLabel = $element->getExtType() === 'checkbox admin__control-checkbox'
+    || $element->getExtType() === 'radio admin__control-radio';
+$addOn              = ($element->getBeforeElementHtml() || $element->getAfterElementHtml())
+    && !$element->getNoWrapAsAddon();
+$fieldId            = $element->getHtmlContainerId() ? (' id="' . $element->getHtmlContainerId() . '"') : '';
+$fieldClass         = "admin__field field field-{$element->getId()} {$element->getCssClass()}";
+$fieldClass         .= $elementBeforeLabel ? ' choice' : '';
+$fieldClass         .= $addOn ? ' with-addon' : '';
+$fieldClass         .= $element->getRequired() ? ' required _required' : '';
+$fieldClass         .= $note ? ' with-note' : '';
+$fieldClass         .= (!$element->getLabelHtml()) ? ' no-label' : '';
+
+$fieldAttributes = $fieldId . ' class="' . $fieldClass . '" '
+    . $block->getUiId('form-field', $element->getId())
+    . ($element->getFieldExtraAttributes() ? ' ' . $element->getFieldExtraAttributes() : '');
+
+$_htmlId  = $block->getHtmlId() ?: '_' . uniqid('', false);
+$_colspan = $block->isAddAfter() ? 2 : 1;
+
+?>
+
+<?php if (!$element->getNoDisplay()) : ?>
+    <div <?= /* @noEscape */ $fieldAttributes ?>>
+        <?= $element->getLabelHtml('', $element->getScopeLabel()) ?>
+        <div class="admin__field-control control">
+            <div class="design_theme_ua_regexp" id="grid<?= /* @noEscape */ $_htmlId ?>">
+                <div class="admin__control-table-wrapper" id="form_email_planing">
+                    <table class="admin__control-table">
+                        <thead>
+                        <tr>
+                            <?php foreach ($block->getColumns() as $columnName => $column) : ?>
+                                <?php if ($columnName === 'name') :?>
+                                    <th class="required _required">
+                                <?php else : ?>
+                                    <th>
+                                <?php endif;?>
+                                    <span><?= $block->escapeHtml($column['label']) ?></span>
+                                </th>
+                            <?php endforeach; ?>
+                            <th class="col-actions" colspan="<?= /* @noEscape */ $_colspan ?>">
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody id="addRow<?= /* @noEscape */ $_htmlId ?>"></tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="<?= (count($block->getColumns()) + $_colspan) ?>"
+                                class="col-actions-add">
+                                <button id="addToEndBtn<?= /* @noEscape */ $_htmlId ?>"
+                                        class="action-add"
+                                        title="<?= $block->escapeHtml(__('Add')) ?>" type="button">
+                                    <span><?= $block->escapeHtml($block->getAddButtonLabel()) ?></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+                <input type="hidden" name="<?= /* @noEscape */ $block->getElement()->getName() ?>[__empty]" value=""/>
+
+                <script>
+                    require([
+                        'jquery',
+                        'mage/template',
+                    ], function ($, mageTemplate) {
+                        // create row creator
+                        window.arrayRow<?= /* @noEscape */ $_htmlId ?> = {
+
+                            // define row prototypeJS template
+                            template: mageTemplate(
+                                '<tr id="<%- _id %>">'
+                                <?php foreach ($block->getColumns() as $columnName => $column) : ?>
+                                + '<td>'
+                                + '<?= /* @noEscape */ $block->renderCellTemplate($columnName) ?>'
+                                + '<\/td>'
+                                <?php endforeach; ?>
+
+                                <?php if ($block->isAddAfter()) : ?>
+                                + '<td><button class="action-add" type="button" id="addAfterBtn<%- _id %>"><span><?= $block->escapeHtml(__('Add after')) ?><\/span><\/button><\/td>'
+                                <?php endif; ?>
+
+                                + '<td class="col-actions"><button onclick="arrayRow<?= /* @noEscape */ $_htmlId ?>.del(\'<%- _id %>\')" class="action-delete" type="button"><span><?= /* @noEscape */ __('Delete') ?><\/span><\/button><\/td>'
+                                + '<\/tr>'
+                            ),
+
+                            add: function (rowData, insertAfterId) {
+                                // generate default template data
+                                var templateValues, self = this;
+
+                                // Prepare template values
+                                if (rowData) {
+                                    templateValues = rowData;
+                                } else {
+                                    var d = new Date();
+                                    templateValues = {
+                                    <?php foreach ($block->getColumns() as $columnName => $column) : ?>
+                                        <?= /* @noEscape */ $columnName ?>: '',
+                                        'option_extra_attrs': {},
+                                    <?php endforeach; ?>
+                                    _id: '_' + d.getTime() + '_' + d.getMilliseconds()
+                                };
+                                }
+
+                                // Insert new row after specified row or at the bottom
+                                if (insertAfterId) {
+                                    $('#'+insertAfterId).after(this.template(templateValues));
+                                } else {
+                                    $('#addRow<?= /* @noEscape */ $_htmlId ?>').append(this.template(templateValues));
+                                }
+
+                                // Fill controls with data
+                                if (rowData) {
+                                    var rowInputElementNames = Object.keys(rowData.column_values);
+                                    for (var i = 0; i < rowInputElementNames.length; i++){
+                                        if ($('#' + rowInputElementNames[i])) {
+                                            $('#' + rowInputElementNames[i]).val(rowData.column_values[rowInputElementNames[i]]);
+                                        }
+                                    }
+                                }
+
+                                // Add event for {addAfterBtn} button
+                                <?php if ($block->isAddAfter()) : ?>
+                                $('#addAfterBtn'+templateValues._id).on('click',function () {
+                                    self.add(false, templateValues._id);
+                                });
+                                <?php endif; ?>
+                            },
+
+                            del: function (rowId) {
+                                $('#'+rowId).remove();
+                            }
+                        };
+
+                        // bind add action to "Add" button in last row
+                        $('#addToEndBtn<?= /* @noEscape */ $_htmlId ?>').on('click',function () {
+                            arrayRow<?= /* @noEscape */ $_htmlId ?>.add(false,false);
+                        });
+
+                        // add existing rows
+                        <?php
+                        foreach ($block->getArrayRows() as $_rowId => $_row) {
+                            /* @noEscape */
+                            echo "arrayRow{$_htmlId}.add(" . $_row->toJson() . ");\n";
+                        }
+                        ?>
+
+                        // Toggle the grid availability, if element is disabled (depending on scope)
+                        <?php if ($block->getElement()->getDisabled()) : ?>
+                        toggleValueElements({checked: true}, $('grid<?= /* @noEscape */ $_htmlId ?>').parentNode);
+                        <?php endif;?>
+                    });
+                </script>
+            </div>
+            <?= /* @noEscape */ $note ?>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#form_tabs_email_notification_content": {
+            "Mageplaza_CustomForm/js/form/email-notification": {}
+        }
+    }
+</script>

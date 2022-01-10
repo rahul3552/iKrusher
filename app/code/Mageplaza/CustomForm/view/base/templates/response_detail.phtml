@@ -1,0 +1,61 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+use Mageplaza\CustomForm\Block\Adminhtml\Responses\Edit\Form;
+use Mageplaza\CustomForm\Model\Responses;
+
+/** @var Form $block */
+/** @var Responses $response */
+$response   = $block->getResponseEmail();
+$data       = $block->prepareCustomFormData($response);
+?>
+<div data-mage-init='{"accordion":{}}'>
+    <?php foreach ($data as $page) : ?>
+        <?php if (!empty($page['field_groups'])) : ?>
+            <?php foreach ((array) $page['field_groups'] as $fieldGroup) : ?>
+                    <div class="field-group-title">
+                        <span><?= $block->escapeQuote($fieldGroup['title']) ?></span>
+                    </div>
+                    <div class="field-group-description">
+                        <span><?= $block->escapeQuote($fieldGroup['description']) ?></span>
+                    </div>
+                    <?php if (!empty($fieldGroup['fields'])) : ?>
+                        <table style="border-collapse: initial">
+                            <tbody style="text-align: left">
+                            <?php foreach ((array) $fieldGroup['fields'] as $field) : ?>
+                                <tr style=""><?= $block->renderFieldHtml($field) ?></tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Mageplaza_CustomForm/js/response": {
+                "mpGoogleMapKey": "<?= /* @noEscape */ $block->getGoogleMapApi() ?>"
+            }
+        }
+    }
+</script>

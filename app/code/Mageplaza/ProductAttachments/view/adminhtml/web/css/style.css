@@ -1,0 +1,156 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+.field.field-icon .admin__field select {
+    position: relative;
+}
+
+.field.field-icon .admin__field #mpattachments-icon-sample {
+    height: 50px;
+    position: absolute;
+    top: -8px;
+}
+
+.field.field-icon .admin__field #file_icon {
+    margin-bottom: 11px;
+}
+
+a.btn {
+    background-color: #dbdbdb;
+    color: #514943;
+    border: 1px solid #adadad;
+    padding: 0.6rem 1em 0.6rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.36;
+    cursor: pointer;
+}
+
+a#preview-product-btn:hover {
+    text-decoration: unset;
+}
+
+.preview-product {
+    margin: 10px 0;
+}
+
+#mpattachments-current-file {
+    padding: 4px 13px;
+}
+
+.mp-admin__field .admin__field-label, #mp_attachments_location_container .admin__field-label {
+    width: calc((100%) * .25 - 30px);
+    float: left;
+    margin-left: 30px;
+}
+
+.mp-admin__field .mp_attachments_location_container__selection, #mp_attachments_location_container .mp_attachments_location_container__selection {
+    width: calc((30%) * .5 - 30px);
+    float: left;
+    margin-left: 30px;
+}
+
+#mp_attachments-details .image-panel-preview img {
+    width: 65%;
+}
+
+#mp_attachments-details .image-panel-controls {
+    flex: 0 0 60%;
+}
+
+#mp_attachments-details .image-panel-controls .admin__control-input {
+    width: 95%;
+}
+
+#mp_product_attachments_content {
+    margin-top: 25px;
+}
+
+#mp-productgrid-attachments {
+    margin-top: 30px;
+
+}
+
+.mp_image_loader {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 28%;
+}
+
+.no-before::before {
+    content: "" !important;
+}
+
+.mp-attachment-details-save {
+    background-color: #eb5202;
+    border-color: #eb5202;
+    color: #fff;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+    font-size: 1.6rem;
+    letter-spacing: .025em;
+    font-weight: 600;
+    padding: 0.9rem 1em .9rem;
+    float: right;
+}
+
+.mp-attachment-details-save:hover {
+    text-decoration: none;
+    background-color: #ba4000;
+    border-color: #b84002;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    box-shadow: 0 0 0 1px #007bdb;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.9rem 1em .9rem;
+    letter-spacing: .025em;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+    font-size: 1.6rem;
+}
+
+.ln_overlay {
+    background-color: #FFFFFF;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 555;
+    display: none;
+}
+
+.loader img {
+    top: 40%;
+    left: 45%;
+    display: block;
+    position: fixed;
+}
+
+#mp_attachments_popup {
+    position: relative;
+}
+
+.fileinput-button {
+    overflow: hidden;
+    float: left;
+}

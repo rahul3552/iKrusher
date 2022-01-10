@@ -238,7 +238,7 @@ switch ($type = $block->getType()) {
 													<?php if (!$_product->getRequiredOptions()): ?>
 														<div class="product-item-inner">
 															<div class="field checkbox-inline choice related">
-																<label class="label" for="related-checkbox<?php /* @escapeNotVerified */ echo $_product->getId() ?>"><span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span></label>
+																<label class="label" for="related-checkbox<?php /* @escapeNotVerified */ echo $_product->getId() ?>"><span><?php /* @escapeNotVerified */ echo __('Shop Now') ?></span></label>
 																<div class="control">
 																	<input type="checkbox" class="checkbox related" id="related-checkbox<?php /* @escapeNotVerified */ echo $_product->getId() ?>" name="related_products[]" value="<?php /* @escapeNotVerified */ echo $_product->getId() ?>" />
 																</div>
@@ -495,9 +495,9 @@ switch ($type = $block->getType()) {
 										<?php if ($themeHelper->getStoreConfig('mgstheme/general/disable_add_to_cart') == 0 && $themeHelper->getStoreConfig('mpanel/catalog/disable_hover_effect') ==0 && $themeHelper->getStoreConfig('mpanel/catalog/disable_button_cart_hover_effect') ==0): ?>
 											<?php if ($showCart && $_item->isSaleable()): ?>
 												<?php if ($_item->getTypeInstance()->hasRequiredOptions($_item)): ?>
-													<button class="action tocart btn-cart" data-mage-init='{"redirectUrl": {"url": "<?php /* @escapeNotVerified */ echo $block->getAddToCartUrl($_item) ?>"}}' type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+													<button class="action tocart btn-cart" data-mage-init='{"redirectUrl": {"url": "<?php /* @escapeNotVerified */ echo $block->getAddToCartUrl($_item) ?>"}}' type="button" title="<?php /* @escapeNotVerified */ echo __('Shop Now') ?>">
 														<span class="icon pe-7s-shopbag"></span>
-														<span class="text"><?php /* @escapeNotVerified */ echo __('Add to Cart') ?>
+														<span class="text"><?php /* @escapeNotVerified */ echo __('Shop Now') ?>
 													</button>
 												<?php else: ?>
 													<?php $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
@@ -505,9 +505,9 @@ switch ($type = $block->getType()) {
 													?>
 													<button class="action tocart btn-cart"
 															data-post='<?php /* @escapeNotVerified */ echo $postData; ?>'
-															type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+															type="button" title="<?php /* @escapeNotVerified */ echo __('Shop Now') ?>">
 														<span class="icon pe-7s-shopbag"></span>
-														<span class="text"><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+														<span class="text"><?php /* @escapeNotVerified */ echo __('Shop Now') ?></span>
 													</button>
 												<?php endif; ?>
 											<?php endif; ?>
@@ -528,9 +528,9 @@ switch ($type = $block->getType()) {
 										<?php if ($themeHelper->getStoreConfig('mgstheme/general/disable_add_to_cart') == 0 && ($themeHelper->getStoreConfig('mpanel/catalog/disable_hover_effect') ==1 || $themeHelper->getStoreConfig('mpanel/catalog/disable_button_cart_hover_effect') ==1)): ?>
 											<?php if ($showCart && $_item->isSaleable()): ?>
 												<?php if ($_item->getTypeInstance()->hasRequiredOptions($_item)): ?>
-													<button class="action tocart btn-cart" data-mage-init='{"redirectUrl": {"url": "<?php /* @escapeNotVerified */ echo $block->getAddToCartUrl($_item) ?>"}}' type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+													<button class="action tocart btn-cart" data-mage-init='{"redirectUrl": {"url": "<?php /* @escapeNotVerified */ echo $block->getAddToCartUrl($_item) ?>"}}' type="button" title="<?php /* @escapeNotVerified */ echo __('Shop Now') ?>">
 														<span class="icon pe-7s-shopbag"></span>
-														<span class="text"><?php /* @escapeNotVerified */ echo __('Add to Cart') ?>
+														<span class="text"><?php /* @escapeNotVerified */ echo __('Shop Now') ?>
 													</button>
 												<?php else: ?>
 													<?php $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
@@ -538,9 +538,9 @@ switch ($type = $block->getType()) {
 													?>
 													<button class="action tocart btn-cart hover_effect"
 															data-post='<?php /* @escapeNotVerified */ echo $postData; ?>'
-															type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+															type="button" title="<?php /* @escapeNotVerified */ echo __('Shop Now') ?>">
 														<span class="icon pe-7s-shopbag"></span>
-														<span class="text"><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+														<span class="text"><?php /* @escapeNotVerified */ echo __('Shop Now') ?></span>
 													</button>
 												<?php endif; ?>
 											<?php endif; ?>

@@ -1,0 +1,39 @@
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<li class="mp-custom-form checkout-shipping-address" data-bind="fadeVisible: visible(),css: 'page-'+_id,attr: {
+            id: formName + '-' + _id
+    }">
+    <div class="step-title mp-page-title" data-bind="text: title" data-role="title"></div>
+    <div class="step-description mp-page-description" data-bind="html: description" data-role="description"></div>
+    <div class="step-content mp-page-content" data-role="content">
+        <!-- ko foreach: elems -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+    </div>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button data-bind="event: {click: function(){submitForm()}}, css: smButtonClass," data-role="opc-continue" type="button" class="button action continue primary">
+                <span data-bind="text: smButtonText" />
+            </button>
+        </div>
+    </div>
+</li>

@@ -1,0 +1,43 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+use Mageplaza\ProductAttachments\Block\Product\Attachments;
+use Mageplaza\ProductAttachments\Block\Product\Display\Inline;
+use Mageplaza\ProductAttachments\Model\Config\Source\System\ShowOn;
+
+/** @var Attachments $block */
+$displayType = $block->getDisplayTypes();
+$canShow     = in_array(ShowOn::SIDEBAR, $displayType, true);
+?>
+<?php if ($canShow) : ?>
+    <div id="mp-attachments-sidebar" class="block block-mpattachments widget mp-attachment-container">
+        <div class="block-title">
+            <strong id="block-mpattachments-heading" role="heading" aria-level="2">
+                <?= $block->escapeHtml($block->getTitle()) ?>
+            </strong>
+        </div>
+        <div class="block-content">
+            <?= $block->getLayout()->createBlock(
+                Inline::class
+            )->toHtml() ?>
+        </div>
+    </div>
+<?php endif; ?>

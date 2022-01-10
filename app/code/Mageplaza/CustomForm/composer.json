@@ -1,0 +1,26 @@
+{
+  "name": "mageplaza/module-custom-form",
+  "description": "Magento 2 Custom Form Extension",
+  "require": {
+    "mageplaza/module-core": "^1.4.10"
+  },
+  "type": "magento2-module",
+  "version": "4.3.0",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Mageplaza",
+      "email": "support@mageplaza.com",
+      "homepage": "https://www.mageplaza.com",
+      "role": "Technical Support"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Mageplaza\\CustomForm\\": ""
+    }
+  }
+}

@@ -1,0 +1,160 @@
+"Save and Continue Edit","Save and Continue Edit"
+"Edit File '%1'","Edit File '%1'"
+"New Product Attachments File","New Product Attachments File"
+"Apply the rule only if the following conditions are met (leave blank for all products).","Apply the rule only if the following conditions are met (leave blank for all products)."
+Conditions,Conditions
+"Assign to","Assign to"
+General,General
+"File Label","File Label"
+"File Name","File Name"
+"File Type","File Type"
+File,File
+"File Link","File Link"
+Icon,Icon
+Status,Status
+"Store Views","Store Views"
+"Show files to customer group(s)","Show files to customer group(s)"
+"Select customer group(s) to show attachments to.","Select customer group(s) to show attachments to."
+"Logged-in customer","Logged-in customer"
+"Customer must log in to download/view the file.","Customer must log in to download/view the file."
+"Verified buyers","Verified buyers"
+"Only available for verified buyers.","Only available for verified buyers."
+"Customer Action","Customer Action"
+Priority,Priority
+"The priority of the file.","The priority of the file."
+"Delete File","Delete File"
+"Product ID","Product ID"
+Name,Name
+Sku,Sku
+Price,Price
+"Item Information","Item Information"
+"Default Icon","Default Icon"
+Add,Add
+"Wrong column name specified.","Wrong column name specified."
+"Static Block","Static Block"
+".phtml file",".phtml file"
+Widget,Widget
+"Product Attachments","Product Attachments"
+Files,Files
+Promotions,Promotions
+"We found updated rules that are not applied. Please click ""Apply Rules"" to update your catalog.","We found updated rules that are not applied. Please click ""Apply Rules"" to update your catalog."
+"This file no longer exists.","This file no longer exists."
+"Make sure your file isn't more than %1M.","Make sure your file isn't more than %1M."
+"The File has been deleted.","The File has been deleted."
+"File to delete was not found.","File to delete was not found."
+"Manage General Files","Manage General Files"
+"New File","New File"
+"Please correct the data sent.","Please correct the data sent."
+"Something went wrong while saving the File.","Something went wrong while saving the File."
+"Files has been deleted.","Files has been deleted."
+"Something wrong when deleting Files.","Something wrong when deleting Files."
+"Something went wrong while updating status for %1.","Something went wrong while updating status for %1."
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"File size is too big.","File size is too big."
+"The file has been saved.","The file has been saved."
+"Logs has been cleared.","Logs has been cleared."
+"Something wrong when deleting Logs.","Something wrong when deleting Logs."
+Logs,Logs
+"Something went wrong while updating the File.","Something went wrong while updating the File."
+"Something went wrong while deleting the File.","Something went wrong while deleting the File."
+"Unable to generate file name. Please check the setting and try again.","Unable to generate file name. Please check the setting and try again."
+"The file is not available for you","The file is not available for you"
+"The file is not available","The file is not available"
+"%1 not a file","%1 not a file"
+"Can not download file","Can not download file"
+"Duplicate icon type name. Please try again.","Duplicate icon type name. Please try again."
+"We don't recognize or support this file extension type.","We don't recognize or support this file extension type."
+"File you are trying to upload exceeds maximum file size limit.","File you are trying to upload exceeds maximum file size limit."
+"View Online","View Online"
+Download,Download
+"Link other","Link other"
+"File in Store","File in Store"
+"-- Please select --","-- Please select --"
+Active,Active
+Inactive,Inactive
+"Product Tab","Product Tab"
+"Under ""Add To Cart"" button","Under ""Add To Cart"" button"
+Sidebar,Sidebar
+"File directory '%1' is not readable.","File directory '%1' is not readable."
+"File directory '%1' is not writable.","File directory '%1' is not writable."
+"There is no sample file for this entity.","There is no sample file for this entity."
+"Add File","Add File"
+Guest,Guest
+"All Store Views","All Store Views"
+"Show Block On","Show Block On"
+"Use Config Settings","Use Config Settings"
+"Delete file","Delete file"
+Hidden,Hidden
+"Browse Files...","Browse Files..."
+"Browse to find or drag file here","Browse to find or drag file here"
+"Preview Products","Preview Products"
+Action,Action
+"Add after","Add after"
+Delete,Delete
+" - Login required"," - Login required"
+" - Purchase required"," - Purchase required"
+"There are no file attachments for this product.","There are no file attachments for this product."
+"Show file to customer group(s)","Show file to customer group(s)"
+"Customer must log in to download/view file","Customer must log in to download/view file"
+"Only purchased customers can view/download","Only purchased customers can view/download"
+"File Size","File Size"
+"File details","File details"
+Attention,Attention
+"Something error.","Something error."
+Save,Save
+"Add Attachment for ""","Add Attachment for """
+"Please do not leave the link, name and label fields blank.","Please do not leave the link, name and label fields blank."
+Enable,Enable
+"Select <b>Yes</b> to enable this module.","Select <b>Yes</b> to enable this module."
+"Block Title","Block Title"
+"This is the title of the attachment block. It is also the name of the product tab which attachments are placed in.","This is the title of the attachment block. It is also the name of the product tab which attachments are placed in."
+"Show On","Show On"
+"Manage Icon","Manage Icon"
+Icons,Icons
+"<a href=""https://www.flaticon.com/packs/file-types"" target=""_blank"">Download sample icons.</a> Recommendation size 64x64.","<a href=""https://www.flaticon.com/packs/file-types"" target=""_blank"">Download sample icons.</a> Recommendation size 64x64."
+"Default Value","Default Value"
+"This value will be used as default value when uploading files for each product.","This value will be used as default value when uploading files for each product."
+"Customer Group","Customer Group"
+"Customer must login to download file","Customer must login to download file"
+"Customer must log in to download files. <a href=""https://www.mageplaza.com/magento-2-social-login-extension/"">Compatible with Mageplaza Social Login</a>","Customer must log in to download files. <a href=""https://www.mageplaza.com/magento-2-social-login-extension/"">Compatible with Mageplaza Social Login</a>"
+"Only available for verified buyers","Only available for verified buyers"
+"The View Online feature is only available with online-viewable files such as .pdf, .csv, .doc, .docx, .png,...","The View Online feature is only available with online-viewable files such as .pdf, .csv, .doc, .docx, .png,..."
+Snippet,Snippet
+"Use the following code to show the attachments block in any place on product page you want.","Use the following code to show the attachments block in any place on product page you want."
+"Add New","Add New"
+"Store View","Store View"
+"All Customer Group","All Customer Group"
+"Delete Files","Delete Files"
+"Are you sure you want to delete selected Files?","Are you sure you want to delete selected Files?"
+"Change status","Change status"
+ID,ID
+"Created Date","Created Date"
+Edit,Edit
+"Clear Logs","Clear Logs"
+Customer,Customer
+Product,Product
+Attachments,Attachments
+"Display Attachment File Size","Display Attachment File Size"
+"If Yes, display the file size next to the attachment in the frontend.","If Yes, display the file size next to the attachment in the frontend."
+"File Size Limit Allowed(MB)","File Size Limit Allowed(MB)"
+"Note that the limit for sending attachments in gmail cannot exceed 25 MB. Please select below 25 MB to fully view the best quality attached file. If empty or 0, the limit will be 25 MB by default.","Note that the limit for sending attachments in gmail cannot exceed 25 MB. Please select below 25 MB to fully view the best quality attached file. If empty or 0, the limit will be 25 MB by default."
+"Add Attachments in Order Emails","Add Attachments in Order Emails"
+"If Yes, add the attachment to the order email.","If Yes, add the attachment to the order email."
+"The attachments you selected have exceeded the allowed limit. Please upload files smaller than %1MB.","The attachments you selected have exceeded the allowed limit. Please upload files smaller than %1MB."
+"Make sure your file isn't more than %1MB.","Make sure your file isn't more than %1MB."
+"When the customer place orders and the order status is satisfied, the attached file can be viewed / downloaded.","When the customer place orders and the order status is satisfied, the attached file can be viewed / downloaded."
+"Group Name is a required field in each row.","Group Name is a required field in each row."
+"Position must be number in each row.","Position must be number in each row."
+"Add Option","Add Option"
+Value,Value
+Position,Position
+Groups,Groups
+"Select Group","Select Group"
+"Others","Others"
+"Position must be greater than or equal to 0.","Position must be greater than or equal to 0."
+"Information attached to the order %1","Information attached to the order %1"
+"Please see the attached file below for more details about the order %order_id.","Please see the attached file below for more details about the order %order_id."
+"If you have any further questions/issues, please feel welcome to reach back out as we would be more than happy to assist.","If you have any further questions/issues, please feel welcome to reach back out as we would be more than happy to assist."
+"Best regards!","Best regards!"
+"Add group to sort attachment files. Groups will be displayed with the attachment file on the product page.","Add group to sort attachment files. Groups will be displayed with the attachment file on the product page."
+"Order Status","Order Status"

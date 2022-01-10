@@ -1,0 +1,58 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_AgeVerification
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/**@var \Magento\Backend\Block\Widget\Form\Renderer\Fieldset $block */
+$type = $this->getType();
+$_element = $block->getElement();
+$_jsObjectName = $block->getFieldSetId() != null ? $block->getFieldSetId() : $_element->getHtmlId() ?>
+
+<?php if ($type === 'page'): ?>
+    <input name="groups[page_verify][fields][condition][value]" type="hidden" value=""/>
+<?php else: ?>
+    <input name="groups[purchase_verify][fields][condition][value]" type="hidden" value=""/>
+<?php endif; ?>
+
+<div class="rule-tree rule-tree-mpageverify fieldset">
+    <fieldset id="<?= $_jsObjectName ?>" <?= $_element->serialize(['class']) ?>
+              class="mpageverify-fieldset fieldset">
+        <div class="rule-tree-wrapper">
+            <?= $_element->getChildrenHtml() ?>
+        </div>
+    </fieldset>
+</div>
+<script>
+    require([
+        "Magento_Rule/rules",
+        "prototype"
+    ], function (VarienRulesForm) {
+        window.<?= $_jsObjectName ?> = new VarienRulesForm('<?= $_jsObjectName ?>', '<?= $block->getNewChildUrl() ?>');
+        <?php if ($_element->getReadonly()): ?>
+            <?= $_element->getHtmlId() ?>.
+        setReadonly(true);
+        <?php endif; ?>
+    });
+</script>
+
+<style>
+    .mpageverify-fieldset, .rule-tree-mpageverify {
+        padding: 0 !important;
+    }
+</style>

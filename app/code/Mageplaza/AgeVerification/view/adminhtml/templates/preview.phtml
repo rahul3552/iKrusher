@@ -1,0 +1,72 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_AgeVerification
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** var \Mageplaza\AgeVerification\Block\Adminhtml\System\Config\Preview $block */
+
+$yesNo = Mageplaza\AgeVerification\Model\Config\Source\VerifyType::YESNO;
+$dob = Mageplaza\AgeVerification\Model\Config\Source\VerifyType::INPUT_DOB;
+$checkbox = Mageplaza\AgeVerification\Model\Config\Source\VerifyType::CHECKBOX; ?>
+
+<img src="<?= $block->getReviewImgUrl('yes_no.png') ?>" class="mpageverify-yes-no" alt=""/>
+<img src="<?= $block->getReviewImgUrl('dob.png') ?>" class="mpageverify-dob" alt=""/>
+<img src="<?= $block->getReviewImgUrl('checkbox.png') ?>" class="mpageverify-checkbox" alt=""/>
+
+<script>
+    require([
+        'jquery',
+    ], function ($) {
+        var select = $('#mpageverify_design_verify_type'),
+            yesNo = $('.mpageverify-yes-no'),
+            dob = $('.mpageverify-dob'),
+            checkbox = $('.mpageverify-checkbox'),
+            storeviewconfig = $('#mpageverify_design_preview_inherit').parent();
+
+        storeviewconfig.hide();
+        select.change(function () {
+            switch (parseInt(select.val())) {
+                case <?= $yesNo ?>:
+                    yesNo.show();
+                    dob.hide();
+                    checkbox.hide();
+                    break;
+                case <?= $dob ?>:
+                    yesNo.hide();
+                    dob.show();
+                    checkbox.hide();
+                    break;
+                case <?= $checkbox ?>:
+                    yesNo.hide();
+                    dob.hide();
+                    checkbox.show();
+                    break;
+            }
+        });
+
+        select.trigger('change');
+    });
+</script>
+
+<style>
+    .mpageverify-yes-no, .mpageverify-dob, .mpageverify-checkbox {
+        display: none;
+        border: 1px solid #CCC;
+    }
+</style>

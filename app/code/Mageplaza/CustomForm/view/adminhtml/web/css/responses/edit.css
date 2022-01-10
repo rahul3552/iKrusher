@@ -1,0 +1,199 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+.admin__field-control._with-tooltip {
+    position: relative;
+}
+
+.admin__field-control._with-tooltip .admin__table-primary {
+    width: calc(100% - 36px);
+}
+
+.field-group-title, .field-group-description {
+    margin: 0 0 5px 10%;
+}
+
+.field-group-title {
+    font-size: 20px;
+}
+
+.field-val-wrapper {
+    -webkit-appearance: none;
+    background-color: #ffffff;
+    box-shadow: none;
+    color: #303030;
+    font-size: 1.4rem;
+    font-weight: 400;
+    height: auto;
+    line-height: 1.36;
+    padding: 0.6rem 1rem 0.6rem;
+    transition: border-color 0.1s linear;
+    vertical-align: baseline;
+    width: 100%;
+}
+
+/* Rating Star Widgets Style */
+.rating-stars ul {
+    list-style-type: none;
+    padding: 0;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.rating-stars ul > li.star {
+    display: inline-block;
+
+}
+
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+    font-size: 2.5em; /* Change the size of the stars */
+    color: #ccc; /* Color on idle state */
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+    color: #FF912C;
+}
+
+/* tooltip */
+.field-tooltip {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 1px;
+}
+
+.field-tooltip.active {
+    z-index: 100;
+}
+
+.field-tooltip.active .field-tooltip-content {
+    display: block;
+}
+
+.field-tooltip.active .field-tooltip-action:before {
+    color: #333333;
+}
+
+.field-tooltip .field-tooltip-action {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.field-tooltip .field-tooltip-action > span {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.field-tooltip .field-tooltip-action:before {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 21px;
+    line-height: inherit;
+    color: #bbbbbb;
+    content: '\e633';
+    font-family: 'Admin Icons';
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}
+
+.field-tooltip .field-tooltip-action:hover:before {
+    color: #333333;
+}
+
+._keyfocus .field-tooltip .field-tooltip-action:focus {
+    z-index: 100;
+}
+
+._keyfocus .field-tooltip .field-tooltip-action:focus + .field-tooltip-content {
+    display: block;
+}
+
+._keyfocus .field-tooltip .field-tooltip-action:focus:before {
+    color: #333333;
+}
+
+.field-tooltip .field-tooltip-content {
+    background: #f4f4f4;
+    border: 1px solid #999999;
+    border-radius: 1px;
+    font-size: 14px;
+    padding: 12px;
+    width: 270px;
+    display: none;
+    left: 38px;
+    position: absolute;
+    text-transform: none;
+    top: -9px;
+    word-wrap: break-word;
+    z-index: 2;
+}
+
+.field-tooltip .field-tooltip-content:before,
+.field-tooltip .field-tooltip-content:after {
+    border: 10px solid transparent;
+    height: 0;
+    width: 0;
+    border-right-color: #f4f4f4;
+    left: -21px;
+    top: 12px;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 3;
+}
+
+.field-tooltip .field-tooltip-content:before {
+    border-right-color: #666666;
+}
+
+.field-tooltip .field-tooltip-content:after {
+    border-right-color: #f4f4f4;
+    width: 1px;
+    z-index: 4;
+}
+
+.admin__collapsible-block-wrapper .admin__collapsible-title {
+    padding: 1.9rem 2.8rem 0 0;
+}
+
+.admin__collapsible-block-wrapper {
+    border-bottom: none;
+}
+
+.admin__collapsible-block-wrapper .admin__collapsible-title.active:before {
+    content: '\e615';
+}
+
+span.admin__collapsible-title {
+    min-height: 40px;
+}

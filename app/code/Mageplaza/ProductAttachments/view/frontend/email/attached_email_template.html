@@ -1,0 +1,41 @@
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+
+<!--@subject {{trans "%subject" subject=$emailSubject}} @-->
+<!--@vars {
+"var store.getFrontendName()":"Store Name",
+"var store.getBaseUrl()":"Store URL"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table class="main" align="center">
+    <tr>
+        <td class="main-content">
+            <p>{{trans "Please see the attached file below for more details about the order %order_url." order_url=$order_url |raw}}</p>
+            <p>{{trans "If you have any further questions/issues, please feel welcome to reach back out as we would be more than happy to assist."}}</p>
+            <p>{{trans "Best regards!"}}</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

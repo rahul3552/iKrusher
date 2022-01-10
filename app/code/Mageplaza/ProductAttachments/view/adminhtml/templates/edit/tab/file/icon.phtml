@@ -1,0 +1,96 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\ProductAttachments\Block\Adminhtml\File\Edit\Tab\File\Icon $block */
+?>
+<script type="text/javascript">
+    require(['jquery'],
+        function ($) {
+            var iconElement = $('#mpattachments-icon-sample'),
+                selectElement = $('#file_icon'),
+                inputElement = $('#file_file_path'),
+                fileNameField = $('#file_name'),
+                fileLabelField = $('#file_label'),
+                iconUrl = '<?= /* @noEscape */ $block->helperData->getIconUrl() ?>',
+                defaultIconUrl = '<?= /* @noEscape */ $block->helperData->getDefaultIconUrl() ?>',
+                currentFileExtensionPath = '<?= /* @noEscape */ $block->getCurrentFile()->getFileIconPath() ?>',
+                currentFileExtension = getFileExtension($('#file-path-name'));
+
+            if (currentFileExtensionPath.length) {
+                selectElement.val(currentFileExtensionPath);
+                iconElement.attr('src', iconUrl + '/' + selectElement.val());
+            } else {
+                /** change option value & icon by current input file */
+                changeOptionValueAndIcon(currentFileExtension);
+            }
+
+            inputElement.on('change', function () {
+                var uploadedFileVal = $(this).val();
+                var fileExtension = getFileExtension($(this));
+                var fileNameIncExt = uploadedFileVal.split('\\').pop();
+                var fileName = fileNameIncExt.replace('.' + fileExtension, '');
+                if (fileNameField.val() === '') {
+                    fileNameField.val(fileNameIncExt);
+                }
+                if (fileLabelField.val() === '') {
+                    fileLabelField.val(fileName);
+                }
+
+                /** change option value & icon when changing input file */
+                changeOptionValueAndIcon(fileExtension);
+            });
+            selectElement.on('change', function () {
+                var selectedVal = $(this).val();
+                var iconSrc = defaultIconUrl;
+                if (selectedVal) {
+                    iconSrc = iconUrl + '/' + selectedVal;
+                }
+                iconElement.attr('src', iconSrc);
+            });
+
+            /**
+             * Get input file extension
+             * @param element
+             */
+            function getFileExtension(element) {
+                var elmVal = element.val();
+                if (typeof elmVal != 'undefined') {
+                    inputElement.removeClass('required-entry');
+                    return elmVal.replace(/^.*\./, '').toLowerCase();
+                }
+                return '';
+            }
+
+            /**
+             * Change option value & icon image
+             * @param fileExtension
+             */
+            function changeOptionValueAndIcon(fileExtension) {
+                var selector = selectElement.find("option:contains('" + fileExtension + "')");
+                if ($(selector).length === 1) {
+                    $(selector).prop('selected', true).trigger('change');
+                } else {
+                    selectElement.val('').trigger('change');
+                }
+            }
+        }
+    );
+</script>

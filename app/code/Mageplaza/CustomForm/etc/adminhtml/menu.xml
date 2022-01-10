@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mageplaza_CustomForm::custom_form" title="Custom Form" module="Mageplaza_CustomForm" sortOrder="110" resource="Mageplaza_CustomForm::custom_form" parent="Magento_Backend::content"/>
+        <add id="Mageplaza_CustomForm::form" title="Manage Forms" module="Mageplaza_CustomForm" sortOrder="10" action="mpcustomform/form" resource="Mageplaza_CustomForm::form" parent="Mageplaza_CustomForm::custom_form"/>
+        <add id="Mageplaza_CustomForm::responses" title="Manage Responses" module="Mageplaza_CustomForm" sortOrder="20" action="mpcustomform/responses" resource="Mageplaza_CustomForm::responses" parent="Mageplaza_CustomForm::custom_form"/>
+        <add id="Mageplaza_CustomForm::configuration" title="Configuration" module="Mageplaza_CustomForm" sortOrder="30" action="adminhtml/system_config/edit/section/mp_custom_form" resource="Mageplaza_CustomForm::configuration" parent="Mageplaza_CustomForm::custom_form"/>
+    </menu>
+</config>

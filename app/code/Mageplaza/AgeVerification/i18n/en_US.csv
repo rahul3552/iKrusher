@@ -1,0 +1,71 @@
+"AGE VERIFICATION","AGE VERIFICATION"
+"You must be older than %1 years old to enter this page.","You must be older than %1 years old to enter this page."
+Enter,Enter
+Cancel,Cancel
+"You must verify your age to buy this product.","You must verify your age to buy this product."
+"-- Please Select --","-- Please Select --"
+"Shopping Cart Page","Shopping Cart Page"
+"Checkout Page","Checkout Page"
+"Catalog Search Page","Catalog Search Page"
+"All Categories","All Categories"
+"Small Image","Small Image"
+"Notice Message","Notice Message"
+"Yes/No Type","Yes/No Type"
+"Input DOB Type","Input DOB Type"
+"Checkbox Type","Checkbox Type"
+"By checking the check box, you agree that you are old enough to access.","By checking the check box, you agree that you are old enough to access."
+"Date of Birth","Date of Birth"
+Jan,Jan
+Feb,Feb
+Mar,Mar
+Apr,Apr
+May,May
+Jun,Jun
+Jul,Jul
+Aug,Aug
+Sep,Sep
+Oct,Oct
+Nov,Nov
+Dec,Dec
+"Age Verification","Age Verification"
+General,General
+Enable,Enable
+"Select Yes to enable this module","Select Yes to enable this module"
+"Verification Age","Verification Age"
+"Enable Term & Condition","Enable Term & Condition"
+"Select Yes to enable Term & Condition","Select Yes to enable Term & Condition"
+"Link Title","Link Title"
+"Anchor Text","Anchor Text"
+"Anchor URL","Anchor URL"
+"Cookie life-time","Cookie life-time"
+"Counted by day(s). Default: 365 days","Counted by day(s). Default: 365 days"
+"Apply for Customer Groups","Apply for Customer Groups"
+"Auto verify age from the saved customers' DOB","Auto verify age from the saved customers' DOB"
+"Re-direct URL","Re-direct URL"
+"Visitors will be auto-redirected to this URL if their ages are not verified","Visitors will be auto-redirected to this URL if their ages are not verified"
+"Page Verification Configuration","Page Verification Configuration"
+"Apply for","Apply for"
+"Apply for CMS Page(s)","Apply for CMS Page(s)"
+"Apply for Category Page(s)","Apply for Category Page(s)"
+"Compatible with <a href=""https://www.mageplaza.com/magento-2-product-labels"" target=""_blank"">Mageplaza Product Labels</a> to add ""Age Verify"" label for product.","Compatible with <a href=""https://www.mageplaza.com/magento-2-product-labels"" target=""_blank"">Mageplaza Product Labels</a> to add ""Age Verify"" label for product."
+"Apply for Product Detail Page(s)","Apply for Product Detail Page(s)"
+Condition,Condition
+"Include Custom Page(s)","Include Custom Page(s)"
+"Exclude Custom Page(s)","Exclude Custom Page(s)"
+"Purchase Verification Configuration","Purchase Verification Configuration"
+"Select Product Condition(s)","Select Product Condition(s)"
+"Age Notice","Age Notice"
+"Notice Image","Notice Image"
+"Leave empty to use default image","Leave empty to use default image"
+Design,Design
+"Verification Type","Verification Type"
+Icon,Icon
+Title,Title
+Description,Description
+"The variable {{age}} will automatically receive the age-verification input value above.","The variable {{age}} will automatically receive the age-verification input value above."
+"Confirm Button Label","Confirm Button Label"
+"Cancel Button Label","Cancel Button Label"
+"Header Background Color","Header Background Color"
+"Body Background Color","Body Background Color"
+"Button Color","Button Color"
+"Text Color","Text Color"

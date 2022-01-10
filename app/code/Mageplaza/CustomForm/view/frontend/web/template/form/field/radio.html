@@ -1,0 +1,44 @@
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomForm
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+
+<!-- ko foreach:  { data: getOptionsByRow(), as: 'optionsPerRow' }-->
+<div>
+    <!-- ko foreach:  { data: optionsPerRow, as: 'option' }-->
+    <input type="radio" class="radio" data-bind="
+               checked: $parents[1].value,
+               checkedValue: value,
+               attr: {
+                   id: $parents[1].uid + '-' + value,
+                   disabled: $parents[1].disabled,
+                   name: $parents[1].inputName
+               },
+               hasFocus: $parents[1].focused" />
+
+    <label class="label" data-bind="checked: value, attr: { for: $parents[1].uid + '-' + value }">
+        <span data-bind="text: label"></span>
+    </label>
+    <!-- /ko -->
+</div>
+<!-- /ko -->
+<!-- ko if: notice -->
+<div class="field-note" data-bind="attr: {id: noticeId}"><span data-bind="text: notice"></span></div>
+<!-- /ko -->

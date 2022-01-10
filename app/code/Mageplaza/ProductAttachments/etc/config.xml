@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <productattachments>
+            <general>
+                <enabled>1</enabled>
+                <title>File(s)</title>
+                <show_on>0</show_on>
+                <display_file_size>1</display_file_size>
+                <file_size_limit>25</file_size_limit>
+                <allow_attached_files>1</allow_attached_files>
+            </general>
+            <default_value>
+                <store_view>0</store_view>
+                <customer_group>0</customer_group>
+                <is_login>1</is_login>
+                <is_buyer>1</is_buyer>
+                <order_status>canceled,closed,complete,fraud,holded,payment_review,paypal_canceled_reversal,paypal_reversed,pending,pending_payment,pending_paypal,processing</order_status>
+                <customer_action>1</customer_action>
+                <file_extensions_exclude>zip, gz, bz2, tgz, bz, rar, ade, adp, apk, appx, appxbundle, bat, cab, chm, cmd, com, cpl, dll, dmg, ex, ex_, exe, hta, ins, isp, iso, jar, js, jse, lib, lnk, mde, msc, msi, msix, msixbundle, msp, mst, nsh, pif, ps1, scr, sct, shb, sys, vb, vbe, vbs, vxd, wsc, wsf, wsh</file_extensions_exclude>
+            </default_value>
+        </productattachments>
+    </default>
+</config>

@@ -1,0 +1,39 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+?>
+
+<div class="preview-product">
+    <a id="preview-product-btn" class="btn"><?= /* @noEscape */ __('Preview Products') ?></a>
+</div>
+<div class="product-list"></div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Mageplaza_ProductAttachments/js/productfilter/initConditions":{
+                "url": "<?= /* @noEscape */ $block->getUrl(
+                    'mpproductattachments/file/products',
+                    ['form_key' => $block->getFormKey(),
+                    'loadGrid' => 1]
+                ) ?>"
+            }
+        }
+    }
+</script>
